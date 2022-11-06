@@ -1,0 +1,106 @@
+:root {
+	--color-1: #d77359;
+	--color-2: #4a86a2;
+	--color-3: #eeeeee;
+	--color-4: #e3e3e3;
+	--text-color: #5f6266;
+
+	--title-size-1: 6rem;
+	--title-size-2: 4.5rem;
+	--title-size-3: 21px;
+	--title-size-4: 3rem;
+	--title-size-5: 2.5rem;
+	--title-size-6: 2rem;
+
+	--site-transition: .3s all;
+
+	--padding-1: 9rem;
+	--padding-2: 7rem;
+	--padding-3: 5rem;
+
+    @media (min-width: 1350px)  {
+        --sh-site-width: 1280px;
+    }
+	@media (min-width: 1200px) and (max-width: 1349.5px)  {
+        --sh-site-width: 95%;
+    }
+    @media (max-width: 1199.5px) {
+        --sh-container-padding: 0 25px;
+    }
+
+}
+
+$mob-max: 479.5px;
+$tab-min: 479.6px;
+$tab-max: 797.5px;
+$limbo-min: 797.6px;
+$limbo-max: 1199.5px;
+$desk-min: 1199.6px;
+$sm-desk-max: 1360.5px;
+$lg-desk-min: 1360.6px;
+
+@mixin mob-only {
+	@media (max-width: $mob-max) {
+		@content;
+	}
+}
+
+@mixin tab-min {
+	@media (min-width: $tab-min) {
+		@content;
+	}
+}
+
+@mixin tab-max {
+	@media (max-width: $tab-max) {
+		@content;
+	}
+}
+
+@mixin tab-only {
+	@media (min-width: $tab-min) and (max-width: $tab-max) {
+		@content;
+	}
+}
+
+@mixin limbo-min {
+	@media (min-width: $limbo-min) {
+		@content;
+	}
+}
+
+@mixin limbo-max {
+	@media (max-width: $limbo-max) {
+		@content;
+	}
+}
+
+@mixin limbo-only {
+	@media (min-width: $limbo-min) and (max-width: $limbo-max) {
+		@content;
+	}
+}
+
+@mixin desk-min {
+	@media (min-width: $desk-min) {
+		@content;
+	}
+}
+
+@mixin sm-desk-only {
+	@media (min-width: $desk-min) and (max-width: $sm-desk-max) {
+		@content;
+	}
+}
+
+@mixin lg-desk-min {
+	@media (min-width: $lg-desk-min) {
+		@content;
+	}
+}
+
+@mixin img-fit {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}

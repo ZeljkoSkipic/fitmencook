@@ -1,0 +1,123 @@
+.fmc_recipe_hero {
+	background: linear-gradient(180deg, var(--color-3) calc(100% - 36rem), rgba(0,0,0,0) calc(100% - 36rem));
+	text-align: center;
+	.fmc_recipe_title {
+		font-size: 6.5rem;
+	}
+	.post-categories {
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+		li {
+			margin-left: 5px;
+			margin-right: 5px;
+			margin-bottom: 10px;
+			a {
+				background-color: var(--color-2);
+				color: #fff;
+				font-size: 18px;
+				padding: 5px 15px;
+				min-height: 4rem;
+				min-width: 18rem;
+				display: inline-flex;
+				justify-content: center;
+				align-items: center;
+			}
+		}
+	}
+	.fmc_recipe_times {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		border-top: 1px solid #a6a6a6;
+		border-bottom: 1px solid #a6a6a6;
+		padding-top: 2rem;
+		padding-bottom: 2rem;
+		div {
+			font-size: 2.2rem;
+			color: #000;
+			margin-right: 2.5rem;
+			margin-left: 2.5rem;
+			font-weight: 500;
+			span {
+				font-weight: 700;
+				color: var(--color-1);
+			}
+		}
+	}
+	.fmc_recipe_share {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		padding-top: 2.5rem;
+		padding-bottom: 2.5rem;
+		div {
+			margin-left: 1.3rem;
+			margin-right: 1.3rem;
+		}
+		a {
+			font-size: 2rem;
+			color: #000
+		}
+	}
+}
+
+.carousel-main {
+	.carousel-cell {
+		width: 100%;
+		height: 69rem;
+		background-color: red;
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+		iframe {
+			width: 100%;
+			height: 100%;
+		}
+	}
+}
+.carousel-nav {
+	background-color: #b2b2b2;
+	.carousel-cell {
+		width: 14rem;
+		height: 14rem;
+		padding: 2rem 1rem;
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+	.flickity-button {
+		height: 100%;
+		border-radius: 0;
+		background-color: var(--color-2);
+		&.previous {
+			left: 0;
+		}
+		&.next {
+			right: 0;
+		}
+	}
+}
+
+.fmc_macros {
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 3rem;
+	.fmc_macro {
+		width: calc(100% / 7);
+		min-height: 11.5rem;
+		.fmc_macro_inner {
+			padding: 1rem;
+			border: 1px solid #b2b2b2;
+			width: 100%;
+			height: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+	}
+}

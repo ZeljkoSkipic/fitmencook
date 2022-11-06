@@ -1,0 +1,108 @@
+html {
+	font-size: 10px;
+	@include sm-desk-only {
+		font-size: 8px;
+	}
+	@media (min-width: $lg-desk-min) and (max-width: 1660px) {
+		font-size: 9px;
+	}
+	@include tab-only {
+		font-size: 7px;
+	}
+	@include mob-only {
+		font-size: 6px;
+	}
+}
+body {
+	color: #5f6266;
+	color: #000;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: "Karnak",Arial,sans-serif;
+	color: #000;
+	font-weight: 500;
+	margin: 0;
+	line-height: 1.5;
+}
+
+body {
+	font-family: "Roboto",Arial,sans-serif;
+}
+
+.fmc_container {
+	width: var(--sh-site-width);
+	margin-left: auto;
+	margin-right: auto;
+	@media (max-width: 1199.5px) {
+       padding: var(--sh-container-padding);
+    }
+}
+
+p {
+	line-height: 1.7;
+}
+
+.spacing_1 {
+	padding-top: var(--padding-1);
+	padding-bottom: var(--padding-1);
+}
+
+.spacing_1_0 {
+	padding-top: var(--padding-1);
+}
+.spacing_0_1 {
+	padding-bottom: var(--padding-1);
+}
+
+.spacing_2 {
+	padding-top: var(--padding-2);
+	padding-bottom: var(--padding-2);
+}
+
+.spacing_2_0 {
+	padding-top: var(--padding-2);
+}
+.spacing_0_2 {
+	padding-bottom: var(--padding-2);
+}
+
+.spacing_1_2 {
+	padding-top: var(--padding-1);
+	padding-bottom: var(--padding-2);
+}
+
+.spacing_2_1 {
+	padding-top: var(--padding-2);
+	padding-bottom: var(--padding-1);
+}
+
+.spacing_3 {
+	padding-top: var(--padding-3);
+	padding-bottom: var(--padding-3);
+}
+
+.fmc_btn {
+	background-color: var(--color-2);
+	color: #fff;
+	padding: 1rem;
+	display: flex;
+	height: 8rem;
+	max-width: 23rem;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+	font-size: 2.9rem;
+	transition: var(--site-transition);
+	&:hover {
+		background-color: var(--color-1);
+		color: #fff;
+	}
+}
+
+.fmc_main_title {
+	text-align: center;
+	font-size: var(--title-size-2);
+	margin-top: 2rem;
+	margin-bottom: 7rem;
+}

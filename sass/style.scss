@@ -1,0 +1,21 @@
+/*!
+Theme Name: FitMenCook
+Author: Zeljko Skipic
+Author URI: https://zeljkoskipic.dev/
+Description: A Theme created for the purposes of FitMenCook website.
+Version: 0.0.1
+WordPress Version: 6.0.3
+*/
+
+
+@import "vendor/normalize";
+@import "vendor/flickity";
+
+@import "files/variables";
+@import "files/globals";
+
+@import "files/nav";
+@import "files/footer";
+@import "files/home";
+@import "files/recipe";
+@import "files/product";
