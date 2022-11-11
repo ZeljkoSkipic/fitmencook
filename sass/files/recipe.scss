@@ -1,3 +1,125 @@
+/* Category */
+
+.fmc_archive_wrap {
+	.fmc_archive_inner {
+		.fmc_recipe {
+
+		}
+	}
+}
+
+@include tab-min {
+	@include limbo-max {
+		.fmc_recipe, .fmc_post {
+			width: 48%;
+			margin-bottom: 4%;
+			&:nth-child(2n + 1) {
+				margin-right: calc(4% - 4px);
+			}
+		}
+	}
+}
+
+@include mob-only {
+	.fmc_recipe, .fmc_post {
+		width: 100%;
+		margin-bottom: 4rem;
+	}
+}
+
+/* Global */
+
+.fmc_recipe {
+	box-shadow: 0px 0px 45px 0px rgba(0, 0, 0, 0.07);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	background-color: #fff;
+	border: 1px solid transparent;
+	@include desk-min {
+		margin-bottom: calc(8% / 3);
+		width: 23%;
+		&:not(:nth-child(4n + 4)) {
+			margin-right: calc(8% / 3);
+		}
+		figure {
+			height: 17rem;
+		}
+	}
+	figure {
+		padding: 1rem;
+		display: block;
+		margin-bottom: 1.5rem;
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+	h3 {
+		font-size: 21px;
+		line-height: 1.5;
+		text-align: center;
+		width: 90%;
+		margin: auto;
+		margin-bottom: 1rem;
+		font-weight: 700;
+		font-family: "Roboto";
+		a {
+			color: #000;
+		}
+	}
+	.calories {
+		width: 100%;
+		text-align: center;
+		display: block;
+		margin-top: auto;
+		margin-bottom: 1.5rem;
+		font-size: 17px;
+	}
+	.details_1 {
+		display: flex;
+		border-top: 1px solid #dedfdf;
+		border-bottom: 1px solid #dedfdf;
+		div {
+			width: calc(100% / 3);
+			padding: 1.5rem;
+			text-align: center;
+			font-size: 17px;
+			span {
+				display: block;
+				font-weight: 500;
+				color: var(--color-2);
+				margin-top: .5rem;
+				font-weight: 500;
+			}
+			&:nth-child(2) {
+				border-left: 1px solid #cccccc;
+				border-right: 1px solid #cccccc;
+			}
+		}
+	}
+	.details_2 {
+		display: flex;
+		div {
+			width: 50%;
+			padding: 2rem;
+			font-size: 15px;
+			span {
+				display: block;
+				color: #000;
+				font-weight: 700;
+				margin-top: .5rem;
+			}
+			&:last-child {
+				text-align: right;
+			}
+		}
+	}
+}
+
+
+/* Single */
 .fmc_recipe_hero {
 	background: linear-gradient(180deg, var(--color-3) calc(100% - 36rem), rgba(0,0,0,0) calc(100% - 36rem));
 	text-align: center;
@@ -103,6 +225,8 @@
 	}
 }
 
+/* Recipe Macros */
+
 .fmc_macros {
 	display: flex;
 	flex-wrap: wrap;
@@ -113,11 +237,178 @@
 		.fmc_macro_inner {
 			padding: 1rem;
 			border: 1px solid #b2b2b2;
-			width: 100%;
-			height: 100%;
+			width: calc(100% - 2rem);
+			height: calc(100% - 2rem);
 			display: flex;
+			flex-direction: column;
 			justify-content: center;
 			align-items: center;
+			font-size: 20px;
+			span {
+				color: var(--color-2);
+				font-weight: 700;
+			}
 		}
+	}
+}
+
+/* Recipe Main */
+
+.fmc_recipe_main {
+	display: flex;
+	justify-content: space-between;
+	> div {
+		width: 48%;
+	}
+}
+
+.fmc_ingredients {
+	background-color: #f0f0f0;
+	padding: 5rem 4rem;
+	.fmc_ingredient { // Temp
+		margin-bottom: 5rem;
+		.fmc_ing_title {
+			font-size: 22px;
+			line-height: 1.45;
+			margin-bottom: .5rem;
+		}
+		.fmc_ing_content {
+			font-size: 18px;
+		}
+	}
+	font-size: 18px;
+	ul {
+		li {
+			margin-bottom: 5rem;
+			strong {
+				font-size: 22px;
+				line-height: 1.45;
+				margin-bottom: .5rem;
+				display: block;
+			}
+		}
+	}
+}
+
+.fmc_steps {
+	padding: 5rem 0;
+	font-size: 2.3rem;
+	ol {
+		list-style: none;
+		li {
+			counter-increment: inst;
+			margin-bottom: 4rem;
+			&::before {
+				content: "Step # " counter(inst);
+				display: block;
+				line-height: 1.45;
+				margin-bottom: .5rem;
+				color: var(--color-1);
+				font-weight: 700;
+			}
+		}
+	}
+	img, picture {
+		margin-top: 1rem;
+		margin-bottom: 1rem;
+	}
+	.fmc_step { // Temp
+		margin-bottom: 4rem;
+		.fmc_step_title {
+			line-height: 1.45;
+			margin-bottom: .5rem;
+			color: var(--color-1);
+		}
+		.fmc_step_content {
+			font-size: 2.3rem;
+		}
+	}
+}
+
+
+/* About the Chef */
+
+.fmc_chef {
+	background: linear-gradient(180deg, #fff 7%, #eeeeee 7%);
+	padding: 10rem 7.5rem;
+	background-repeat: no-repeat;
+
+	&::before {
+		@include pseudo;
+		background-image: url(assets/images/about-the-chef.png);
+		z-index: 2;
+		width: 53%;
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: bottom left;
+		left: 4.5rem;
+	}
+	.fmc_chef_inner {
+		width: calc(50% - 7.5rem);
+		margin-left: auto;
+		.fmc_chef_content {
+			font-size: 1.9rem;
+			line-height: 1.9;
+		}
+	}
+}
+
+
+/* Comments */
+
+.fmc_comments {
+	.comments-title {
+		font-size: 3rem;
+	}
+	.comment-author {
+		img {
+			width: 8rem;
+			height: 8rem;
+			object-fit: cover;
+		}
+	}
+}
+
+#commentform {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	input:not(.submit), textarea {
+		font-size: 15px;
+		padding: 2rem 1.5rem;
+		width: 100%;
+		border: 1px solid #bebebe;
+		&::placeholder {
+			color: #999999;
+		}
+	}
+	.comment-notes {
+		width: 100%;
+	}
+	.comment-form-comment {
+		width: 100%;
+	}
+	.comment-form-author {
+		width: 48%;
+	}
+	.comment-form-email {
+		width: 48%;
+	}
+	.form-submit {
+		width: 100%;
+		input {
+			background-color: var(--color-2);
+			color: #fff;
+			border: none;
+			font-size: 2rem;
+			padding: 2rem;
+			min-width: 23rem;
+		}
+	}
+}
+
+.single-recipes {
+	.fmc_featured_recipes {
+		background-color: #f8f8f8;
 	}
 }

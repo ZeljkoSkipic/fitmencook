@@ -32,13 +32,13 @@ if ( post_password_required() ) {
 			if ( '1' === $fmc_comment_count ) {
 				printf(
 					/* translators: 1: title. */
-					esc_html__( 'One thought on &ldquo;%1$s&rdquo;', 'fmc' ),
+					esc_html__( '1 comment', 'fmc' ),
 					'<span>' . wp_kses_post( get_the_title() ) . '</span>'
 				);
 			} else {
-				printf( 
+				printf(
 					/* translators: 1: comment count number, 2: title. */
-					esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', $fmc_comment_count, 'comments title', 'fmc' ) ),
+					esc_html( _nx( '%1$s comments;', '%1$s comment', $fmc_comment_count, 'comments title', 'fmc' ) ),
 					number_format_i18n( $fmc_comment_count ), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 					'<span>' . wp_kses_post( get_the_title() ) . '</span>'
 				);

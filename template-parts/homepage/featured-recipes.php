@@ -1,7 +1,7 @@
 <div class="fmc_home_featured_recipes">
 	<div class="fmc_container">
-		<h3 class="fmc_top_title">New Collection</h3>
-		<h3 class="fmc_main_title">Featured Products</h3>
+		<h3 class="fmc_top_title"><?php the_field('fr_prefix') ?></h3>
+		<h3 class="fmc_main_title title_spacing_2"><?php the_field('fr_title') ?></h3>
 	</div>
 	<?php
 	$terms = get_field('categories');
@@ -38,9 +38,9 @@
 		<?php endif; ?>
 		</div>
 	</div>
-	<div class="fmc_home_recipes spacing_2">
+	<div class="fmc_featured_recipes spacing_2">
 		<div class="fmc_container">
-			<div class="fmc_hr_inner spacing_0_1">
+			<div class="fmc_fr_inner spacing_0_1">
 			<?php endif; ?>
 
 			<?php
@@ -64,9 +64,11 @@
 							<figure>
 								<?php the_post_thumbnail('thumbnail'); ?>
 							</figure>
-							<a href="<?php the_permalink(); ?>">
-								<h3><?php the_title(); ?></h3>
-							</a>
+							<h3>
+								<a href="<?php the_permalink(); ?>">
+								<?php the_title(); ?>
+								</a>
+							</h3>
 							<span class="calories"><?php the_field('calories'); ?> Calories</span>
 							<div class="details_1">
 								<div class="carbs">Carbs<span><?php the_field('carbs'); ?></span></div>

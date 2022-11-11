@@ -213,16 +213,15 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "14",
                 "class": "",
                 "id": ""
             },
             "default_value": "",
+            "maxlength": "",
             "placeholder": "",
             "prepend": "",
-            "append": "",
-            "formatting": "html",
-            "maxlength": ""
+            "append": ""
         },
         {
             "key": "field_59306eeb36f6e",
@@ -234,16 +233,15 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "14",
                 "class": "",
                 "id": ""
             },
             "default_value": "",
+            "maxlength": "",
             "placeholder": "",
             "prepend": "",
-            "append": "",
-            "formatting": "html",
-            "maxlength": ""
+            "append": ""
         },
         {
             "key": "field_59306ef636f6f",
@@ -255,16 +253,15 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "14",
                 "class": "",
                 "id": ""
             },
             "default_value": "",
+            "maxlength": "",
             "placeholder": "",
             "prepend": "",
-            "append": "",
-            "formatting": "html",
-            "maxlength": ""
+            "append": ""
         },
         {
             "key": "field_59306f0736f70",
@@ -276,16 +273,15 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "14",
                 "class": "",
                 "id": ""
             },
             "default_value": "",
+            "maxlength": "",
             "placeholder": "",
             "prepend": "",
-            "append": "",
-            "formatting": "html",
-            "maxlength": ""
+            "append": ""
         },
         {
             "key": "field_59306f1336f71",
@@ -297,16 +293,15 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "14",
                 "class": "",
                 "id": ""
             },
             "default_value": "",
+            "maxlength": "",
             "placeholder": "",
             "prepend": "",
-            "append": "",
-            "formatting": "html",
-            "maxlength": ""
+            "append": ""
         },
         {
             "key": "field_59306f2736f72",
@@ -318,16 +313,15 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "14",
                 "class": "",
                 "id": ""
             },
             "default_value": "",
+            "maxlength": "",
             "placeholder": "",
             "prepend": "",
-            "append": "",
-            "formatting": "html",
-            "maxlength": ""
+            "append": ""
         },
         {
             "key": "field_59306f3236f73",
@@ -339,36 +333,55 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "14",
                 "class": "",
                 "id": ""
             },
             "default_value": "",
+            "maxlength": "",
             "placeholder": "",
             "prepend": "",
-            "append": "",
-            "formatting": "html",
-            "maxlength": ""
+            "append": ""
         },
         {
-            "key": "field_5951d3ec48c39",
-            "label": "Video",
-            "name": "video",
+            "key": "field_636a9626723e9",
+            "label": "Ingredients Title",
+            "name": "ingredients_title",
             "aria-label": "",
-            "type": "wysiwyg",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
             "default_value": "",
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 1,
-            "delay": 0
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_636a963f723ea",
+            "label": "Steps Title",
+            "name": "steps_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         },
         {
             "key": "field_5930bf6590b40",
@@ -380,14 +393,14 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
             "default_value": "",
+            "tabs": "all",
             "toolbar": "full",
             "media_upload": 1,
-            "tabs": "all",
             "delay": 0
         },
         {
@@ -400,14 +413,14 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
             "default_value": "",
+            "tabs": "all",
             "toolbar": "full",
             "media_upload": 1,
-            "tabs": "all",
             "delay": 0
         },
         {
@@ -795,6 +808,26 @@
                 }
             ],
             "rows_per_page": 20
+        },
+        {
+            "key": "field_5951d3ec48c39",
+            "label": "Video",
+            "name": "video",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
         }
     ],
     "location": [
@@ -823,5 +856,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1667749058
+    "modified": 1667929694
 }

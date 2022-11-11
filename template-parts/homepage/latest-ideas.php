@@ -1,41 +1,49 @@
 <div class="fmc_home_ideas spacing_1_2">
 	<div class="fmc_container">
-		<h3 class="fmc_top_title">New Collection</h3>
-		<h3 class="fmc_main_title">Featured Products</h3>
-		<div class="fmc_home_ideas_inner">
-			<div class="fmc_home_idea">
-				<div class="fmc_hi_left">
-					<span class="date">March 20,2022</span>
-					<h3>This is Photoshop's version  of Lorem Ipsum.
-					Proin gravida nibh vel velit auctor aliquet. </h3>
-					<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
-				</div>
-				<figure class="fmc_hi_right">
-					<img src="/wp-content/uploads/2022/10/oysters.jpg" alt="">
-				</figure>
-			</div>
-			<div class="fmc_home_idea">
-				<div class="fmc_hi_left">
-					<span class="date">March 20,2022</span>
-					<h3>This is Photoshop's version  of Lorem Ipsum.
-					Proin gravida nibh vel velit auctor aliquet. </h3>
-					<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
-				</div>
-				<figure class="fmc_hi_right">
-					<img src="/wp-content/uploads/2022/10/oysters.jpg" alt="">
-				</figure>
-			</div>
-			<div class="fmc_home_idea">
-				<div class="fmc_hi_left">
-					<span class="date">March 20,2022</span>
-					<h3>This is Photoshop's version  of Lorem Ipsum.
-					Proin gravida nibh vel velit auctor aliquet. </h3>
-					<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
-				</div>
-				<figure class="fmc_hi_right">
-					<img src="/wp-content/uploads/2022/10/oysters.jpg" alt="">
-				</figure>
-			</div>
+		<h3 class="fmc_top_title"><?php the_field('li_prefix') ?></h3>
+		<h3 class="fmc_main_title title_spacing_2"><?php the_field('li_title') ?></h3>
+		<div class="fmc_home_ideas_inner spacing_0_1">
+		<?php
+			// latest recipes query
+			// args
+			$args = array(
+				'posts_per_page'   => 3,
+				'post_type'     => 'recipes',
+				'category_name'	=> 'ideas',
+				'meta_query'    => array(
+					'relation'      => 'AND'
+				)
+			);
+
+			// query
+			$the_query = new WP_Query( $args ); ?>
+			<?php if( $the_query->have_posts() ): ?>
+				<?php while ( $the_query->have_posts() ) : $the_query->the_post();
+				$categories = get_the_category();
+				?>
+					<div class="fmc_home_idea">
+						<div class="fmc_hi_left">
+							<span class="date"><?php the_date(); ?></span>
+							<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+							<div>
+								<?php echo wp_trim_words( get_the_content(), 40, '...' ); ?>
+								Most of the recipes do not have the content in the main field,
+								nor the excerpt. What should we do?
+							</div>
+						</div>
+						<div class="fmc_hi_right">
+							<figure class="featured_img">
+								<a href="<?php the_permalink(); ?>">
+									<?php the_post_thumbnail('thumbnail'); ?>
+								</a>
+							</figure>
+						</div>
+					</div>
+				<?php endwhile; ?>
+			<?php endif; ?>
+
+			<?php wp_reset_query();   // Restore global post data stomped by the_post(). ?>
+
 		</div>
 	</div>
 </div>

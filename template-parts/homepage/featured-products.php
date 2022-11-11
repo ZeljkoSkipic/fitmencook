@@ -1,8 +1,8 @@
 <?php if( have_rows('featured_products') ): ?>
 <div class="fmc_home_featured_products spacing_2_1">
 	<div class="fmc_container">
-	<h3 class="fmc_top_title">New Collection</h3>
-	<h3 class="fmc_main_title">Featured Products</h3>
+	<h3 class="fmc_top_title"><?php the_field('fp_prefix') ?></h3>
+		<h3 class="fmc_main_title title_spacing_2"><?php the_field('fp_title') ?></h3>
 		<div class="fmc_home_fp_inner spacing_0_1">
 		<?php while( have_rows('featured_products') ) : the_row();
 			// Load sub field value.

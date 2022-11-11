@@ -1,0 +1,39 @@
+/* Archive and Category */
+
+
+
+
+/* Single */
+
+.fmc_post_hero_track {
+	display: flex;
+	background-color: var(--color-3);
+	padding-top: 3rem;
+	padding-bottom: 4rem;
+	justify-content: space-between;
+	div {
+		img {
+			width: 100%;
+			height: 49rem;
+		}
+		figcaption {
+			font-size: 3rem;
+			text-align: center;
+			padding: 3.5rem
+		}
+	}
+	div:nth-child(2) {
+		width: 40%;
+		figcaption {
+			background-color: var(--color-1);
+			color: #fff;
+		}
+	}
+	div:not(:nth-child(2)) {
+		width: 28%;
+		figcaption {
+			color: #000;
+			background-color: #fff;
+		}
+	}
+}

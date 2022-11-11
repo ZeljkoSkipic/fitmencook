@@ -147,6 +147,7 @@
 
   img {
 	border-style: none;
+	object-fit: cover;
   }
 
   /* Forms
@@ -351,9 +352,10 @@
 
 	/* ZS */
 
-
-ul, ol {
+ul {
 	list-style: none;
+}
+ul, ol {
 	padding: 0;
 	margin: 0;
 }

@@ -39,24 +39,24 @@ $current_category = $selected_category->term_id;
 
 ?>
 
-	<div class="fmc_post">
+	<div class="fmc_recipe">
 		<figure class="featured_img">
 		<a href="<?php the_permalink(); ?>">
 			<?php the_post_thumbnail('medium'); ?>
 		</a>
 		</figure>
-		<span class="cat">
-			<?php if ( ! empty( $categories ) ) {
-				echo '<a href="' . esc_url( get_category_link( $categories[0]->term_id ) ) . '">' . esc_html( $categories[0]->name ) . '</a>';
-			} ?>
-		</span>
-		<div class="fmc_post_content">
+		<div class="fmc_recipe_content">
 			<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-			<figure class="author_img">
-				<?php echo get_avatar( get_the_author_meta( 'ID' ), 45 ); ?>
-			</figure>
-			<span class="author_name">by <?php echo get_the_author_meta('display_name', $author_id); ?></span>
-			<span class="post_date"><?php the_date(); ?></span>
+			<span class="calories"><?php the_field('calories'); ?> Calories</span>
+			<div class="details_1">
+				<div class="carbs">Carbs<span><?php the_field('carbs'); ?></span></div>
+				<div class="fat">Fat<span><?php the_field('fat'); ?></span></div>
+				<div class="protein">Protein<span><?php the_field('protein'); ?></span></div>
+			</div>
+			<div class="details_2">
+				<div class="time">Prep Time<span><?php the_field('prep_time'); ?></span></div>
+				<div class="portion">Total Time<span><?php the_field('total_time'); ?></span></div>
+			</div>
 		</div>
 	</div>
 

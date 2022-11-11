@@ -10,7 +10,7 @@ get_header(); ?>
 
 <?php get_template_part('template-parts/homepage/top-products'); ?>
 
-<?php get_template_part('template-parts/homepage/newsletter'); ?>
+<?php get_template_part('template-parts/newsletter'); ?>
 
 <?php get_template_part('template-parts/homepage/featured-recipes'); ?>
 

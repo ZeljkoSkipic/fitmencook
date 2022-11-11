@@ -17,7 +17,9 @@ body {
 	color: #5f6266;
 	color: #000;
 }
-
+div {
+	position: relative;
+}
 h1, h2, h3, h4, h5, h6 {
 	font-family: "Karnak",Arial,sans-serif;
 	color: #000;
@@ -41,6 +43,18 @@ body {
 
 p {
 	line-height: 1.7;
+}
+
+.fmc_main_title {
+	font-size: var(--title-size-2);
+}
+
+.title_spacing_1 {
+	margin-bottom: 7rem;
+}
+
+.title_spacing_2 {
+	margin-bottom: 4rem;
 }
 
 .spacing_1 {
@@ -98,11 +112,4 @@ p {
 		background-color: var(--color-1);
 		color: #fff;
 	}
-}
-
-.fmc_main_title {
-	text-align: center;
-	font-size: var(--title-size-2);
-	margin-top: 2rem;
-	margin-bottom: 7rem;
 }

@@ -1,0 +1,16 @@
+{
+    "name": "acf/order",
+    "title": "Order",
+    "description": "A custom testimonial block.",
+    "category": "formatting",
+    "icon": "admin-comments",
+    "keywords": ["order", "product"],
+    "acf": {
+        "mode": "auto",
+        "renderTemplate": "order.php"
+    },
+    "align": "full",
+	"supports": {
+		"align": false
+	}
+}
