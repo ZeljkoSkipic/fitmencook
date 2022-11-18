@@ -1,21 +1,34 @@
 <?php get_header();
 
-$prep_time = get_field_object('prep_time');
-$cook_time = get_field_object('cook_time');
-$total_time = get_field_object('total_time');
+$prep_time = get_field('prep_time');
+$cook_time = get_field('cook_time');
+$total_time = get_field('total_time');
 
-$calories = get_field_object('calories');
-$protein = get_field_object('protein');
-$fat = get_field_object('fat');
-$carbs = get_field_object('carbs');
-$sodium = get_field_object('sodium');
-$fiber = get_field_object('fiber');
-$sugar = get_field_object('sugar');
+$l_prep_time = get_field('l_prep_time', 'option');
+$l_cook_time = get_field('l_cook_time', 'option');
+$l_total_time = get_field('l_total_time', 'option');
 
+$calories = get_field('calories');
+$protein = get_field('protein');
+$fat = get_field('fat');
+$carbs = get_field('carbs');
+$sodium = get_field('sodium');
+$fiber = get_field('fiber');
+$sugar = get_field('sugar');
+
+$minutes = get_field('minutes', 'option');
+
+$l_calories = get_field('l_calories', 'option');
+$l_protein = get_field('l_protein', 'option');
+$l_fat = get_field('l_fat', 'option');
+$l_carbs = get_field('l_carbs', 'option');
+$l_sodium = get_field('l_sodium', 'option');
+$l_fiber = get_field('l_fiber', 'option');
+$l_sugar = get_field('l_sugar', 'option');
 
 ?>
 
-<div class="fmc_recipe">
+<div class="fmc_single_recipe">
 	<div class="fmc_recipe_hero">
 		<div class="fmc_container">
 			<h1 class="fmc_recipe_title">
@@ -25,14 +38,14 @@ $sugar = get_field_object('sugar');
 				<?php the_category(); ?>
 			</div>
 			<div class="fmc_recipe_times">
-				<?php if($prep_time['value']) { ?>
-					<div class="fmc_prep"><?php echo $prep_time['label'] ?>: <span><?php echo $prep_time['value'] ?> Minutes</span></div>
+				<?php if($prep_time) { ?>
+					<div class="fmc_prep"><?php echo $l_prep_time ?>: <span><?php echo $prep_time?> <?php echo $minutes ?></span></div>
 				<? } ?>
 				<?php if($cook_time['value']) { ?>
-					<div class="fmc_cook"><?php echo $cook_time['label'] ?>: <span><?php echo $cook_time['value'] ?> Minutes</span></div>
+					<div class="fmc_cook"><?php echo $l_cook_time ?>: <span><?php echo $cook_time ?> <?php echo $minutes ?></span></div>
 				<? } ?>
 				<?php if($total_time['value']) { ?>
-					<div class="fmc_total"><?php echo $total_time['label'] ?>: <span><?php echo $total_time['value'] ?> Minutes</span></div>
+					<div class="fmc_total"><?php echo $l_total_time ?>: <span><?php echo $total_time ?> <?php echo $minutes ?></span></div>
 				<? } ?>
 			</div>
 			<div class="fmc_recipe_share">

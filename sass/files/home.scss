@@ -6,41 +6,60 @@
 
 	}
 	#main-content {
-		&::before {
-			content: "";
-			width: 100%;
-			height: 100%;
-			position: absolute;
-			top: 0;
-			left: 0;
-			background-image: url(assets/images/home-top-left.png);
-			background-repeat: no-repeat;
-			pointer-events: none;
-			z-index: 1;
-
-		}
-		&::after {
-			content: "";
-			width: 100%;
-			height: 100%;
-			position: absolute;
-			top: 0;
-			right: 0;
-			background-image: url(assets/images/home-top-right.png);
-			background-repeat: no-repeat;
-			pointer-events: none;
-			background-position: top right;
+		@include limbo-min {
+			&::before {
+				content: "";
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+				background-image: url(assets/images/home-top-left.png);
+				background-repeat: no-repeat;
+				pointer-events: none;
+				z-index: 1;
+				background-size: 23% auto;
+			}
+			&::after {
+				content: "";
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				right: 0;
+				background-image: url(assets/images/home-top-right.png);
+				background-repeat: no-repeat;
+				pointer-events: none;
+				background-position: top right;
+				background-size: 23% auto;
+			}
 		}
 	}
 	.fmc_product {
 		background: linear-gradient(180deg, rgba(0, 0, 0, 0) 10rem, #fff 10rem);
-		flex: 18% 0 0;
+		width: 18%;
 		max-width: 300px;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		&:not(:last-child) {
-			margin-right: 2.5%;
+		@include limbo-min {
+			&:not(:last-child) {
+				margin-right: 2.5%;
+			}
+		}
+		@include tab-only {
+			width: 48%!important;
+			margin-bottom: 4%;
+			&:nth-child(5) {
+				display: none;
+			}
+			&:nth-child(odd) {
+				margin-right: 4%;
+			}
+		}
+		@include mob-only {
+			width: 100%!important;
+			margin: 0 auto 4%;
 		}
 		figure {
 			position: relative;
@@ -130,12 +149,14 @@
 		display: flex;
 		justify-content: space-evenly;
 		flex-wrap: wrap;
-		bottom: -7rem;
 		position: relative;
 		max-width: 1600px;
 		width: 95%;
 		margin-left: auto;
 		margin-right: auto;
+		@include limbo-min {
+			bottom: -7rem;
+		}
 	}
 }
 
@@ -199,11 +220,13 @@
 /* Featured Recipes */
 
 .fmc_home_featured_recipes {
+	.carousel .flickity-viewport {
+		position: absolute;
+		width: 100%;
+	  }
 	.fmc_category_track {
 		background-color: #f8f8f8;
 		.fmc_ct_inner {
-			display: flex;
-			width: 90%;
 			justify-content: space-around;
 			margin-left: auto;
 			margin-right: auto;
@@ -260,7 +283,15 @@
 .fmc_featured_recipes {
 	.fmc_fr_inner {
 		display: flex;
+		flex-wrap: wrap;
 		justify-content: space-between;
+		@include limbo-only {
+			.fmc_recipe {
+				&:nth-child(4) {
+					display: none;
+				}
+			}
+		}
 	}
 	.fmc_btn {
 		margin-left: auto;
@@ -275,9 +306,10 @@
 	background-color: var(--color-3);
 	.fmc_home_fp_inner {
 		display: flex;
+		flex-wrap: wrap;
 		justify-content: space-between;
 		.fmc_product {
-			flex: 23% 0 0;
+			width: 23%;
 		}
 	}
 	.fmc_btn {
@@ -300,7 +332,7 @@
 /* Global Post layout */
 .fmc_post {
 	width: 30%;
-	border: 1px solid var(--color-1);
+	box-shadow: 0px 0px 45px 0px rgba(0, 0, 0, .07);
 	@include desk-min {
 		&:not(:nth-child(3n + 3)) {
 			margin-right: calc(5% - 6px);
@@ -384,7 +416,7 @@
 			}
 		}
 		.fmc_hi_right {
-			flex: 35% 0 0;
+			width: 35%;
 			img {
 				width: 100%;
 				height: 100%;

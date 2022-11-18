@@ -2,12 +2,16 @@
 
 
 .fmc_archive_categories {
-	width: 100vw;
 }
 .fmc_archive_categories_inner {
-	display: flex;
-	background-color: #f8f8f8;
-	width: 100%;
+/* 	display: flex;
+ */	background-color: #f8f8f8;
+ 	background: linear-gradient(180deg, #f8f8f8 calc(100% - 2.375rem), rgba(0,0,0,0) calc(100% - 2.375rem));
+	.carousel-cell {
+		width: 22rem;
+		height: 28.5rem;
+		display: flex;
+	}
 	.fmc_archive_cat {
 		border-top: 2px solid transparent;
 		border-bottom: 3px solid transparent;
@@ -17,14 +21,10 @@
 		transform: scale(.8);
 		filter: grayscale(1);
 		transition: var(--site-transition);
-		&.current_cat, &:hover {
-			opacity: 1;
-			filter: grayscale(0);
-			transform: scale(1);
-			background-color: #fff;
-			border-color: var(--color-1);
-		}
-		&.current_cat::after{
+		margin-bottom: 2.2rem;
+		width: 100%;
+		justify-content: start;
+		&::after {
 			content: "";
 			position: absolute;
 			width: 0;
@@ -33,25 +33,38 @@
 			border-style: solid;
 			border-width: 2.2rem 3.2rem 0 3.2rem;
 			border-color: var(--color-1) transparent transparent transparent;
-			bottom: calc(-2.2rem - 3px);
+			bottom: calc(-2.2rem - 1px);
 			opacity: 1;
 			transition: var(--site-transition);
 			z-index: 9;
+			opacity: 0;
+		}
+		&.current_cat, &:hover {
+			opacity: 1;
+			filter: grayscale(0);
+			transform: scale(1);
+			background-color: #fff;
+			border-color: var(--color-1);
+			&:after {
+				opacity: 1;
+			}
 		}
 		img {
 			width: 10rem;
+			margin: 0 auto;
 		}
 		figcaption {
 			text-align: center;
 			margin-top: 2rem;
+			margin-bottom: 2rem;
 			font-size: 2.2rem;
 			color: #717581;
 		}
 		a {
-			padding: 6rem 5rem;
+			padding: 5rem 1.5rem 4.2rem;
 			display: flex;
 			flex-direction: column;
-			height: 100%;
+			height: calc(100% - 2.2rem);
 		}
 	}
 }

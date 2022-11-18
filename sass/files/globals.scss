@@ -1,16 +1,19 @@
 html {
 	font-size: 10px;
+	@include md-desk-only {
+		font-size: 9px;
+	}
 	@include sm-desk-only {
 		font-size: 8px;
 	}
-	@media (min-width: $lg-desk-min) and (max-width: 1660px) {
-		font-size: 9px;
-	}
-	@include tab-only {
+	@include limbo-only {
 		font-size: 7px;
 	}
-	@include mob-only {
+	@include tab-only {
 		font-size: 6px;
+	}
+	@include mob-only {
+		font-size: 5px;
 	}
 }
 body {

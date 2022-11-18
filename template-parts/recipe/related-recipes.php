@@ -24,15 +24,15 @@
 							<a href="<?php the_permalink(); ?>">
 								<h3><?php the_title(); ?></h3>
 							</a>
-							<span class="calories"><?php the_field('calories'); ?> Calories</span>
+							<span class="calories"><?php the_field('calories'); ?> <?php the_field('l_calories', 'option'); ?></span>
 							<div class="details_1">
-								<div class="carbs">Carbs<span><?php the_field('carbs'); ?></span></div>
-								<div class="fat">Fat<span><?php the_field('fat'); ?></span></div>
-								<div class="protein">Protein<span><?php the_field('protein'); ?></span></div>
+								<div class="carbs"><?php the_field('l_carbs', 'option'); ?><span><?php the_field('carbs'); ?></span></div>
+								<div class="fat"><?php the_field('l_fat', 'option'); ?><span><?php the_field('fat'); ?></span></div>
+								<div class="protein"><?php the_field('l_protein', 'option'); ?><span><?php the_field('protein'); ?></span></div>
 							</div>
 							<div class="details_2">
-								<div class="time">Prep Time<span><?php the_field('prep_time'); ?></span></div>
-								<div class="portion">Total Time<span><?php the_field('total_time'); ?></span></div>
+								<div class="time"><?php the_field('l_prep_time'); ?><span><?php the_field('prep_time'); ?></span></div>
+								<div class="portion"><?php the_field('l_total_time'); ?><span><?php the_field('total_time'); ?></span></div>
 							</div>
 						</div>
 					<?php endwhile; ?>

@@ -24,6 +24,23 @@
 <?php wp_body_open(); ?>
 <div id="main-content" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'fmc' ); ?></a>
+	<div class="fmc_mobile_header">
+		<figure class="fmc_mobile_logo">
+			<a href="/">
+				<?php
+				$mobile_logo = get_field('mobile_logo', 'option');
+				$size = 'full'; // (thumbnail, medium, large, full or custom size)
+				if( $mobile_logo ) {
+					echo wp_get_attachment_image( $mobile_logo, $size );
+				} else {
+					the_custom_logo();
+				}
+
+				?>
+			</a>
+		</figure>
+		<button class="fmc_mm_trigger"> = </button>
+	</div>
 	<div class="fmc_sitehead">
 	<header class="fmc_header">
 		<?php

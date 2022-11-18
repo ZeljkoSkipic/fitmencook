@@ -7,8 +7,9 @@
 	$terms = get_field('categories');
 	if( $terms ): ?>
 	<div class="fmc_category_track">
-	<div class="fmc_ct_inner">
+	<div class="fmc_ct_inner fmc_container carousel-home">
 		<?php foreach( $terms as $term ): ?>
+		<div class="carousel-cell">
 		<a href="<?php echo esc_url( get_term_link( $term ) ); ?>">
 		<figure>
 			<img src=" <?php the_field('category_icon', $term); ?>" alt="<?php echo esc_html( $term->name ); ?>">
@@ -17,6 +18,7 @@
 			</figcaption>
 		</figure>
 		</a>
+		</div>
 		<?php endforeach; ?>
 		<?php
 		$cat_link = get_field('view_all_button');
@@ -69,15 +71,15 @@
 								<?php the_title(); ?>
 								</a>
 							</h3>
-							<span class="calories"><?php the_field('calories'); ?> Calories</span>
+							<span class="calories"><?php the_field('calories'); ?> <?php the_field('l_calories'); ?></span>
 							<div class="details_1">
-								<div class="carbs">Carbs<span><?php the_field('carbs'); ?></span></div>
-								<div class="fat">Fat<span><?php the_field('fat'); ?></span></div>
-								<div class="protein">Protein<span><?php the_field('protein'); ?></span></div>
+								<div class="carbs"><?php the_field('l_carbs', 'option'); ?><span><?php the_field('carbs'); ?></span></div>
+								<div class="fat"><?php the_field('l_fat', 'option'); ?><span><?php the_field('fat'); ?></span></div>
+								<div class="protein"><?php the_field('l_protein', 'option'); ?><span><?php the_field('protein'); ?></span></div>
 							</div>
 							<div class="details_2">
-								<div class="time">Prep Time<span><?php the_field('prep_time'); ?></span></div>
-								<div class="portion">Total Time<span><?php the_field('total_time'); ?></span></div>
+								<div class="time"><?php the_field('l_prep_time'); ?><span><?php the_field('prep_time'); ?></span></div>
+								<div class="portion"><?php the_field('l_total_time'); ?><span><?php the_field('total_time'); ?></span></div>
 							</div>
 						</div>
 					<?php endwhile; ?>

@@ -107,3 +107,32 @@ function fmc_pagination() {
     echo '</ul></div>' . "\n";
 
 }
+
+
+// Theme Options
+
+if( function_exists('acf_add_options_page') ) {
+
+    acf_add_options_page(array(
+        'page_title' 	=> 'Site General Settings',
+		'menu_title'	=> 'Website Settings',
+		'menu_slug' 	=> 'theme-general-settings',
+		'capability'	=> 'edit_posts',
+		'redirect'		=> false,
+		'position' => '2.69',
+		'icon_url' => 'dashicons-buddicons-topics'
+	));
+
+    acf_add_options_sub_page(array(
+        'page_title'    => 'Language Settings',
+        'menu_title'    => 'Language',
+        'parent_slug'   => 'theme-general-settings',
+    ));
+
+    acf_add_options_sub_page(array(
+        'page_title'    => 'Theme Footer Settings',
+        'menu_title'    => 'Footer',
+        'parent_slug'   => 'theme-general-settings',
+    ));
+
+}

@@ -1,24 +1,24 @@
 /* Category */
 
-.fmc_archive_wrap {
-	.fmc_archive_inner {
-		.fmc_recipe {
-
+@include limbo-only {
+	.fmc_recipe, .fmc_post {
+		width: 30%;
+		margin-bottom: 4%;
+		&:not(:nth-child(3n + 3)) {
+			margin-right: 5%;
+		}
+	}
+}
+@include tab-only {
+	.fmc_recipe, .fmc_post {
+		width: 48%;
+		margin-bottom: 4%;
+		&:nth-child(2n + 1) {
+			margin-right: calc(4% - 4px);
 		}
 	}
 }
 
-@include tab-min {
-	@include limbo-max {
-		.fmc_recipe, .fmc_post {
-			width: 48%;
-			margin-bottom: 4%;
-			&:nth-child(2n + 1) {
-				margin-right: calc(4% - 4px);
-			}
-		}
-	}
-}
 
 @include mob-only {
 	.fmc_recipe, .fmc_post {
@@ -35,7 +35,6 @@
 	flex-direction: column;
 	justify-content: space-between;
 	background-color: #fff;
-	border: 1px solid transparent;
 	@include desk-min {
 		margin-bottom: calc(8% / 3);
 		width: 23%;
@@ -265,6 +264,8 @@
 .fmc_ingredients {
 	background-color: #f0f0f0;
 	padding: 5rem 4rem;
+	position: sticky;
+	top: 0;
 	.fmc_ingredient { // Temp
 		margin-bottom: 5rem;
 		.fmc_ing_title {
@@ -293,6 +294,8 @@
 .fmc_steps {
 	padding: 5rem 0;
 	font-size: 2.3rem;
+	position: sticky;
+	top: 0;
 	ol {
 		list-style: none;
 		li {

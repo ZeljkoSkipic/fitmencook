@@ -8,25 +8,26 @@ $current_category = $selected_category->term_id;
 ?>
 
 <div class="fmc_archive_categories spacing_1">
-<div class="fmc_archive_categories_inner">
-<?php $categories = get_categories();
-
-	foreach($categories as $category) {
+<div class="fmc_archive_categories_inner carousel-category">
+<?php $categories = get_categories(); ?>
+	<?php foreach($categories as $category) {
 	$icon = get_field('category_icon', $category);
 	$current = '';
     if( $category->term_id == $current_category ){
-        $current = "current_cat";
+        $current = "current_cat is-initial-select";
     }
 
 	?>
-	<figure class="fmc_archive_cat <?php echo $current; ?>">
-	<?php echo '<a href="' . get_category_link($category->term_id) . '">'; ?>
-		<img src="<?php echo $icon; ?>">
-		<figcaption>
-			<?php echo $category->name; ?>
-		</figcaption>
-	</a>
-	</figure>
+	<div class="carousel-cell">
+		<figure class="fmc_archive_cat <?php echo $current; ?>">
+		<?php echo '<a href="' . get_category_link($category->term_id) . '">'; ?>
+			<img src="<?php echo $icon; ?>">
+			<figcaption>
+				<?php echo $category->name; ?>
+			</figcaption>
+		</a>
+		</figure>
+	</div>
 	<?php } ?>
 </div>
 </div>
