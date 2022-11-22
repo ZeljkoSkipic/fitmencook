@@ -27,7 +27,7 @@ $l_sugar = get_field('l_sugar', 'option');
 ?>
 
 
-<div class="fmc_container fmc_macros">
+<div class="fmc_container fmc_macros" id="fmc_gtr">
 	<div class="fmc_macro"><div class="fmc_macro_inner"><?php echo $l_calories ?><span><?php echo $calories ?></span></div></div>
 	<div class="fmc_macro"><div class="fmc_macro_inner"><?php echo $l_protein ?><span><?php echo $protein ?></span></div></div>
 	<div class="fmc_macro"><div class="fmc_macro_inner"><?php echo $l_fat ?><span><?php echo $fat ?></span></div></div>

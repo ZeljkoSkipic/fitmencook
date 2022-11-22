@@ -122,13 +122,16 @@
 .fmc_recipe_hero {
 	background: linear-gradient(180deg, var(--color-3) calc(100% - 36rem), rgba(0,0,0,0) calc(100% - 36rem));
 	text-align: center;
+	padding-top: 10rem;
 	.fmc_recipe_title {
 		font-size: 6.5rem;
+		margin-bottom: 2.5rem;
 	}
 	.post-categories {
 		display: flex;
 		justify-content: center;
 		flex-wrap: wrap;
+		margin-bottom: 2.5rem;
 		li {
 			margin-left: 5px;
 			margin-right: 5px;
@@ -143,6 +146,11 @@
 				display: inline-flex;
 				justify-content: center;
 				align-items: center;
+				@include mob-only {
+					font-size: 14px;
+					min-height: 3rem;
+    				min-width: 15rem;
+				}
 			}
 		}
 	}
@@ -160,9 +168,28 @@
 			margin-right: 2.5rem;
 			margin-left: 2.5rem;
 			font-weight: 500;
-			span {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			.fmc_icon {
+				display: inline-flex;
+				width: 2.5rem;
+				height: 2.5rem;
+				margin-right: 7px;
+				path {
+					fill: var(--color-2);
+				}
+			}
+			span:not(.fmc_icon) {
 				font-weight: 700;
 				color: var(--color-1);
+				margin-left: 1.3rem;
+			}
+			@include mob-only {
+				font-size: 2.5rem;
+				&:not(:last-child) {
+					margin-bottom: 1rem;
+				}
 			}
 		}
 	}
@@ -178,7 +205,44 @@
 		}
 		a {
 			font-size: 2rem;
-			color: #000
+			color: #000;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			@include mob-only {
+				font-size: 2.3rem;
+			}
+			.fmc_icon {
+				background-color: #fff;
+				border-radius: 30px;
+				width: 4rem;
+				height: 4rem;
+				display: inline-flex;
+				justify-content: center;
+				align-items: center;
+				border: 1px solid #d1d1d1;
+				margin-right: 1rem;
+				transition: var(--site-transition);
+			}
+			svg {
+				width: 2rem;
+				height: 2rem;
+				padding: .8rem;
+				path {
+					fill: var(--color-2);
+					transition: var(--site-transition);
+				}
+			}
+			&:hover {
+				.fmc_icon {
+					background-color: var(--color-2);
+				}
+				svg {
+					path {
+						fill: #fff;
+					}
+				}
+			}
 		}
 	}
 }
@@ -186,7 +250,9 @@
 .carousel-main {
 	.carousel-cell {
 		width: 100%;
-		height: 69rem;
+		@include limbo-min {
+			height: 69rem;
+		}
 		background-color: red;
 		img {
 			width: 100%;
@@ -215,6 +281,17 @@
 		height: 100%;
 		border-radius: 0;
 		background-color: var(--color-2);
+		display: flex;
+		justify-content: center;
+		@include mob-only {
+			width: 30px;
+		}
+		.flickity-button-icon {
+			fill: #fff;
+			width: 15px;
+			left: auto;
+			right: auto;
+		}
 		&.previous {
 			left: 0;
 		}
@@ -231,34 +308,43 @@
 	flex-wrap: wrap;
 	margin-top: 3rem;
 	.fmc_macro {
-		width: calc(100% / 7);
-		min-height: 11.5rem;
+		padding: 1rem;
+		border: 1px solid #b2b2b2;
 		.fmc_macro_inner {
-			padding: 1rem;
-			border: 1px solid #b2b2b2;
-			width: calc(100% - 2rem);
-			height: calc(100% - 2rem);
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
 			align-items: center;
 			font-size: 20px;
+			height: 100%;
+			@include mob-only {
+				font-size: 16px;
+			}
 			span {
 				color: var(--color-2);
 				font-weight: 700;
 			}
 		}
+		@include limbo-min {
+			width: calc(100% / 7 - 2rem - 2px);
+			min-height: 9.5rem;
+		}
+		@include tab-max {
+			padding: 1rem 3rem;
+			border: none;
+		}
+	}
+	@include tab-max {
+		justify-content: center;
 	}
 }
 
 /* Recipe Main */
 
 .fmc_recipe_main {
-	display: flex;
-	justify-content: space-between;
-	> div {
-		width: 48%;
-	}
+
+	margin-top: 10rem;
+
 }
 
 .fmc_ingredients {
@@ -266,6 +352,7 @@
 	padding: 5rem 4rem;
 	position: sticky;
 	top: 0;
+	font-size: 18px;
 	.fmc_ingredient { // Temp
 		margin-bottom: 5rem;
 		.fmc_ing_title {
@@ -277,7 +364,6 @@
 			font-size: 18px;
 		}
 	}
-	font-size: 18px;
 	ul {
 		li {
 			margin-bottom: 5rem;
@@ -289,13 +375,27 @@
 			}
 		}
 	}
+	@include tab-max {
+		font-size: 16px;
+		ul li {
+			margin-bottom: 3rem;
+		}
+	}
 }
 
+.fmc_recipe_main_right {
+	.fmc_main_title {
+		margin-top: 5rem;
+	}
+}
 .fmc_steps {
-	padding: 5rem 0;
+	padding-bottom: 5rem;
 	font-size: 2.3rem;
 	position: sticky;
 	top: 0;
+	@include tab-max {
+		font-size: 16px;
+	}
 	ol {
 		list-style: none;
 		li {
@@ -312,8 +412,9 @@
 		}
 	}
 	img, picture {
-		margin-top: 1rem;
+		margin-top: 2rem;
 		margin-bottom: 1rem;
+		display: block;
 	}
 	.fmc_step { // Temp
 		margin-bottom: 4rem;
@@ -370,16 +471,111 @@
 			object-fit: cover;
 		}
 	}
+	.comment-list {
+		list-style: none;
+		.comment-body {
+			padding-bottom: 25px;
+			padding-top: 25px;
+			border-bottom: 1px solid #8f8f8f;
+			position: relative;
+		}
+		.comment-author {
+			display: grid;
+			grid-template-columns: 100px auto;
+			height: 30px;
+			img {
+				width: 80px;
+				height: 80px;
+				border-radius: 80px;
+			}
+			.fn {
+				font-size: 18px;
+				color: #333333;
+			}
+			.says {
+				display: none;
+			}
+		}
+		time {
+			pointer-events: none;
+			font-size: 13px;
+			color: #888888;
+		}
+		.comment-metadata {
+			padding-left: 100px;
+		}
+		.comment-content {
+			padding-left: 100px;
+			color: #666666;
+			font-size: 18px;
+		}
+		.reply {
+			position: absolute;
+			top: 25px;
+			right: 0;
+			background-image: url(assets/icons/corner-up-left.svg);
+			padding-left: 30px;
+			background-repeat: no-repeat;
+			background-size: 20px;
+			a {
+				color: var(--color-1);
+				font-size: 16px;
+			}
+		}
+	}
+	.comment-respond {
+		margin-top: 4rem;
+		.comment-reply-title {
+			font-size: 3rem;
+		}
+		.comment-notes {
+			font-size: 15px;
+			color: #666;
+		}
+	}
+	@include mob-only {
+		.comment-list {
+			.comment-author {
+				grid-template-columns: 70px auto;
+				.fn {
+					font-size: 16px;
+				}
+				img {
+					width: 60px;
+					height: 60px;
+				}
+			}
+			.comment-content {
+				font-size: 16px;
+			}
+			.comment-metadata {
+				padding-left: 70px;
+			}
+			.comment-content {
+				padding-left: 70px;
+			}
+			.reply {
+				background-size: 13px;
+				padding-left: 15px;
+				a {
+					font-size: 13px;
+				}
+			}
+		}
+	}
 }
 
 #commentform {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
+	label {
+		display: none;
+	}
 	input:not(.submit), textarea {
 		font-size: 15px;
 		padding: 2rem 1.5rem;
-		width: 100%;
+		width: calc(100% - 3rem);
 		border: 1px solid #bebebe;
 		&::placeholder {
 			color: #999999;
@@ -406,6 +602,7 @@
 			font-size: 2rem;
 			padding: 2rem;
 			min-width: 23rem;
+			cursor: pointer;
 		}
 	}
 }
@@ -414,4 +611,94 @@
 	.fmc_featured_recipes {
 		background-color: #f8f8f8;
 	}
+}
+
+/* Print */
+
+.fmc_print_template {
+	max-width: 650px;
+	margin: auto;
+	.fmc_pt_btns {
+		display: flex;
+		justify-content: center;
+		margin-bottom: 30px;
+		margin-top: 30px;
+		a {
+			font-size: 20px;
+			height: 4rem;
+			cursor: pointer;
+			&:first-child {
+				margin-right: 10px;
+				background-color: var(--color-3);
+				color: #000;
+			}
+		}
+
+	}
+	.fmc_pt_inner {
+		font-size: 15px;
+		line-height: 1.5;
+		padding: 15px;
+		background-color: #fafafa;
+
+		h4 {
+			font-size: 18px;
+			margin-bottom: 10px;
+		}
+		ol {
+			margin-left: 20px;
+		}
+		p {
+			margin: 0;
+		}
+		.fmc_pt_ingredients {
+			margin-bottom: 15px;
+		}
+		.fmc_pt_hero {
+			display: flex;
+			margin-bottom: 20px;
+			.fmc_pt_hero_left {
+				width: 30%;
+				margin-right: 20px;
+				img {
+					width: 100%;
+					height: auto;
+				}
+			}
+			.fmc_pt_hero_right {
+				h1 {
+					font-size: 25px;
+					line-height: 1.1;
+					margin-bottom: 10px;
+				}
+				.fmc_recipe_times {
+					margin-top: 10px;
+					strong {
+						margin-right: 50px;
+					}
+				}
+				ul {
+					display: inline-flex;
+					flex-wrap: wrap;
+					li {
+						margin-right: 10px;
+					}
+				}
+			}
+		}
+		.fmc_pt_main {
+			img, picture {
+				display: none;
+			}
+		}
+	}
+}
+@media print {
+	body {
+		padding-top: 50px!important;
+	}
+	.fmc_pt_btns {
+		display: none!important;
+	}
+
 }

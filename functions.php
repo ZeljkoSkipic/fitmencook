@@ -337,3 +337,44 @@ add_action( 'init', 'register_acf_blocks' );
 function register_acf_blocks() {
     register_block_type( __DIR__ . '/blocks/order' );
 }
+
+/**
+ * Comment Form Placeholder Author, Email, URL
+ */
+function placeholder_author_email_url_form_fields($fields) {
+    $replace_author = __('Your Name', 'fmc');
+    $replace_email = __('Your Email', 'fmc');
+
+    $fields['author'] = '<p class="comment-form-author">' . '<label for="author">' . __( 'Name', 'fmc' ) . '</label> ' . ( $req ? '<span class="required">*</span>' : '' ) .
+                    '<input id="author" name="author" type="text" placeholder="'.$replace_author.'" value="' . esc_attr( $commenter['comment_author'] ) . '" size="20"' . $aria_req . ' /></p>';
+
+    $fields['email'] = '<p class="comment-form-email"><label for="email">' . __( 'Email', 'fmc' ) . '</label> ' .
+    ( $req ? '<span class="required">*</span>' : '' ) .
+    '<input id="email" name="email" type="text" placeholder="'.$replace_email.'" value="' . esc_attr(  $commenter['comment_author_email'] ) .
+    '" size="30"' . $aria_req . ' /></p>';
+
+    return $fields;
+}
+
+add_filter('comment_form_default_fields','placeholder_author_email_url_form_fields');
+
+/**
+ * Comment Form Placeholder Comment Field
+ */
+function placeholder_comment_form_field($fields) {
+    $replace_comment = __('Your Comment', 'fmc');
+
+    $fields['comment_field'] = '<p class="comment-form-comment"><label for="comment">' . _x( 'Comment', 'noun' ) .
+    '</label><textarea id="comment" name="comment" cols="45" rows="8" placeholder="'.$replace_comment.'" aria-required="true"></textarea></p>';
+
+    return $fields;
+ }
+add_filter( 'comment_form_defaults', 'placeholder_comment_form_field' );
+
+add_filter( 'comment_form_fields', 'move_comment_field' );
+function move_comment_field( $fields ) {
+    $comment_field = $fields['comment'];
+    unset( $fields['comment'] );
+    $fields['comment'] = $comment_field;
+    return $fields;
+}

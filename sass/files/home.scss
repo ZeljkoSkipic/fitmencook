@@ -224,8 +224,27 @@
 		position: absolute;
 		width: 100%;
 	  }
+	  .carousel-cell {
+		width: 18rem;
+		height: 28.5rem;
+		display: flex;
+	  }
+	  .flickity-prev-next-button.next {
+		right: -7rem;
+	  }
+	  .flickity-prev-next-button.previous {
+		left: -7rem;
+	  }
+	  @include limbo-max {
+		.flickity-prev-next-button.next {
+			display: none;
+		  }
+		  .flickity-prev-next-button.previous {
+			display: none;
+		  }
+	  }
 	.fmc_category_track {
-		background-color: #f8f8f8;
+		background: linear-gradient(180deg, #f8f8f8 calc(100% - 2.375rem), rgba(0,0,0,0) calc(100% - 2.2rem));
 		.fmc_ct_inner {
 			justify-content: space-around;
 			margin-left: auto;
@@ -233,14 +252,17 @@
 			flex-wrap: wrap;
 			> a {
 				max-width: calc(100% / 7);
+				height: calc(100% - 2.2rem);
 			}
 		}
 		figure {
-			padding: 6rem 5rem;
-			border-top: 2px solid transparent;
-			border-bottom: 3px solid transparent;
+			padding: 5rem 1.5rem 4.2rem;
 			position: relative;
 			transition: var(--site-transition);
+			width: 100%;
+			max-width: 22rem;
+			margin-bottom: 2.2rem;
+			text-align: center;
 			img, picture {
 				width: 11rem;
 				height: 11rem;
@@ -255,6 +277,20 @@
 				font-size: 2.2rem;
 				color: #717581;
 			}
+			&::before {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: -10px;
+				bottom: 0;
+				right: -10px;
+				background-color: #fff;
+				z-index: -1;
+				opacity: 0;
+				border-top: 2px solid var(--color-1);
+				border-bottom: 3px solid var(--color-1);
+				transition: var(--site-transition);
+			}
 			&:after {
 				content: "";
 				position: absolute;
@@ -264,14 +300,15 @@
 				border-style: solid;
 				border-width: 2.2rem 3.2rem 0 3.2rem;
 				border-color: var(--color-1) transparent transparent transparent;
-				bottom: calc(-2.2rem - 3px);
+				bottom: -2.2rem;
 				opacity: 0;
 				transition: var(--site-transition);
 			}
 			&:hover {
-				background-color: #fff;
-				border-color: var(--color-1);
 				&:after {
+					opacity: 1;
+				}
+				&::before {
 					opacity: 1;
 				}
 			}

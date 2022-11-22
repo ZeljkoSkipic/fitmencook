@@ -26,8 +26,7 @@ $( ".fmc_mm_trigger" ).click(function() {
 $('.carousel-home').flickity({
   // options
 	pageDots: false,
-	contain: true,
-	prevNextButtons: false,
+	cellAlign: 'left',
 });
 
 // Category Carousel

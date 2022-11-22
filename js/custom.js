@@ -24,8 +24,7 @@ jQuery(document).ready(function ($) {
   $('.carousel-home').flickity({
     // options
     pageDots: false,
-    contain: true,
-    prevNextButtons: false
+    cellAlign: 'left'
   });
 
   // Category Carousel

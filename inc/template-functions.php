@@ -136,3 +136,16 @@ if( function_exists('acf_add_options_page') ) {
     ));
 
 }
+
+// Load recipe-print template for printing option
+
+add_filter( 'template_include', 'load_print_template', 99 );
+function load_print_template( $template ) {
+    if ( is_singular( 'recipes' ) && isset($_GET['print']) && $_GET['print'] ) {
+        $new_template = locate_template( array( 'single-recipes-print.php' ) );
+	if ( '' != $new_template ) {
+	    return $new_template ;
+	}
+    }
+    return $template;
+}

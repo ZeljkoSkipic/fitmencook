@@ -3,47 +3,27 @@
 		<h3 class="fmc_top_title"><?php the_field('fr_prefix') ?></h3>
 		<h3 class="fmc_main_title title_spacing_2"><?php the_field('fr_title') ?></h3>
 	</div>
-	<?php
-	$terms = get_field('categories');
-	if( $terms ): ?>
 	<div class="fmc_category_track">
 	<div class="fmc_ct_inner fmc_container carousel-home">
-		<?php foreach( $terms as $term ): ?>
+	<?php $categories = get_categories(); ?>
+	<?php foreach($categories as $category) {
+	$icon = get_field('category_icon', $category); ?>
 		<div class="carousel-cell">
-		<a href="<?php echo esc_url( get_term_link( $term ) ); ?>">
 		<figure>
-			<img src=" <?php the_field('category_icon', $term); ?>" alt="<?php echo esc_html( $term->name ); ?>">
-			<figcaption>
-				<?php echo esc_html( $term->name ); ?>
-			</figcaption>
+			<?php echo '<a href="' . get_category_link($category->term_id) . '">'; ?>
+				<img src="<?php echo $icon; ?>">
+				<figcaption>
+					<?php echo $category->name; ?>
+				</figcaption>
+			</a>
 		</figure>
-		</a>
 		</div>
-		<?php endforeach; ?>
-		<?php
-		$cat_link = get_field('view_all_button');
-		if( $cat_link ):
-			$link_url = $cat_link['url'];
-			$link_title = $cat_link['title'];
-			$link_target = $cat_link['target'] ? $cat_link['target'] : '_self';
-			?>
-		<a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
-		<figure>
-		<?php if( get_field('view_all_icon') ): ?>
-			<img src="<?php the_field('view_all_icon'); ?>" alt="<?php echo esc_html( $link_title ); ?>">
-		<?php endif; ?>
-			<figcaption>
-				<?php echo esc_html( $link_title ); ?>
-			</figcaption>
-		</figure>
-		</a>
-		<?php endif; ?>
+		<?php } ?>
 		</div>
 	</div>
 	<div class="fmc_featured_recipes spacing_2">
 		<div class="fmc_container">
 			<div class="fmc_fr_inner spacing_0_1">
-			<?php endif; ?>
 
 			<?php
 				// latest recipes query
