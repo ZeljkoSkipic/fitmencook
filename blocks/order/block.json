@@ -1,7 +1,7 @@
 {
     "name": "acf/order",
     "title": "Order",
-    "description": "A custom testimonial block.",
+    "description": "A custom order block.",
     "category": "formatting",
     "icon": "admin-comments",
     "keywords": ["order", "product"],

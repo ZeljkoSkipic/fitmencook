@@ -1,0 +1,175 @@
+.fmc_section {
+	margin-top: 7rem;
+	.section_inner {
+		.left {
+			padding: 4rem;
+			color: #fff;
+			.fmc_btn {
+				border: 2px solid;
+				&:hover {
+					opacity: .9;
+				}
+			}
+			.section_title {
+				color: #fff;
+			}
+			.fmc_btn {
+				width: 100%;
+				margin-top: 2rem;
+			}
+			.sec_subtext {
+				text-align: center;
+			}
+			.sec_socials {
+				display: flex;
+				flex-wrap: wrap;
+				margin-top: 3rem;
+				justify-content: center;
+				align-items: center;
+				a {
+					margin-right: 1rem;
+					margin-left: 1rem;
+					img, svg, picture {
+						transition: var(--site-transition);
+						width: 100%;
+						height: auto;
+					}
+					&:hover {
+						img {
+							transform: scale(1.1);
+						}
+					}
+				}
+			}
+		}
+		.right {
+			img {
+				height: 100%;
+			}
+		}
+		&.ib-left {
+			.left {
+				background-color: var(--color-1);
+			}
+			.fmc_btn {
+				border-color: var(--color-2);
+				&:hover {
+					background-color: var(--color-2);
+				}
+			}
+		}
+		&.ib-right {
+			.left {
+				background-color: var(--color-2);
+			}
+			.fmc_btn {
+				background-color: var(--color-1);
+				border-color: var(--color-1);
+			}
+		}
+	}
+	&.gs_welcome {
+		.sec_socials {
+			a {
+				width: 40px;
+			}
+		}
+	}
+	&.gs_app {
+		.sec_socials {
+			a {
+				width: 40%;
+			}
+		}
+	}
+	&.gs_bts, &.gs_yt {
+		.sec_socials {
+			a {
+				width: 100px;
+			}
+		}
+	}
+}
+
+
+.section_inner {
+	display: flex;
+	flex-wrap: wrap;
+	> div {
+	  width: 50%;
+	}
+	@include tab-max {
+	  &.stack-tablet-reverse {
+		> div {
+		  width: 100%;
+		}
+		.left {
+		  order: 2;
+		}
+		.right {
+		  order: 1;
+		}
+	  }
+	}
+	@include mob-only {
+	  &.stack-mobile-reverse {
+		> div {
+		  width: 100%;
+		}
+		.left {
+		  order: 2;
+		}
+		.right {
+		  order: 1;
+		}
+	  }
+	}
+	&.ib-right {
+	  .left {
+		order: 2;
+	  }
+	  .right {
+		order: 1;
+	  }
+	 @include tab-max {
+		&.stack-tablet-reverse {
+		  > div {
+			width: 100%;
+		  }
+		  .left {
+			order: 1;
+		  }
+		  .right {
+			order: 2;
+		  }
+		}
+	  }
+	  @include mob-only {
+		&.stack-mobile-reverse {
+		  > div {
+			width: 100%;
+		  }
+		  .left {
+			order: 1;
+		  }
+		  .right {
+			order: 2;
+		  }
+		}
+	  }
+	}
+	&.stack-mobile {
+	  @include mob-only {
+		> div {
+		  width: 100%;
+		}
+	  }
+	}
+	&.stack-tablet {
+	  @include tab-max {
+		> div {
+		  width: 100%;
+		}
+	  }
+	}
+  }

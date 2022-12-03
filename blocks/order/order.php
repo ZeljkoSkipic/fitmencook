@@ -18,13 +18,13 @@ if ( ! empty( $block['className'] ) ) {
 
 ?>
 
-<div class="fmc_order">
+<div class="fmc_post_order">
 	<h2><?php echo $title ?></h2>
 	<?php
 	if( $image ) {
 		echo wp_get_attachment_image( $image, $size );
 	} ?>
-	<div>
+	<div class="fmc_po_content">
 		<?php echo $text; ?>
 	</div>
 	<?php

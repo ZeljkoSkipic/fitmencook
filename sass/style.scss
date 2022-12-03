@@ -10,6 +10,7 @@ WordPress Version: 6.1.1
 
 @import "vendor/normalize";
 @import "vendor/flickity";
+@import "vendor/smartbanner";
 
 @import "files/variables";
 @import "files/globals";
@@ -19,5 +20,7 @@ WordPress Version: 6.1.1
 @import "files/home";
 @import "files/archive";
 @import "files/post";
+@import "files/pages";
+@import "files/blocks";
 @import "files/recipe";
 @import "files/product";

@@ -22,6 +22,7 @@ body {
 }
 div {
 	position: relative;
+	box-sizing: border-box;
 }
 h1, h2, h3, h4, h5, h6 {
 	font-family: "Karnak",Arial,sans-serif;
@@ -34,11 +35,18 @@ h1, h2, h3, h4, h5, h6 {
 	}
 }
 
+p {
+	font-size: 19px;
+	@include tab-max {
+		font-size: 16px;
+	}
+}
+
 body {
 	font-family: "Roboto",Arial,sans-serif;
 }
 
-.fmc_container {
+.fmc_container, .wp-block-group > .wp-block-group__inner-container{
 	width: var(--sh-site-width);
 	margin-left: auto;
 	margin-right: auto;
@@ -46,7 +54,9 @@ body {
        padding: var(--sh-container-padding);
     }
 }
-
+.wp-block-columns {
+	margin-bottom: 0;
+}
 p {
 	line-height: 1.7;
 }
@@ -108,8 +118,8 @@ p {
 	padding: 1rem;
 	display: flex;
 	height: 8rem;
-	max-width: 23rem;
-	width: 100%;
+	width: 23rem;
+	max-width: 100%;
 	justify-content: center;
 	align-items: center;
 	font-size: 2.9rem;
@@ -117,5 +127,203 @@ p {
 	&:hover {
 		background-color: var(--color-1);
 		color: #fff;
+	}
+}
+
+
+
+.fmc_pt_title {
+	font-size: 6.5rem;
+	margin-bottom: 2.5rem;
+	text-align: center;
+}
+
+.single {
+	.post-categories {
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+		margin-bottom: 2.5rem;
+		li {
+			margin-left: 5px;
+			margin-right: 5px;
+			margin-bottom: 10px;
+			a {
+				background-color: var(--color-2);
+				color: #fff;
+				font-size: 18px;
+				padding: 5px 15px;
+				min-height: 4rem;
+				min-width: 18rem;
+				display: inline-flex;
+				justify-content: center;
+				align-items: center;
+				@include mob-only {
+					font-size: 14px;
+					min-height: 3rem;
+    				min-width: 15rem;
+				}
+			}
+		}
+	}
+}
+
+/* Comments */
+
+.fmc_comments {
+	.comments-title {
+		font-size: 3rem;
+	}
+	.comment-author {
+		img {
+			width: 8rem;
+			height: 8rem;
+			object-fit: cover;
+		}
+	}
+	.comment-list {
+		list-style: none;
+		padding: 0;
+		.comment-body {
+			padding-bottom: 25px;
+			padding-top: 25px;
+			border-bottom: 1px solid #8f8f8f;
+			position: relative;
+		}
+		.comment-author {
+			display: grid;
+			grid-template-columns: 100px auto;
+			height: 30px;
+			img {
+				width: 80px;
+				height: 80px;
+				border-radius: 80px;
+			}
+			.fn {
+				font-size: 18px;
+				color: #333333;
+			}
+			.says {
+				display: none;
+			}
+		}
+		time {
+			pointer-events: none;
+			font-size: 13px;
+			color: #888888;
+		}
+		.comment-metadata {
+			padding-left: 100px;
+		}
+		.comment-content {
+			padding-left: 100px;
+			color: #666666;
+			font-size: 18px;
+		}
+		.reply {
+			position: absolute;
+			top: 25px;
+			right: 0;
+			background-image: url(assets/icons/corner-up-left.svg);
+			padding-left: 30px;
+			background-repeat: no-repeat;
+			background-size: 20px;
+			line-height: 1;
+			a {
+				color: var(--color-1);
+				font-size: 16px;
+			}
+		}
+	}
+	#cancel-comment-reply-link {
+		font-size: 2rem;
+	}
+	.comment-respond {
+		margin-top: 4rem;
+		.comment-reply-title {
+			font-size: 3rem;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+		.comment-notes {
+			font-size: 15px;
+			color: #666;
+		}
+	}
+	@include mob-only {
+		.comment-list {
+			.comment-author {
+				grid-template-columns: 70px auto;
+				.fn {
+					font-size: 16px;
+				}
+				img {
+					width: 60px;
+					height: 60px;
+				}
+			}
+			.comment-content {
+				font-size: 16px;
+				padding-top: 2rem;
+				padding-left: 0;
+			}
+			.comment-metadata {
+				padding-left: 70px;
+			}
+			.reply {
+				background-size: 13px;
+				padding-left: 15px;
+				a {
+					font-size: 13px;
+				}
+			}
+		}
+	}
+}
+
+#commentform {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	label {
+		display: none;
+	}
+	input:not(.submit), textarea {
+		font-size: 15px;
+		padding: 2rem 1.5rem;
+		width: calc(100% - 3rem);
+		border: 1px solid #bebebe;
+		&::placeholder {
+			color: #999999;
+		}
+	}
+	p {
+		margin-bottom: 1rem;
+		margin-top: 1rem;
+	}
+	.comment-notes {
+		width: 100%;
+	}
+	.comment-form-comment {
+		width: 100%;
+	}
+	.comment-form-author {
+		width: 48%;
+	}
+	.comment-form-email {
+		width: 48%;
+	}
+	.form-submit {
+		width: 100%;
+		input {
+			background-color: var(--color-2);
+			color: #fff;
+			border: none;
+			font-size: 2rem;
+			padding: 2rem;
+			min-width: 23rem;
+			cursor: pointer;
+		}
 	}
 }

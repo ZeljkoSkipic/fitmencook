@@ -15,7 +15,7 @@ footer.fmc_footer {
 		}
 		&::after {
 			content: "";
-			width: 4.5rem;
+			width: 45px;
 			height: 7px;
 			background-color: var(--color-1);
 			display: block;
@@ -38,14 +38,18 @@ footer.fmc_footer {
 			width: 100%;
 			background-position: bottom -15rem right;
 			background-size: auto calc(100% + 15rem);
+
 			.footer-app-title {
 				color: #fff;
 				font-size: 4.5rem;
 				line-height: 1.4;
+				@include tab-max {
+					font-size: 35px;
+				}
 			}
 			.fmc_fa_content {
 				margin-bottom: 10rem;
-				margin-top: 10rem;
+				margin-top: 7rem;
 				width: 33%;
 			}
 			.widget_text {
@@ -56,10 +60,26 @@ footer.fmc_footer {
 			.footer-badges {
 				display: flex;
 				figure {
-					flex: 50% 0 0;
+					width: 50%;
 					img, svg, picture {
 						height: 100%;
 					}
+				}
+				@include mob-only {
+					figure {
+						width: 48%;
+						img, svg, picture {
+							height: auto;
+						}
+					}
+				}
+			}
+			@include tab-max {
+				padding-bottom: 40rem;
+				background-size: 40rem;
+				background-position: bottom center;
+				.fmc_fa_content {
+					width: 100%;
 				}
 			}
 		}
@@ -70,20 +90,32 @@ footer.fmc_footer {
 		position: relative;
 		.fmc_container {
 			justify-content: space-between;
+			flex-wrap: wrap;
 		}
 		.fmc_fb_left {
 			width: 50%;
+			font-size: 16px;
 		}
 		.fmc_fb_right {
 			width: 40%;
 		}
 		.widget-title {
 			margin-bottom: 4rem;
+			font-size: 30px;
+			position: relative;
 			&::before {
 				bottom: 3px;
 			}
 			&::after {
 				margin-top: 1rem;
+			}
+		}
+		@include mob-only {
+			.fmc_fb_left, .fmc_fb_right {
+				width: 100%;
+			}
+			.fmc_fb_right {
+				margin-top: 20px;
 			}
 		}
 	}
@@ -92,9 +124,28 @@ footer.fmc_footer {
 		.fmc_container {
 			border-top: 1px solid #b6b6b6;
 			justify-content: space-between;
+			flex-wrap: wrap;
+
 		}
 		.fmc_footer_col {
 			flex: 24% 0 0;
+			ul li {
+				font-size: 16px;
+			}
+			p {
+				font-size: 16px;
+			}
+			@include tab-max {
+				&:not(:first-child) {
+					margin-top: 20px;
+				}
+			}
+			@include tab-only {
+				flex: 48% 0 0;
+			}
+			@include mob-only {
+				flex: 100% 0 0;
+			}
 		}
 		.widget-title {
 			font-size: 22px;
@@ -128,6 +179,11 @@ footer.fmc_footer {
 			border-top: 1px solid #b6b6b6;
 			.widget {
 				width: 100%;
+				font-size: 16px;
+				p {
+					margin-top: 0;
+					margin-bottom: 0;
+				}
 			}
 		}
 	}

@@ -1,0 +1,15 @@
+{
+    "name": "acf/button",
+    "title": "FMC Buttons",
+    "description": "A custom button block.",
+    "category": "formatting",
+    "icon": "button",
+    "keywords": ["button", "buttons"],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "button.php"
+    },
+	"supports": {
+		"align": false
+	}
+}

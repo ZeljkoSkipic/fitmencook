@@ -203,6 +203,7 @@ function fmc_scripts() {
 	wp_enqueue_script( 'custom', get_template_directory_uri() . '/js/custom.js', array('jquery'), _S_VERSION );
 
 	wp_enqueue_script( 'flickity', get_template_directory_uri() . '/js/vendor/flickity.js',array('jquery'),_S_VERSION,true);
+	wp_enqueue_script( 'smart-banner', get_template_directory_uri() . '/js/vendor/smartbanner.js',array('jquery'),_S_VERSION,true);
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -213,23 +214,23 @@ add_action( 'wp_enqueue_scripts', 'fmc_scripts' );
 /**
  * Custom template tags for this theme.
  */
-require get_template_directory() . '/inc/template-tags.php';
+require get_template_directory() . '/includes/template-tags.php';
 
 /**
  * Functions which enhance the theme by hooking into WordPress.
  */
-require get_template_directory() . '/inc/template-functions.php';
+require get_template_directory() . '/includes/template-functions.php';
 
 /**
  * Customizer additions.
  */
-require get_template_directory() . '/inc/customizer.php';
+require get_template_directory() . '/includes/customizer.php';
 
 /**
  * Load WooCommerce compatibility file.
  */
 if ( class_exists( 'WooCommerce' ) ) {
-	require get_template_directory() . '/inc/woocommerce.php';
+	require get_template_directory() . '/includes/woocommerce.php';
 }
 
 // Recipe Category
@@ -336,6 +337,8 @@ function my_acf_json_load_point( $paths ) {
 add_action( 'init', 'register_acf_blocks' );
 function register_acf_blocks() {
     register_block_type( __DIR__ . '/blocks/order' );
+	register_block_type( __DIR__ . '/blocks/button' );
+	register_block_type( __DIR__ . '/blocks/section' );
 }
 
 /**
@@ -377,4 +380,18 @@ function move_comment_field( $fields ) {
     unset( $fields['comment'] );
     $fields['comment'] = $comment_field;
     return $fields;
+}
+
+
+
+// Admin styles - move to individual file
+
+add_action('admin_head', 'admin_styles');
+
+function admin_styles() {
+  echo '<style>
+	.wp-admin .wp-block {
+		max-width: 90%;
+	}
+  </style>';
 }

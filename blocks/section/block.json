@@ -1,0 +1,16 @@
+{
+    "name": "acf/section",
+    "title": "FMC Section",
+    "description": "A Section Block containing the Info Box and the Image",
+    "category": "formatting",
+    "icon": "welcome-widgets-menus",
+    "keywords": ["section", "fmc"],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "section.php"
+    },
+    "supports": {
+		"mode": false,
+		"align": false
+	}
+}

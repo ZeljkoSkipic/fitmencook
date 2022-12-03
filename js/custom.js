@@ -17,6 +17,7 @@ jQuery(document).ready(function ($) {
 
   $(".fmc_mm_trigger").click(function () {
     $(".fmc_header").slideToggle();
+    $('.fmc_mobile_header').toggleClass('fmc_nav_open');
   });
 
   // Home Carousel
@@ -37,4 +38,21 @@ jQuery(document).ready(function ($) {
     prevNextButtons: false,
     initialIndex: 5
   });
+  (function ($) {
+    var $window = $(window);
+    var $videoWrap = $('.video-wrap');
+    var $video = $('.fmc_video');
+    var videoHeight = $video.outerHeight();
+    $window.on('scroll', function () {
+      var windowScrollTop = $window.scrollTop();
+      var videoBottom = videoHeight + $videoWrap.offset().top;
+      if (windowScrollTop > videoBottom) {
+        $videoWrap.height(videoHeight);
+        $video.addClass('stuck');
+      } else {
+        $videoWrap.height('auto');
+        $video.removeClass('stuck');
+      }
+    });
+  })(jQuery);
 });

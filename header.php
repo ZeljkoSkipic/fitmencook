@@ -13,8 +13,6 @@
 <!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
-<link rel="stylesheet" href="wp-content/themes/fitmencook/smartbanner.js/dist/smartbanner.min.css">
-<script src="wp-content/themes/fitmencook/smartbanner.js/dist/smartbanner.min.js"></script>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
@@ -50,14 +48,28 @@
 				} else {
 					the_custom_logo();
 				}
-
 				?>
 			</a>
 		</figure>
-		<button class="fmc_mm_trigger"> = </button>
+		<div class="fmc_mm_trigger">
+		<div></div>
+		</div>
 	</div>
 	<div class="fmc_sitehead">
 	<header class="fmc_header">
+	<figure class="fmc_mobile_logo">
+			<a href="/">
+				<?php
+				$mobile_logo = get_field('mobile_logo', 'option');
+				$size = 'full'; // (thumbnail, medium, large, full or custom size)
+				if( $mobile_logo ) {
+					echo wp_get_attachment_image( $mobile_logo, $size );
+				} else {
+					the_custom_logo();
+				}
+				?>
+			</a>
+		</figure>
 		<?php
 			wp_nav_menu(
 				array(

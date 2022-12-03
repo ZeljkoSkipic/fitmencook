@@ -1,0 +1,100 @@
+.page {
+	font-size: 19px;
+	@include tab-max {
+		font-size: 16px;
+	}
+}
+
+.fmc_buttons {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	justify-content: center;
+	.fmc_btn {
+		&:not(:last-child) {
+			margin-bottom: 1rem;
+		}
+	}
+}
+
+/* Challenges */
+
+.fmc_challenge_sec_1 {
+	.wp-block-columns {
+		gap: 0;
+		.wp-block-column {
+			figure {
+				height: 100%;
+				img {
+					height: 100%;
+				}
+			}
+			&:first-child {
+				background-color: var(--color-1);
+				padding: 4rem;
+				h1 {
+					font-size: 5rem;
+					color: #fff;
+				}
+				p {
+					color: #fff;
+				}
+			}
+		}
+	}
+}
+
+.fmc_challenge_sec_2 {
+	background-color: #f9f9f9;
+	border-top: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+	.title {
+		font-size: var(--title-size-4);
+		text-transform: uppercase;
+	}
+}
+
+.fmc_challenge_sec_3 {
+	figure {
+		margin-bottom: 2rem;
+	}
+	.wp-block-column {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
+		h2 {
+			margin-bottom: 2rem;
+			margin-top: auto;
+		}
+	}
+}
+
+.fmc_challenge_sec_4 {
+	background-color: #f9f9f9;
+}
+
+
+/* Book */
+
+.fmc_preorder_logos.wp-block-columns {
+	@include tab-only {
+		justify-content: center;
+		align-items: center!important;
+		.wp-block-column {
+			flex-basis: 30%!important;
+			text-align: center;
+			figure {
+				text-align: center;
+			}
+		}
+	}
+	@include mob-only {
+		.wp-block-column {
+			text-align: center;
+			figure {
+				text-align: center;
+			}
+		}
+	}
+}

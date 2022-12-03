@@ -149,3 +149,11 @@ function load_print_template( $template ) {
     }
     return $template;
 }
+
+
+// Image size
+
+add_action( 'after_setup_theme', 'fmc_theme_setup' );
+function fmc_theme_setup() {
+	add_image_size( 'fmc-post-featured', 735, 490, true );
+}
