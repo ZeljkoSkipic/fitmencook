@@ -1,0 +1,16 @@
+{
+    "name": "acf/logo-slide",
+    "title": "Logo Slider",
+    "description": "Logo Slider.",
+    "category": "formatting",
+    "icon": "images-alt",
+    "keywords": ["order", "product"],
+    "acf": {
+        "mode": "auto",
+        "renderTemplate": "logo-slide.php"
+    },
+    "align": "full",
+	"supports": {
+		"align": false
+	}
+}

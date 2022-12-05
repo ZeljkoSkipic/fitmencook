@@ -13,6 +13,15 @@ jQuery(document).ready(function ($) {
     pageDots: false
   });
 
+  // Logo slider block
+
+  $('.fmc_logo_slider').flickity({
+    // options
+    wrapAround: true,
+    contain: true,
+    pageDots: false
+  });
+
   // Mobile navigation toggle
 
   $(".fmc_mm_trigger").click(function () {

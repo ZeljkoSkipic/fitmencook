@@ -173,3 +173,32 @@
 	  }
 	}
   }
+
+
+  /* Logo Slider */
+
+  .fmc_logo_slider {
+	@include clean-list;
+	.carousel-cell {
+		width: 30rem;
+		img {
+			height: 100%;
+		}
+	}
+  }
+
+  .fmc_logo_slide_block {
+	padding: 4rem;
+	background: #f9f9f9;
+	.fmc_container {
+		text-align: center;
+	}
+	h4 {
+		text-align: center;
+		background-color: var(--color-1);
+		display: inline-block;
+		padding: .5rem 1rem;
+		color: #fff;
+		font-size: var(--title-size-4);
+	}
+  }

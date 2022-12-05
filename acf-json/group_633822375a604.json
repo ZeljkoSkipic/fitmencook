@@ -281,7 +281,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "all"
+                "value": "acf\/section"
             }
         ]
     ],
@@ -294,5 +294,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1669923180
+    "modified": 1670083692
 }

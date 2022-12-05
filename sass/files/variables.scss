@@ -30,10 +30,11 @@
 
 }
 
+
 $mob-max: 479.5px;
 $tab-min: 479.6px;
-$tab-max: 797.5px;
-$limbo-min: 797.6px;
+$tab-max: 781.5px;
+$limbo-min: 781.6px;
 $limbo-max: 1199.5px;
 $desk-min: 1199.6px;
 $sm-desk-max: 1360.5px;
@@ -123,4 +124,10 @@ $lg-desk-min: 1599.6px;
 	left: 0;
 	right: 0;
 	z-index: -1;
+}
+
+@mixin clean-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
 }

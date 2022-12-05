@@ -163,6 +163,7 @@ footer.fmc_footer {
 			color: #666;
 		}
 		ul {
+			@include clean-list;
 			li {
 				a {
 					color: #666;

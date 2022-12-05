@@ -3,6 +3,14 @@
 	@include tab-max {
 		font-size: 16px;
 	}
+	&.page-template-default {
+		.site-main {
+			padding-top: 7rem;
+			padding-bottom: 7rem;
+		}
+	}
+
+
 }
 
 .fmc_buttons {
@@ -97,4 +105,76 @@
 			}
 		}
 	}
+}
+
+/* Contact */
+
+.fmc_contact_columns {
+	gap: 0;
+	.wp-block-column {
+		figure {
+			height: 100%;
+			img {
+				@include img-fit;
+			}
+		}
+		@include limbo-min {
+			p {
+				width: 90%;
+			}
+		}
+		&.form-column {
+			background-color: var(--color-1);
+			padding: 4rem;
+			h1 {
+				color: #fff;
+			}
+			.wpforms-container {
+				margin: 0;
+				input, textarea {
+					font-size: 20px;
+				}
+			}
+			button.wpforms-submit {
+				background-color: var(--color-2);
+				border: none!important;
+				color: #fff;
+				width: 100%;
+				transition: var(--site-transition);
+				&:hover {
+					background-color: var(--color-2);
+					opacity: .8;
+				}
+			}
+			@include mob-only {
+				.wpforms-field-email {
+					padding-top: 0!important;
+				}
+				.wpforms-one-half {
+					width: 100%;
+					margin-left: 0;
+					padding: 10px 0;
+				}
+			}
+		}
+	}
+}
+
+.fmc_contact_social {
+	p {
+		margin-bottom: 0;
+		margin-top: 0;
+	}
+	.wp-social-link {
+		path {
+			fill: var(--color-1);
+		}
+	}
+}
+
+.fmc_our_bodies {
+	padding: 4rem;
+	background-color: var(--color-1);
+	color: #fff;
+	margin-top: 2rem;
 }

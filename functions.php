@@ -339,6 +339,7 @@ function register_acf_blocks() {
     register_block_type( __DIR__ . '/blocks/order' );
 	register_block_type( __DIR__ . '/blocks/button' );
 	register_block_type( __DIR__ . '/blocks/section' );
+	register_block_type( __DIR__ . '/blocks/logo-slide' );
 }
 
 /**
