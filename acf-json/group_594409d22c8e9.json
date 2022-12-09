@@ -3,26 +3,6 @@
     "title": "Recipes",
     "fields": [
         {
-            "key": "field_599b198dbebe5",
-            "label": "Multiple Recipes Title",
-            "name": "multiple_recipes_title",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "Add a title only if this recipe has multiple recipes.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "Multiple Recipes Title",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
             "key": "field_5951d3ec48c39",
             "label": "Video",
             "name": "video",
@@ -297,27 +277,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_636a963f723ea",
-            "label": "Steps Title",
-            "name": "steps_title",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "50",
+                "width": "",
                 "class": "",
                 "id": ""
             },
@@ -337,7 +297,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "50",
+                "width": "",
                 "class": "",
                 "id": ""
             },
@@ -346,6 +306,26 @@
             "toolbar": "full",
             "media_upload": 1,
             "delay": 0
+        },
+        {
+            "key": "field_636a963f723ea",
+            "label": "Steps Title",
+            "name": "steps_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         },
         {
             "key": "field_5930bf7990b41",
@@ -357,7 +337,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "50",
+                "width": "",
                 "class": "",
                 "id": ""
             },
@@ -388,33 +368,9 @@
             "delay": 0
         },
         {
-            "key": "field_593c616d51619",
-            "label": "In App",
-            "name": "in_app",
-            "aria-label": "",
-            "type": "checkbox",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "Yes: Yes": "Yes: Yes"
-            },
-            "default_value": [],
-            "layout": "vertical",
-            "allow_custom": 0,
-            "save_custom": 0,
-            "toggle": 0,
-            "return_format": "value"
-        },
-        {
             "key": "field_5947e12bf8276",
             "label": "Recipe",
-            "name": "recipe",
+            "name": "additional_recipe",
             "aria-label": "",
             "type": "repeater",
             "instructions": "",
@@ -425,11 +381,13 @@
                 "class": "",
                 "id": ""
             },
-            "collapsed": "",
+            "layout": "block",
+            "pagination": 0,
             "min": 0,
             "max": 0,
-            "layout": "block",
+            "collapsed": "",
             "button_label": "Add New Recipe",
+            "rows_per_page": 20,
             "sub_fields": [
                 {
                     "key": "field_5947e53967fa5",
@@ -453,24 +411,95 @@
                     "parent_repeater": "field_5947e12bf8276"
                 },
                 {
-                    "key": "field_5947e17ef8277",
-                    "label": "Calories",
-                    "name": "calories",
+                    "key": "field_5947e23bf8282",
+                    "label": "Prep Time",
+                    "name": "prep_time",
                     "aria-label": "",
-                    "type": "text",
+                    "type": "number",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "33",
                         "class": "",
                         "id": ""
                     },
                     "default_value": "",
+                    "min": "",
+                    "max": "",
                     "placeholder": "",
+                    "step": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": "",
+                    "parent_repeater": "field_5947e12bf8276"
+                },
+                {
+                    "key": "field_5947e25af8284",
+                    "label": "Cook Time",
+                    "name": "cook_time",
+                    "aria-label": "",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "min": "",
+                    "max": "",
+                    "placeholder": "",
+                    "step": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_5947e12bf8276"
+                },
+                {
+                    "key": "field_5947e24bf8283",
+                    "label": "Total Time",
+                    "name": "total_time",
+                    "aria-label": "",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "min": "",
+                    "max": "",
+                    "placeholder": "",
+                    "step": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_5947e12bf8276"
+                },
+                {
+                    "key": "field_5947e17ef8277",
+                    "label": "Calories",
+                    "name": "calories",
+                    "aria-label": "",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "14",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "min": "",
+                    "max": "",
+                    "placeholder": "",
+                    "step": "",
+                    "prepend": "",
+                    "append": "",
                     "parent_repeater": "field_5947e12bf8276"
                 },
                 {
@@ -478,20 +507,22 @@
                     "label": "Protein",
                     "name": "protein",
                     "aria-label": "",
-                    "type": "text",
+                    "type": "number",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "14",
                         "class": "",
                         "id": ""
                     },
                     "default_value": "",
+                    "min": "",
+                    "max": "",
                     "placeholder": "",
+                    "step": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": "",
                     "parent_repeater": "field_5947e12bf8276"
                 },
                 {
@@ -499,20 +530,22 @@
                     "label": "Fat",
                     "name": "fat",
                     "aria-label": "",
-                    "type": "text",
+                    "type": "number",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "14",
                         "class": "",
                         "id": ""
                     },
                     "default_value": "",
+                    "min": "",
+                    "max": "",
                     "placeholder": "",
+                    "step": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": "",
                     "parent_repeater": "field_5947e12bf8276"
                 },
                 {
@@ -520,20 +553,22 @@
                     "label": "Carbs",
                     "name": "carbs",
                     "aria-label": "",
-                    "type": "text",
+                    "type": "number",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "14",
                         "class": "",
                         "id": ""
                     },
                     "default_value": "",
+                    "min": "",
+                    "max": "",
                     "placeholder": "",
+                    "step": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": "",
                     "parent_repeater": "field_5947e12bf8276"
                 },
                 {
@@ -541,20 +576,22 @@
                     "label": "Sodium",
                     "name": "sodium",
                     "aria-label": "",
-                    "type": "text",
+                    "type": "number",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "14",
                         "class": "",
                         "id": ""
                     },
                     "default_value": "",
+                    "min": "",
+                    "max": "",
                     "placeholder": "",
+                    "step": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": "",
                     "parent_repeater": "field_5947e12bf8276"
                 },
                 {
@@ -562,26 +599,51 @@
                     "label": "Fiber",
                     "name": "fiber",
                     "aria-label": "",
-                    "type": "text",
+                    "type": "number",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "14",
                         "class": "",
                         "id": ""
                     },
                     "default_value": "",
+                    "min": "",
+                    "max": "",
                     "placeholder": "",
+                    "step": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": "",
                     "parent_repeater": "field_5947e12bf8276"
                 },
                 {
                     "key": "field_5947e1dbf827d",
                     "label": "Sugar",
                     "name": "sugar",
+                    "aria-label": "",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "14",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "min": "",
+                    "max": "",
+                    "placeholder": "",
+                    "step": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_5947e12bf8276"
+                },
+                {
+                    "key": "field_638f5b82ff294",
+                    "label": "Ingredients Title",
+                    "name": "ingredients_title",
                     "aria-label": "",
                     "type": "text",
                     "instructions": "",
@@ -593,10 +655,10 @@
                         "id": ""
                     },
                     "default_value": "",
+                    "maxlength": "",
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": "",
                     "parent_repeater": "field_5947e12bf8276"
                 },
                 {
@@ -621,6 +683,27 @@
                     "parent_repeater": "field_5947e12bf8276"
                 },
                 {
+                    "key": "field_638f5b91ff295",
+                    "label": "Steps Title",
+                    "name": "steps_title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_5947e12bf8276"
+                },
+                {
                     "key": "field_5947e231f8281",
                     "label": "Steps",
                     "name": "steps",
@@ -639,69 +722,6 @@
                     "toolbar": "full",
                     "media_upload": 1,
                     "delay": 0,
-                    "parent_repeater": "field_5947e12bf8276"
-                },
-                {
-                    "key": "field_5947e23bf8282",
-                    "label": "Prep Time",
-                    "name": "prep_time",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": "",
-                    "parent_repeater": "field_5947e12bf8276"
-                },
-                {
-                    "key": "field_5947e25af8284",
-                    "label": "Cook Time",
-                    "name": "cook_time",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": "",
-                    "parent_repeater": "field_5947e12bf8276"
-                },
-                {
-                    "key": "field_5947e24bf8283",
-                    "label": "Total Time",
-                    "name": "total_time",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": "",
                     "parent_repeater": "field_5947e12bf8276"
                 },
                 {
@@ -724,34 +744,8 @@
                     "media_upload": 1,
                     "delay": 0,
                     "parent_repeater": "field_5947e12bf8276"
-                },
-                {
-                    "key": "field_5947e2bef8286",
-                    "label": "In App",
-                    "name": "in_app",
-                    "aria-label": "",
-                    "type": "checkbox",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "choices": {
-                        "Yes: Yes": "Yes: Yes"
-                    },
-                    "allow_custom": 0,
-                    "save_custom": 0,
-                    "default_value": [],
-                    "layout": "vertical",
-                    "toggle": 0,
-                    "return_format": "value",
-                    "parent_repeater": "field_5947e12bf8276"
                 }
-            ],
-            "rows_per_page": 20
+            ]
         }
     ],
     "location": [
@@ -780,5 +774,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1669115774
+    "modified": 1670341140
 }

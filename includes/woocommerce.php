@@ -248,7 +248,7 @@ function woo_new_product_tab( $tabs ) {
 
 	// Adds the new tab
 
-	$tabs['test_tab'] = array(
+	$tabs['about_author'] = array(
 		'title' 	=> __( 'About Kevin', 'woocommerce' ),
 		'priority' 	=> 50,
 		'callback' 	=> 'woo_new_product_tab_content'
@@ -261,6 +261,23 @@ function woo_new_product_tab_content() {
 
 	// The new tab content
 
-	echo '<p>Here\'s your new product tab.</p>';
+	 get_template_part('template-parts/author');
 
 }
+
+
+/**
+ * Change number of related products output
+ */
+function woo_related_products_limit() {
+	global $product;
+
+	  $args['posts_per_page'] = 4;
+	  return $args;
+  }
+  add_filter( 'woocommerce_output_related_products_args', 'jk_related_products_args', 20 );
+	function jk_related_products_args( $args ) {
+	  $args['posts_per_page'] = 4; // 4 related products
+	  $args['columns'] = 4; // arranged in 2 columns
+	  return $args;
+  }

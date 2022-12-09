@@ -14,6 +14,6 @@ $text = get_field('hero_text');
 			<div class="fmc_hh_text"><?php echo $text ?></div>
 		</div>
 		<?php echo do_shortcode('[wpdreams_ajaxsearchpro id=1]'); ?>
-
+		<?php echo do_shortcode('[wpdreams_asp_settings id=1 element="div"]'); ?>
 	</div>
 </div>

@@ -9,27 +9,23 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
-
-		<?php if ( 'post' === get_post_type() ) : ?>
-		<div class="entry-meta">
-			<?php
-			fmc_posted_on();
-			fmc_posted_by();
-			?>
-		</div><!-- .entry-meta -->
-		<?php endif; ?>
-	</header><!-- .entry-header -->
-
-	<?php fmc_post_thumbnail(); ?>
-
-	<div class="entry-summary">
-		<?php the_excerpt(); ?>
-	</div><!-- .entry-summary -->
-
-	<footer class="entry-footer">
-		<?php fmc_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
-</article><!-- #post-<?php the_ID(); ?> -->
+<div class="fmc_recipe">
+	<figure>
+		<?php the_post_thumbnail('thumbnail'); ?>
+	</figure>
+	<h3>
+		<a href="<?php the_permalink(); ?>">
+		<?php the_title(); ?>
+		</a>
+	</h3>
+	<span class="calories"><?php the_field('calories'); ?> <?php the_field('l_calories', 'option'); ?></span>
+	<div class="details_1">
+		<div class="carbs"><?php the_field('l_carbs', 'option'); ?><span><?php the_field('carbs'); ?></span></div>
+		<div class="fat"><?php the_field('l_fat', 'option'); ?><span><?php the_field('fat'); ?></span></div>
+		<div class="protein"><?php the_field('l_protein', 'option'); ?><span><?php the_field('protein'); ?></span></div>
+	</div>
+	<div class="details_2">
+		<div class="time"><?php the_field('l_prep_time'); ?><span><?php the_field('prep_time'); ?></span></div>
+		<div class="portion"><?php the_field('l_total_time'); ?><span><?php the_field('total_time'); ?></span></div>
+	</div>
+</div>

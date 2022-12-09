@@ -29,6 +29,13 @@ jQuery(document).ready(function ($) {
     $('.fmc_mobile_header').toggleClass('fmc_nav_open');
   });
 
+  // Mobile navigation submenu
+
+  $(".fmc_header ul > li a").click(function () {
+    $(this).toggleClass('sub-open');
+    $(this).siblings('.sub-menu').slideToggle();
+  });
+
   // Home Carousel
 
   $('.carousel-home').flickity({
@@ -47,6 +54,8 @@ jQuery(document).ready(function ($) {
     prevNextButtons: false,
     initialIndex: 5
   });
+
+  // Sticky Recipe Video
   (function ($) {
     var $window = $(window);
     var $videoWrap = $('.video-wrap');

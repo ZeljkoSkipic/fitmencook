@@ -31,6 +31,13 @@ $( ".fmc_mm_trigger" ).click(function() {
   $( '.fmc_mobile_header' ).toggleClass('fmc_nav_open')
 });
 
+// Mobile navigation submenu
+
+$( ".fmc_header ul > li a" ).click(function() {
+	$( this ).toggleClass('sub-open');
+	$( this ).siblings('.sub-menu').slideToggle();
+  });
+
 // Home Carousel
 
 $('.carousel-home').flickity({
@@ -50,6 +57,7 @@ $('.carousel-category').flickity({
 	initialIndex: 5
 });
 
+// Sticky Recipe Video
 (function($) {
 	var $window = $(window);
 	var $videoWrap = $('.video-wrap');
@@ -69,4 +77,5 @@ $('.carousel-category').flickity({
 		}
 	});
 }(jQuery));
+
 });

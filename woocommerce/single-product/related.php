@@ -28,7 +28,7 @@ if ( $related_products ) : ?>
 
 		if ( $heading ) :
 			?>
-			<h2 class="fmc_main_title"><?php echo esc_html( $heading ); ?></h2>
+			<h2 class="fmc_main_title title_spacing_1"><?php echo esc_html( $heading ); ?></h2>
 		<?php endif; ?>
 
 		<?php woocommerce_product_loop_start(); ?>

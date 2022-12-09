@@ -88,6 +88,7 @@ function fmc_setup() {
 			'flex-height' => true,
 		)
 	);
+
 }
 add_action( 'after_setup_theme', 'fmc_setup' );
 
@@ -383,8 +384,6 @@ function move_comment_field( $fields ) {
     return $fields;
 }
 
-
-
 // Admin styles - move to individual file
 
 add_action('admin_head', 'admin_styles');
@@ -395,4 +394,13 @@ function admin_styles() {
 		max-width: 90%;
 	}
   </style>';
+}
+
+
+// Remove Zoom and Lightbox from WooCommerce produt
+add_filter( 'woocommerce_single_product_zoom_enabled', '__return_false' );
+
+add_action( 'after_setup_theme', 'remove_wc_gallery_lightbox', 100 );
+function remove_wc_gallery_lightbox() {
+remove_theme_support( 'wc-product-gallery-lightbox' );
 }

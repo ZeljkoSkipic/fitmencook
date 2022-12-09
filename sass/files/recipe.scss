@@ -104,6 +104,9 @@
 			width: 50%;
 			padding: 2rem;
 			font-size: 15px;
+			@include tab-max {
+				padding: 2rem 4rem;
+			}
 			span {
 				display: block;
 				color: #000;
@@ -119,10 +122,15 @@
 
 
 /* Single */
-.fmc_recipe_hero {
+.fmc_recipe_hero:not(.fmc_additional_recipe_hero) {
 	background: linear-gradient(180deg, var(--color-3) calc(100% - 36rem), rgba(0,0,0,0) calc(100% - 36rem));
 	text-align: center;
 	padding-top: 10rem;
+}
+.fmc_recipe_hero {
+	&.test {
+		background-color: var(--color-3);
+	}
 	.fmc_recipe_times {
 		display: flex;
 		flex-wrap: wrap;
@@ -251,6 +259,10 @@
 			transform: translateY(-100%);
 			animation: fade-in-up 0.75s ease forwards;
 			z-index: 1;
+			iframe {
+				width: 360px;
+				height: 195px;
+			}
 		}
 	}
 	@include limbo-max {
@@ -412,7 +424,7 @@
 	}
 }
 
-.fmc_recipe_main_right {
+.fmc_recipe_main_steps {
 	.fmc_main_title {
 		margin-top: 5rem;
 	}
@@ -467,6 +479,9 @@
 	background: linear-gradient(180deg, #fff 7%, #eeeeee 7%);
 	padding: 10rem 7.5rem;
 	background-repeat: no-repeat;
+	@include mob-only {
+		background: #eeeeee;
+	}
 	&::before {
 		@include pseudo;
 		background-image: url(assets/images/about-the-chef.png);

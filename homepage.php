@@ -4,9 +4,11 @@
  * Template Post Type: page
  */
 
-get_header(); ?>
+get_header();
 
-<?php get_template_part('template-parts/homepage/hero-search'); ?>
+?>
+
+<?php get_template_part('template-parts/hero-search'); ?>
 
 <?php get_template_part('template-parts/homepage/top-products'); ?>
 

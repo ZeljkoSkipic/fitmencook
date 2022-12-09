@@ -64,38 +64,45 @@ if ( post_password_required() ) {
 	</div>
 	</div>
 	<div class="fmc_container fmc_whats_inside spacing_1">
-		<h2 class="fmc_main_title">What's Inside</h2>
-		<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/temp/whats-inside.png" alt="">
+		<h2 class="fmc_main_title title_spacing_2"><?php the_field('whats_inside_text', 'option'); ?></h2>
+		<?php
+		$wi_image = get_field('wi_image');
+		$size = 'full';
+		if( $wi_image ) {
+			echo wp_get_attachment_image( $wi_image, $size );
+		}
+		?>
 	</div>
 	<div class="fmc_product_why spacing_1">
 		<div class="fmc_container">
-		<h2 class="fmc_main_title">Why Choose Fitmen Cook</h2>
+		<h2 class="fmc_main_title title_spacing_1"><?php the_field('wcfmc_title', 'option'); ?></h2>
 		<div class="fmc_product_why_inner">
-			<div class="fmc_product_why_ib">
-				<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/temp/leaf.png" alt="">
-				<h4>All Natural</h4>
-				<div>spices and seasoning blends hand-crafted by health and happiness leader Kevin Curry!</div>
-			</div>
-			<div class="fmc_product_why_ib">
-				<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/temp/leaf.png" alt="">
-				<h4>All Natural</h4>
-				<div>spices and seasoning blends hand-crafted by health and happiness leader Kevin Curry!</div>
-			</div>
-			<div class="fmc_product_why_ib">
-				<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/temp/leaf.png" alt="">
-				<h4>All Natural</h4>
-				<div>spices and seasoning blends hand-crafted by health and happiness leader Kevin Curry!</div>
-			</div>
-			<div class="fmc_product_why_ib">
-				<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/temp/leaf.png" alt="">
-				<h4>All Natural</h4>
-				<div>spices and seasoning blends hand-crafted by health and happiness leader Kevin Curry!</div>
-			</div>
-			<div class="fmc_product_why_ib">
-				<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/temp/leaf.png" alt="">
-				<h4>All Natural</h4>
-				<div>spices and seasoning blends hand-crafted by health and happiness leader Kevin Curry!</div>
-			</div>
+		<?php
+
+		// Check rows existexists.
+		if( have_rows('why_choose_fmc') ):
+
+			// Loop through rows.
+			while( have_rows('why_choose_fmc') ) : the_row();
+
+				// Load sub field value.
+				$icon = get_sub_field('icon');
+				$size = 'full';
+				$title = get_sub_field('title');
+				$text = get_sub_field('text'); ?>
+				<div class="fmc_product_why_ib">
+				<?php
+					if( $icon ) {
+						echo wp_get_attachment_image( $icon, $size );
+					} ?>
+					<h4><?php echo $title; ?></h4>
+					<div><?php echo $text; ?></div>
+				</div>
+
+			<?php // End loop.
+			endwhile;
+
+		endif; ?>
 			</div>
 		</div>
 	</div>
