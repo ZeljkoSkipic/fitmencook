@@ -1,6 +1,6 @@
-<div class="fmc_featured_recipes spacing_2">
+<div class="fmc_recipe_grid spacing_2">
 		<div class="fmc_container">
-			<div class="fmc_fr_inner spacing_0_1">
+			<div class="fmc_rg_inner spacing_0_1">
 			<?php
 				// latest recipes query
 				// args
