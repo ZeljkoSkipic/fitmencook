@@ -49,8 +49,7 @@ function fmc_setup() {
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus(
 		array(
-			'primary-left'  => __( 'Primary Left', 'fmc' ),
-			'primary-right'  => __( 'Primary Right', 'fmc' ),
+			'primary'  => __( 'Primary', 'fmc' ),
 		)
 	);
 
@@ -109,93 +108,6 @@ add_action( 'after_setup_theme', 'fmc_content_width', 0 );
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
-function fmc_widgets_init() {
-
-
-    /* -- Footer Widgets -- */
-
-	register_sidebar( array(
-        'name' => __( 'App Left', 'fmc' ),
-        'id' => 'app-left',
-        'description' => __( 'Displays in the footer', 'fmc' ),
-        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-        'after_widget' => '</aside>',
-        'before_title' => '<h3 class="widget-title">',
-        'after_title' => '</h3>',
-    ) );
-
-	register_sidebar( array(
-        'name' => __( 'Footer Before 1', 'fmc' ),
-        'id' => 'footer-before-1',
-        'description' => __( 'Displays in the footer', 'fmc' ),
-        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-        'after_widget' => '</aside>',
-        'before_title' => '<h3 class="widget-title">',
-        'after_title' => '</h3>',
-    ) );
-
-	register_sidebar( array(
-        'name' => __( 'Footer Before 2', 'fmc' ),
-        'id' => 'footer-before-2',
-        'description' => __( 'Displays in the footer', 'fmc' ),
-        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-        'after_widget' => '</aside>',
-        'before_title' => '<h3 class="widget-title">',
-        'after_title' => '</h3>',
-    ) );
-
-    register_sidebar( array(
-        'name' => __( 'Footer Widget 1', 'fmc' ),
-        'id' => 'footer-1',
-        'description' => __( 'Displays in the footer', 'fmc' ),
-        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-        'after_widget' => '</aside>',
-        'before_title' => '<h3 class="widget-title">',
-        'after_title' => '</h3>',
-    ) );
-
-    register_sidebar( array(
-        'name' => __( 'Footer Widget 2', 'fmc' ),
-        'id' => 'footer-2',
-        'description' => __( 'Displays in the footer', 'fmc' ),
-        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-        'after_widget' => '</aside>',
-        'before_title' => '<h3 class="widget-title">',
-        'after_title' => '</h3>',
-    ) );
-
-    register_sidebar( array(
-        'name' => __( 'Footer Widget 3', 'fmc' ),
-        'id' => 'footer-3',
-        'description' => __( 'Displays in the footer', 'fmc' ),
-        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-        'after_widget' => '</aside>',
-        'before_title' => '<h3 class="widget-title">',
-        'after_title' => '</h3>',
-    ) );
-
-    register_sidebar( array(
-        'name' => __( 'Footer Widget 4', 'fmc' ),
-        'id' => 'footer-4',
-        'description' => __( 'Displays in the footer', 'fmc' ),
-        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-        'after_widget' => '</aside>',
-        'before_title' => '<h3 class="widget-title">',
-        'after_title' => '</h3>',
-    ) );
-
-	register_sidebar( array(
-        'name' => __( 'Copyright', 'fmc' ),
-        'id' => 'copy',
-        'description' => __( 'Displays in the footer', 'fmc' ),
-        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-        'after_widget' => '</aside>',
-        'before_title' => '<h3 class="widget-title">',
-        'after_title' => '</h3>',
-    ) );
-}
-add_action( 'widgets_init', 'fmc_widgets_init' );
-
 /**
  * Enqueue scripts and styles.
  */
@@ -221,6 +133,11 @@ require get_template_directory() . '/includes/template-tags.php';
  * Functions which enhance the theme by hooking into WordPress.
  */
 require get_template_directory() . '/includes/template-functions.php';
+
+// Include Widgets
+
+require get_template_directory() . '/includes/widgets-ads.php';
+
 
 /**
  * Customizer additions.
@@ -276,12 +193,12 @@ function create_posttype() {
                 'view_item' => 'View Recipe',
                 'edit_item' => 'Edit Recipe',
                 'all_items' => 'All Recipes',
-                'singular_name' => 'Recipe'
+                'singular_name' => 'Recipe',
             ),
             'supports' => array('title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions'),
             'taxonomies'  => array( 'recipe-category', 'category' ),
             'public' => true,
-            'has_archive' => false,
+            'has_archive' => true,
             'rewrite' => array('slug' => 'recipes'),
             'show_in_rest' => false,
             'menu_icon' => 'dashicons-food'
@@ -347,8 +264,8 @@ function register_acf_blocks() {
  * Comment Form Placeholder Author, Email, URL
  */
 function placeholder_author_email_url_form_fields($fields) {
-    $replace_author = __('Your Name', 'fmc');
-    $replace_email = __('Your Email', 'fmc');
+    $replace_author = __('Your Name*', 'fmc');
+    $replace_email = __('Your Email*', 'fmc');
 
     $fields['author'] = '<p class="comment-form-author">' . '<label for="author">' . __( 'Name', 'fmc' ) . '</label> ' . ( $req ? '<span class="required">*</span>' : '' ) .
                     '<input id="author" name="author" type="text" placeholder="'.$replace_author.'" value="' . esc_attr( $commenter['comment_author'] ) . '" size="20"' . $aria_req . ' /></p>';
@@ -393,6 +310,18 @@ function admin_styles() {
 	.wp-admin .wp-block {
 		max-width: 90%;
 	}
+	.wp-admin .postbox.acf-postbox div.acf-field-tab, .acf-settings-wrap div.acf-field-tab {
+		display: block!important;
+		font-size: 0;
+		height: 0;
+		padding: 0!important;
+		opacity: 0;
+		pointer-events: none;
+
+	  }
+	  .wp-admin .postbox.acf-postbox div.acf-field-tab *, .acf-settings-wrap div.acf-field-tab * {
+		pointer-events: none!important;
+	  }
   </style>';
 }
 

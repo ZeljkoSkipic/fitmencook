@@ -12,25 +12,6 @@
 ?>
 
 <footer class="fmc_footer">
-		<div class="fmc_footer_app">
-			<div class="fmc_container">
-				<div class="fmc_fa_inner">
-					<div class="fmc_fa_content">
-						<?php dynamic_sidebar( 'app-left' ); ?>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="fmc_footer_before">
-			<div class="fmc_container spacing_1_2">
-				<div class="fmc_fb_left">
-					<?php dynamic_sidebar( 'footer-before-1' ); ?>
-				</div>
-				<div class="fmc_fb_right">
-					<?php dynamic_sidebar( 'footer-before-2' ); ?>
-				</div>
-			</div>
-		</div>
 		<div class="fmc_footer_main">
 			<div class="fmc_container spacing_2_1">
 				<div class="fmc_footer_col">
@@ -44,6 +25,9 @@
 				</div>
 				<div class="fmc_footer_col">
 					<?php dynamic_sidebar( 'footer-4' ); ?>
+				</div>
+				<div class="fmc_footer_col">
+					<?php dynamic_sidebar( 'footer-5' ); ?>
 				</div>
 			</div>
 		</div>

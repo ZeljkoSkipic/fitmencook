@@ -1,70 +1,106 @@
 /* Archive and Category general */
 
-
-.fmc_archive_categories {
-}
-.fmc_archive_categories_inner {
- 	background: linear-gradient(180deg, #f8f8f8 calc(100% - 2.375rem), rgba(0,0,0,0) calc(100% - 2.2rem));
-	.carousel-cell {
-		width: 22rem;
-		height: 28.5rem;
-		display: flex;
-	}
-	.fmc_archive_cat {
-		border-top: 2px solid transparent;
-		border-bottom: 3px solid transparent;
-		opacity: .6;
-		border-top: 2px solid transparent;
-		border-bottom: 3px solid transparent;
-		transform: scale(.8);
-		filter: grayscale(1);
-		transition: var(--site-transition);
-		margin-bottom: 2.2rem;
-		width: 100%;
-		justify-content: start;
-		&::after {
-			content: "";
-			position: absolute;
-			width: 0;
-			height: 0;
-			left: calc(50% - 3.2rem);
-			border-style: solid;
-			border-width: 2.2rem 3.2rem 0 3.2rem;
-			border-color: var(--color-1) transparent transparent transparent;
-			bottom: calc(-2.2rem - 1px);
-			opacity: 1;
-			transition: var(--site-transition);
-			z-index: 9;
-			opacity: 0;
+.fmc_featured_post {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: var(--spacing-1);
+	@include tab-min {
+		> div {
+			width: 48%;
 		}
-		&.current_cat, &:hover {
-			opacity: 1;
-			filter: grayscale(0);
-			transform: scale(1);
-			background-color: #fff;
-			border-color: var(--color-1);
-			&:after {
-				opacity: 1;
+	}
+	@include mob-only {
+		flex-direction: column;
+		.fmc_featured_left {
+			margin-bottom: var(--spacing-3);
+		}
+	}
+	@include tab-max {
+		.fmc_featured_macros {
+			width: 100%;
+			max-width: 100%;
+		}
+	}
+	@include limbo-max {
+		.fmc_featured_macros {
+			padding: 14px 24px;
+			.rg_m_title {
+				font-size: 14px;
+			}
+			.rg_m_amount {
+				font-size: 20px;
 			}
 		}
+	}
+	.fmc_featured_left {
+		@include tab-min {
+			height: 42rem;
+		}
 		img {
-			width: 10rem;
-			margin: 0 auto;
-		}
-		figcaption {
-			text-align: center;
-			margin-top: 2rem;
-			margin-bottom: 2rem;
-			font-size: 2.2rem;
-			color: #717581;
-		}
-		a {
-			padding: 5rem 1.5rem 4.2rem;
-			display: flex;
-			flex-direction: column;
-			height: calc(100% - 2.2rem);
+			height: 100%;
+			width: 100%;
+			border-radius: 16px;
 		}
 	}
+	.fmc_featured_right {
+		display: flex;
+		height: 100%;
+		flex-direction: column;
+	}
+	.fmc_featured_prefix {
+		text-transform: uppercase;
+		color: var(--misc-color);
+		font-weight: 700;
+		font-size: 12px;
+		margin-bottom: var(--spacing-3);
+		display: block;
+	}
+	.fmc_grid_meta {
+		margin-bottom: 16px;
+	}
+	.fmc_featured_rating {
+		margin-top: var(--spacing-3);
+		margin-bottom: var(--spacing-3);
+	}
+	.fmc_featured_text {
+		margin-top: var(--spacing-3);
+	}
+	.fmc_featured_prep {
+		font-size: 16px;
+		line-height: 22px;
+		margin-bottom: 0;
+    	margin-top: auto;
+		background-image: url(assets/icons/clock.svg);
+		background-repeat: no-repeat;
+		background-position: center left;
+		padding-left: 32px;
+		background-size: 20px;
+		span {
+			font-weight: 700;
+		}
+		.fmc_time {
+			color: var(--misc-color);
+		}
+	}
+}
+
+.archive, .blog {
+	.fmc_blog_archive_main {
+		display: flex;
+		flex-wrap: wrap;
+		@include limbo-min {
+			width: 64%;
+			.fmc_post {
+				width: 49%;
+			}
+		}
+	}
+	.fmc_post {
+		&:nth-child(odd) {
+			margin-right: 2%;
+		}
+	}
+
 }
 
 .fmc_archive_wrap {
@@ -75,36 +111,49 @@
 }
 
 /* Pagination */
-
+.fmc_pagination_wrap {
+	width: 100%;
+}
 .pagination ul {
 	display: flex;
 	justify-content: center;
+	@include clean-list;
 	li {
+		display: flex;
+		justify-content: center;
+		align-items: center;
 		&:not(:last-child) {
 			margin-right: 1rem;
 		}
-		&:not(.prev):not(.next) {
-			background-color: var(--color-2);
+		&.active {
 			a {
-				width: 100%;
-				height: 100%;
-				color: #fff;
-			}
-			&.active {
-				background-color: var(--color-1);
+				background-color: var(--color-5);
 			}
 		}
 		a {
 			display: flex;
 			padding: 1rem;
-			font-size: 2rem;
+			font-size: 15px;
+			font-weight: 700;
+			border-radius: 20px;
+			width: 40px;
+			height: 40px;
+			justify-content: center;
+			align-items: center;
 		}
-	}
-}
-
-
-@media (min-width: 481px) and (max-width: 1199.5px) {
-	.fmc_recipe {
-		width: 48%;
+		&.prev, &.next {
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: 20px;
+			a {
+				font-size: 0;
+			}
+		}
+		&.prev {
+			background-image: url(assets/icons/pagination-left.svg);
+		}
+		&.next {
+			background-image: url(assets/icons/pagination-right.svg);
+		}
 	}
 }

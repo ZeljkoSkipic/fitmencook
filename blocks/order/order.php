@@ -18,7 +18,7 @@ if ( ! empty( $block['className'] ) ) {
 
 ?>
 
-<div class="fmc_post_order">
+<div class="fmc_post_order spacing_1_0">
 	<h2><?php echo $title ?></h2>
 	<?php
 	if( $image ) {

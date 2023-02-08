@@ -1,3 +1,8 @@
+.asp_main_container {
+	box-shadow: 0px 20px 40px rgba(52, 64, 84, 0.08)!important;
+	border: 1px solid #F2F4F7!important;
+}
+
 .fmc_search_hero {
 	background-color: var(--color-3);
 	padding-top: 12rem;
@@ -18,22 +23,7 @@
 
 
 @include limbo-min {
-	.prosettings {
-		width: 125px!important;
-		flex: 0 0 125px!important;
-		z-index: 9999999!important;
-		.innericon {
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			&::after {
-				content: "Filter";
-				margin-left: 10px;
-				color: var(--color-1);
-				font-size: 18px;
-			}
-		}
-	}
+
 }
 @include tab-only {
 	.prosettings, .promagnifier {

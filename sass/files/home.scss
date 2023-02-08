@@ -1,46 +1,29 @@
-.home, .search-results {
-	#main-content {
-		@include limbo-min {
-			&::before {
-				content: "";
-				width: 100%;
-				height: 100%;
-				position: absolute;
-				top: 0;
-				left: 0;
-				background-image: url(assets/images/home-top-left.png);
-				background-repeat: no-repeat;
-				pointer-events: none;
-				z-index: 1;
-				background-size: 23% auto;
-			}
-			&::after {
-				content: "";
-				width: 100%;
-				height: 100%;
-				position: absolute;
-				top: 0;
-				right: 0;
-				background-image: url(assets/images/home-top-right.png);
-				background-repeat: no-repeat;
-				pointer-events: none;
-				background-position: top right;
-				background-size: 23% auto;
+.home {
+	/* Featured Products */
+	.fmc_home_products {
+		.fmc_home_p_inner {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			@include tab-max {
+				padding-bottom: 0;
 			}
 		}
-	}
-}
-.home {
-	.fmc_main_title {
-		text-align: center;
+		.fmc_container {
+			text-align: center;
+		}
 	}
 	.fmc_product {
-		background: linear-gradient(180deg, rgba(0, 0, 0, 0) 10rem, #fff 10rem);
-		width: 18%;
-		max-width: 300px;
+		width: 23%;
+		border: 2px solid #F2F4F7;
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
+		border-radius: 16px;
+		padding: 24px;
+		transition: var(--site-transition);
+		&:hover {
+			box-shadow: 0px 20px 40px rgba(52, 64, 84, 0.08);
+		}
 		@include limbo-min {
 			&:not(:last-child) {
 				margin-right: 2.5%;
@@ -61,51 +44,37 @@
 			margin: 0 auto 4%;
 		}
 		figure {
-			position: relative;
-			max-width: 90%;
-			margin-left: auto;
-			margin-right: auto;
 			height: 25rem;
-			text-align: center;
-			margin-bottom: auto;
 			margin-top: 0;
+			text-align: center;
 			img {
 				max-height: 100%;
 				max-width: 100%;
 				object-fit: contain;
+
+				object-position: top;
 			}
 		}
-		h3 {
-			text-align: center;
-			font-size: 19px;
-			line-height: 1.57;
-			margin: 3rem auto 1rem;
-			width: 90%;
-			@include mob-only {
-				font-size: 18px;
-			}
-		}
-		span {
-			width: 100%;
-			text-align: center;
-			display: block;
-			margin-bottom: 2rem;
-			font-size: 2.2rem;
-			color: var(--color-2);
-			@include tab-max {
-				font-size: 18px;
-				margin-top: 8px;
-				margin-bottom: 13px;
-			}
-		}
-		.bn_btn {
-			background-color: var(--color-1);
-			color: #fff;
+		.fmc_product_grid_bottom {
 			display: flex;
-			justify-content: center;
+			justify-content: space-between;
 			align-items: center;
-			height: 7rem;
-			font-size: 2.2rem;
+			margin-top: 24px;
+			@include limbo-only {
+				flex-direction: column;
+				margin-top: auto;
+				padding-top: 24px;
+				span {
+					margin-bottom: var(--spacing-3);
+				}
+			}
+			span {
+				font-size: 2.4rem;
+				line-height: 1.375;
+				font-weight: 800;
+			}
+		}
+		.fmc_btn {
 			@include tab-max {
 				font-size: 16px;
 			}
@@ -117,115 +86,224 @@
 		text-transform: uppercase;
 		color: var(--color-2);
 	}
+	.fmc_title_1, .fmc_title_2 {
+		text-align: left;
+	}
 }
 
 
 /* Hero */
 .fmc_home_hero {
-	background-color: var(--color-3);
-	padding-top: 10rem;
-	padding-bottom: 10rem;
 	.fmc_container {
 		z-index: 2;
 		position: relative;
+		@include limbo-min {
+			display: grid;
+			grid-template-columns: repeat(20, 1fr);
+		}
+		@include tab-max {
+			display: flex;
+			flex-direction: column;
+			.asp_w_container {
+				display: none;
+			}
+		}
 	}
 	.fmc_hero_text {
-		text-align: center;
-		max-width: 85rem;
-		margin-left: auto;
-		margin-right: auto;
 		.fmc_hh_title {
-			color: var(--color-1);
-			font-size: 2.3rem;
-			text-transform: uppercase;
-			margin-bottom: 1rem;
+			margin-bottom: var(--spacing-3);
 			@include mob-only {
-				font-size: 17px;
-				margin-bottom: 12px;
+				display: none;
 			}
 		}
 		.fmc_hh_subtitle {
-			font-size: 6.5rem;
+			font-size: 6.4rem;
+			line-height: 1.1;
 		}
 		.fmc_hh_text {
-			font-size: 2.5rem;
+			font-size: 20px;
+			margin-bottom: var(--padding-2);
+			margin-bottom: 4rem;
 		}
 	}
-}
-
-
-/* Top Products */
-
-.fmc_home_top_products {
-	background-color: var(--color-3);
-	margin-bottom: 7rem;
-	.fmc_home_tp_inner {
-		display: flex;
-		justify-content: space-evenly;
-		flex-wrap: wrap;
+	.fmc_hero_apps {
+		margin-top: 9rem;
+		@include tab-max {
+			margin-top: var(--spacing-1);
+			text-align: center;
+		}
+		h5 {
+			font-size: 15px;
+			color: var(--link-color);
+			font-family: Nunito;
+			margin-bottom: 16px;
+		}
+		.fmc_hero_icons {
+			display: flex;
+			justify-content: space-between;
+			@include limbo-min {
+				width: 45%;
+			}
+			@include tab-max {
+				max-width: 400px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			figure {
+				width: 48%;
+			}
+		}
+	}
+	.fmc_hh_left {
+		grid-column: 1 / 10;
+		grid-row: 1 / 2;
+		z-index: 2;
+		padding-top: 9rem;
+		padding-bottom: 3.5rem;
+		@include mob-only {
+			padding-top: var(--spacing-1);
+		}
+	}
+	.fmc_hh_right {
+		grid-column: 6 / 21;
+		grid-row: 1 / 2;
+		z-index: 1;
 		position: relative;
-		max-width: 1600px;
-		width: 95%;
-		margin-left: auto;
-		margin-right: auto;
-		@include limbo-min {
-			bottom: -7rem;
+		@include mob-only {
+			margin-left: -25px;
+			margin-right: -25px;
+		}
+		@include limbo-max {
+			padding: var(--spacing-1);
+			padding-top: 20rem;
+		}
+		.fmc_hh_recipe {
+			@include limbo-min {
+				position: absolute;
+				bottom: 30px;
+				right: 25px;
+			}
+			background-color: #fff;
+			border-radius: 16px;
+			max-width: 344px;
+			border: 2px solid var(--color-4);
+			display: flex;
+			z-index: 1;
+			margin-left: auto;
+		}
+		.fmc_hr_left {
+			padding: 16px 24px;
+		}
+		.fmc_hr_right {
+			border-left: 2px solid var(--color-4);
+			a {
+				width: 100%;
+				height: 100%;
+				padding: 16px 7px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				border-radius: 0 16px 16px 0;
+				transition: var(--site-transition);
+				&:hover {
+					background-color: var(--color-1);
+					svg {
+						stroke: #fff;
+					}
+				}
+			}
 		}
 	}
 }
-
 
 /* Newsletter */
 
 .fmc_newsletter {
-	.fmc_container {
-		box-shadow: 5px 0 21px rgba(0,0,0,.21);
-		position: relative;
-		&::before {
-			content: "";
-			width: 16.5%;
-			background-image: url(assets/images/newsletter-bottom-left.png);
-			background-size: contain;
-			position: absolute;
-			height: 100%;
-			left: 0;
-			bottom: 0;
-			background-repeat: no-repeat;
-			background-position: left bottom -5rem;
+	* {
+		color: #fff;
+	}
+	.img_bg {
+		bottom: 0;
+		right: 0;
+		pointer-events: none;
+		top: unset;
+		width: 60%;
+		left: auto;
+		@include limbo-min {
+			height: calc(100% + 36px);
 		}
-		&::after {
-			content: "";
-			width: 20%;
-			background-image: url(assets/images/newsletter-top-right.png);
-			background-size: contain;
-			position: absolute;
-			height: 100%;
-			right: 0;
-			top: 0;
-			background-repeat: no-repeat;
-			background-position: right -3rem top -3rem;
+		@include tab-only {
+			width: 40%;
+		}
+		@include mob-only {
+			height: 40rem;
+		}
+		img {
+			object-fit: contain;
+			object-position: bottom right;
+		}
+	}
+	.fmc_container {
+		position: relative;
+		background: linear-gradient(45deg, #101828 0%, #475467 100%);
+		border-radius: 16px;
+		padding: 8rem 0 8rem 7rem;
+		@include mob-only {
+			padding-bottom: 40rem;
 		}
 		.fmc_newsletter_inner {
-			padding: 6rem 22rem;
+			@include limbo-min {
+				max-width: 55rem;
+				width: 50%;
+			}
+			@include tab-only {
+				width: 70%;
+			}
+		}
+		.nl_prefix {
+			font-size: 12px;
+			font-weight: 800;
+			text-transform: uppercase;
+			margin-bottom: 12px;
+			display: block;
 		}
 		h2 {
-			text-align: center;
-			color: var(--color-2);
-			font-size: 4rem;
-			margin-bottom: 1rem;
+			color: #fff;
 		}
-		h3 {
-			font-size: 5rem;
-			text-align: center;
-			margin-bottom: 2rem;
+		.nl_content {
+			font-size: 18px;
+			font-weight: 500;
+			margin-bottom: 4rem;
+			@include tab-min {
+				width: 70%;
+			}
 		}
-		div {
-			font-size: 2.4rem;
-			text-align: center;
-			margin-bottom: 2rem;
-			&:last-child {
-				border: 2px solid #dadada;
-				margin-bottom: 0;
+		.nl_input {
+			background-color: #fff;
+			padding: 3px;
+			border: 1px solid #F2F4F7;
+			box-shadow: 0px 8px 16px rgba(52, 64, 84, 0.08);
+			border-radius: 8px;
+			display: flex;
+			justify-content: space-between;
+			@include tab-min {
+				width: 80%;
+			}
+			@include mob-only {
+				width: 90%;
+			}
+			input {
+				padding: 12px;
+				border: none;
+				font-size: 15px;
+				line-height: 20px;
+			}
+			a {
+				background-color: var(--color-1);
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				border-radius: 8px;
 			}
 		}
 	}
@@ -234,101 +312,113 @@
 /* Featured Recipes */
 
 .fmc_home_featured_recipes {
-	.carousel .flickity-viewport {
-		position: absolute;
-		width: 100%;
-	  }
-	  .carousel-cell {
-		width: 18rem;
-		height: 28.5rem;
+	.fmc_container {
+		text-align: center;
+	}
+}
+
+
+.fmc_category_track {
+	width: 100%;
+	/* enable Flickity by default */
+	.carousel-home:after {
+		content: 'flickity';
+		display: none; /* hide :after */
+	}
+
+	@include limbo-min {
+		/* disable Flickity for large devices */
+		.carousel-home:after {
+		content: '';
+		}
+	}
+	.fmc_ct_inner {
+		justify-content: space-between;
+		margin-left: auto;
+		margin-right: auto;
+		flex-wrap: wrap;
 		display: flex;
-	  }
-	  .flickity-prev-next-button.next {
-		right: -7rem;
-	  }
-	  .flickity-prev-next-button.previous {
-		left: -7rem;
-	  }
-	  @include limbo-max {
-		.flickity-prev-next-button.next {
-			display: none;
-		  }
-		  .flickity-prev-next-button.previous {
-			display: none;
-		  }
-	  }
-	.fmc_category_track {
-		background: linear-gradient(180deg, #f8f8f8 calc(100% - 2.375rem), rgba(0,0,0,0) calc(100% - 2.2rem));
-		.fmc_ct_inner {
-			justify-content: space-around;
-			margin-left: auto;
-			margin-right: auto;
-			flex-wrap: wrap;
-			> a {
-				max-width: calc(100% / 7);
-				height: calc(100% - 2.2rem);
+		@include tab-max {
+			flex-direction: column;
+		}
+	}
+	@include mob-only {
+		.carousel-home {
+			margin-left: -25px;
+			margin-right: -25px;
+		}
+	}
+	figure {
+		position: relative;
+		text-align: center;
+		border-radius: 16px;
+		background-color: #fff;
+		height: fit-content;
+		img {
+			object-fit: contain;
+		}
+		@include limbo-min {
+			width: calc(100% / 6 - 25px);
+			border: 2px solid rgba(255, 255, 255, 0);
+			transition: var(--site-transition);
+			img {
+				height: 80px;
 			}
 		}
-		figure {
-			padding: 5rem 1.5rem 4.2rem;
-			position: relative;
-			transition: var(--site-transition);
-			width: 100%;
-			max-width: 22rem;
-			margin-bottom: 2.2rem;
-			text-align: center;
-			img, picture {
-				width: 11rem;
-				height: 11rem;
-				border-radius: 200px;
-			}
+		@include tab-only {
+			margin-left: 2rem;
+			margin-right: 2rem;
 			img {
-				object-fit: cover;
+				height: 70px;
 			}
-			figcaption {
-				text-align: center;
-				margin-top: 2rem;
-				font-size: 2.2rem;
-				color: #717581;
+		}
+		@include mob-only {
+			img {
+				height: 50px;
 			}
-			&::before {
-				content: "";
-				position: absolute;
-				top: 0;
-				left: -10px;
-				bottom: 0;
-				right: -10px;
-				background-color: #fff;
-				z-index: -1;
-				opacity: 0;
-				border-top: 2px solid var(--color-1);
-				border-bottom: 3px solid var(--color-1);
+		}
+		a {
+			@include desk-min {
+				padding: 3rem 4.3rem;
+			}
+			display: flex;
+			flex-direction: column;
+			@include limbo-max {
+				padding: 1.5rem 2rem;
+			}
+		}
+		svg {
+			object-fit: contain;
+			height: 75px;
+		}
+		figcaption {
+			text-align: center;
+			margin-top: 2rem;
+			font-size: 18px;
+			font-weight: 700;
+			color: var(--link-color);
+			@include mob-only {
+				font-size: 16px;
+			}
+		}
+		svg {
+			margin: auto;
+			path {
 				transition: var(--site-transition);
 			}
-			&:after {
-				content: "";
-				position: absolute;
-				width: 0;
-				height: 0;
-				left: calc(50% - 3.2rem);
-				border-style: solid;
-				border-width: 2.2rem 3.2rem 0 3.2rem;
-				border-color: var(--color-1) transparent transparent transparent;
-				bottom: -2.2rem;
-				opacity: 0;
-				transition: var(--site-transition);
+		}
+		&:hover {
+			border-color: var(--color-4);
+			@include limbo-min {
+				box-shadow: 0px 20px 40px rgba(52, 64, 84, 0.08);
 			}
-			&:hover {
-				&:after {
-					opacity: 1;
-				}
-				&::before {
-					opacity: 1;
+			svg {
+				path {
+					fill: var(--color-1);
 				}
 			}
 		}
 	}
-
 }
 
 .fmc_recipe_grid {
@@ -336,45 +426,73 @@
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-between;
-		@include limbo-only {
-			.fmc_recipe {
-				&:nth-child(4) {
-					display: none;
-				}
-			}
-		}
-		h3 {
-			@include mob-only {
-				font-size: 18px;
-			}
+		@include tab-max {
+			padding-bottom: 0;
 		}
 	}
-	.fmc_btn {
-		margin-left: auto;
-		margin-right: auto;
-	}
-}
-
-
-/* Featured Products */
-
-.fmc_home_featured_products {
-	background-color: var(--color-3);
-	.fmc_home_fp_inner {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: space-between;
-		.fmc_product {
-			width: 23%;
-		}
-	}
-	.fmc_btn {
-		margin-left: auto;
-		margin-right: auto;
+	.fmc_container {
+		text-align: center;
 	}
 }
 
 /* Latest Blog */
+
+.home {
+	.fmc_latest_blog {
+		.fmc_latest_blog_inner {
+			@include limbo-min {
+				.fmc_post {
+					&:nth-child(2), &:nth-child(3) {
+						margin-right: 2%!important;
+					}
+					&:first-child {
+						width: 100%;
+						display: flex;
+						figure {
+							width: 50%;
+							height: 42rem;
+							margin-bottom: 0;
+						}
+						.fmc_post_content {
+							width: 50%;
+							padding-left: var(--spacing-2);
+						}
+						.fmc_grid_title {
+							margin-bottom: 2.4rem;
+							a {
+								font-size: 4.8rem;
+								line-height: 1.17;
+								font-family: Alpino;
+							}
+						}
+						.fmc_post_meta {
+							display: flex;
+							margin-top: auto;
+							figure {
+								width: 48px;
+								height: 48px;
+								margin-right: 12px;
+								img {
+									border-radius: 48px;
+								}
+							}
+						}
+					}
+				}
+			}
+			.fmc_post:first-child {
+				@include tab-max {
+					.author_img, .author_name {
+						display: none;
+					}
+					.fmc_grid_text {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+}
 
 .fmc_latest_blog {
 	.fmc_latest_blog_inner {
@@ -386,126 +504,72 @@
 
 
 /* Global Post layout */
-.fmc_post {
-	width: 30%;
-	box-shadow: 0px 0px 45px 0px rgba(0, 0, 0, .07);
-	@include desk-min {
-		&:not(:nth-child(3n + 3)) {
-			margin-right: calc(5% - 6px);
-		}
-		margin-bottom: calc(5% - 6px);
-	}
-	.fmc_post_content {
-		padding: 3rem;
-		border-top: none;
-	}
-	.featured_img {
-		@include tab-min {
-			height: 26rem;
-		}
-		img {
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
-		}
-	}
-	.cat {
-		background-color: var(--color-1);
-		display: flex;
-		padding: 1rem;
-		justify-content: center;
-		text-transform: uppercase;
-		a {
-			color: #fff;
-			@include mob-only {
-				font-size: 14px;
+
+body:not(.archive):not(.blog) {
+	.fmc_post {
+		@include limbo-min {
+			width: 32%;
+			&:not(:last-child) {
+				margin-right: 2%;
 			}
-		}
-	}
-	h3 {
-		text-align: center;
-		font-size: 20px;
-		line-height: 1.5;
-		@include mob-only {
-			font-size: 18px;
-		}
-		a {
-			color: #030303;
-		}
-	}
-	.author_img {
-		width: 4.5rem;
-		height: 4.5rem;
-		margin: 3rem auto;
-		border-radius: 4.5rem;
-		img {
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
-			border-radius: 4.5rem;
-		}
-		@include mob-only {
-			width: 40px;
-			height: 40px;
-		}
-	}
-	.author_name {
-		display: block;
-		text-align: center;
-		font-size: 1.8rem;
-		@include mob-only {
-			font-size: 16px;
-		}
-	}
-	.post_date {
-		display: block;
-		text-align: center;
-		font-size: 2rem;
-		font-weight: 700;
-		margin-top: 1rem;
-		@include mob-only {
-			font-size: 13px;
 		}
 	}
 }
 
-/* Ideas */
-
-.fmc_home_ideas {
-	background-color: #fafafa;
-	.fmc_home_idea {
+.fmc_post {
+	margin-bottom: var(--spacing-2);
+	@include tab-only {
+		width: 49%;
+		.fmc_grid_figure {
+			height: 40rem;
+		}
+		&:nth-child(odd) {
+			margin-right: 2%;
+		}	}
+	@include mob-only {
+		width: 100%;
+	}
+	.fmc_post_content {
 		display: flex;
-		justify-content: space-between;
-		border-bottom: 1px solid #969696;
-		padding: 4.5rem 0;
-		.fmc_hi_left {
-			padding-top: 2rem;
-			h3 {
-				font-size: 3rem;
-				margin-top: 2rem;
-				margin-bottom: 3rem;
-			}
+		flex-direction: column;
+	}
+	.fmc_grid_figure {
+		@include limbo-min {
+			height: 27rem;
 		}
-		.fmc_hi_right {
-			img {
-				width: 100%;
-				height: 100%;
-				object-fit: cover;
-			}
+		img, picture {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			border-radius: 16px;
 		}
-		@include tab-min {
-			.fmc_hi_left {
-				width: 50%;
-			}
-			.fmc_hi_right {
-				width: 35%;
-			}
+	}
+	&:not(:first-child) {
+		.author_img, .author_name {
+			display: none;
 		}
-		@include mob-only {
-			flex-direction: column-reverse;
-			h3 {
-				font-size: 18px!important;
-			}
+		.fmc_grid_text {
+			display: none;
 		}
+	}
+	.author_name {
+		font-size: 16px;
+		color: var(--text-1);
+	}
+	.fmc_post_meta {
+		margin-top: 16px;
+	}
+	.fmc_pm_right {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		* {
+			font-weight: 700;
+		}
+	}
+	.post_date {
+		font-size: 14px;
+		line-height: 19px;
+		color: var(--misc-color);
 	}
 }

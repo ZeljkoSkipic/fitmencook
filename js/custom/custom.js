@@ -38,14 +38,17 @@ $( ".fmc_header ul > li a" ).click(function() {
 	$( this ).siblings('.sub-menu').slideToggle();
   });
 
-// Home Carousel
+ // Home Carousel
 
 $('.carousel-home').flickity({
   // options
 	pageDots: false,
 	cellAlign: 'left',
+	watchCSS: true,
+	wrapAround: true,
+	prevNextButtons: false
 });
-
+/*
 // Category Carousel
 
 $('.carousel-category').flickity({
@@ -55,7 +58,7 @@ $('.carousel-category').flickity({
 	pageDots: false,
 	prevNextButtons: false,
 	initialIndex: 5
-});
+}); */
 
 // Sticky Recipe Video
 (function($) {
@@ -79,3 +82,11 @@ $('.carousel-category').flickity({
 }(jQuery));
 
 });
+
+
+const observer = new IntersectionObserver(
+	([e]) => e.target.toggleAttribute('stuck', e.intersectionRatio < 1),
+	{threshold: [1]}
+  );
+
+  observer.observe(document.querySelector('.fmc_mobile_header'));

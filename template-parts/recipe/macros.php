@@ -16,6 +16,8 @@ $sodium = get_field('sodium');
 $fiber = get_field('fiber');
 $sugar = get_field('sugar');
 
+$macros_title = get_field('macros_title', 'option');
+
 $l_calories = get_field('l_calories', 'option');
 $l_protein = get_field('l_protein', 'option');
 $l_fat = get_field('l_fat', 'option');
@@ -27,12 +29,27 @@ $l_sugar = get_field('l_sugar', 'option');
 ?>
 
 
-<div class="fmc_container fmc_macros" id="fmc_gtr">
-	<div class="fmc_macro"><div class="fmc_macro_inner"><?php echo $l_calories ?><span><?php echo $calories ?></span></div></div>
-	<div class="fmc_macro"><div class="fmc_macro_inner"><?php echo $l_protein ?><span><?php echo $protein ?></span></div></div>
-	<div class="fmc_macro"><div class="fmc_macro_inner"><?php echo $l_fat ?><span><?php echo $fat ?></span></div></div>
-	<div class="fmc_macro"><div class="fmc_macro_inner"><?php echo $l_carbs ?><span><?php echo $carbs ?></span></div></div>
-	<div class="fmc_macro"><div class="fmc_macro_inner"><?php echo $l_sodium ?><span><?php echo $sodium ?></span></div></div>
-	<div class="fmc_macro"><div class="fmc_macro_inner"><?php echo $l_fiber ?><span><?php echo $fiber ?></span></div></div>
-	<div class="fmc_macro"><div class="fmc_macro_inner"><?php echo $l_sugar ?><span><?php echo $sugar?></span></div></div>
+<div class="fmc_macros">
+	<h4 class="fmc_rs_title fmc_macros_title"><?php echo $macros_title; ?></h4>
+	<?php if($protein) { ?>
+		<div class="fmc_macro"><?php echo $l_protein ?><span><?php echo $protein ?>g</span></div>
+	<?php } ?>
+	<?php if($fat) { ?>
+		<div class="fmc_macro"><?php echo $l_fat ?><span><?php echo $fat ?>g</span></div>
+	<?php } ?>
+	<?php if($carbs) { ?>
+		<div class="fmc_macro"><?php echo $l_carbs ?><span><?php echo $carbs ?>g</span></div>
+	<?php } ?>
+	<?php if($sodium) { ?>
+		<div class="fmc_macro"><?php echo $l_sodium ?><span><?php echo $sodium ?>g</span></div>
+	<?php } ?>
+	<?php if($fiber) { ?>
+		<div class="fmc_macro"><?php echo $l_fiber ?><span><?php echo $fiber ?>g</span></div>
+	<?php } ?>
+	<?php if($sugar) { ?>
+		<div class="fmc_macro"><?php echo $l_sugar ?><span><?php echo $sugar?>g</span></div>
+	<?php } ?>
+	<?php if($calories) { ?>
+		<div class="fmc_macro"><?php echo $l_calories ?><span><?php echo $calories ?>cal</span></div>
+	<?php } ?>
 </div>

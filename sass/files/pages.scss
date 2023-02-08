@@ -1,8 +1,4 @@
 .page {
-	font-size: 19px;
-	@include tab-max {
-		font-size: 16px;
-	}
 	&.page-template-default {
 		.site-main {
 			padding-top: 7rem;

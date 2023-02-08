@@ -32,93 +32,85 @@ if ( post_password_required() ) {
 }
 ?>
 <div id="product-<?php the_ID(); ?>" <?php wc_product_class( '', $product ); ?>>
-	<div class="fmc_product_main spacing_1">
-	<div class="fmc_container">
-		<?php
-		/**
-		 * Hook: woocommerce_before_single_product_summary.
-		 *
-		 * @hooked woocommerce_show_product_sale_flash - 10
-		 * @hooked woocommerce_show_product_images - 20
-		 */
-		do_action( 'woocommerce_before_single_product_summary' );
-		?>
-
-		<div class="summary entry-summary">
+	<div class="fmc_product_wrap spacing_2 fmc_container">
+		<div class="fmc_product_left">
+		<?php if ( function_exists('yoast_breadcrumb') ) {
+			yoast_breadcrumb( '<div class="fmc_breadcrumbs spacing_0_2">','</div>' );
+		} ?>
+		<div class="fmc_product_main spacing_0_1">
 			<?php
 			/**
-			 * Hook: woocommerce_single_product_summary.
+			 * Hook: woocommerce_before_single_product_summary.
 			 *
-			 * @hooked woocommerce_template_single_title - 5
-			 * @hooked woocommerce_template_single_rating - 10
-			 * @hooked woocommerce_template_single_price - 10
-			 * @hooked woocommerce_template_single_excerpt - 20
-			 * @hooked woocommerce_template_single_add_to_cart - 30
-			 * @hooked woocommerce_template_single_meta - 40
-			 * @hooked woocommerce_template_single_sharing - 50
-			 * @hooked WC_Structured_Data::generate_product_data() - 60
+			 * @hooked woocommerce_show_product_sale_flash - 10
+			 * @hooked woocommerce_show_product_images - 20
 			 */
-			do_action( 'woocommerce_single_product_summary' );
+			do_action( 'woocommerce_before_single_product_summary' );
 			?>
-		</div>
-	</div>
-	</div>
-	<div class="fmc_container fmc_whats_inside spacing_1">
-		<h2 class="fmc_main_title title_spacing_2"><?php the_field('whats_inside_text', 'option'); ?></h2>
-		<?php
-		$wi_image = get_field('wi_image');
-		$size = 'full';
-		if( $wi_image ) {
-			echo wp_get_attachment_image( $wi_image, $size );
-		}
-		?>
-	</div>
-	<div class="fmc_product_why spacing_1">
-		<div class="fmc_container">
-		<h2 class="fmc_main_title title_spacing_1"><?php the_field('wcfmc_title', 'option'); ?></h2>
-		<div class="fmc_product_why_inner">
-		<?php
 
-		// Check rows existexists.
-		if( have_rows('why_choose_fmc') ):
-
-			// Loop through rows.
-			while( have_rows('why_choose_fmc') ) : the_row();
-
-				// Load sub field value.
-				$icon = get_sub_field('icon');
-				$size = 'full';
-				$title = get_sub_field('title');
-				$text = get_sub_field('text'); ?>
-				<div class="fmc_product_why_ib">
+			<div class="summary entry-summary">
 				<?php
-					if( $icon ) {
-						echo wp_get_attachment_image( $icon, $size );
-					} ?>
-					<h4><?php echo $title; ?></h4>
-					<div><?php echo $text; ?></div>
-				</div>
-
-			<?php // End loop.
-			endwhile;
-
-		endif; ?>
+				/**
+				 * Hook: woocommerce_single_product_summary.
+				 *
+				 * @hooked woocommerce_template_single_title - 5
+				 * @hooked woocommerce_template_single_rating - 10
+				 * @hooked woocommerce_template_single_price - 10
+				 * @hooked woocommerce_template_single_excerpt - 20
+				 * @hooked woocommerce_template_single_add_to_cart - 30
+				 * @hooked woocommerce_template_single_meta - 40
+				 * @hooked woocommerce_template_single_sharing - 50
+				 * @hooked WC_Structured_Data::generate_product_data() - 60
+				 */
+				do_action( 'woocommerce_single_product_summary' );
+				?>
 			</div>
 		</div>
-	</div>
-	<?php get_template_part('template-parts/homepage/newsletter'); ?>
+		<div class="fmc_product_why spacing_0_1">
+			<h2 class="fmc_main_title title_spacing_1"><?php the_field('wcfmc_title', 'option'); ?></h2>
+			<div class="fmc_product_why_inner">
+			<?php
 
-	<?php
-	/**
-	 * Hook: woocommerce_after_single_product_summary.
-	 *
-	 * @hooked woocommerce_output_product_data_tabs - 10
-	 * @hooked woocommerce_upsell_display - 15
-	 * @hooked woocommerce_output_related_products - 20
-	 */
-	do_action( 'woocommerce_after_single_product_summary' );
-	?>
-	 <div class="fmc_container">
+			// Check rows existexists.
+			if( have_rows('why_choose_fmc') ):
+
+				// Loop through rows.
+				while( have_rows('why_choose_fmc') ) : the_row();
+
+					// Load sub field value.
+					$icon = get_sub_field('icon');
+					$size = 'full';
+					$title = get_sub_field('title');
+					$text = get_sub_field('text'); ?>
+					<div class="fmc_product_why_ib">
+					<?php
+						if( $icon ) {
+							echo wp_get_attachment_image( $icon, $size );
+						} ?>
+						<h4><?php echo $title; ?></h4>
+						<div><?php echo $text; ?></div>
+					</div>
+
+				<?php // End loop.
+				endwhile;
+
+			endif; ?>
+			</div>
+		</div>
+		<?php
+		/**
+		 * Hook: woocommerce_after_single_product_summary.
+		 *
+		 * @hooked woocommerce_output_product_data_tabs - 10
+		 * @hooked woocommerce_upsell_display - 15
+		 * @hooked woocommerce_output_related_products - 20
+		 */
+		do_action( 'woocommerce_after_single_product_summary' );
+		?>
+		</div>
+		<div class="fmc_product_right">
+			asdf
+		</div>
 		<?php comments_template() ?>
 	</div>
 </div>

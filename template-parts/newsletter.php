@@ -1,10 +1,13 @@
-<div class="fmc_newsletter spacing_1">
+<div class="fmc_newsletter spacing_2">
 	<div class="fmc_container">
+		<div class="img_bg">
+			<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/kevin-newsletter-image.png" alt="">
+		</div>
 		<div class="fmc_newsletter_inner">
-			<h2>Subscribe to Our Newsletter</h2>
-			<h3>Join The Fit Cook Newsletter</h3>
-			<div>Subscribe to our newsletter and get latest updates right in your inbox</div>
-			<div>Enter Email <a href="#">Subscribe</a></div>
+			<span class="nl_prefix">Subscribe</span>
+			<h2 class="fmc_title_2 title_spacing_3">Join The Fit Cook Newsletter</h2>
+			<div class="nl_content">Subscribe to our newsletter and get latest updates right in your inbox.</div>
+			<div class="nl_input"><input placeholder="Enter Your Email"><a href="#">Subscribe</a></div>
 		</div>
 	</div>
 </div>

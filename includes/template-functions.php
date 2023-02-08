@@ -5,7 +5,7 @@
  * @package fitmencook
  */
 
-/**
+/**r
  * Adds custom classes to the array of body classes.
  *
  * @param array $classes Classes for the body element.
@@ -72,7 +72,7 @@ function fmc_pagination() {
 
     /** Previous Post Link */
     if ( get_previous_posts_link() )
-        printf( '<li class="prev">%s</li>' . "adsf", get_previous_posts_link() );
+        printf( '<li class="prev">%s</li>' . "\n", get_previous_posts_link() );
 
     /** Link to first page, plus ellipses if necessary */
     if ( ! in_array( 1, $links ) ) {
@@ -122,10 +122,20 @@ if( function_exists('acf_add_options_page') ) {
 		'position' => '2.69',
 		'icon_url' => 'dashicons-buddicons-topics'
 	));
-
+	acf_add_options_sub_page(array(
+        'page_title'    => 'Header Settings',
+        'menu_title'    => 'Header',
+        'parent_slug'   => 'theme-general-settings',
+    ));
     acf_add_options_sub_page(array(
         'page_title'    => 'Language Settings',
         'menu_title'    => 'Language',
+        'parent_slug'   => 'theme-general-settings',
+    ));
+
+    acf_add_options_sub_page(array(
+        'page_title'    => 'App Before Footer Settings',
+        'menu_title'    => 'App',
         'parent_slug'   => 'theme-general-settings',
     ));
 

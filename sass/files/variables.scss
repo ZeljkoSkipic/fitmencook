@@ -1,114 +1,143 @@
 :root {
-	--color-1: #d77359;
-	--color-2: #4a86a2;
-	--color-3: #eeeeee;
-	--color-4: #e3e3e3;
-	--text-color: #5f6266;
+	--color-1: #FF885C; //
 
-	--title-size-1: 6rem;
-	--title-size-2: 4.5rem;
-	--title-size-3: 21px;
-	--title-size-4: 3rem;
-	--title-size-5: 2.5rem;
-	--title-size-6: 2rem;
+	--color-2: #101828; //
+	--color-3: #475467; //
+	--color-4: #F2F4F7; //
+	--color-5: #EAECF0; //
 
-	--site-transition: .3s all;
+	--misc-color: #98A2B3; //
 
-	--padding-1: 9rem;
-	--padding-2: 7rem;
-	--padding-3: 5rem;
+	--text-1: #344054; //
+	--text-2: #5f6266; //
+	--link-color: #667085; //
 
-    @media (min-width: 1350px)  {
-        --sh-site-width: 1280px;
-    }
-	@media (min-width: 1200px) and (max-width: 1349.5px)  {
-        --sh-site-width: 95%;
-    }
-    @media (max-width: 1199.5px) {
-        --sh-container-padding: 0 25px;
-    }
+	--title-size-1: 4.8rem; //
+	--title-size-2: 4rem; //
+	--title-size-3: 3.2rem; //
+	--title-size-4: 2.4rem; //
 
+	--body-size: 18px;
+	--body-size-2: 16px;
+
+	--site-transition: .3s all; //
+
+/* 	--title-spacing-1: 4.8rem; //
+	--title-spacing-2: 3.2rem; //
+	--title-spacing-3: 2.4rem; //
+ */
+
+	--line-height-1: 1.17; //
+	--line-height-2: 1.36; //
+	--line-height-3: 1.145; //
+
+	--spacing-1: 4.8rem; //
+	--spacing-2: 3.2rem; //
+	--spacing-3: 2.4rem; //
 }
 
-
-$mob-max: 479.5px;
-$tab-min: 479.6px;
-$tab-max: 781.5px;
-$limbo-min: 781.6px;
+$mob-max: 599.5px;
+$tab-min: 599.6px;
+$tab-max: 797.5px;
+$limbo-min: 797.6px;
 $limbo-max: 1199.5px;
 $desk-min: 1199.6px;
 $sm-desk-max: 1360.5px;
-
 $md-desk-min: 1360.6px;
-$md-desk-max: 1599.5px;
-
-$lg-desk-min: 1599.6px;
+$md-desk-max: 1659.5px;
+$lg-desk-min: 1659.6px;
+$huge-desk-min: 2560px;
 
 @mixin mob-only {
-	@media (max-width: $mob-max) {
-		@content;
-	}
+  @media (max-width: $mob-max) {
+    @content;
+  }
 }
 
 @mixin tab-min {
-	@media (min-width: $tab-min) {
-		@content;
-	}
+  @media (min-width: $tab-min) {
+    @content;
+  }
 }
 
 @mixin tab-max {
-	@media (max-width: $tab-max) {
-		@content;
-	}
+  @media (max-width: $tab-max) {
+    @content;
+  }
 }
 
 @mixin tab-only {
-	@media (min-width: $tab-min) and (max-width: $tab-max) {
-		@content;
-	}
+  @media (min-width: $tab-min) and (max-width: $tab-max) {
+    @content;
+  }
 }
 
 @mixin limbo-min {
-	@media (min-width: $limbo-min) {
-		@content;
-	}
+  @media (min-width: $limbo-min) {
+    @content;
+  }
 }
 
 @mixin limbo-max {
-	@media (max-width: $limbo-max) {
-		@content;
-	}
+  @media (max-width: $limbo-max) {
+    @content;
+  }
 }
 
 @mixin limbo-only {
-	@media (min-width: $limbo-min) and (max-width: $limbo-max) {
-		@content;
-	}
+  @media (min-width: $limbo-min) and (max-width: $limbo-max) {
+    @content;
+  }
 }
 
 @mixin desk-min {
-	@media (min-width: $desk-min) {
-		@content;
-	}
+  @media (min-width: $desk-min) {
+    @content;
+  }
 }
 
 @mixin sm-desk-only {
-	@media (min-width: $desk-min) and (max-width: $sm-desk-max) {
-		@content;
-	}
+  @media (min-width: $desk-min) and (max-width: $sm-desk-max) {
+    @content;
+  }
+}
+
+@mixin sm-desk-max {
+  @media (max-width: $sm-desk-max) {
+    @content;
+  }
+}
+
+@mixin md-desk-min {
+  @media (min-width: $md-desk-min) {
+    @content;
+  }
+}
+
+@mixin md-desk-max {
+  @media (min-width: $md-desk-max) {
+    @content;
+  }
 }
 
 @mixin md-desk-only {
-	@media (min-width: $md-desk-min) and (max-width: $md-desk-max) {
-		@content;
-	}
+  @media (min-width: $md-desk-min)  and (max-width: $md-desk-max) {
+    @content;
+  }
 }
 
 @mixin lg-desk-min {
-	@media (min-width: $lg-desk-min) {
-		@content;
-	}
+  @media (min-width: $lg-desk-min) {
+    @content;
+  }
 }
+
+@mixin huge-desk-min {
+  @media (min-width: $huge-desk-min) {
+    @content;
+  }
+}
+
 
 @mixin img-fit {
 	width: 100%;
@@ -130,4 +159,35 @@ $lg-desk-min: 1599.6px;
 	list-style: none;
 	padding: 0;
 	margin: 0;
+}
+
+@mixin sidebar-stick {
+	position: sticky;
+	top: 0;
+	@include limbo-only {
+		top: 60px;
+	}
+}
+
+:root {
+	@include md-desk-min {
+		--sh-site-width: 1220px;
+	}
+
+	@include sm-desk-only {
+		--sh-site-width: 95%;
+	}
+
+	@include limbo-max {
+		--sh-container-spacing: 0 25px;
+	}
+	@include tab-max {
+		--spacing-1: 6rem; //
+		--spacing-2: 4.8rem; //
+		--spacing-3: 4rem; //
+		--title-size-1: 30px; //
+		--title-size-2: 28px; //
+		--title-size-3: 24px; //
+		--title-size-4: 22px; //
+	}
 }

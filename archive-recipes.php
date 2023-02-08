@@ -1,12 +1,74 @@
 <?php
 
-get_header(); ?>
+get_header();
+
+$featured_image = get_field('featured_recipe_image', 'option');
+$size = 'full'
+?>
 <div class="fmc_archive_wrap fmc_container spacing_2">
-	<div class="fmc_recipe_grid fmc_archive_main">
-		<?php if ( function_exists('yoast_breadcrumb') ) {
+	<?php if ( function_exists('yoast_breadcrumb') ) {
 			yoast_breadcrumb( '<div class="fmc_breadcrumbs spacing_0_2">','</div>' );
 		} ?>
-		<h1 class="fmc_title_2 title_spacing_3"><?php single_cat_title(); ?></h1>
+		<?php
+		$featured_post = get_field('featured_recipe', 'option');
+		if( $featured_post ):
+		foreach( $featured_post as $post ):
+			// Setup this post for WP functions (variable must be named $post).
+			setup_postdata($post); ?>
+		<div class="fmc_featured_post">
+			<div class="fmc_featured_left">
+				<?php
+				if($featured_image) {
+					if( $featured_image ) {
+						echo wp_get_attachment_image( $featured_image, $size );
+					}
+				} else {
+					the_post_thumbnail('large');
+				}  ?>
+			</div>
+			<div class="fmc_featured_right">
+				<span class="fmc_featured_prefix"><?php the_field('featured_prefix', 'option'); ?></span>
+				<div class="fmc_grid_meta">
+					<span class="fmc_grid_cat">
+						Breakfast
+					</span>
+				</div>
+				<a href="<?php the_permalink(); ?>"><h2 class="fmc_title_1"><?php the_title(); ?></h2></a>
+				<div class="fmc_featured_rating">rating</div>
+				<div class="fmc_featured_macros">
+					<div class="rg_macro carbs">
+						<span class="rg_m_title"><?php the_field('l_carbs', 'option'); ?></span>
+						<span class="rg_m_amount"><?php the_field('carbs'); ?>g</span>
+					</div>
+					<div class="rg_macro fat">
+						<span class="rg_m_title"><?php the_field('l_fat', 'option'); ?></span>
+						<span class="rg_m_amount"><?php the_field('fat'); ?>g</span>
+					</div>
+					<div class="rg_macro protein">
+						<span class="rg_m_title"><?php the_field('l_protein', 'option'); ?></span>
+						<span class="rg_m_amount"><?php the_field('protein'); ?>g</span>
+					</div>
+					<div class="rg_macro calories">
+						<span class="rg_m_title"><?php the_field('l_calories', 'option'); ?></span>
+						<span class="rg_m_amount"><?php the_field('calories'); ?>cal</span>
+					</div>
+				</div>
+				<div class="fmc_featured_prep">
+					<span class="fmc_time"><?php the_field('l_prep_time', 'option'); ?>:</span>
+					<span class="fmc_amount"><?php the_field('prep_time'); ?><?php the_field('minutes', 'option'); ?></span></div>
+			</div>
+		</div>
+		<?php endforeach; ?>
+		<?php
+		// Reset the global post object so that the rest of the page works correctly.
+		wp_reset_postdata(); ?>
+		<?php endif; ?>
+
+		<?php dynamic_sidebar( 'ad6' ); ?>
+
+		<?php get_template_part('template-parts/category-track'); ?>
+
+		<div class="fmc_recipe_grid fmc_archive_main">
 		<div class="fmc_archive_inner fmc_rg_inner">
 
 		<?php while ( have_posts() ) : the_post();
@@ -68,7 +130,7 @@ get_header(); ?>
 		?>
 
 		</div>
-		<div class="spacing_3_1 blog_pagination_wrap">
+		<div class="spacing_3_1">
 			<?php fmc_pagination(); ?>
 		</div>
 	</div>
@@ -96,6 +158,9 @@ get_header(); ?>
 				}
 			} ?>
 		</div>
+
+		<?php dynamic_sidebar( 'ad5' ); ?>
+
 	</div>
 </div>
 <?php get_footer();

@@ -3,22 +3,21 @@
     "title": "Homepage",
     "fields": [
         {
-            "key": "field_63579f4c9b05f",
+            "key": "field_63d6807e75ae4",
             "label": "Hero",
             "name": "",
             "aria-label": "",
-            "type": "message",
+            "type": "tab",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
-                "class": "section-title",
+                "class": "",
                 "id": ""
             },
-            "message": "",
-            "new_lines": "wpautop",
-            "esc_html": 0
+            "placement": "left",
+            "endpoint": 0
         },
         {
             "key": "field_6358f94f5978e",
@@ -99,138 +98,62 @@
             "esc_html": 0
         },
         {
-            "key": "field_6358fe9140dbc",
-            "label": "Top Products",
-            "name": "",
+            "key": "field_63d691f449822",
+            "label": "Featured Recipe",
+            "name": "featured_recipe",
             "aria-label": "",
-            "type": "message",
+            "type": "relationship",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
-                "class": "section-title",
-                "id": ""
-            },
-            "message": "",
-            "new_lines": "wpautop",
-            "esc_html": 0
-        },
-        {
-            "key": "field_6358ffbe40dbd",
-            "label": "Products",
-            "name": "top_products",
-            "aria-label": "",
-            "type": "repeater",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
-            "layout": "table",
-            "pagination": 0,
-            "min": 0,
-            "max": 5,
-            "collapsed": "",
-            "button_label": "Add Product",
-            "rows_per_page": 20,
-            "sub_fields": [
-                {
-                    "key": "field_6358ffe340dbe",
-                    "label": "Image",
-                    "name": "product_image",
-                    "aria-label": "",
-                    "type": "image",
-                    "instructions": "",
-                    "required": 1,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "id",
-                    "library": "all",
-                    "min_width": "",
-                    "min_height": "",
-                    "min_size": "",
-                    "max_width": "",
-                    "max_height": "",
-                    "max_size": "",
-                    "mime_types": "",
-                    "preview_size": "medium",
-                    "parent_repeater": "field_6358ffbe40dbd"
-                },
-                {
-                    "key": "field_6358fff240dbf",
-                    "label": "Title",
-                    "name": "product_title",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "parent_repeater": "field_6358ffbe40dbd"
-                },
-                {
-                    "key": "field_6359000140dc0",
-                    "label": "Price",
-                    "name": "price",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "parent_repeater": "field_6358ffbe40dbd"
-                },
-                {
-                    "key": "field_6359001140dc1",
-                    "label": "Product Link",
-                    "name": "link",
-                    "aria-label": "",
-                    "type": "link",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "url",
-                    "parent_repeater": "field_6358ffbe40dbd"
-                }
-            ]
+            "post_type": [
+                "recipes"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search"
+            ],
+            "return_format": "object",
+            "min": 1,
+            "max": 1,
+            "elements": ""
+        },
+        {
+            "key": "field_63d6921651cfc",
+            "label": "Featured Recipe Image",
+            "name": "featured_recipe_image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "medium"
         },
         {
             "key": "field_6359429e0841b",
-            "label": "Featured Recipes",
+            "label": "Ready To Cook",
             "name": "",
             "aria-label": "",
-            "type": "message",
+            "type": "tab",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -239,29 +162,8 @@
                 "class": "section-title",
                 "id": ""
             },
-            "message": "",
-            "new_lines": "wpautop",
-            "esc_html": 0
-        },
-        {
-            "key": "field_636aa56383ff0",
-            "label": "Prefix",
-            "name": "fr_prefix",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
+            "placement": "left",
+            "endpoint": 0
         },
         {
             "key": "field_636aa55883fef",
@@ -282,29 +184,6 @@
             "placeholder": "",
             "prepend": "",
             "append": ""
-        },
-        {
-            "key": "field_635942af0841c",
-            "label": "Categories",
-            "name": "categories",
-            "aria-label": "",
-            "type": "taxonomy",
-            "instructions": "Select the categories you wish to be displayed.\r\nIdeal number of Categories is 6.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "taxonomy": "category",
-            "add_term": 0,
-            "save_terms": 0,
-            "load_terms": 0,
-            "return_format": "object",
-            "field_type": "multi_select",
-            "allow_null": 0,
-            "multiple": 0
         },
         {
             "key": "field_635946b0b86f1",
@@ -352,7 +231,7 @@
             "label": "Featured Products",
             "name": "",
             "aria-label": "",
-            "type": "message",
+            "type": "tab",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -361,29 +240,8 @@
                 "class": "section-title",
                 "id": ""
             },
-            "message": "",
-            "new_lines": "wpautop",
-            "esc_html": 0
-        },
-        {
-            "key": "field_636aa53b83fed",
-            "label": "Prefix",
-            "name": "fp_prefix",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
+            "placement": "left",
+            "endpoint": 0
         },
         {
             "key": "field_636aa54c83fee",
@@ -519,7 +377,7 @@
             "label": "Latest Blog",
             "name": "",
             "aria-label": "",
-            "type": "message",
+            "type": "tab",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -528,92 +386,13 @@
                 "class": "",
                 "id": ""
             },
-            "message": "Latest blog is generated automatically,\r\nand it displays 3 latest published Blog Posts.",
-            "new_lines": "wpautop",
-            "esc_html": 0
-        },
-        {
-            "key": "field_636aa6ed83ff3",
-            "label": "Prefix",
-            "name": "lb_prefix",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
+            "placement": "left",
+            "endpoint": 0
         },
         {
             "key": "field_636aa6e483ff2",
             "label": "Title",
             "name": "lb_title",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_636ab3c69fe01",
-            "label": "Latest Ideas",
-            "name": "",
-            "aria-label": "",
-            "type": "message",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "message": "Latest ides is generated automatically,\r\nand it displays 3 latest published Recipes from the category Ideas.",
-            "new_lines": "wpautop",
-            "esc_html": 0
-        },
-        {
-            "key": "field_636ab45e07f88",
-            "label": "Prefix",
-            "name": "li_prefix",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_636ab46907f89",
-            "label": "Title",
-            "name": "li_title",
             "aria-label": "",
             "type": "text",
             "instructions": "",
@@ -642,7 +421,7 @@
     ],
     "menu_order": 0,
     "position": "normal",
-    "style": "seamless",
+    "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": [
@@ -663,5 +442,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1670600782
+    "modified": 1675538839
 }

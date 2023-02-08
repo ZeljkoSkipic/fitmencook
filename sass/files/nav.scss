@@ -7,54 +7,48 @@
 	}
 }
 
-
+body:not(.home) {
+	.fmc_sitehead {
+		border-bottom: 2px solid var(--color-4);
+	}
+}
 @include desk-min {
 	.fmc_mm_trigger, .fmc_mobile_header {
 		display: none;
 	}
 	.fmc_sitehead {
-		background-color: var(--color-3);
+		width: calc(100% - 70px);
+		margin: auto;
+		max-width: 1440px;
 		.custom-logo {
 			height: 100%;
 			width: auto;
-		}
-		.fmc_mobile_logo {
-			display: none;
+			max-width: 74px;
 		}
 	}
 	.fmc_header {
-		width: 90%;
+		width: 100%;
+		position: relative;
 		margin: auto;
 		display: flex;
-		justify-content: center;
-		z-index: 2;
-		height: 16rem;
-		.menu-main-left-container, .menu-main-right-container {
-			flex: 40% 0 0;
+		z-index: 9;
+		padding-top: 2rem;
+		padding-bottom: 2rem;
+		.menu-main-container {
 			display: flex;
 			align-items: center;
 		}
-		.menu-main-left-container {
-			justify-content: flex-end;
-			padding-right: 2.5rem;
-		}
-		.menu-main-right-container {
-			justify-content: flex-start;
-			padding-left: 2.5rem;
-		}
-		#primary-left, #primary-right {
+		#primary {
 			display: flex;
 			flex-wrap: wrap;
 			z-index: 2;
 			@include clean-list;
 			height: 100%;
 			align-items: center;
+			margin-left: 4rem;
 			> li {
-				padding-left: 2.5rem;
-				padding-right: 2.5rem;
-				font-size: 2.1rem;
+				font-size:15px;
 				height: 100%;
-				display: flex;
 				justify-content: center;
 				align-items: center;
 				transition: var(--site-transition);
@@ -69,20 +63,22 @@
 					}
 				}
 				a {
-					color: #434343;
 					height: 100%;
+					width: 100%;
 					display: flex;
 					justify-content: center;
 					align-items: center;
+					padding-left: 2.5rem;
+					padding-right: 2.5rem;
+					font-weight: 700;
 				}
 			}
 			.sub-menu {
 				position: absolute;
-				top: 16rem;
-				width: 100%;
 				display: flex;
+				flex-direction: column;
 				background-color: var(--color-1);
-				left: 0;
+				min-width: 250px;
 				@include clean-list;
 				opacity: 0;
 				pointer-events: none;
@@ -100,14 +96,17 @@
 				}
 			}
 		}
-		#primary-left {
-			> li:first-child {
-				margin-left: 0;
+		.fmc_header_right {
+			display: flex;
+			align-items: center;
+			margin-right: 0;
+			margin-left: auto;
+			> * {
+				margin-left: 30px;
 			}
-		}
-		#primary-right {
-			> li:last-child {
-				margin-right: 0;
+
+			.fmc_btn {
+				padding: 10px 12px;
 			}
 		}
 	}
@@ -119,7 +118,7 @@
 			top: 46px;
 		}
 		.fmc_header {
-			top: calc(10rem + 46px);
+			top: calc(60px + 46px);
 		}
 	}
 }
@@ -129,7 +128,7 @@
 			top: 32px;
 		}
 		.fmc_header {
-			top: calc(10rem + 32px);
+			top: calc(60px + 32px);
 		}
 	}
 }
@@ -138,7 +137,7 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		height: 10rem;
+		height: 60px;
 		width: 100%;
 		position: sticky;
 		top: 0;
@@ -163,17 +162,12 @@
 			height: 100%;
 			width: auto;
 		}
+		.fmc_mobile_logo {
+			height: 60px;
+		}
 	}
 	.fmc_sitehead {
 		z-index: 9;
-		.fmc_mobile_logo {
-			height: 10rem;
-			margin-bottom: 3rem;
-			img {
-				height: 100%;
-				width: auto;
-			}
-		}
 	}
 	.fmc_header {
 		display: flex;
@@ -186,16 +180,27 @@
 		top: 0;
 		z-index: 9;
 		display: none;
+		.fmc_mobile_logo {
+			height: 60px;
+		}
 		.custom-logo-link {
-			display: none;
+			img {
+				height: 100%;
+				object-fit: contain;
+				object-position: left;
+			}
 		}
 		ul {
-			padding: 0;
-			margin: 0;
+			@include clean-list;
+			padding-top: var(--spacing-1);
+			> li {
+				-webkit-tap-highlight-color: transparent;
+			}
 			li {
 				margin: 0 15px;
+
 				a {
-					font-size: 19px;
+					font-size: 15px;
 					color: #fff;
 					padding: 2.5rem 5rem;
 					display: flex;
@@ -231,23 +236,20 @@
 					li {
 						a {
 							padding: 1.5rem 5rem;
-							font-size: 17px;
 						}
 					}
 				}
 			}
 		}
-		#primary-right {
-			> li:last-child {
-				a {
-					border-bottom: 0;
-				}
-			}
+		.fmc_btn {
+			width: 300px;
+			max-width: 90%;
+			margin: 5rem auto;
 		}
 	}
 	.fmc_mm_trigger {
 		width: 35px;
-		height: 35px;
+		height: 30px;
 		margin-right: 15px;
 		mix-blend-mode: difference;
 		transition: .4s ease-in-out;
@@ -255,7 +257,7 @@
 			background-color: #fff;
 			content: "";
 			display: block;
-			height: 4px;
+			height: 3px;
 			border-radius: 2px;
 			margin: 7px 0;
 			transition: 0.5s;
@@ -283,6 +285,11 @@
 			div {
 				transform: scale(0);
 			}
+		}
+	}
+	.fmc_header_right {
+		.cart, .search_icon {
+			display: none;
 		}
 	}
 }

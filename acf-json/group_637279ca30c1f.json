@@ -20,6 +20,46 @@
             "endpoint": 0
         },
         {
+            "key": "field_63db9e6b9fa68",
+            "label": "Times Title",
+            "name": "times_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Details",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_637285c61a440",
+            "label": "Minutes",
+            "name": "minutes",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "min",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_637279f3ce330",
             "label": "Prep Time",
             "name": "l_prep_time",
@@ -74,6 +114,26 @@
                 "id": ""
             },
             "default_value": "Total Time",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_63db9e3b4a9db",
+            "label": "Macros Title",
+            "name": "macros_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Nutritions per serving",
             "maxlength": "",
             "placeholder": "",
             "prepend": "",
@@ -220,9 +280,9 @@
             "append": ""
         },
         {
-            "key": "field_637285c61a440",
-            "label": "Minute (Single)",
-            "name": "minute_single",
+            "key": "field_63dcef2222cda",
+            "label": "Related Recipes Prefix",
+            "name": "related_prefix",
             "aria-label": "",
             "type": "text",
             "instructions": "",
@@ -233,16 +293,16 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "Minute",
+            "default_value": "Similar Recipes",
             "maxlength": "",
             "placeholder": "",
             "prepend": "",
             "append": ""
         },
         {
-            "key": "field_637285df1a441",
-            "label": "Minutes (Plural)",
-            "name": "minute_plural",
+            "key": "field_63dcef3922cdb",
+            "label": "Related Recipes Title",
+            "name": "related_title",
             "aria-label": "",
             "type": "text",
             "instructions": "",
@@ -253,7 +313,7 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "Minutes",
+            "default_value": "You might also love",
             "maxlength": "",
             "placeholder": "",
             "prepend": "",
@@ -275,6 +335,26 @@
             },
             "placement": "top",
             "endpoint": 0
+        },
+        {
+            "key": "field_63e23e83809ee",
+            "label": "Related Prefix",
+            "name": "rb_prefix",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Blogs",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         },
         {
             "key": "field_6384e6980bbd5",
@@ -392,5 +472,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1670431852
+    "modified": 1675771544
 }
