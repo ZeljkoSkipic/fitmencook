@@ -163,10 +163,25 @@ body.archive {
 			margin-right: calc(8% / 3);
 		}
 		figure {
-			height: 18rem;
+			img {
+				height: 18rem;
+			}
 		}
 	}
-
+	@include limbo-only {
+		figure {
+			img {
+				height: 270px!important;
+			}
+		}
+	}
+	@include tab-only {
+		figure {
+			img {
+				height: 220px!important;
+			}
+		}
+	}
 	@include limbo-max {
 		width: 49%;
 		&:nth-child(odd) {
@@ -180,7 +195,6 @@ body.archive {
 	figure {
 		img {
 			width: 100%;
-			height: 100%;
 			object-fit: cover;
 			border-radius: 16px 16px 0 0;
 		}

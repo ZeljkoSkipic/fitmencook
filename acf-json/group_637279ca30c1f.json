@@ -435,8 +435,8 @@
         },
         {
             "key": "field_6390c0e400003",
-            "label": "Why Choose FMC",
-            "name": "wcfmc_title",
+            "label": "Ready to buy",
+            "name": "rtb",
             "aria-label": "",
             "type": "text",
             "instructions": "",
@@ -447,7 +447,7 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "Why Choose Fitmen Cook",
+            "default_value": "Ready to buy?",
             "maxlength": "",
             "placeholder": "",
             "prepend": "",
@@ -472,5 +472,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1675771544
+    "modified": 1676281343
 }

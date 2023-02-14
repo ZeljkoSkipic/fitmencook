@@ -2,46 +2,66 @@
 $prefix = get_field('hero_prefix');
 $title = get_field('hero_title');
 $text = get_field('hero_text');
+
+$featured_hero_image = get_field('featured_hero_image');
+$size = 'full';
+
+$box_type = get_field('box_type');
+
 ?>
 
 
+<?php echo do_shortcode('[wpdreams_asp_settings id=1 element="div"]'); ?>
 
 <div class="fmc_home_hero spacing_0_1">
 	<div class="fmc_container">
 		<div class="fmc_hh_left">
 			<div class="fmc_hero_text">
-				<h2 class="fmc_hh_title fmc_grid_cat"><?php echo $prefix ?></h2>
+				<h2 class="fmc_hh_title fmc_grid_cat"><a href="/shop"><?php echo $prefix ?></a></h2>
 				<h1 class="fmc_hh_subtitle"><?php echo $title ?></h1>
 				<div class="fmc_hh_text"><?php echo $text ?></div>
 			</div>
 			<?php echo do_shortcode('[wpdreams_ajaxsearchpro id=1]'); ?>
-			<?php echo do_shortcode('[wpdreams_asp_settings id=1 element="div"]'); ?>
 			<div class="fmc_hero_apps">
 				<h5>Available On</h5>
 				<div class="fmc_hero_icons">
 					<figure>
 						<a href="https://itunes.apple.com/app/id980368562">
-							<img src="\wp-content\themes\fitmencook\assets\images/app-store-badge.svg">
+							<img width="120" height="37" src="\wp-content\themes\fitmencook\assets\images/app-store-badge.svg">
 						</a>
 					</figure>
 					<figure>
 						<a href="https://play.google.com/store/apps/details?id=com.nibbleapps.fitmencook">
-							<img src="\wp-content\themes\fitmencook\assets\images/google-play-badge.svg">
+							<img width="120" height="37" src="\wp-content\themes\fitmencook\assets\images/google-play-badge.svg">
 						</a>
 					</figure>
 				</div>
 			</div>
 		</div>
-		<div class="fmc_hh_right" style="background: url()">
+		<div class="fmc_hh_right">
 			<div class="img_bg">
-				<img src="https://fitmencook.local/wp-content/uploads/2023/01/home-hero.jpg" alt="">
+				<?php
+				$loading = ['loading' => 'eager'];
+				if( $featured_hero_image ) {
+					echo wp_get_attachment_image( $featured_hero_image, $size, false, $loading, array( 'class' => '' )  );
+				} ?>
 			</div>
-			<div class="fmc_hh_recipe">
-				<div class="fmc_hr_left">
-					<div class="fmc_grid_meta">
-						<span class="fmc_grid_cat">
-							Breakfast
-						</span>
+			<div class="fmc_hh_box">
+			<?php // Recipe box Start
+				$featured_recipe = get_field('featured_recipe');
+				if( $box_type == 'recipe'): ?>
+					<?php foreach( $featured_recipe as $post ):
+
+						// Setup this post for WP functions (variable must be named $post).
+						setup_postdata($post); ?>
+						<div class="fmc_hr_left">
+						<div class="fmc_grid_meta">
+							<span class="fmc_grid_cat">
+								<?php
+								$category = get_the_category();
+								echo '<a href="' . get_category_link( $category[0]->term_id ) . '">' . $category[0]->cat_name . '</a>';
+								?>
+							</span>
 						<div class="meta_rating">
 						<svg xmlns="http://www.w3.org/2000/svg" width="12" height="11" viewBox="0 0 12 11" fill="none">
 						<g clip-path="url(#clip0_274_15268)">
@@ -56,31 +76,87 @@ $text = get_field('hero_text');
 						<span>5.0</span>
 						</div>
 					</div>
-					<h3 class="fmc_grid_title"><a href="#">Fried eggs with vegetables and sweet potato</a></h3>
-					<div class="fmc_recipe_grid_macaros">
+					<h3 class="fmc_grid_title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+					<div class="fmc_recipe_grid_macros">
 						<div class="rg_macro">
-							<span class="rg_m_title">Protein</span>
-							<span class="rg_m_amount">16g</span>
+							<span class="rg_m_title"><?php the_field( 'l_protein', 'option' ); ?></span>
+							<span class="rg_m_amount"><?php the_field( 'protein' ); ?>g</span>
 						</div>
 						<div class="rg_macro">
-							<span class="rg_m_title">Fats</span>
-							<span class="rg_m_amount">6g</span>
+							<span class="rg_m_title"><?php the_field( 'l_fat', 'option' ); ?></span>
+							<span class="rg_m_amount"><?php the_field( 'fat' ); ?>g</span>
 						</div>
 						<div class="rg_macro">
-							<span class="rg_m_title">Carbs</span>
-							<span class="rg_m_amount">46g</span>
+							<span class="rg_m_title"><?php the_field( 'l_carbs', 'option' ); ?></span>
+							<span class="rg_m_amount"><?php the_field( 'carbs' ); ?>g</span>
 						</div>
 						<div class="rg_macro">
-							<span class="rg_m_title">Calories</span>
-							<span class="rg_m_amount">260cal</span>
+							<span class="rg_m_title"><?php the_field( 'l_calories', 'option' ); ?></span>
+							<span class="rg_m_amount"><?php the_field( 'calories' ); ?>g</span>
 						</div>
 					</div>
 				</div>
 				<div class="fmc_hr_right">
-					<a href="#">
+					<a href="<?php the_permalink(); ?>">
 					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#344054" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
 					</a>
 				</div>
+					<?php endforeach; ?>
+					<?php
+					// Reset the global post object so that the rest of the page works correctly.
+					wp_reset_postdata(); ?>
+				<?php endif; // Recipe box End ?>
+
+				<?php // Custom box start
+				$featured_post = get_field('featured_post');
+				if( $box_type == 'post'): ?>
+					<?php foreach( $featured_post as $post ):
+
+						// Setup this post for WP functions (variable must be named $post).
+						setup_postdata($post); ?>
+						<div class="fmc_hr_left">
+						<div class="fmc_grid_meta">
+							<span class="fmc_grid_cat">
+								<?php
+								the_category();
+								?>
+							</span>
+					</div>
+					<h3 class="fmc_grid_title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+					<div class="fmc_grid_content text_2">
+					<?php echo wp_trim_words( get_the_content(), 5, '...' ); ?>
+					<span class="fmc_read">2 min read</span>
+					</div>
+				</div>
+				<div class="fmc_hr_right">
+					<a href="<?php the_permalink(); ?>">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#344054" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
+					</a>
+				</div>
+					<?php endforeach; ?>
+					<?php
+					// Reset the global post object so that the rest of the page works correctly.
+					wp_reset_postdata(); ?>
+				<?php endif; // Post box End ?>
+
+				<?php // Custom box start
+				if( $box_type == 'custom'): ?>
+				<?php
+					$custom = get_field('custom');
+					if($custom) : ?>
+					<div class="fmc_hr_left">
+					<h3 class="fmc_grid_title"><a href="<?php $link_url; ?>"><?php echo $custom['c_title']; ?></a></h3>
+					<div class="fmc_grid_content text_2">
+					<?php echo $custom['c_text']; ?>
+					</div>
+				</div>
+				<div class="fmc_hr_right">
+					<a href="<?php echo esc_url( $custom['c_link']['url'] ); ?>" target="<?php echo esc_attr( $custom['c_link']['target'] ) ?>">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#344054" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
+					</a>
+				</div>
+				<?php endif; ?>
+				<?php endif; // Custom box End?>
 			</div>
 		</div>
 	</div>

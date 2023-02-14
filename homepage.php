@@ -12,6 +12,8 @@ get_header();
 
 <?php get_template_part('template-parts/homepage/featured-recipes'); ?>
 
+<?php get_template_part('template-parts/homepage/featured-logos'); ?>
+
 <?php get_template_part('template-parts/homepage/featured-products'); ?>
 
 <?php dynamic_sidebar( 'ad2' ); ?>

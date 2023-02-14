@@ -21,12 +21,13 @@ jQuery(document).ready(function ($) {
 
   // Logo slider block
 
-  $('.fmc_logo_slider').flickity({
-    // options
-    wrapAround: true,
-    contain: true,
-    pageDots: false
-  });
+  /* $('.fmc_logo_slider').flickity({
+  	// options
+  	wrapAround: true,
+  	contain: true,
+  	pageDots: false,
+    });
+   */
 
   // Mobile navigation toggle
 
@@ -42,7 +43,7 @@ jQuery(document).ready(function ($) {
     $(this).siblings('.sub-menu').slideToggle();
   });
 
-  // Home Carousel
+  // Category Carousel
 
   $('.carousel-home').flickity({
     // options
@@ -52,19 +53,19 @@ jQuery(document).ready(function ($) {
     wrapAround: true,
     prevNextButtons: false
   });
-  /*
-  // Category Carousel
-  
-  $('.carousel-category').flickity({
-    // options
-    cellAlign: 'left',
-  	wrapAround: true,
-  	pageDots: false,
-  	prevNextButtons: false,
-  	initialIndex: 5
-  }); */
 
-  // Sticky Recipe Video
+  // Category Carousel
+
+  $('.carousel-logos').flickity({
+    // options
+    pageDots: false,
+    cellAlign: 'left',
+    watchCSS: true,
+    wrapAround: true,
+    prevNextButtons: false
+  });
+
+  // Recipe Video
   (function ($) {
     var $window = $(window);
     var $videoWrap = $('.video-wrap');

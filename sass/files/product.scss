@@ -19,6 +19,9 @@
 			}
 		}
 	}
+	.fmc_product_wrap {
+		display: flex;
+	}
 	.fmc_product_left {
 		width: 72%;
 	}
@@ -33,6 +36,8 @@
 		.woocommerce-product-gallery {
 			.flex-viewport {
 				height: 38rem!important;
+				border: 2px solid var(--color-5);
+				border-radius: 16px;
 				img {
 					height: 100%;
 				}
@@ -42,8 +47,6 @@
 				justify-content: center;
 				align-items: center;
 				height: 38rem;
-				border: 2px solid var(--color-5);
-				border-radius: 16px;
 			}
 			@include limbo-min {
 				width: 43%;
@@ -77,7 +80,7 @@
 					font-weight: 800;
 				}
 			}
-			.woocommerce-product-rating {
+			/* .woocommerce-product-rating {
 				display: flex;
 				align-items: center;
 				font-size: 18px;
@@ -100,7 +103,7 @@
 						color: #fa873d;
 					}
 				}
-			}
+			} */
 			.woocommerce-product-details__short-description {
 				margin-top: 16px;
 			}
@@ -186,7 +189,7 @@
 	}
 
 	.fmc_product_why {
-		background-color: #f8f8f8;
+		border-bottom: 2px solid #F2F4F7;
 	}
 
 	.fmc_product_why_inner {
@@ -195,13 +198,12 @@
 		justify-content: center;
 		.fmc_product_why_ib {
 			background-color: #fff;
-			border-bottom: 2px solid var(--color-1);
-			padding: 4.5rem 2.5rem;
 			text-align: center;
 			@include limbo-min {
-				width: 19%;
-				&:not(:last-child) {
-					margin-right: 1.25%;
+				width: 30%;
+				margin-bottom: 2%;
+				&:not(:nth-child(3n + 3)) {
+					margin-right: 5%;
 				}
 			}
 			@include tab-only {
@@ -216,76 +218,36 @@
 				margin-bottom: 4%;
 			}
 			h4 {
-				font-size: 23px;
-				margin-top: 4rem;
-				margin-bottom: 3rem;
+				font-size: 20px;
+				margin-bottom: 8px;
 			}
 			div {
-				font-size: 18px;
-				line-height: 1.65;
-				color: #595959;
+				* {
+					font-size: 16px;
+					color: var(--link-color);
+				}
 			}
 		}
 	}
-	.woocommerce-tabs_inner {
-		box-shadow: 0px 0px 45px 0px rgba(0, 0, 0, 0.07);
-	}
+
 
 	.wc-tabs {
 		display: flex;
-		background-color: #ededed;
+		flex-direction: column;
 		z-index: 1;
-		li {
-			padding: 2rem 2.5rem;
-			font-size: 18px;
-			text-transform: uppercase;
+		> li {
+			border-bottom: 2px solid #F2F4F7;
 			a {
-				color: rgba(0,0,0,0.5);
-				@include tab-max {
-					padding: 1rem!important;
-				}
-				@include mob-only {
-					font-size: 16px!important;
-				}
-			}
-			&.active {
-				box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.09);
-				background-color: #fff;
-				a {
-					color: var(--color-1);
-				}
+				font-size: 24px;
+				font-weight: 800;
+				padding: 0!important;
 			}
 		}
 	}
 	.woocommerce-Tabs-panel {
-		font-size: 2rem;
-		line-height: 2;
-		color: #595959;
-		background-color: #fff;
-		z-index: 2;
-		position: relative;
-		padding-top: 5rem;
-		&:not(.woocommerce-Tabs-panel--about_author) {
-			padding: 5rem 4rem;
-			@include mob-only {
-				padding-bottom: 2.5rem!important;
-			}
-		}
-		@include tab-max {
-			font-size: 16px;
-		}
-		@include mob-only {
-			padding-top: 2.5rem!important;
-			padding-left: 2rem!important;
-			padding-right: 2rem!important;
-			.fmc_chef {
-				padding-left: 0;
-				padding-right: 0;
-			}
-		}
-		.fmc_chef {
-			background: #fff;
-		}
+		transition: var(--site-transition);
+		padding-top: var(--spacing-3);
+		line-height: 1.35;
 	}
 
 	.related {

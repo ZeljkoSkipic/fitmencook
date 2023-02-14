@@ -16,13 +16,13 @@ $('.carousel-nav').flickity({
 
 // Logo slider block
 
-$('.fmc_logo_slider').flickity({
+/* $('.fmc_logo_slider').flickity({
 	// options
 	wrapAround: true,
 	contain: true,
 	pageDots: false,
   });
-
+ */
 
 // Mobile navigation toggle
 
@@ -38,7 +38,7 @@ $( ".fmc_header ul > li a" ).click(function() {
 	$( this ).siblings('.sub-menu').slideToggle();
   });
 
- // Home Carousel
+ // Category Carousel
 
 $('.carousel-home').flickity({
   // options
@@ -48,19 +48,19 @@ $('.carousel-home').flickity({
 	wrapAround: true,
 	prevNextButtons: false
 });
-/*
-// Category Carousel
 
-$('.carousel-category').flickity({
-  // options
-  cellAlign: 'left',
-	wrapAround: true,
-	pageDots: false,
-	prevNextButtons: false,
-	initialIndex: 5
-}); */
+ // Category Carousel
 
-// Sticky Recipe Video
+ $('.carousel-logos').flickity({
+	// options
+	  pageDots: false,
+	  cellAlign: 'left',
+	  watchCSS: true,
+	  wrapAround: true,
+	  prevNextButtons: false
+  });
+
+// Recipe Video
 (function($) {
 	var $window = $(window);
 	var $videoWrap = $('.video-wrap');

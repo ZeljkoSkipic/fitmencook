@@ -1,0 +1,122 @@
+.fmc_mp_recipe {
+	border: 2px solid #F2F4F7;
+	padding: var(--spacing-3);
+	border-radius: 16px;
+	margin: var(--spacing-2) 0;
+	.fmc_mpr_top {
+		padding: 0 44px;
+		background-image: url(assets/icons/fork-and-knife.svg);
+		background-repeat: no-repeat;
+		background-position: center left;
+	}
+	.recipe_no {
+		font-weight: 800;
+		font-size: 12px;
+		line-height: 16px;
+		color: var(--misc-color);
+		text-transform: uppercase;
+	}
+	.fmc_mpr_title {
+		margin-bottom: 1.6rem;
+	}
+	.fmc_recipe_times {
+		display: flex;
+		margin-bottom: var(--spacing-3);
+		padding: 0 44px;
+	}
+	.fmc_time_wrap {
+		font-size: 16px;
+		font-weight: 700;
+		display: flex;
+		flex-direction: column;
+		position: relative;
+		padding-right: 24px;
+		&:not(.fmc_total) {
+			&:after {
+				content: "";
+				height: 12px;
+				width: 1px;
+				background-color: var(--color-5);
+				position: absolute;
+				right: 12px;
+				top: calc(50% - 6px);
+			}
+		}
+		.fmc_time {
+			font-weight: 700;
+			font-size: 14px;
+			line-height: 19px;
+			color: var(--misc-color);
+		}
+		.fmc_amount {
+			font-weight: 700;
+			font-size: 16px;
+			line-height: 22px;
+			color: var(--text-1);
+		}
+	}
+	.fmc_cals {
+		margin-left: auto;
+		color: var(--color-2);
+		font-size: var(--title-size-4);
+		font-weight: 700;
+	}
+	.attachment-post-thumbnail {
+		width: 100%;
+		height: 35rem;
+		border-radius: 16px;
+		margin-bottom: var(--spacing-3);
+	}
+	.fmc_mpr_subtitle {
+		margin-bottom: 16px;
+		font-size: var(--title-size-4);
+		font-family: Nunito;
+	}
+	.fmc_mpr_content {
+		margin-bottom: var(--spacing-3);
+		.fmc_sr_step:last-child {
+			padding-bottom: 0;
+		}
+	}
+	.fmc_macros_title {
+		display: none;
+	}
+	.fmc_macros {
+		background-color: var(--color-1);
+		border-radius: 8px;
+		padding: var(--spacing-3) var(--spacing-3);
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: var(--spacing-3);
+		.fmc_macro {
+			width: calc(100% / 6);
+			display: flex;
+			flex-direction: column;
+			color: rgba(255, 255, 255, 0.5);
+			font-weight: 700;
+			font-size: 16px;
+			line-height: 22px;
+			span {
+				color: #fff;
+				font-size: var(--title-size-4);
+				font-weight: 700;
+				line-height: 1.375;
+				margin-top: 4px;
+			}
+		}
+	}
+	.fmc_mpr_rm {
+		font-weight: 700;
+		font-size: 15px;
+		line-height: 20px;
+		background-image: url(assets/icons/chevron-right.svg);
+		background-repeat: no-repeat;
+		background-position: center right;
+		background-size: 18px;
+		padding-right: 23px;
+		transition: var(--site-transition);
+		&:hover {
+			padding-right: 28px;
+		}
+	}
+}

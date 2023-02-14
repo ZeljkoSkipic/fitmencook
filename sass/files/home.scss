@@ -131,6 +131,7 @@
 		@include tab-max {
 			margin-top: var(--spacing-1);
 			text-align: center;
+			display: none;
 		}
 		h5 {
 			font-size: 15px;
@@ -169,6 +170,9 @@
 		grid-row: 1 / 2;
 		z-index: 1;
 		position: relative;
+		img, picture {
+			border-radius: 16px;
+		}
 		@include mob-only {
 			margin-left: -25px;
 			margin-right: -25px;
@@ -177,7 +181,7 @@
 			padding: var(--spacing-1);
 			padding-top: 20rem;
 		}
-		.fmc_hh_recipe {
+		.fmc_hh_box {
 			@include limbo-min {
 				position: absolute;
 				bottom: 30px;
@@ -193,9 +197,13 @@
 		}
 		.fmc_hr_left {
 			padding: 16px 24px;
+			min-width: 30rem;
+			width: calc(100% - 4rem - 14px);
 		}
 		.fmc_hr_right {
 			border-left: 2px solid var(--color-4);
+			width: calc(4rem + 14px);
+			box-sizing: border-box;
 			a {
 				width: 100%;
 				height: 100%;
@@ -215,6 +223,96 @@
 		}
 	}
 }
+
+/* Logos */
+
+.fmc_logos_track {
+	background-color: #F9FAFB;
+	.fmc_fi_title {
+		text-align: center;
+		color: var(--misc-color);
+		text-transform: uppercase;
+		font-weight: 800;
+		font-size: 22px;
+		font-family: Nunito;
+		@include mob-only {
+			font-size: 20px;
+    		line-height: 1.36;
+		}
+	}
+	width: 100%;
+	/* enable Flickity by default */
+	.carousel-logos:after {
+		content: 'flickity';
+		display: none; /* hide :after */
+	}
+
+	@include limbo-min {
+		/* disable Flickity for large devices */
+		.carousel-logos:after {
+		content: '';
+		}
+	}
+	.fmc_lt_inner {
+		justify-content: space-between;
+		margin-left: auto;
+		margin-right: auto;
+		flex-wrap: wrap;
+		display: flex;
+		@include tab-max {
+			flex-direction: column;
+		}
+	}
+	@include mob-only {
+		.carousel-logos {
+			margin-left: -25px;
+			margin-right: -25px;
+		}
+	}
+	figure {
+		position: relative;
+		text-align: center;
+		border-radius: 16px;
+		height: fit-content;
+		img {
+			object-fit: contain;
+		}
+		@include limbo-min {
+			width: calc(100% / 6 - 25px);
+			border: 2px solid rgba(255, 255, 255, 0);
+			transition: var(--site-transition);
+			img {
+				height: 80px;
+			}
+		}
+		@include tab-only {
+			margin-left: 2rem;
+			margin-right: 2rem;
+			img {
+				height: 70px;
+			}
+		}
+		@include mob-only {
+			img {
+				height: 50px;
+			}
+		}
+		@include limbo-max {
+			padding: 1.5rem 2rem;
+		}
+		svg {
+			object-fit: contain;
+			height: 75px;
+		}
+		svg {
+			margin: auto;
+			path {
+				transition: var(--site-transition);
+			}
+		}
+	}
+}
+
 
 /* Newsletter */
 
@@ -525,7 +623,8 @@ body:not(.archive):not(.blog) {
 		}
 		&:nth-child(odd) {
 			margin-right: 2%;
-		}	}
+		}
+	}
 	@include mob-only {
 		width: 100%;
 	}

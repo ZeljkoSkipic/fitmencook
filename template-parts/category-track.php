@@ -4,10 +4,14 @@
 		<div class="fmc_ct_inner carousel-home">
 			<?php $categories = get_field('categories', 'option') ?>
 			<?php foreach($categories as $category) {
-			$icon = get_field('category_icon', $category); ?>
+			$icon = get_field('category_icon', $category);
+			$size = 'full';
+			?>
 			<figure class="carousel-cell">
 				<?php echo '<a href="' . get_category_link($category->term_id) . '">'; ?>
-					<img src="<?php echo $icon; ?>" alt="">
+				<?php if( $icon ) {
+					echo wp_get_attachment_image( $icon, $size );
+				} ?>
 					<figcaption>
 					<?php echo $category->name; ?>
 					</figcaption>

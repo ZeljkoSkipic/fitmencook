@@ -66,8 +66,7 @@ if ( post_password_required() ) {
 				?>
 			</div>
 		</div>
-		<div class="fmc_product_why spacing_0_1">
-			<h2 class="fmc_main_title title_spacing_1"><?php the_field('wcfmc_title', 'option'); ?></h2>
+		<div class="fmc_product_why spacing_3_1">
 			<div class="fmc_product_why_inner">
 			<?php
 
@@ -87,7 +86,7 @@ if ( post_password_required() ) {
 						if( $icon ) {
 							echo wp_get_attachment_image( $icon, $size );
 						} ?>
-						<h4><?php echo $title; ?></h4>
+						<h4 class="spacing_3_0"><?php echo $title; ?></h4>
 						<div><?php echo $text; ?></div>
 					</div>
 
@@ -109,9 +108,11 @@ if ( post_password_required() ) {
 		?>
 		</div>
 		<div class="fmc_product_right">
-			asdf
+			<div class="fmc_product_buy">
+			<h4 class="fmc_bp_title"><?php the_field('rtb', 'option'); ?></h4>
+
+			</div>
 		</div>
-		<?php comments_template() ?>
 	</div>
 </div>
 

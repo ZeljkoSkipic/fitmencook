@@ -226,20 +226,6 @@ if ( ! function_exists( 'fmc_woocommerce_header_cart' ) ) {
 	}
 }
 
-
-/**
- * Remove product data tabs
- */
-add_filter( 'woocommerce_product_tabs', 'woo_remove_product_tabs', 98 );
-
-function woo_remove_product_tabs( $tabs ) {
-
-    unset( $tabs['reviews'] ); 			// Remove the reviews tab
-
-    return $tabs;
-}
-
-
 /**
  * Add a custom product data tab
  */
@@ -249,7 +235,7 @@ function woo_new_product_tab( $tabs ) {
 	// Adds the new tab
 
 	$tabs['about_author'] = array(
-		'title' 	=> __( 'About Kevin', 'woocommerce' ),
+		'title' 	=> __( 'Shipping Information', 'woocommerce' ),
 		'priority' 	=> 50,
 		'callback' 	=> 'woo_new_product_tab_content'
 	);

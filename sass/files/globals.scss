@@ -80,7 +80,13 @@ ul li {
 
 .text_1 {
 	color: var(	--text-1);
-	font-size: 18px;
+	font-size: var(--body-size);
+	font-weight: 500;
+}
+
+.text_2 {
+	color: var(	--text-1);
+	font-size: var(--body-size-2);
 	font-weight: 500;
 }
 

@@ -154,6 +154,7 @@ body:not(.home) {
 			background-color: #000;
 			opacity: 0;
 			transition: .4s ease-in-out;
+			pointer-events: none;
 		}
 		figure {
 			height: 100%;

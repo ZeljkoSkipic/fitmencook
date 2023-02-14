@@ -24,12 +24,7 @@ $minutes = get_field('minutes', 'option');
 			yoast_breadcrumb( '<div class="fmc_breadcrumbs spacing_0_2">','</div>' );
 			} ?>
 
-			<!-- Categories -->
-			<div class="fmc_categories">
-				<?php the_category(); ?>
-			</div>
-
-			<!-- Recipe Title -->
+			<!-- Meal Plan Title -->
 			<h1 class="fmc_title_1 title_spacing_3">
 				<?php the_title(); ?>
 			</h1>
@@ -51,6 +46,184 @@ $minutes = get_field('minutes', 'option');
 					</div>
 				</div>
 			<?php endif; ?>
+
+			<?php
+
+			if( have_rows('existing_recipe') ):
+
+				// Loop through rows.
+				while( have_rows('existing_recipe') ) : the_row();
+
+					$recipes = get_sub_field('recipe');
+					if( $recipes ): ?>
+						<?php foreach( $recipes as $post ):
+							// Setup this post for WP functions (variable must be named $post).
+							setup_postdata($post);
+
+							$prep_time = get_field('prep_time');
+							$cook_time = get_field('cook_time');
+							$total_time = get_field('total_time');
+
+							$l_prep_time = get_field('l_prep_time', 'option');
+							$l_cook_time = get_field('l_cook_time', 'option');
+							$l_total_time = get_field('l_total_time', 'option');
+
+							?>
+							<div class="fmc_mp_recipe">
+								<div class="fmc_mpr_top">
+									<span class="recipe_no">Meal 1</span>
+									<a href="<?php the_permalink(); ?>"><h2 class="fmc_mpr_title fmc_title_3"><?php the_title(); ?></h2></a>
+								</div>
+								<div class="fmc_recipe_times">
+									<div class="fmc_time_wrap fmc_prep">
+										<span class="fmc_time"><?php echo $l_prep_time; ?></span>
+										<span class="fmc_amount"><?php echo $prep_time; ?><?php echo $minutes ?></span>
+									</div>
+									<div class="fmc_time_wrap fmc_cook">
+										<span class="fmc_time"><?php echo $l_cook_time; ?></span>
+										<span class="fmc_amount"><?php echo $cook_time; ?><?php echo $minutes ?></span>
+									</div>
+									<div class="fmc_time_wrap fmc_total">
+										<span class="fmc_time"><?php echo $l_total_time; ?></span>
+										<span class="fmc_amount"><?php echo $total_time; ?><?php echo $minutes ?></span>
+									</div>
+									<div class="fmc_cals">
+										260cal
+									</div>
+								</div>
+								<?php the_post_thumbnail(); ?>
+								<h4 class="fmc_mpr_subtitle"><?php the_field('ingredients_title'); ?></h4>
+								<div class="text_2 fmc_mpr_content fmc_mpr_ing"><?php the_field('ingredients'); ?></div>
+								<h4 class="fmc_mpr_subtitle"><?php the_field('steps_title'); ?></h4>
+								<div class="text_2 fmc_mpr_content fmc_mpr_steps">
+								<div class="fmc_recipe_steps">
+									<div class="fmc_steps">
+										<?php
+										// Check rows existexists.
+										if( have_rows('steps') ):
+											$item = 1;
+											// Loop through rows.
+											while( have_rows('steps') ) : the_row();
+
+												// Load sub field value.
+												$step = get_sub_field('step'); ?>
+
+												<div class="fmc_sr_step spacing_0_2">
+													<h5 class="fmc_step_title spacing_0_3">
+														Step <?php echo $item; ?>
+													</h5>
+													<div class="fmc_step_content">
+														<?php echo $step; ?>
+													</div>
+												</div>
+
+
+											<?php // End loop.
+											$item++;
+											endwhile;
+
+										endif; ?>
+									</div>
+								</div>
+
+								</div>
+								<!-- Macros -->
+								<?php get_template_part('template-parts/recipe/macros'); ?>
+								<a class="fmc_mpr_rm" href="#">See full recipe</a>
+							</div>
+						<?php endforeach; ?>
+						<?php
+						// Reset the global post object so that the rest of the page works correctly.
+						wp_reset_postdata(); ?>
+					<?php endif;
+
+				endwhile;
+
+			endif; ?>
+
+
+			<?php if( have_rows('custom_recipe') ):
+
+			// Loop through rows.
+			while( have_rows('custom_recipe') ) : the_row(); ?>
+
+				<div class="fmc_mp_recipe">
+					<div class="fmc_mpr_top">
+						<span class="recipe_no">Meal 1</span>
+						<h2 class="fmc_mpr_title fmc_title_3"><?php the_title(); ?></h2>
+					</div>
+					<div class="fmc_recipe_times">
+						<div class="fmc_time_wrap fmc_prep">
+							<span class="fmc_time"><?php echo $l_prep_time; ?></span>
+							<span class="fmc_amount"><?php echo $prep_time; ?><?php echo $minutes ?></span>
+						</div>
+						<div class="fmc_time_wrap fmc_cook">
+							<span class="fmc_time"><?php echo $l_cook_time; ?></span>
+							<span class="fmc_amount"><?php echo $cook_time; ?><?php echo $minutes ?></span>
+						</div>
+						<div class="fmc_time_wrap fmc_total">
+							<span class="fmc_time"><?php echo $l_total_time; ?></span>
+							<span class="fmc_amount"><?php echo $total_time; ?><?php echo $minutes ?></span>
+						</div>
+						<div class="fmc_cals">
+							260cal
+						</div>
+					</div>
+					<?php the_post_thumbnail(); ?>
+					<h4 class="fmc_mpr_subtitle"><?php the_field('ingredients_title'); ?></h4>
+					<div class="text_2 fmc_mpr_content fmc_mpr_ing"><?php the_field('ingredients'); ?></div>
+					<h4 class="fmc_mpr_subtitle"><?php the_field('steps_title'); ?></h4>
+					<div class="text_2 fmc_mpr_content fmc_mpr_steps">
+					<div class="fmc_recipe_steps">
+						<div class="fmc_steps">
+							<?php
+							// Check rows existexists.
+							if( have_rows('steps') ):
+								$item = 1;
+								// Loop through rows.
+								while( have_rows('steps') ) : the_row();
+
+									// Load sub field value.
+									$step = get_sub_field('step'); ?>
+
+									<div class="fmc_sr_step spacing_0_2">
+										<h5 class="fmc_step_title spacing_0_3">
+											Step <?php echo $item; ?>
+										</h5>
+										<div class="fmc_step_content">
+											<?php echo $step; ?>
+										</div>
+									</div>
+
+
+								<?php // End loop.
+								$item++;
+								endwhile;
+
+							endif; ?>
+						</div>
+					</div>
+
+					</div>
+					<!-- Macros -->
+					<?php get_template_part('template-parts/recipe/macros'); ?>
+					<a class="fmc_mpr_rm" href="#">See full recipe</a>
+				</div>
+
+			<?php endwhile;
+
+			endif; ?>
+
+
+
+
+
+
+
+
+
+
+
 			<!-- Ingredients and Steps -->
 			<?php get_template_part('template-parts/recipe/main'); ?>
 			<!-- Additional Macro Info -->

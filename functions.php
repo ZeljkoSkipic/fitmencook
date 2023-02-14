@@ -183,7 +183,7 @@ add_action( 'init', 'register_taxonomy_recipe_category' );
 function create_posttype() {
 
     register_post_type( 'recipes',
-    // CPT Options
+    // Recipes
         array(
             'labels' => array(
                 'name' => 'Recipes',
@@ -200,6 +200,28 @@ function create_posttype() {
             'public' => true,
             'has_archive' => true,
             'rewrite' => array('slug' => 'recipes'),
+            'show_in_rest' => false,
+            'menu_icon' => 'dashicons-drumstick'
+        )
+    );
+
+	register_post_type( 'meal-plan',
+    // Meal Plans
+        array(
+            'labels' => array(
+                'name' => 'Meal Plans',
+                'menu_name' => 'Meal Plans',
+                'name_admin_bar' => 'Meal Plan',
+                'add_new_item' => 'Add New Plan',
+                'view_item' => 'View Meal Plan',
+                'edit_item' => 'Edit Meal Plan',
+                'all_items' => 'All Meal Plan',
+                'singular_name' => 'Meal Plan',
+            ),
+            'supports' => array('title', 'editor', 'excerpt', 'author', 'thumbnail', 'revisions'),
+            'public' => true,
+            'has_archive' => true,
+            'rewrite' => array('slug' => 'meal-plan'),
             'show_in_rest' => false,
             'menu_icon' => 'dashicons-food'
         )
