@@ -5,15 +5,12 @@ $gallery = get_field('gallery');
 
 $times_title = get_field('times_title', 'option');
 
-$prep_time = get_field('prep_time');
-$cook_time = get_field('cook_time');
-$total_time = get_field('total_time');
-
 $l_prep_time = get_field('l_prep_time', 'option');
 $l_cook_time = get_field('l_cook_time', 'option');
 $l_total_time = get_field('l_total_time', 'option');
 
 $minutes = get_field('minutes', 'option');
+$see_full = get_field('see_full', 'option');
 
 ?>
 
@@ -49,11 +46,11 @@ $minutes = get_field('minutes', 'option');
 
 			<?php
 
-			if( have_rows('existing_recipe') ):
+			if( have_rows('existing_recipe') ): // Existing Recipes
 
 				// Loop through rows.
 				while( have_rows('existing_recipe') ) : the_row();
-
+					$include_steps = get_sub_field('include_steps');
 					$recipes = get_sub_field('recipe');
 					if( $recipes ): ?>
 						<?php foreach( $recipes as $post ):
@@ -62,13 +59,8 @@ $minutes = get_field('minutes', 'option');
 
 							$prep_time = get_field('prep_time');
 							$cook_time = get_field('cook_time');
-							$total_time = get_field('total_time');
+							$total_time = get_field('total_time'); ?>
 
-							$l_prep_time = get_field('l_prep_time', 'option');
-							$l_cook_time = get_field('l_cook_time', 'option');
-							$l_total_time = get_field('l_total_time', 'option');
-
-							?>
 							<div class="fmc_mp_recipe">
 								<div class="fmc_mpr_top">
 									<span class="recipe_no">Meal 1</span>
@@ -94,6 +86,7 @@ $minutes = get_field('minutes', 'option');
 								<?php the_post_thumbnail(); ?>
 								<h4 class="fmc_mpr_subtitle"><?php the_field('ingredients_title'); ?></h4>
 								<div class="text_2 fmc_mpr_content fmc_mpr_ing"><?php the_field('ingredients'); ?></div>
+								<?php if( $include_steps ) : ?>
 								<h4 class="fmc_mpr_subtitle"><?php the_field('steps_title'); ?></h4>
 								<div class="text_2 fmc_mpr_content fmc_mpr_steps">
 								<div class="fmc_recipe_steps">
@@ -125,11 +118,11 @@ $minutes = get_field('minutes', 'option');
 										endif; ?>
 									</div>
 								</div>
-
 								</div>
+								<?php endif; ?>
 								<!-- Macros -->
 								<?php get_template_part('template-parts/recipe/macros'); ?>
-								<a class="fmc_mpr_rm" href="#">See full recipe</a>
+								<a class="fmc_mpr_rm" href="<?php the_permalink(); ?>"><?php echo $see_full; ?></a>
 							</div>
 						<?php endforeach; ?>
 						<?php
@@ -141,32 +134,56 @@ $minutes = get_field('minutes', 'option');
 
 			endif; ?>
 
+			<?php dynamic_sidebar( 'ad7' ); ?>
 
-			<?php if( have_rows('custom_recipe') ):
+			<?php if( have_rows('custom_recipe') ): // Custom Recipes
 
 			// Loop through rows.
-			while( have_rows('custom_recipe') ) : the_row(); ?>
+			while( have_rows('custom_recipe') ) : the_row();
+			$recipe_title = get_sub_field('recipe_title');
+
+			$cr_prep_time = get_sub_field('cr_prep_time');
+			$cr_cook_time = get_sub_field('cr_cook_time');
+			$cr_total_time = get_sub_field('cr_total_time');
+
+			$l_calories = get_field('l_calories', 'option');
+			$l_protein = get_field('l_protein', 'option');
+			$l_fat = get_field('l_fat', 'option');
+			$l_carbs = get_field('l_carbs', 'option');
+			$l_sodium = get_field('l_sodium', 'option');
+			$l_fiber = get_field('l_fiber', 'option');
+			$l_sugar = get_field('l_sugar', 'option');
+
+			$cr_calories = get_sub_field('cr_calories');
+			$cr_protein = get_sub_field('cr_protein');
+			$cr_fat = get_sub_field('cr_fat');
+			$cr_carbs = get_sub_field('cr_carbs');
+			$cr_sodium = get_sub_field('cr_sodium');
+			$cr_fiber = get_sub_field('cr_fiber');
+			$cr_sugar = get_sub_field('cr_sugar'); ?>
 
 				<div class="fmc_mp_recipe">
 					<div class="fmc_mpr_top">
 						<span class="recipe_no">Meal 1</span>
-						<h2 class="fmc_mpr_title fmc_title_3"><?php the_title(); ?></h2>
+						<h2 class="fmc_mpr_title fmc_title_3"><?php echo $recipe_title; ?></h2>
 					</div>
 					<div class="fmc_recipe_times">
 						<div class="fmc_time_wrap fmc_prep">
 							<span class="fmc_time"><?php echo $l_prep_time; ?></span>
-							<span class="fmc_amount"><?php echo $prep_time; ?><?php echo $minutes ?></span>
+							<span class="fmc_amount"><?php echo $cr_prep_time; ?><?php echo $minutes ?></span>
 						</div>
 						<div class="fmc_time_wrap fmc_cook">
 							<span class="fmc_time"><?php echo $l_cook_time; ?></span>
-							<span class="fmc_amount"><?php echo $cook_time; ?><?php echo $minutes ?></span>
+							<span class="fmc_amount"><?php echo $cr_cook_time; ?><?php echo $minutes ?></span>
 						</div>
 						<div class="fmc_time_wrap fmc_total">
 							<span class="fmc_time"><?php echo $l_total_time; ?></span>
-							<span class="fmc_amount"><?php echo $total_time; ?><?php echo $minutes ?></span>
+							<span class="fmc_amount"><?php echo $cr_total_time; ?><?php echo $minutes ?></span>
 						</div>
 						<div class="fmc_cals">
-							260cal
+							<?php if($cr_calories) { ?>
+								<?php echo $cr_calories ?>cal
+							<?php } ?>
 						</div>
 					</div>
 					<?php the_post_thumbnail(); ?>
@@ -178,13 +195,13 @@ $minutes = get_field('minutes', 'option');
 						<div class="fmc_steps">
 							<?php
 							// Check rows existexists.
-							if( have_rows('steps') ):
+							if( have_rows('cr_steps') ):
 								$item = 1;
 								// Loop through rows.
-								while( have_rows('steps') ) : the_row();
+								while( have_rows('cr_steps') ) : the_row();
 
 									// Load sub field value.
-									$step = get_sub_field('step'); ?>
+									$step = get_sub_field('cr_step'); ?>
 
 									<div class="fmc_sr_step spacing_0_2">
 										<h5 class="fmc_step_title spacing_0_3">
@@ -203,33 +220,37 @@ $minutes = get_field('minutes', 'option');
 							endif; ?>
 						</div>
 					</div>
-
 					</div>
 					<!-- Macros -->
-					<?php get_template_part('template-parts/recipe/macros'); ?>
-					<a class="fmc_mpr_rm" href="#">See full recipe</a>
+					<div class="fmc_macros">
+						<h4 class="fmc_rs_title fmc_macros_title"><?php echo $macros_title; ?></h4>
+						<?php if($cr_protein) { ?>
+							<div class="fmc_macro"><?php echo $l_protein ?><span><?php echo $cr_protein ?>g</span></div>
+						<?php } ?>
+						<?php if($cr_fat) { ?>
+							<div class="fmc_macro"><?php echo $l_fat ?><span><?php echo $cr_fat ?>g</span></div>
+						<?php } ?>
+						<?php if($cr_carbs) { ?>
+							<div class="fmc_macro"><?php echo $l_carbs ?><span><?php echo $cr_carbs ?>g</span></div>
+						<?php } ?>
+						<?php if($cr_sodium) { ?>
+							<div class="fmc_macro"><?php echo $l_sodium ?><span><?php echo $cr_sodium ?>g</span></div>
+						<?php } ?>
+						<?php if($cr_fiber) { ?>
+							<div class="fmc_macro"><?php echo $l_fiber ?><span><?php echo $cr_fiber ?>g</span></div>
+						<?php } ?>
+						<?php if($cr_sugar) { ?>
+							<div class="fmc_macro"><?php echo $l_sugar ?><span><?php echo $cr_sugar?>g</span></div>
+						<?php } ?>
+					</div>
 				</div>
 
 			<?php endwhile;
 
 			endif; ?>
 
+			<?php dynamic_sidebar( 'ad8' ); ?>
 
-
-
-
-
-
-
-
-
-
-			<!-- Ingredients and Steps -->
-			<?php get_template_part('template-parts/recipe/main'); ?>
-			<!-- Additional Macro Info -->
-			<div class="spacing_2 fmc_additional_macro">
-				<?php the_field('additional_macro_information'); ?>
-			</div>
 			<!-- Comments -->
 			<div class="fmc_comments spacing_3_1">
 				<?php
@@ -248,31 +269,10 @@ $minutes = get_field('minutes', 'option');
 				5.0
 				<span>(14 reviews)</span>
 			</div>
-
-			<!-- Recipe Times -->
-			<h4 class="fmc_rs_title fmc_times_title"><?php echo $times_title; ?></h4>
-
-			<div class="fmc_recipe_times">
-				<?php if($prep_time) { ?>
-					<div class="fmc_prep">
-						<span class="fmc_time"><?php echo $l_prep_time ?></span>
-						<span class="fmc_amount"><?php echo $prep_time?><?php echo $minutes ?></span>
-					</div>
-				<?php } ?>
-				<?php if($cook_time) { ?>
-					<div class="fmc_cook">
-						<span class="fmc_time"><?php echo $l_cook_time ?></span>
-						<span class="fmc_amount"><?php echo $cook_time ?><?php echo $minutes ?></span>
-					</div>
-				<?php } ?>
-				<?php if($total_time) { ?>
-					<div class="fmc_total">
-						<span class="fmc_time"><?php echo $l_total_time ?></span>
-						<span class="fmc_amount"><?php echo $total_time ?><?php echo $minutes ?></span></div>
-				<?php } ?>
-			</div>
 			<!-- Macros -->
-			<?php get_template_part('template-parts/recipe/macros'); ?>
+			<div class="fmc_mp_totals">
+				<div class="fmc_total">Total Calories <span class="fmc_total_number fmc_total_cal">1234</span></div>
+			</div>
 			<!-- Share -->
 			<div class="fmc_share fmc_recipe_share spacing_3_0">
 				<div class="fmc_print"><a title="Print" href="<?php echo get_the_permalink()."?print=true"; ?>"><span class="fmc_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span></a></div>

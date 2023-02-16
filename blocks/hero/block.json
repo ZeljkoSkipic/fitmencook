@@ -1,0 +1,16 @@
+{
+    "name": "acf/hero",
+    "title": "FMC Hero",
+    "description": "A Hero Block containing the Info Box and the Image",
+    "category": "formatting",
+    "icon": "welcome-widgets-menus",
+    "keywords": ["hero", "fmc"],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "hero.php"
+    },
+    "supports": {
+		"mode": false,
+		"align": false
+	}
+}

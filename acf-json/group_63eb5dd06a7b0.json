@@ -119,9 +119,30 @@
             "rows_per_page": 20,
             "sub_fields": [
                 {
+                    "key": "field_63ecad89210e8",
+                    "label": "Recipe Title",
+                    "name": "recipe_title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_63eb663b66487"
+                },
+                {
                     "key": "field_63eb641c73c01",
                     "label": "Prep Time",
-                    "name": "prep_time",
+                    "name": "cr_prep_time",
                     "aria-label": "",
                     "type": "number",
                     "instructions": "",
@@ -144,7 +165,7 @@
                 {
                     "key": "field_63eb642a73c02",
                     "label": "Cook Time",
-                    "name": "cook_time",
+                    "name": "cr_cook_time",
                     "aria-label": "",
                     "type": "number",
                     "instructions": "",
@@ -167,7 +188,7 @@
                 {
                     "key": "field_63eb644473c03",
                     "label": "Total Time",
-                    "name": "total_time",
+                    "name": "cr_total_time",
                     "aria-label": "",
                     "type": "number",
                     "instructions": "",
@@ -190,7 +211,7 @@
                 {
                     "key": "field_63eb649473c04",
                     "label": "Protein",
-                    "name": "protein",
+                    "name": "cr_protein",
                     "aria-label": "",
                     "type": "number",
                     "instructions": "",
@@ -213,7 +234,7 @@
                 {
                     "key": "field_63eb657d73c05",
                     "label": "Carbs",
-                    "name": "carbs",
+                    "name": "cr_carbs",
                     "aria-label": "",
                     "type": "number",
                     "instructions": "",
@@ -236,7 +257,7 @@
                 {
                     "key": "field_63eb658873c06",
                     "label": "Calories",
-                    "name": "calories",
+                    "name": "cr_calories",
                     "aria-label": "",
                     "type": "number",
                     "instructions": "",
@@ -259,7 +280,7 @@
                 {
                     "key": "field_63eb659373c07",
                     "label": "Fat",
-                    "name": "fat",
+                    "name": "cr_fat",
                     "aria-label": "",
                     "type": "number",
                     "instructions": "",
@@ -282,7 +303,7 @@
                 {
                     "key": "field_63eb659873c08",
                     "label": "Sodium",
-                    "name": "sodium",
+                    "name": "cr_sodium",
                     "aria-label": "",
                     "type": "number",
                     "instructions": "",
@@ -305,7 +326,7 @@
                 {
                     "key": "field_63eb65a573c09",
                     "label": "Fiber",
-                    "name": "fiber",
+                    "name": "cr_fiber",
                     "aria-label": "",
                     "type": "number",
                     "instructions": "",
@@ -328,7 +349,7 @@
                 {
                     "key": "field_63eb65ab73c0a",
                     "label": "Sugar",
-                    "name": "sugar",
+                    "name": "cr_sugar",
                     "aria-label": "",
                     "type": "number",
                     "instructions": "",
@@ -412,11 +433,11 @@
                     "parent_repeater": "field_63eb663b66487"
                 },
                 {
-                    "key": "field_63eb67aa0efac",
+                    "key": "field_63ecaef5c0148",
                     "label": "Steps",
-                    "name": "custom_steps",
+                    "name": "cr_steps",
                     "aria-label": "",
-                    "type": "wysiwyg",
+                    "type": "repeater",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -425,11 +446,35 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "",
-                    "tabs": "text",
-                    "media_upload": 1,
-                    "toolbar": "full",
-                    "delay": 0,
+                    "layout": "table",
+                    "min": 0,
+                    "max": 0,
+                    "collapsed": "",
+                    "button_label": "Add Step",
+                    "rows_per_page": 20,
+                    "sub_fields": [
+                        {
+                            "key": "field_63ecaef5c0149",
+                            "label": "Step",
+                            "name": "cr_step",
+                            "aria-label": "",
+                            "type": "wysiwyg",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "tabs": "all",
+                            "toolbar": "full",
+                            "media_upload": 1,
+                            "delay": 0,
+                            "parent_repeater": "field_63ecaef5c0148"
+                        }
+                    ],
                     "parent_repeater": "field_63eb663b66487"
                 }
             ]
@@ -440,7 +485,7 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "meal-plan"
+                "value": "meal-plans"
             }
         ]
     ],
@@ -453,5 +498,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1676372621
+    "modified": 1676461537
 }

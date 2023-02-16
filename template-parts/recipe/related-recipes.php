@@ -26,7 +26,7 @@
 							<div class="fmc_recipe_content">
 								<div class="fmc_grid_meta">
 									<span class="fmc_grid_cat">
-										Breakfast
+										<?php the_category(); ?>
 									</span>
 									<div class="meta_rating">
 									<svg xmlns="http://www.w3.org/2000/svg" width="12" height="11" viewBox="0 0 12 11" fill="none">

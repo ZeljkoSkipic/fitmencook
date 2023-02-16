@@ -1,0 +1,16 @@
+{
+    "name": "acf/blurbs",
+    "title": "FMC Blurbs",
+    "description": "A Blurbs Block three column layout with icon, title and subtitle ",
+    "category": "formatting",
+    "icon": "feedback",
+    "keywords": ["blurbs", "fmc"],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "blurbs.php"
+    },
+    "supports": {
+		"mode": false,
+		"align": false
+	}
+}

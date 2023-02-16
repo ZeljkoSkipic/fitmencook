@@ -50,6 +50,6 @@ $l_sugar = get_field('l_sugar', 'option');
 		<div class="fmc_macro"><?php echo $l_sugar ?><span><?php echo $sugar?>g</span></div>
 	<?php } ?>
 	<?php if($calories) { ?>
-		<div class="fmc_macro"><?php echo $l_calories ?><span><?php echo $calories ?>cal</span></div>
+		<div class="fmc_macro fmc_macro_cals"><?php echo $l_calories ?><span><?php echo $calories ?>cal</span></div>
 	<?php } ?>
 </div>

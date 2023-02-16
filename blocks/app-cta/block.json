@@ -1,0 +1,15 @@
+{
+    "name": "acf/app-cta",
+    "title": "FMC APP CTA",
+    "description": "A custom simple Text and App Badges.",
+    "category": "formatting",
+    "icon": "smartphone",
+    "keywords": ["apps", "fmc"],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "app-cta.php"
+    },
+	"supports": {
+		"align": false
+	}
+}

@@ -1,0 +1,16 @@
+{
+    "name": "acf/counters",
+    "title": "FMC Counters",
+    "description": "A Counters Block four columns with title and subtitle ",
+    "category": "formatting",
+    "icon": "chart-bar",
+    "keywords": ["counters", "fmc"],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "counters.php"
+    },
+    "supports": {
+		"mode": false,
+		"align": false
+	}
+}

@@ -15,6 +15,8 @@
  * @version 3.6.0
  */
 
+use function WPML\FP\Strings\remove;
+
 defined( 'ABSPATH' ) || exit;
 
 global $product;
@@ -62,6 +64,7 @@ if ( post_password_required() ) {
 				 * @hooked woocommerce_template_single_sharing - 50
 				 * @hooked WC_Structured_Data::generate_product_data() - 60
 				 */
+                remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30);
 				do_action( 'woocommerce_single_product_summary' );
 				?>
 			</div>
@@ -109,8 +112,8 @@ if ( post_password_required() ) {
 		</div>
 		<div class="fmc_product_right">
 			<div class="fmc_product_buy">
-			<h4 class="fmc_bp_title"><?php the_field('rtb', 'option'); ?></h4>
-
+			    <h4 class="fmc_bp_title"><?php the_field('rtb', 'option'); ?></h4>
+                <?php do_action('woo_add_to_cart_sidebar'); ?>
 			</div>
 		</div>
 	</div>

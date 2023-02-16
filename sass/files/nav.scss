@@ -6,10 +6,15 @@
 		cursor: pointer;
 	}
 }
-
+.fmc_sitehead, .fmc_mobile_header {
+	img {
+		border-radius: 0;
+	}
+}
 body:not(.home) {
 	.fmc_sitehead {
 		border-bottom: 2px solid var(--color-4);
+
 	}
 }
 @include desk-min {

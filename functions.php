@@ -205,7 +205,7 @@ function create_posttype() {
         )
     );
 
-	register_post_type( 'meal-plan',
+	register_post_type( 'meal-plans',
     // Meal Plans
         array(
             'labels' => array(
@@ -218,10 +218,10 @@ function create_posttype() {
                 'all_items' => 'All Meal Plan',
                 'singular_name' => 'Meal Plan',
             ),
-            'supports' => array('title', 'editor', 'excerpt', 'author', 'thumbnail', 'revisions'),
+            'supports' => array('title', 'editor', 'comments', 'author', 'thumbnail', 'revisions'),
             'public' => true,
             'has_archive' => true,
-            'rewrite' => array('slug' => 'meal-plan'),
+            'rewrite' => array('slug' => 'meal-plans'),
             'show_in_rest' => false,
             'menu_icon' => 'dashicons-food'
         )
@@ -276,6 +276,12 @@ function my_acf_json_load_point( $paths ) {
 
 add_action( 'init', 'register_acf_blocks' );
 function register_acf_blocks() {
+	register_block_type( __DIR__ . '/blocks/hero' );
+	register_block_type( __DIR__ . '/blocks/counters' );
+	register_block_type( __DIR__ . '/blocks/philosophy' );
+	register_block_type( __DIR__ . '/blocks/app-cta' );
+	register_block_type( __DIR__ . '/blocks/blurbs' );
+
     register_block_type( __DIR__ . '/blocks/order' );
 	register_block_type( __DIR__ . '/blocks/button' );
 	register_block_type( __DIR__ . '/blocks/section' );
@@ -344,6 +350,21 @@ function admin_styles() {
 	  .wp-admin .postbox.acf-postbox div.acf-field-tab *, .acf-settings-wrap div.acf-field-tab * {
 		pointer-events: none!important;
 	  }
+
+/* ACF Chrome bug Fix */
+
+.interface-interface-skeleton__content div.acf-field-tab, .acf-settings-wrap div.acf-field-tab {
+	display: block!important;
+	font-size: 0;
+	height: 0;
+	padding: 0!important;
+	opacity: 0;
+	pointer-events: none;
+
+  }
+  .interface-interface-skeleton__content div.acf-field-tab, .acf-settings-wrap div.acf-field-tab * {
+	pointer-events: none!important;
+  }
   </style>';
 }
 
@@ -354,4 +375,13 @@ add_filter( 'woocommerce_single_product_zoom_enabled', '__return_false' );
 add_action( 'after_setup_theme', 'remove_wc_gallery_lightbox', 100 );
 function remove_wc_gallery_lightbox() {
 remove_theme_support( 'wc-product-gallery-lightbox' );
+}
+
+
+add_filter ('add_to_cart_redirect', 'redirect_to_checkout');
+
+function redirect_to_checkout() {
+    global $woocommerce;
+    $checkout_url = $woocommerce->cart->get_checkout_url();
+    return $checkout_url;
 }

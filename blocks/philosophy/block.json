@@ -1,0 +1,16 @@
+{
+    "name": "acf/philosophy",
+    "title": "FMC Philosophy",
+    "description": "A Philosophy Block two rows and two columns with title and subtitle ",
+    "category": "formatting",
+    "icon": "editor-table",
+    "keywords": ["philosophy", "fmc"],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "philosophy.php"
+    },
+    "supports": {
+		"mode": false,
+		"align": false
+	}
+}

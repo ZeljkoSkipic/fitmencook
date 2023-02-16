@@ -83,6 +83,16 @@ jQuery(document).ready(function ($) {
       }
     });
   })(jQuery);
+  var quantity = $('.quantity .qty');
+  var unitPrice = $('.fmc_product_unit_price');
+  var totalPrice = $('.fmc_product_unit_total-js');
+  var countProductPrice = function countProductPrice(e) {
+    var currentValue = $(e.currentTarget).val();
+    var unitPriceValue = unitPrice.data('unit-price');
+    var total = parseFloat(currentValue * unitPriceValue).toFixed(2);
+    totalPrice.html(total);
+  };
+  quantity.on('change', countProductPrice);
 });
 var observer = new IntersectionObserver(function (_ref) {
   var _ref2 = _slicedToArray(_ref, 1),
@@ -91,4 +101,5 @@ var observer = new IntersectionObserver(function (_ref) {
 }, {
   threshold: [1]
 });
-observer.observe(document.querySelector('.fmc_mobile_header'));
+
+//   observer.observe(document.querySelector('.fmc_mobile_header'));

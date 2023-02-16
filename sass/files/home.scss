@@ -93,6 +93,50 @@
 
 
 /* Hero */
+
+.fmc_hero_prefix {
+	margin-bottom: var(--spacing-3);
+	@include mob-only {
+		display: none;
+	}
+}
+.fmc_hero_title {
+	font-size: 6.4rem;
+	line-height: 1.1;
+}
+
+.fmc_app_badges {
+	@include tab-max {
+		margin-top: var(--spacing-1);
+		text-align: center;
+		display: none;
+	}
+	h5 {
+		font-size: 15px;
+		color: var(--link-color);
+		font-family: Nunito;
+		margin-bottom: 16px;
+	}
+	.fmc_app_icons {
+		display: flex;
+		justify-content: space-between;
+		@include limbo-min {
+			max-width: 300px;
+		}
+		@include tab-max {
+			max-width: 400px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		figure {
+			width: 48%;
+			img {
+				object-fit: contain;
+			}
+		}
+	}
+}
+
 .fmc_home_hero {
 	.fmc_container {
 		z-index: 2;
@@ -109,50 +153,19 @@
 			}
 		}
 	}
-	.fmc_hero_text {
-		.fmc_hh_title {
-			margin-bottom: var(--spacing-3);
-			@include mob-only {
-				display: none;
+	.fmc_app_badges {
+		margin-top: 9rem;
+		.fmc_app_icons {
+			@include limbo-min {
+				max-width: 45%;
 			}
 		}
-		.fmc_hh_subtitle {
-			font-size: 6.4rem;
-			line-height: 1.1;
-		}
+	}
+	.fmc_hero_text {
 		.fmc_hh_text {
 			font-size: 20px;
 			margin-bottom: var(--padding-2);
 			margin-bottom: 4rem;
-		}
-	}
-	.fmc_hero_apps {
-		margin-top: 9rem;
-		@include tab-max {
-			margin-top: var(--spacing-1);
-			text-align: center;
-			display: none;
-		}
-		h5 {
-			font-size: 15px;
-			color: var(--link-color);
-			font-family: Nunito;
-			margin-bottom: 16px;
-		}
-		.fmc_hero_icons {
-			display: flex;
-			justify-content: space-between;
-			@include limbo-min {
-				width: 45%;
-			}
-			@include tab-max {
-				max-width: 400px;
-				margin-left: auto;
-				margin-right: auto;
-			}
-			figure {
-				width: 48%;
-			}
 		}
 	}
 	.fmc_hh_left {

@@ -1,6 +1,6 @@
 {
     "key": "group_633822375a604",
-    "title": "Block: FMC Section",
+    "title": "Block: Section",
     "fields": [
         {
             "key": "field_6338236211ada",
@@ -35,6 +35,31 @@
             },
             "layout": "block",
             "sub_fields": [
+                {
+                    "key": "field_63ee23de31c6e",
+                    "label": "Icon",
+                    "name": "icon",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "id",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "preview_size": "medium"
+                },
                 {
                     "key": "field_6338229657168",
                     "label": "Title",
@@ -90,26 +115,6 @@
                         "id": ""
                     },
                     "return_format": "array"
-                },
-                {
-                    "key": "field_6389015b19c99",
-                    "label": "Subtext",
-                    "name": "subtext",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": ""
                 },
                 {
                     "key": "field_6388faf451334",
@@ -294,5 +299,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1670083692
+    "modified": 1676564513
 }

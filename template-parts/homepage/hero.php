@@ -17,25 +17,14 @@ $box_type = get_field('box_type');
 	<div class="fmc_container">
 		<div class="fmc_hh_left">
 			<div class="fmc_hero_text">
-				<h2 class="fmc_hh_title fmc_grid_cat"><a href="/shop"><?php echo $prefix ?></a></h2>
-				<h1 class="fmc_hh_subtitle"><?php echo $title ?></h1>
+				<h2 class="fmc_hero_prefix fmc_grid_cat"><a href="/shop"><?php echo $prefix ?></a></h2>
+				<h1 class="fmc_hero_title"><?php echo $title ?></h1>
 				<div class="fmc_hh_text"><?php echo $text ?></div>
 			</div>
 			<?php echo do_shortcode('[wpdreams_ajaxsearchpro id=1]'); ?>
-			<div class="fmc_hero_apps">
-				<h5>Available On</h5>
-				<div class="fmc_hero_icons">
-					<figure>
-						<a href="https://itunes.apple.com/app/id980368562">
-							<img width="120" height="37" src="\wp-content\themes\fitmencook\assets\images/app-store-badge.svg">
-						</a>
-					</figure>
-					<figure>
-						<a href="https://play.google.com/store/apps/details?id=com.nibbleapps.fitmencook">
-							<img width="120" height="37" src="\wp-content\themes\fitmencook\assets\images/google-play-badge.svg">
-						</a>
-					</figure>
-				</div>
+			<div class="fmc_app_badges">
+				<h5><?php the_field('app_badges_title'); ?></h5>
+				<?php get_template_part('template-parts/app-badges'); ?>
 			</div>
 		</div>
 		<div class="fmc_hh_right">

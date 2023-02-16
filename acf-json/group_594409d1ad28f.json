@@ -98,6 +98,44 @@
             "esc_html": 0
         },
         {
+            "key": "field_63ee5e23a2aec",
+            "label": "App Badges Title",
+            "name": "app_badges_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Available Now:",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_63ee5de5a2aeb",
+            "label": "App Badges",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "App badges are set up Globally <a href=\"\/wp-admin\/admin.php?page=acf-options-app\" target=\"_blank\">Here<\/a>",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
             "key": "field_63ea2327880bb",
             "label": "Bottom Right Box Type",
             "name": "box_type",
@@ -687,5 +725,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1676293759
+    "modified": 1676572590
 }

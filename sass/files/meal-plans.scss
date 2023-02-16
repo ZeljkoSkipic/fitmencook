@@ -88,14 +88,19 @@
 		display: flex;
 		justify-content: space-between;
 		margin-bottom: var(--spacing-3);
+		flex-wrap: wrap;
 		.fmc_macro {
-			width: calc(100% / 6);
 			display: flex;
 			flex-direction: column;
 			color: rgba(255, 255, 255, 0.5);
 			font-weight: 700;
 			font-size: 16px;
 			line-height: 22px;
+			@include mob-only {
+				width: 26%;
+				margin-bottom: .5rem;
+				margin-top: .5rem;
+			}
 			span {
 				color: #fff;
 				font-size: var(--title-size-4);
@@ -103,6 +108,9 @@
 				line-height: 1.375;
 				margin-top: 4px;
 			}
+		}
+		.fmc_macro_cals {
+			display: none;
 		}
 	}
 	.fmc_mpr_rm {
@@ -117,6 +125,160 @@
 		transition: var(--site-transition);
 		&:hover {
 			padding-right: 28px;
+		}
+	}
+}
+
+.single-meal-plan {
+	.fmc_total {
+		display: flex;
+		justify-content: space-between;
+		font-size: 14px;
+		font-weight: 700;
+		.fmc_total_number {
+			font-size: 20px;
+			color: var(--color-1);
+			font-weight: 800;
+		}
+	}
+}
+
+
+
+/* Archive */
+
+.fmc_mp_archive_wrap {
+	.fmc_arch_title {
+		max-width: 90rem;
+	}
+	.fmc_arch_intro {
+		font-size: 20px;
+		margin-bottom: var(--spacing-1);
+		max-width: 90rem;
+	}
+	.fmc_archive_inner {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		.fmc_plan {
+			margin-bottom: 4%;
+			@include limbo-min {
+				width: 48%;
+			}
+			border: 2px solid #F2F4F7;
+			border-radius: 16px;
+			padding: 20px;
+		}
+		.fmc_plan_images {
+			display: flex;
+			justify-content: space-between;
+			@include mob-only {
+				flex-direction: column;
+				.right {
+					display: none;
+				}
+			}
+			@include tab-min {
+				height: 292px;
+				> div {
+					width: calc(50% - 10px);
+					img {
+						height: 100%;
+						width: 100%;
+					}
+				}
+				.left {
+					figure {
+						height: 100%;
+					}
+				}
+				.right {
+					display: flex;
+					flex-direction: column;
+					justify-content: space-between;
+					figure {
+						height: calc(50% - 10px);
+					}
+				}
+			}
+		}
+		.fmc_plan_title {
+			margin-top: 20px;
+			margin-bottom: 15px;
+		}
+		.fmc_plan_bottom {
+			font-weight: 700;
+			font-size: 16px;
+			line-height: 22px;
+			padding-left: 32px;
+			background-image: url(assets/icons/fork-and-knife.svg);
+			background-repeat: no-repeat;
+			background-position: center left;
+			background-size: 20px;
+			span {
+				font-size: 14px;
+				line-height: 19px;
+				color: var(--misc-color);
+				display: block;
+				font-weight: 700;
+			}
+
+		}
+	}
+}
+
+.fmc_mp_archive_main {
+	.fmc_mp_archive_anchors {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		border-bottom: 2px solid  #F2F4F7;;
+		a {
+			font-size: 16px;
+			padding: 16px;
+			font-weight: 700;
+			border-bottom: 3px solid transparent;
+			transition: var(--site-transition);
+			color: #667085;
+			&:hover {
+				border-color: var(--color-1);
+			}
+		}
+	}
+	.fmc_mp_arch_main_inner {
+		display: flex;
+		justify-content: space-between;
+		@include tab-max {
+			flex-direction: column;
+			.fmc_mp_archive_left {
+				margin-bottom: var(--spacing-3);
+			}
+		}
+	}
+	@include limbo-min {
+		.fmc_mp_archive_left {
+			width: 75%;
+		}
+		.fmc_archive_sidebar {
+			width: 23%;
+		}
+	}
+	.fmc_archive_sidebar {
+		.recipe_ad_sidebar {
+			padding-top: 0;
+			position: sticky;
+			@include desk-min {
+				top: 0;
+			}
+			@include limbo-only {
+				top: 60px;
+			}
+		}
+	}
+	.fmc_mp_arch_sec {
+		&:not(:first-child) {
+			padding-top: var(--spacing-1);
+
 		}
 	}
 }

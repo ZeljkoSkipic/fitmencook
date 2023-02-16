@@ -108,9 +108,9 @@ function fmc_widgets_init() {
 	) );
 
 	register_sidebar( array(
-		'name' => __( 'Recipe Ad Sidebar', 'fmc' ),
+		'name' => __( 'Recipe & Meal Plan Ad Sidebar', 'fmc' ),
 		'id' => 'ad5',
-		'description' => __( 'Displayed at Archive, Category and Recipes in the Sidebar', 'fmc' ),
+		'description' => __( 'Displayed at Archive, Category, Recipes and Meal Plan in the Sidebar', 'fmc' ),
 		'before_widget' => '<div class="fmc_recipe_ad recipe_ad_sidebar spacing_2_0">',
 		'after_widget' => '</div>',
 	) );
@@ -120,6 +120,22 @@ function fmc_widgets_init() {
 		'id' => 'ad6',
 		'description' => __( 'Displayed at Archive, after Featured Recipe', 'fmc' ),
 		'before_widget' => '<div class="fmc_recipe_ad recipe_ad_after_featured">',
+		'after_widget' => '</div>',
+	) );
+
+	register_sidebar( array(
+		'name' => __( 'Meal Plan Ad After Existing Recipe', 'fmc' ),
+		'id' => 'ad7',
+		'description' => __( 'Displayed at Meal Plan, after Existing Recipes', 'fmc' ),
+		'before_widget' => '<div class="fmc_mp_ad mp_ad_after_existing">',
+		'after_widget' => '</div>',
+	) );
+
+	register_sidebar( array(
+		'name' => __( 'Meal Plan Ad After Custom Recipe', 'fmc' ),
+		'id' => 'ad8',
+		'description' => __( 'Displayed at Meal Plan, after Custom Recipes', 'fmc' ),
+		'before_widget' => '<div class="fmc_mp_ad mp_ad_after_custom">',
 		'after_widget' => '</div>',
 	) );
 

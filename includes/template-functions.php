@@ -134,7 +134,7 @@ if( function_exists('acf_add_options_page') ) {
     ));
 
     acf_add_options_sub_page(array(
-        'page_title'    => 'App Before Footer Settings',
+        'page_title'    => 'App Banner and Badges Settings',
         'menu_title'    => 'App',
         'parent_slug'   => 'theme-general-settings',
     ));
@@ -143,6 +143,12 @@ if( function_exists('acf_add_options_page') ) {
         'page_title'    => 'Theme Footer Settings',
         'menu_title'    => 'Footer',
         'parent_slug'   => 'theme-general-settings',
+    ));
+
+	acf_add_options_sub_page(array(
+        'page_title'    => 'Meal Plans Archive',
+        'menu_title'    => 'Archive',
+        'parent_slug'   => 'edit.php?post_type=meal-plans',
     ));
 
 }

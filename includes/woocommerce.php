@@ -267,3 +267,30 @@ function woo_related_products_limit() {
 	  $args['columns'] = 4; // arranged in 2 columns
 	  return $args;
   }
+
+  /**
+ *  Woo custom Hooks
+ */
+
+ add_action('woo_add_to_cart_sidebar', 'woocommerce_template_single_add_to_cart');
+
+   /**
+ *  Woo add to cart button text
+ */
+
+ // Change add to cart text on single product page
+add_filter( 'woocommerce_product_single_add_to_cart_text', 'woocommerce_add_to_cart_button_text_single' ); 
+function woocommerce_add_to_cart_button_text_single() {
+    $button_text = get_field('product_cart_text', 'option');
+    return __( $button_text, 'woocommerce' ); 
+}
+
+// Change add to cart text on product archives page
+add_filter( 'woocommerce_product_add_to_cart_text', 'woocommerce_add_to_cart_button_text_archives' );  
+function woocommerce_add_to_cart_button_text_archives() {
+    $button_text = get_field('product_cart_text', 'option');
+    return __( $button_text, 'woocommerce' );
+}
+
+
+

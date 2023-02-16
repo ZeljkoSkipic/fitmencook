@@ -1,14 +1,3 @@
-.page {
-	&.page-template-default {
-		.site-main {
-			padding-top: 7rem;
-			padding-bottom: 7rem;
-		}
-	}
-
-
-}
-
 .fmc_buttons {
 	display: flex;
 	flex-wrap: wrap;
@@ -173,4 +162,55 @@
 	background-color: var(--color-1);
 	color: #fff;
 	margin-top: 2rem;
+}
+
+
+/* Cookbook */
+
+.fmc_text_w_bg {
+	background-color: var(--color-1);
+	padding: 22rem 19rem 25rem 19rem;
+	margin: 0 25px;
+	border-radius: 16px;
+	p {
+		font-size: var(--title-size-2);
+		font-weight: 700;
+		font-family: Alpino;
+		color: #fff;
+		max-width: 100rem;
+		margin: auto;
+	}
+}
+
+
+// App
+
+.fmc_app_grid {
+	.wp-block-columns {
+		margin-bottom: var(--spacing-3);
+	}
+	.fmc_app_grid_title {
+		font-weight: 700;
+		font-family: Alpino;
+		strong {
+			font-family: Alpino;
+			color: var(--color-1);
+		}
+	}
+}
+
+
+.fmc_app_play {
+	padding: 12rem 0 var(--spacing-1) 0;
+	.fmc_title_2 {
+		strong {
+			font-family: Alpino;
+			color: var(--color-1);
+		}
+
+	}
+	p {
+		max-width: 540px;
+		margin: auto;
+	}
 }

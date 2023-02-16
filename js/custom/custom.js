@@ -81,6 +81,20 @@ $('.carousel-home').flickity({
 	});
 }(jQuery));
 
+const quantity = $('.quantity .qty');
+const unitPrice = $('.fmc_product_unit_price');
+const totalPrice = $('.fmc_product_unit_total-js');
+
+const countProductPrice = (e) => {
+
+    let currentValue = $(e.currentTarget).val();
+    let unitPriceValue = unitPrice.data('unit-price');
+    let total = parseFloat(currentValue * unitPriceValue).toFixed(2);
+    totalPrice.html(total);
+};
+
+quantity.on('change', countProductPrice);
+
 });
 
 
@@ -89,4 +103,4 @@ const observer = new IntersectionObserver(
 	{threshold: [1]}
   );
 
-  observer.observe(document.querySelector('.fmc_mobile_header'));
+//   observer.observe(document.querySelector('.fmc_mobile_header'));
