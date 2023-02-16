@@ -7,14 +7,7 @@
 			<span class="fmc_fa_prefix"><?php the_field('app_prefix', 'option'); ?></span>
 			<h2 class="fmc_title_2 title_spacing_2"><?php the_field('app_title', 'option'); ?></h2>
 			<div class="fmc_fa_content"><?php the_field('app_content', 'option'); ?></div>
-			<div class="fmc_fa_badges">
-			<figure>
-				<img src="\wp-content\themes\fitmencook\assets\images/app-store-badge.svg">
-			</figure>
-			<figure>
-				<img src="\wp-content\themes\fitmencook\assets\images/google-play-badge.svg">
-			</figure>
-			</div>
+			<?php get_template_part('template-parts/app-badges'); ?>
 		</div>
     </div>
 </div>
