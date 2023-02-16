@@ -11,7 +11,7 @@ $box_type = get_field('box_type');
 ?>
 
 
-<?php echo do_shortcode('[wpdreams_asp_settings id=1 element="div"]'); ?>
+<?php echo do_shortcode('[wpdreams_asp_settings id=2 element="div"]'); ?>
 
 <div class="fmc_home_hero spacing_0_1">
 	<div class="fmc_container">
@@ -21,7 +21,7 @@ $box_type = get_field('box_type');
 				<h1 class="fmc_hero_title"><?php echo $title ?></h1>
 				<div class="fmc_hh_text"><?php echo $text ?></div>
 			</div>
-			<?php echo do_shortcode('[wpdreams_ajaxsearchpro id=1]'); ?>
+			<?php echo do_shortcode('[wpdreams_ajaxsearchpro id=2]'); ?>
 			<div class="fmc_app_badges">
 				<h5><?php the_field('app_badges_title'); ?></h5>
 				<?php get_template_part('template-parts/app-badges'); ?>
