@@ -43,8 +43,6 @@ add_action( 'after_setup_theme', 'fmc_woocommerce_setup' );
  * @return void
  */
 function fmc_woocommerce_scripts() {
-	wp_enqueue_style( 'fmc-woocommerce-style', get_template_directory_uri() . '/woocommerce.css', array(), _S_VERSION );
-
 	$font_path   = WC()->plugin_url() . '/assets/fonts/';
 	$inline_font = '@font-face {
 			font-family: "star";
@@ -279,18 +277,15 @@ function woo_related_products_limit() {
  */
 
  // Change add to cart text on single product page
-add_filter( 'woocommerce_product_single_add_to_cart_text', 'woocommerce_add_to_cart_button_text_single' ); 
+add_filter( 'woocommerce_product_single_add_to_cart_text', 'woocommerce_add_to_cart_button_text_single' );
 function woocommerce_add_to_cart_button_text_single() {
-    $button_text = get_field('product_cart_text', 'option');
-    return __( $button_text, 'woocommerce' ); 
-}
-
-// Change add to cart text on product archives page
-add_filter( 'woocommerce_product_add_to_cart_text', 'woocommerce_add_to_cart_button_text_archives' );  
-function woocommerce_add_to_cart_button_text_archives() {
     $button_text = get_field('product_cart_text', 'option');
     return __( $button_text, 'woocommerce' );
 }
 
-
-
+// Change add to cart text on product archives page
+add_filter( 'woocommerce_product_add_to_cart_text', 'woocommerce_add_to_cart_button_text_archives' );
+function woocommerce_add_to_cart_button_text_archives() {
+    $button_text = get_field('product_cart_text', 'option');
+    return __( $button_text, 'woocommerce' );
+}

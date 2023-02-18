@@ -59,7 +59,11 @@ p {
 	}
 }
 
-.fmc_container, .wp-block-group > .wp-block-group__inner-container{
+iframe {
+	border-radius: 16px;
+}
+
+.fmc_container{
 	width: var(--sh-site-width);
 	margin-left: auto;
 	margin-right: auto;
@@ -173,6 +177,11 @@ ul li {
 	padding-top: var(--spacing-3);
 	padding-bottom: var(--spacing-1);
 }
+.spacing_3_2 {
+	padding-top: var(--spacing-3);
+	padding-bottom: var(--spacing-2);
+}
+
 .spacing_0_3 {
 	padding-bottom: var(--spacing-3);
 }

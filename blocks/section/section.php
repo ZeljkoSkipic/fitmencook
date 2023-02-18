@@ -34,9 +34,8 @@ if ( ! empty( $stack ) ) {
 	$size = 'thumbnail';
 	?>
 
-	<div class="left">
+	<div class="left spacing_2">
 		<div class="fmc_sec_inner_content">
-
 			<?php if( $icon ) { ?>
 				<figure class="fmc_sec_icon">
 				<?php echo wp_get_attachment_image( $icon, $size ); ?>

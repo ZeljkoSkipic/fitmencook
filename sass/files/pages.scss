@@ -169,8 +169,14 @@
 
 .fmc_text_w_bg {
 	background-color: var(--color-1);
-	padding: 22rem 19rem 25rem 19rem;
-	margin: 0 25px;
+
+	@include tab-min {
+		margin: 0 25px;
+		padding: 22rem 19rem 25rem 19rem;
+	}
+	@include mob-only {
+		padding: 25rem 5rem;
+	}
 	border-radius: 16px;
 	p {
 		font-size: var(--title-size-2);
@@ -179,9 +185,76 @@
 		color: #fff;
 		max-width: 100rem;
 		margin: auto;
+		@include mob-only {
+			font-size: 20px;
+		}
 	}
 }
 
+.fmc_cookbook_video {
+	.wp-block-embed__wrapper {
+		text-align: center;
+		margin-top: -17rem;
+	}
+	iframe {
+		width: 100rem;
+		height: 60rem;
+		margin: auto;
+		box-shadow: 0px 0px 100px rgba(52, 64, 84, 0.16);
+		border-radius: 32px;
+		border: 16px solid #fff;
+		@include mob-only {
+			border-width: 8px;
+		}
+	}
+}
+
+.cookbook_blurbs {
+	padding: 10rem 0;
+	@include tab-only {
+		.fmc_blurb:last-child {
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
+}
+
+
+.fmc_cookbook_section_wrap {
+	background: linear-gradient(180deg, rgba(244, 244, 244, 0) 0%, #F4F4F4 100%);
+	border-radius: 16px;
+	margin-left: 25px;
+	margin-right: 25px;
+	.wp-block-group__inner-container {
+		background-image: url(assets/images/app-cta-bg.svg);
+		background-position: center bottom;
+		background-repeat: no-repeat;
+	}
+ }
+
+ .cookbook_about_kevin {
+	padding: 10rem 0;
+	.rm_link {
+
+		margin-top: var(--spacing-2);
+		a {
+			color: var(--color-1);
+		}
+	}
+ }
+
+ .cookbook_get_fit {
+	padding: 8rem 0;
+	border-radius: 16px;
+	@include tab-min {
+		margin: 0 25px;
+	}
+	.fmc_btn {
+		margin-top: var(--spacing-2);
+		background-color: #fff;
+		color: #374151;
+	}
+ }
 
 // App
 
@@ -212,5 +285,25 @@
 	p {
 		max-width: 540px;
 		margin: auto;
+	}
+}
+
+/* About */
+
+.about_title {
+	max-width: 90rem;
+}
+
+.about_5_caption {
+	font-size: 20px;
+	max-width: 800px;
+	margin: auto;
+
+}
+
+.about_results_before {
+	font-weight: 500;
+	strong {
+		color: var(--color-1)
 	}
 }

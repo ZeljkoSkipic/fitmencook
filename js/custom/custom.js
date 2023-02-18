@@ -81,6 +81,8 @@ $('.carousel-home').flickity({
 	});
 }(jQuery));
 
+// Count single product price on quantity change
+
 const quantity = $('.quantity .qty');
 const unitPrice = $('.fmc_product_unit_price');
 const totalPrice = $('.fmc_product_unit_total-js');
@@ -94,6 +96,40 @@ const countProductPrice = (e) => {
 };
 
 quantity.on('change', countProductPrice);
+
+// Validate comment form
+
+const commentForm = $('#commentform');
+
+$.validator.addMethod("valueNotEquals", function(value, element, arg){
+    console.log(value);
+    return arg !== value;
+   }, "Value must not equal arg.");
+
+
+commentForm.validate({
+    rules : {
+        author: 'required',
+        email : {
+            required: true,
+            email: true
+        },
+        comment: 'required',
+        rateRecipe: {valueNotEquals: "0"}
+    },
+    messages: {
+        rateRecipe: { valueNotEquals: "Please select a rating." }
+       },
+       errorPlacement: function(error, element) {
+        if (element.attr("name") == "rateRecipe" || element.attr("name") == "rateRecipe" ) {
+          error.insertAfter(".recipe_rate-wrapper");
+        } else {
+          error.insertAfter(element);
+        }
+      },
+      ignore: []
+});
+
 
 });
 

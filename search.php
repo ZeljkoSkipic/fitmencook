@@ -9,7 +9,7 @@
 
 get_header();
 ?>
-<?php echo do_shortcode('[wpdreams_asp_settings id=2 element="div"]'); ?>
+<?php echo do_shortcode('[wpdreams_asp_settings id=1 element="div"]'); ?>
 	<main id="primary" class="site-main">
 		<div class="fmc_search_hero spacing_1">
 			<div class="fmc_container">
@@ -19,7 +19,7 @@ get_header();
 			printf( esc_html__( 'Search Results for: %s', 'fmc' ), '<span>' . get_search_query() . '</span>' );
 			?>
 		</h1>
-				<?php echo do_shortcode('[wpdreams_ajaxsearchpro id=2]'); ?>
+				<?php echo do_shortcode('[wpdreams_ajaxsearchpro id=1]'); ?>
 			</div>
 		</div>
 

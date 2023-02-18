@@ -1,18 +1,4 @@
-.home {
-	/* Featured Products */
-	.fmc_home_products {
-		.fmc_home_p_inner {
-			display: flex;
-			flex-wrap: wrap;
-			justify-content: space-between;
-			@include tab-max {
-				padding-bottom: 0;
-			}
-		}
-		.fmc_container {
-			text-align: center;
-		}
-	}
+.home, .archive {
 	.fmc_product {
 		width: 23%;
 		border: 2px solid #F2F4F7;
@@ -25,7 +11,7 @@
 			box-shadow: 0px 20px 40px rgba(52, 64, 84, 0.08);
 		}
 		@include limbo-min {
-			&:not(:last-child) {
+			&:not(:nth-child(4n + 4)) {
 				margin-right: 2.5%;
 			}
 		}
@@ -78,6 +64,23 @@
 			@include tab-max {
 				font-size: 16px;
 			}
+		}
+	}
+}
+
+.home {
+	/* Featured Products */
+	.fmc_home_products {
+		.fmc_home_p_inner {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			@include tab-max {
+				padding-bottom: 0;
+			}
+		}
+		.fmc_container {
+			text-align: center;
 		}
 	}
 	.fmc_top_title {

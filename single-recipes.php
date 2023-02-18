@@ -62,6 +62,9 @@ $minutes = get_field('minutes', 'option');
 				<?php
 				if ( comments_open() || get_comments_number() ) :
 					comments_template();
+
+
+
 				endif; ?>
 			</div>
 		</div>
@@ -70,12 +73,7 @@ $minutes = get_field('minutes', 'option');
 
 	<div class="fmc_sr_sidebar">
 		<div class="fmc_recipe_details">
-			<div class="fmc_sidebar_rating">
-				<img src="/wp-content/themes/fitmencook/assets/icons/stars.svg" alt="">
-				5.0
-				<span>(14 reviews)</span>
-			</div>
-
+            <?php get_avarage_rating(get_the_ID(), 'sidebar'); ?>
 			<!-- Recipe Times -->
 			<h4 class="fmc_rs_title fmc_times_title"><?php echo $times_title; ?></h4>
 

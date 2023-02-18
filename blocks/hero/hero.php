@@ -12,7 +12,7 @@ if ( ! empty( $block['className'] ) ) {
 	<?php
 	$hero = get_field('left');
 	if( $hero ): ?>
-		<div class="fmc_hero_left">
+		<div class="fmc_hero_left spacing_2">
 			<h2 class="fmc_hero_prefix"><?php echo $hero['prefix']; ?></h2>
 			<h1 class="fmc_hero_title spacing_0_2"><?php echo $hero['title']; ?></h1>
 			<?php if($hero['subtitle']) { ?>
@@ -21,7 +21,7 @@ if ( ! empty( $block['className'] ) ) {
 			</div>
 			<?php } ?>
 			<?php if( $hero['below_title'] == 'btn' ) { ?>
-			<div class="fmc_app_badges">
+			<div class="fmc_btn_meta">
 			<?php if($hero['button']['url'] ) { ?>
 				<a class="fmc_btn" href="<?php echo esc_url( $hero['button']['url'] ); ?>" target="_blank"><?php echo esc_html( $hero['button']['title'] ); ?></a>
 			<?php } ?>

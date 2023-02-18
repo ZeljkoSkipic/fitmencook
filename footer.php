@@ -11,9 +11,9 @@
 
 ?>
 
-<footer class="fmc_footer">
+<footer class="fmc_footer spacing_2_0">
 		<div class="fmc_footer_main">
-			<div class="fmc_container spacing_2_1">
+			<div class="fmc_container spacing_1">
 				<div class="fmc_footer_col">
 					<?php dynamic_sidebar( 'footer-1' ); ?>
 				</div>

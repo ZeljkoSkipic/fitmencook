@@ -83,6 +83,9 @@ jQuery(document).ready(function ($) {
       }
     });
   })(jQuery);
+
+  // Count single product price on quantity change
+
   var quantity = $('.quantity .qty');
   var unitPrice = $('.fmc_product_unit_price');
   var totalPrice = $('.fmc_product_unit_total-js');
@@ -93,6 +96,40 @@ jQuery(document).ready(function ($) {
     totalPrice.html(total);
   };
   quantity.on('change', countProductPrice);
+
+  // Validate comment form
+
+  var commentForm = $('#commentform');
+  $.validator.addMethod("valueNotEquals", function (value, element, arg) {
+    console.log(value);
+    return arg !== value;
+  }, "Value must not equal arg.");
+  commentForm.validate({
+    rules: {
+      author: 'required',
+      email: {
+        required: true,
+        email: true
+      },
+      comment: 'required',
+      rateRecipe: {
+        valueNotEquals: "0"
+      }
+    },
+    messages: {
+      rateRecipe: {
+        valueNotEquals: "Please select a rating."
+      }
+    },
+    errorPlacement: function errorPlacement(error, element) {
+      if (element.attr("name") == "rateRecipe" || element.attr("name") == "rateRecipe") {
+        error.insertAfter(".recipe_rate-wrapper");
+      } else {
+        error.insertAfter(element);
+      }
+    },
+    ignore: []
+  });
 });
 var observer = new IntersectionObserver(function (_ref) {
   var _ref2 = _slicedToArray(_ref, 1),
