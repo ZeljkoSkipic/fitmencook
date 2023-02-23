@@ -38,9 +38,9 @@ jQuery(document).ready(function ($) {
 
   // Mobile navigation submenu
 
-  $(".fmc_header ul > li a").click(function () {
+  $(".fmc_header ul > li:after").click(function () {
     $(this).toggleClass('sub-open');
-    $(this).siblings('.sub-menu').slideToggle();
+    $(this).children('.sub-menu').slideToggle();
   });
 
   // Category Carousel

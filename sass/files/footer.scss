@@ -1,31 +1,70 @@
 .fmc_app {
+	.fmc_container::after {
+		z-index: 9;
+		content: "";
+		background-image: url(assets/images/app-leaf.webp);
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: bottom right;
+		width: 22rem;
+		height: 11.6rem;
+		position: absolute;
+		bottom: -5rem;
+		right: 3.5rem;
+	}
 	.img_bg {
 		width: 50%;
 		left: auto;
-		@include desk-min {
-			top: -3.8rem;
-			height: calc(100% + 7.6rem);
-			right: 3.5rem;
-		}
+		top: -3.8rem;
+		height: calc(100% + 3.8rem);
+		right: 13rem;
 		@include limbo-only {
-			height: 100%;
-			img {
-				position: relative;
-				bottom: -3.4rem;
-			}
+			height: auto;
+			right: 5rem;
 		}
-
+		@include mob-only {
+			right: 5rem;
+			height: 140px;
+			bottom: 0;
+			top: auto;
+		}
 		img {
 			object-fit: contain;
 			object-position: bottom right;
 		}
 	}
+	.fmc_container::after {
+		@include limbo-only {
+		z-index: 9;
+		content: "";
+		background-image: url(assets/images/app-leaf.webp);
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: bottom right;
+		width: 22rem;
+		height: 11.6rem;
+		position: absolute;
+		bottom: -5rem;
+		right: -25px;
+		}
+		@include mob-only {
+			right: 0;
+		}
+	}
+
 	.fmc_app_inner {
 		background-color: var(--color-4);
 		border-radius: 16px;
 		padding: 6.4rem 7.2rem;
-		@include tab-max {
+		@include tab-only {
 			padding-bottom: 40rem;
+		}
+		@include mob-only {
+			padding-bottom: 100px;
+			.fmc_app_icons {
+				z-index: 3;
+			}
+
 		}
 		.fmc_fa_prefix {
 			font-size: 12px;
@@ -35,17 +74,34 @@
 		}
 		.fmc_fa_content {
 			margin-bottom: 4rem;
+			@include limbo-only {
+				max-width: 60%;
+			}
 			p {
 				font-size: 20px;
 				line-height: 1.35;
+				@include mob-only {
+					font-size: 18px;
+					z-index: 3;
+				}
 			}
 		}
 		.fmc_app_icons {
 			display: flex;
-			max-width: 30rem;
+			@include limbo-min {
+				max-width: 30rem;
+			}
 			figure {
-				width: 50%;
-
+				width: 140px;
+				@include limbo-min {
+					max-width: 50%;
+				}
+				&:first-child {
+					margin-right: var(--spacing-3);
+				}
+				img {
+					object-fit: contain;
+				}
 			}
 		}
 	}

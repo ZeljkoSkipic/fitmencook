@@ -56,7 +56,7 @@ if ( woocommerce_product_loop() ) {
 
 		<div class="fmc_product">
 			<figure class="fmc_grid_figure">
-				<img width="297" height="198" src="//localhost:3000/wp-content/uploads/2022/10/salt-cellar.png" class="attachment-full size-full" alt="" decoding="async" loading="lazy" srcset="//localhost:3000/wp-content/uploads/2022/10/salt-cellar.png 297w, //localhost:3000/wp-content/uploads/2022/10/salt-cellar-150x100.png 150w" sizes="(max-width: 297px) 100vw, 297px">					</figure>
+				<img width="297" height="198" src="/wp-content/uploads/2022/10/salt-cellar.png" class="attachment-full size-full" alt="" decoding="async" loading="lazy" srcset="/wp-content/uploads/2022/10/salt-cellar.png 297w, /wp-content/uploads/2022/10/salt-cellar-150x100.png 150w" sizes="(max-width: 297px) 100vw, 297px">					</figure>
 			<div class="fmc_grid_meta">
 				<span class="fmc_grid_cat">
 					Breakfast

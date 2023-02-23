@@ -16,6 +16,10 @@ html {
 		font-size: 5px;
 	}
 }
+body {
+	max-width: 2560px;
+    margin: auto;
+}
 * {
 	color: var(--text-1);
 	font-family: Nunito;

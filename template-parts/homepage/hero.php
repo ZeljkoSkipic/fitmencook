@@ -17,7 +17,7 @@ $box_type = get_field('box_type');
 	<div class="fmc_container">
 		<div class="fmc_hh_left">
 			<div class="fmc_hero_text">
-				<h2 class="fmc_hero_prefix fmc_grid_cat"><a href="/shop"><?php echo $prefix ?></a></h2>
+				<h2 class="fmc_hero_prefix fmc_grid_cat"><a href="<?php the_permalink( woocommerce_get_page_id( 'shop' ) ); ?>"><?php echo $prefix ?></a></h2>
 				<h1 class="fmc_hero_title"><?php echo $title ?></h1>
 				<div class="fmc_hh_text"><?php echo $text ?></div>
 			</div>

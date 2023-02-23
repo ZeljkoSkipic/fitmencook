@@ -62,8 +62,7 @@ function add_rating_to_review_text( $text ) {
 
 	$rating_html = '<div class="comment-items">
         <div class="rateit" data-rateit-starwidth="19" data-rateit-starheight="16" data-rateit-value="'.$rating.'" data-rateit-ispreset="true" data-rateit-readonly="true"></div>
-        <p class="comment-date"> '.$date.' </p>
-    </div>';
+        <p class="comment-date"> '.$date.' </p></div>';
 
 	$updated_text = $rating_html. $text;
 

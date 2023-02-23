@@ -33,9 +33,9 @@ $( ".fmc_mm_trigger" ).click(function() {
 
 // Mobile navigation submenu
 
-$( ".fmc_header ul > li a" ).click(function() {
-	$( this ).toggleClass('sub-open');
-	$( this ).siblings('.sub-menu').slideToggle();
+$(".fmc_header ul > li:after").click(function () {
+    $(this).toggleClass('sub-open');
+    $(this).children('.sub-menu').slideToggle();
   });
 
  // Category Carousel

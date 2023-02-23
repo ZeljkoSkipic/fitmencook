@@ -63,7 +63,31 @@ $l_sugar = get_field('l_sugar', 'option');
 				<?php the_field('ingredients'); ?>
 			</div>
 			<h4><?php the_field('steps_title'); ?></h4>
-			<?php the_field('steps'); ?>
+			<?php
+			// Check rows existexists.
+			if( have_rows('steps') ):
+				$item = 1;
+				// Loop through rows.
+				while( have_rows('steps') ) : the_row();
+
+					// Load sub field value.
+					$step = get_sub_field('step'); ?>
+
+					<div class="fmc_sr_step spacing_0_2">
+						<h5 class="fmc_step_title spacing_0_3">
+							Step <?php echo $item; ?>
+						</h5>
+						<div class="fmc_step_content">
+							<?php echo $step; ?>
+						</div>
+					</div>
+
+
+				<?php // End loop.
+				$item++;
+				endwhile;
+
+			endif; ?>
 		</div>
 	</div>
 

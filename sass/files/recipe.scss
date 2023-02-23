@@ -649,6 +649,9 @@ body.archive {
 .fmc_print_template {
 	max-width: 650px;
 	margin: auto;
+	* {
+		font-family: Arial, Helvetica, sans-serif;
+	}
 	.fmc_pt_btns {
 		display: flex;
 		justify-content: center;
@@ -671,9 +674,11 @@ body.archive {
 		line-height: 1.5;
 		padding: 15px;
 		background-color: #fafafa;
-
+		.post-categories {
+			@include clean-list;
+		}
 		h4 {
-			font-size: 18px;
+			font-size: 20px;
 			margin-bottom: 10px;
 		}
 		ol {
@@ -681,6 +686,7 @@ body.archive {
 		}
 		p {
 			margin: 0;
+			font-size: 16px;
 		}
 		.fmc_pt_ingredients {
 			margin-bottom: 15px;
@@ -713,11 +719,16 @@ body.archive {
 					flex-wrap: wrap;
 					li {
 						margin-right: 10px;
+						font-size: 16px;
 					}
 				}
 			}
 		}
 		.fmc_pt_main {
+			.fmc_step_title {
+				padding-bottom: 5px;
+				font-size: 18px;
+			}
 			img, picture {
 				display: none;
 			}

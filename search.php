@@ -15,9 +15,9 @@ get_header();
 			<div class="fmc_container">
 			<h1 class="fmc_main_title title_spacing_2">
 			<?php
+			$search_title = get_field('search_resutls_title', 'option');
 			/* translators: %s: search query. */
-			printf( esc_html__( 'Search Results for: %s', 'fmc' ), '<span>' . get_search_query() . '</span>' );
-			?>
+			echo $search_title;?> <span>  <?php echo get_search_query(); ?></span>
 		</h1>
 				<?php echo do_shortcode('[wpdreams_ajaxsearchpro id=1]'); ?>
 			</div>
@@ -51,17 +51,19 @@ get_header();
 			</div>
 
 
-		<?php else :
+		<?php else : ?>
 
-			get_template_part( 'template-parts/content', 'none' );
+			<div class="fmc_no_results fmc_container">
+				<img src="<?php echo get_template_directory_uri(); ?>/assets/images/no-results.png" alt="no results">
+				<h4><?php the_field('no_results_title', 'option'); ?></h4>
+				<p><?php the_field('no_results_text', 'option'); ?></p>
+			</div>
 
-		endif;
-		?>
+		<?php endif; ?>
 
 			</div>
 			</div>
 	</main><!-- #main -->
 
 <?php
-get_sidebar();
 get_footer();
