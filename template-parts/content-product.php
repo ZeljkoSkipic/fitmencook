@@ -31,7 +31,7 @@ $product = wc_get_product(get_the_ID());
         <?php if ($categories && isset($categories[0])) : ?>
 
             <span class="fmc_grid_cat">
-                <?php echo $categories[0]->name; ?>
+                <a href="<?php echo get_term_link($categories[0]); ?>"><?php echo $categories[0]->name; ?></a>
             </span>
 
         <?php endif; ?>
@@ -40,7 +40,7 @@ $product = wc_get_product(get_the_ID());
 
     <?php if ($title) : ?>
 
-        <h3 class="fmc_grid_title"><?php echo $title; ?></h3>
+        <h3 class="fmc_grid_title"><a href="<?php the_permalink(); ?>"><?php echo $title; ?></a></h3>
 
     <?php endif; ?>
 

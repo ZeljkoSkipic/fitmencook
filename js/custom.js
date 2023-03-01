@@ -22,10 +22,10 @@ jQuery(document).ready(function ($) {
   // Logo slider block
 
   /* $('.fmc_logo_slider').flickity({
-  	// options
-  	wrapAround: true,
-  	contain: true,
-  	pageDots: false,
+      // options
+      wrapAround: true,
+      contain: true,
+      pageDots: false,
     });
    */
 
@@ -101,37 +101,50 @@ jQuery(document).ready(function ($) {
 
   // Validate comment form
 
-  var commentForm = $('#commentform');
-  $.validator.addMethod("valueNotEquals", function (value, element, arg) {
-    console.log(value);
-    return arg !== value;
-  }, "Value must not equal arg.");
-  commentForm.validate({
-    rules: {
-      author: 'required',
-      email: {
-        required: true,
-        email: true
+  if ($.validator !== undefined) {
+    var commentForm = $('#commentform');
+    $.validator.addMethod("valueNotEquals", function (value, element, arg) {
+      console.log(value);
+      return arg !== value;
+    }, "Value must not equal arg.");
+    commentForm.validate({
+      rules: {
+        author: 'required',
+        email: {
+          required: true,
+          email: true
+        },
+        comment: 'required',
+        rateRecipe: {
+          valueNotEquals: "0"
+        }
       },
-      comment: 'required',
-      rateRecipe: {
-        valueNotEquals: "0"
-      }
-    },
-    messages: {
-      rateRecipe: {
-        valueNotEquals: "Please select a rating."
-      }
-    },
-    errorPlacement: function errorPlacement(error, element) {
-      if (element.attr("name") == "rateRecipe" || element.attr("name") == "rateRecipe") {
-        error.insertAfter(".recipe_rate-wrapper");
-      } else {
-        error.insertAfter(element);
-      }
-    },
-    ignore: []
-  });
+      messages: {
+        rateRecipe: {
+          valueNotEquals: "Please select a rating."
+        }
+      },
+      errorPlacement: function errorPlacement(error, element) {
+        if (element.attr("name") == "rateRecipe" || element.attr("name") == "rateRecipe") {
+          error.insertAfter(".recipe_rate-wrapper");
+        } else {
+          error.insertAfter(element);
+        }
+      },
+      ignore: []
+    });
+  }
+
+  // Open Reviews tab on single product when review is posted
+
+  var hash = window.location.hash;
+  var tabReviews = $('a[href=#tab-reviews]');
+  if (hash != '' && $('.product').length) {
+    tabReviews.parent().addClass('active');
+    setTimeout(function () {
+      tabReviews.next().attr('style', '');
+    }, 500);
+  }
 });
 var observer = new IntersectionObserver(function (_ref) {
   var _ref2 = _slicedToArray(_ref, 1),

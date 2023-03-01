@@ -12,6 +12,14 @@ function fmc_widgets_init() {
 		'after_widget' => '</div>',
     ) );
 
+    register_sidebar( array(
+        'name' => __( 'Post Archive Sidebar', 'fmc' ),
+        'id' => 'blog_archive_sidebar',
+        'description' => __( 'Displays in the sidebar of Blog', 'fmc' ),
+        'before_widget' => '<div class="fmc_ps_widget">',
+		'after_widget' => '</div>',
+    ) );
+
     /* -- Footer Widgets -- */
 
     register_sidebar( array(

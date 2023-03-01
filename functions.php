@@ -209,7 +209,7 @@ function create_posttype() {
             'taxonomies'  => array( 'recipe-category' ),
             'public' => true,
             'has_archive' => true,
-            'rewrite' => array('slug' => 'recipes'),
+            'rewrite' => array('slug' => 'recipes', 'with_front' => false),
             'show_in_rest' => false,
             'menu_icon' => 'dashicons-drumstick'
         )
@@ -231,7 +231,7 @@ function create_posttype() {
             'supports' => array('title', 'editor', 'comments', 'author', 'thumbnail', 'revisions'),
             'public' => true,
             'has_archive' => true,
-            'rewrite' => array('slug' => 'meal-plans'),
+            'rewrite' => array('slug' => 'meal-plans', 'with_front' => false),
             'show_in_rest' => false,
             'menu_icon' => 'dashicons-food'
         )

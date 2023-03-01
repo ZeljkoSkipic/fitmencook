@@ -3,7 +3,11 @@
 get_header();
 
 $featured_image = get_field('featured_post_image', 'option');
-$size = 'full'
+$size = 'full';
+$i = 1;
+global $wp_query;
+$post_per_page_count = $wp_query->post_count;
+$blog_posts_delimetar = get_field('after_which_post_number_to_show_add', 'option');
 
 ?>
 
@@ -53,10 +57,15 @@ $size = 'full'
 
 	<div class="fmc_archive_inner fmc_container">
 		<div class="fmc_blog_archive_main">
-			<?php while ( have_posts() ) : the_post();
+            <div class="fmc_post_sidebar">
+                <?php  ?>
+            </div>
+			<?php  while ( have_posts() ) : the_post();
 			$categories = get_the_category();
+           
+            if($post_per_page_count >= 4 && $i === 1) echo "<div class='first-posts-container'>"; elseif($post_per_page_count > 4 && $i === ($blog_posts_delimetar + 1)) echo "<div class='rest-of-posts-container'>";
+            $i++; 
 			?>
-
 				<div class="fmc_post">
 					<figure class="fmc_grid_figure">
 					<a href="<?php the_permalink(); ?>">
@@ -77,6 +86,19 @@ $size = 'full'
 						</div>
 					</div>
 				</div>
+
+                <?php 
+                
+                if($post_per_page_count >= 4 && $i === ($blog_posts_delimetar + 1)) {
+                    echo "</div>";
+                    dynamic_sidebar( 'blog_archive_sidebar' );
+                }  
+                elseif($post_per_page_count > 4 && $i === ($post_per_page_count + 1)) {
+                    echo "</div>";
+                } 
+
+                
+                ?>
 
 			<?php endwhile;
 			?>

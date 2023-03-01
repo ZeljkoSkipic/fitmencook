@@ -344,6 +344,28 @@
             "placeholder": "",
             "prepend": "",
             "append": ""
+        },
+        {
+            "key": "field_63fe94fa215dd",
+            "label": "After Which Post Number to Show AD Widget?",
+            "name": "after_which_post_number_to_show_add",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "Do not put this higher than your posts per page number.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 4,
+            "min": 2,
+            "max": 10,
+            "placeholder": "",
+            "step": 2,
+            "prepend": "",
+            "append": ""
         }
     ],
     "location": [
@@ -364,5 +386,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1675786438
+    "modified": 1677672626
 }

@@ -28,6 +28,18 @@ get_header('shop');
  * @hooked WC_Structured_Data::generate_website_data() - 30
  */
 
+ $product_categories = $terms = get_terms( 'product_cat', array(
+    'hide_empty' => false,
+));
+
+if($product_categories && is_array($product_categories)) {
+    $product_categories = array_filter($product_categories, function($category) {
+        return $category->slug !== "uncategorized";
+    });
+}
+
+global $wp_query;
+$query_var = get_query_var('product_cat', "-1");
 ?>
 <div class="fmc_container spacing_2_0">
     <header class="woocommerce-products-header">
@@ -38,7 +50,24 @@ get_header('shop');
             <?php if (apply_filters('woocommerce_show_page_title', true)) : ?>
                 <h1 class="fmc_title_2 woocommerce-products-header__title page-title"><?php woocommerce_page_title(); ?></h1>
             <?php endif; ?>
-            <div class="fmc_product_cats"><a class="current" href="#">All products</a><a href="#">Spices</a><a href="#">Meals</a><a href="#">Journals</a><a href="#">Cookware</a></div>
+
+            <?php if($product_categories): ?>
+
+            <div class="fmc_product_cats">
+                <a <?php if($query_var == -1 ) echo "class='current'"; ?> href="<?php echo get_permalink( wc_get_page_id( 'shop' )); ?>"><?php esc_html_e('All products', 'fitmenCook'); ?></a>
+
+                <?php 
+                foreach($product_categories as $product_cat) {
+                    ?>
+                         <a <?php if($query_var === $product_cat->slug ) echo "class='current'"; ?> href="<?php echo get_term_link($product_cat); ?>"><?php echo $product_cat->name; ?></a>
+                    <?php
+                } 
+                ?>
+
+            </div>
+
+            <?php endif; ?>
+
         </div>
     </header>
     <?php

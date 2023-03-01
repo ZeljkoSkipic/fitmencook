@@ -47,16 +47,18 @@ if (!comments_open()) {
                 $name_email_required = (bool) get_option('require_name_email', 1);
                 $fields              = array(
                     'author' => array(
-                        'label'    => __('Name', 'woocommerce'),
-                        'type'     => 'text',
-                        'value'    => $commenter['comment_author'],
-                        'required' => $name_email_required,
+                        'label'         => __('Name', 'woocommerce'),
+                        'type'          => 'text',
+                        'value'         => $commenter['comment_author'],
+                        'required'      => $name_email_required,
+                        'placeholder'   => __('Your Name*', 'woocommerce')
                     ),
                     'email'  => array(
-                        'label'    => __('Email', 'woocommerce'),
-                        'type'     => 'email',
-                        'value'    => $commenter['comment_author_email'],
-                        'required' => $name_email_required,
+                        'label'         => __('Email', 'woocommerce'),
+                        'type'          => 'email',
+                        'value'         => $commenter['comment_author_email'],
+                        'required'      => $name_email_required,
+                        'placeholder'   => __('Your Email*', 'woocommerce')
                     ),
                 );
 
@@ -70,7 +72,7 @@ if (!comments_open()) {
                         $field_html .= '&nbsp;<span class="required">*</span>';
                     }
 
-                    $field_html .= '</label><input id="' . esc_attr($key) . '" name="' . esc_attr($key) . '" type="' . esc_attr($field['type']) . '" value="' . esc_attr($field['value']) . '" size="30" ' . ($field['required'] ? 'required' : '') . ' /></p>';
+                    $field_html .= '</label><input placeholder="'.esc_html($field['placeholder']).'" id="' . esc_attr($key) . '" name="' . esc_attr($key) . '" type="' . esc_attr($field['type']) . '" value="' . esc_attr($field['value']) . '" size="30" ' . ($field['required'] ? 'required' : '') . ' /></p>';
 
                     $comment_form['fields'][$key] = $field_html;
                 }
@@ -81,7 +83,7 @@ if (!comments_open()) {
                     $comment_form['must_log_in'] = '<p class="must-log-in">' . sprintf(esc_html__('You must be %1$slogged in%2$s to post a review.', 'woocommerce'), '<a href="' . esc_url($account_page_url) . '">', '</a>') . '</p>';
                 }
 
-                $comment_form['comment_field'] .= '<p class="comment-form-comment"><label for="comment">' . esc_html__('Your review', 'woocommerce') . '&nbsp;<span class="required">*</span></label><textarea id="comment" name="comment" cols="45" rows="8" required></textarea></p>';
+                $comment_form['comment_field'] .= '<p class="comment-form-comment"><label for="comment">' . esc_html__('Your review', 'woocommerce') . '&nbsp;<span class="required">*</span></label><textarea placeholder="Your Review* " id="comment" name="comment" cols="45" rows="8" required></textarea></p>';
 
                 comment_form(apply_filters('woocommerce_product_review_comment_form_args', $comment_form));
                 ?>

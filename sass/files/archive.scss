@@ -1,5 +1,12 @@
 /* Archive and Category general */
-
+.first-posts-container, .rest-of-posts-container {
+	display: flex;
+	flex-wrap: wrap;
+}
+.fmc_ps_widget {
+	margin-bottom: var(--spacing-1);
+	width: 100%;
+}
 .fmc_featured_post {
 	display: flex;
 	justify-content: space-between;

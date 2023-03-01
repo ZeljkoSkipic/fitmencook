@@ -68,20 +68,18 @@
 			}
 		}
 		h2 {
-			font-size: var(--title-size-3);
 			margin-bottom: var(--spacing-3);
 			&:not(:first-child) {
 				margin-top: var(--spacing-3);
 			}
 		}
-		h3 {
-			font-size: var(--title-size-4);
-			margin-bottom: 3rem;
+		h3, h4 {
 			margin-top: 3rem;
+			margin-bottom: 2.4rem;
 		}
 		ul {
-			margin-top: 3rem;
-			margin-bottom: 3rem;
+			margin-top: 2.4rem;
+			margin-bottom: 2.4rem;
 		}
 		img {
 			height: 100%;

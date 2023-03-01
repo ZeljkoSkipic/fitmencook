@@ -25,6 +25,7 @@
 					<?php
                     while ( $the_query->have_posts() ) : $the_query->the_post();
                         $avg_rating = get_avarage_rating (get_the_ID(), "" , true);
+						$categories = get_the_category();
                     ?>
 						<div class="fmc_recipe">
 							<figure class="fmc_grid_figure">
@@ -32,9 +33,11 @@
 							</figure>
 							<div class="fmc_recipe_content">
 								<div class="fmc_grid_meta">
-									<span class="fmc_grid_cat">
-										Breakfast
-									</span>
+								<span class="fmc_grid_cat">
+									<?php if ( ! empty( $categories ) ) {
+										echo '<a href="' . esc_url( get_category_link( $categories[0]->term_id ) ) . '">' . esc_html( $categories[0]->name ) . '</a>';
+									} ?>
+								</span>
 
                                     <?php if($avg_rating): ?>
 
