@@ -28,4 +28,10 @@ if( $images ): ?>
 
 <?php endforeach; ?>
 </div>
-<?php endif; ?>
+<?php
+
+else :
+
+	the_post_thumbnail();
+
+endif; ?>

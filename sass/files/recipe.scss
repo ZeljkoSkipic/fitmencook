@@ -214,6 +214,10 @@ body.archive {
 	flex-wrap: wrap;
 	justify-content: space-between;
 	position: relative;
+	.attachment-post-thumbnail {
+		max-height: 49rem;
+		border-radius: 16px;
+	}
 	@include desk-min {
 		margin: auto;
 		.fmc_sr_main  {
@@ -343,6 +347,11 @@ body.archive {
 				span {
 					color: var(--text-1);
 					font-weight: 700;
+				}
+				&.fmc_macro_cals {
+					span {
+						color: var(--color-1);
+					}
 				}
 			}
 		}
@@ -590,29 +599,6 @@ body.archive {
 				font-style: italic;
 			}
 		}
-		.fmc_chef_share {
-			display: flex;
-			padding-top: 3rem;
-			div {
-				svg {
-					height: 20px;
-					path {
-						fill: var(--misc-color);
-						transition: var(--site-transition);
-					}
-					&:hover {
-						path {
-							fill: var(--color-1);
-						}
-					}
-				}
-				&:not(:last-child) {
-					svg {
-						margin-right: var(--spacing-3);
-					}
-				}
-			}
-		}
 	}
 	@include tab-max {
 		padding-bottom: 0;
@@ -641,6 +627,30 @@ body.archive {
 			}
 		}
 
+	}
+}
+
+.fmc_chef_share {
+	display: flex;
+	padding-top: 3rem;
+	div {
+		svg {
+			height: 20px;
+			path {
+				fill: var(--misc-color);
+				transition: var(--site-transition);
+			}
+			&:hover {
+				path {
+					fill: var(--color-1);
+				}
+			}
+		}
+		&:not(:last-child) {
+			svg {
+				margin-right: var(--spacing-3);
+			}
+		}
 	}
 }
 

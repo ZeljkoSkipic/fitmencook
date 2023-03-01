@@ -45,9 +45,8 @@ get_header();
 		</div>
 	</div>
 
-	<div class="fmc_post_sidebar">
-		<?php dynamic_sidebar( 'blog_sidebar' ); ?>
-	</div>
+	<?php get_template_part('template-parts/blog-sidebar'); ?>
+
 </div>
 </div>
 

@@ -132,8 +132,8 @@
         },
         {
             "key": "field_635942af0841c",
-            "label": "Categories",
-            "name": "categories",
+            "label": "Recipe Categories",
+            "name": "recipe_categories",
             "aria-label": "",
             "type": "taxonomy",
             "instructions": "Select the categories you wish to be displayed.\r\nIdeal number of Categories is 6.",
@@ -144,7 +144,7 @@
                 "class": "",
                 "id": ""
             },
-            "taxonomy": "category",
+            "taxonomy": "recipe-category",
             "add_term": 0,
             "save_terms": 0,
             "load_terms": 0,
@@ -366,6 +366,117 @@
             "step": 2,
             "prepend": "",
             "append": ""
+        },
+        {
+            "key": "field_63ff439e1100b",
+            "label": "Editor's Choice Title",
+            "name": "editors_choice_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Editor’s choice",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_63ff43701100a",
+            "label": "Editor's Choice Posts",
+            "name": "editors_choice",
+            "aria-label": "",
+            "type": "relationship",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "post"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search"
+            ],
+            "return_format": "object",
+            "min": 3,
+            "max": 3,
+            "elements": [
+                "featured_image"
+            ]
+        },
+        {
+            "key": "field_63ff4d434fb08",
+            "label": "Latest Blogs Title",
+            "name": "latest_blogs_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Latest Blogs",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_63ff532cb56a1",
+            "label": "Top Categories Title",
+            "name": "top_categories_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Top Categories",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_63ff533cb56a2",
+            "label": "Top Categories",
+            "name": "top_categories",
+            "aria-label": "",
+            "type": "taxonomy",
+            "instructions": "Choose up to 5 top Categories that will show up in the Blog Sidebar.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "category",
+            "add_term": 0,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "object",
+            "field_type": "multi_select",
+            "allow_null": 0,
+            "multiple": 0
         }
     ],
     "location": [
@@ -386,5 +497,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1677672626
+    "modified": 1677677449
 }

@@ -2,20 +2,20 @@
 
 function fmc_widgets_init() {
 
-	// Post Sidebar
+	// Blog Sidebar
 
 	register_sidebar( array(
-        'name' => __( 'Post Sidebar', 'fmc' ),
-        'id' => 'blog_sidebar',
+        'name' => __( 'Blog AD 1', 'fmc' ),
+        'id' => 'blog_ad_1',
         'description' => __( 'Displays in the sidebar of Single Post', 'fmc' ),
         'before_widget' => '<div class="fmc_ps_widget">',
 		'after_widget' => '</div>',
     ) );
 
-    register_sidebar( array(
-        'name' => __( 'Post Archive Sidebar', 'fmc' ),
-        'id' => 'blog_archive_sidebar',
-        'description' => __( 'Displays in the sidebar of Blog', 'fmc' ),
+	register_sidebar( array(
+        'name' => __( 'Blog AD 2', 'fmc' ),
+        'id' => 'blog_ad_2',
+        'description' => __( 'Displays in the sidebar of Single Post', 'fmc' ),
         'before_widget' => '<div class="fmc_ps_widget">',
 		'after_widget' => '</div>',
     ) );

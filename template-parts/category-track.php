@@ -2,7 +2,7 @@
 	<div class="fmc_container">
 		<h2 class="fmc_title_2 title_spacing_2"><?php the_field('category-track-title', 'option'); ?></h2>
 		<div class="fmc_ct_inner carousel-home">
-			<?php $categories = get_field('categories', 'option') ?>
+			<?php $categories = get_field('recipe_categories', 'option') ?>
 			<?php foreach($categories as $category) {
 			$icon = get_field('category_icon', $category);
 			$size = 'full';

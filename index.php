@@ -62,9 +62,9 @@ $blog_posts_delimetar = get_field('after_which_post_number_to_show_add', 'option
             </div>
 			<?php  while ( have_posts() ) : the_post();
 			$categories = get_the_category();
-           
+
             if($post_per_page_count >= 4 && $i === 1) echo "<div class='first-posts-container'>"; elseif($post_per_page_count > 4 && $i === ($blog_posts_delimetar + 1)) echo "<div class='rest-of-posts-container'>";
-            $i++; 
+            $i++;
 			?>
 				<div class="fmc_post">
 					<figure class="fmc_grid_figure">
@@ -87,17 +87,17 @@ $blog_posts_delimetar = get_field('after_which_post_number_to_show_add', 'option
 					</div>
 				</div>
 
-                <?php 
-                
+                <?php
+
                 if($post_per_page_count >= 4 && $i === ($blog_posts_delimetar + 1)) {
                     echo "</div>";
                     dynamic_sidebar( 'blog_archive_sidebar' );
-                }  
+                }
                 elseif($post_per_page_count > 4 && $i === ($post_per_page_count + 1)) {
                     echo "</div>";
-                } 
+                }
 
-                
+
                 ?>
 
 			<?php endwhile;
@@ -107,9 +107,7 @@ $blog_posts_delimetar = get_field('after_which_post_number_to_show_add', 'option
 			</div>
 		</div>
 
-		<div class="fmc_post_sidebar">
-			<?php dynamic_sidebar( 'blog_sidebar' ); ?>
-		</div>
+		<?php get_template_part('template-parts/blog-sidebar'); ?>
 	</div>
 </div>
 

@@ -356,6 +356,21 @@
 			height: 40px;
 		}
 	}
+	.fmc_fb, .fmc_twitter {
+		svg {
+			path {
+				fill: transparent;
+			}
+		}
+		&:hover {
+			svg {
+				path {
+					fill: var(--color-2);
+					stroke: #fff;
+				}
+			}
+		}
+	}
 	> div {
 		font-size: 2rem;
 		color: #000;
