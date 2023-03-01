@@ -121,7 +121,7 @@ function fmc_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	};
-	if(is_singular('recipes')) {
+	if(is_singular('recipes') || is_singular('product')) {
 		wp_enqueue_script( 'rateit-script', get_template_directory_uri() . '/js/vendor/rateit.min.js', array('jquery'), _S_VERSION, true );
 	}
 	if(is_singular('recipes') || is_singular('product')) {
@@ -151,6 +151,8 @@ require get_template_directory() . '/includes/widgets-ads.php';
 require get_template_directory() . '/includes/customizer.php';
 
 require get_template_directory() . '/includes/comments.php';
+
+require get_template_directory() . '/includes/yoast/yoast.php';
 
 /**
  * Load WooCommerce compatibility file.
@@ -204,7 +206,7 @@ function create_posttype() {
                 'singular_name' => 'Recipe',
             ),
             'supports' => array('title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions'),
-            'taxonomies'  => array( 'recipe-category', 'category' ),
+            'taxonomies'  => array( 'recipe-category' ),
             'public' => true,
             'has_archive' => true,
             'rewrite' => array('slug' => 'recipes'),

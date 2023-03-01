@@ -227,7 +227,7 @@ if ( ! function_exists( 'fmc_woocommerce_header_cart' ) ) {
 /**
  * Add a custom product data tab
  */
-add_filter( 'woocommerce_product_tabs', 'woo_new_product_tab' );
+/* add_filter( 'woocommerce_product_tabs', 'woo_new_product_tab' );
 function woo_new_product_tab( $tabs ) {
 
 	// Adds the new tab
@@ -247,7 +247,7 @@ function woo_new_product_tab_content() {
 
 	 get_template_part('template-parts/author');
 
-}
+} */
 
 
 /**

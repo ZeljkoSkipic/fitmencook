@@ -30,10 +30,11 @@ return ob_get_clean();
 
 // Save custom rating field
 
-add_filter('comment_form_field_comment', 'render_pros_cons_fields', 99, 1);
-function render_pros_cons_fields($comment_field)
+add_filter('comment_form_field_comment', 'render_stars', 99, 1);
+function render_stars($comment_field)
 {
-    if (!is_singular('recipes')) {
+
+    if (!is_singular('recipes') && !is_product()) {
         return $comment_field;
     }
 
@@ -44,7 +45,7 @@ function render_pros_cons_fields($comment_field)
 add_action( 'comment_post', 'save_rating_value', 10, 3 );
 function save_rating_value( $comment_id, $approved, $commentdata ) {
     $recipe_rating = isset( $_POST['rateRecipe'] ) ? wp_strip_all_tags($_POST['rateRecipe']) : '';
-    update_comment_meta( $comment_id, 'recipe_rating', $recipe_rating );
+    update_comment_meta( $comment_id, 'rating', $recipe_rating );
 
 }
 
@@ -53,11 +54,11 @@ function save_rating_value( $comment_id, $approved, $commentdata ) {
 add_filter( 'comment_text', 'add_rating_to_review_text', 10, 1 );
 function add_rating_to_review_text( $text ) {
 
-	if ( is_admin() || !is_singular('recipes') ) {
+	if ( is_admin() || (!is_singular('recipes') && !is_product()) ) {
 		return $text;
 	}
 
-	$rating = get_comment_meta( get_comment_ID(), 'recipe_rating', true );
+	$rating = get_comment_meta( get_comment_ID(), 'rating', true );
     $date = get_comment_date('M d Y');
 
 	$rating_html = '<div class="comment-items">
@@ -77,7 +78,21 @@ function comment_default_params( $defaults ) {
  return $defaults;
 }
 
+// Woo comment title remove
 
+add_filter('woocommerce_reviews_title', 'remove_woo_comments_title');
+
+function remove_woo_comments_title () {
+    return false;
+}
+
+// Woo Add avg rating after single product title
+
+add_action('woocommerce_single_product_summary', function() {
+    get_avarage_rating(get_the_ID(), "sidebar");
+});
+
+// Add avg rating before comment form
 add_action('comment_form_before', function() {
-    get_avarage_rating(get_the_ID(), "");
+   get_avarage_rating(get_the_ID(), "");
 });

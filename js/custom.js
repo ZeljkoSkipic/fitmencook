@@ -70,18 +70,20 @@ jQuery(document).ready(function ($) {
     var $window = $(window);
     var $videoWrap = $('.video-wrap');
     var $video = $('.fmc_video');
-    var videoHeight = $video.outerHeight();
-    $window.on('scroll', function () {
-      var windowScrollTop = $window.scrollTop();
-      var videoBottom = videoHeight + $videoWrap.offset().top;
-      if (windowScrollTop > videoBottom) {
-        $videoWrap.height(videoHeight);
-        $video.addClass('stuck');
-      } else {
-        $videoWrap.height('auto');
-        $video.removeClass('stuck');
-      }
-    });
+    if ($videoWrap.length && $video.length) {
+      var videoHeight = $video.outerHeight();
+      $window.on('scroll', function () {
+        var windowScrollTop = $window.scrollTop();
+        var videoBottom = videoHeight + $videoWrap.offset().top;
+        if (windowScrollTop > videoBottom) {
+          $videoWrap.height(videoHeight);
+          $video.addClass('stuck');
+        } else {
+          $videoWrap.height('auto');
+          $video.removeClass('stuck');
+        }
+      });
+    }
   })(jQuery);
 
   // Count single product price on quantity change

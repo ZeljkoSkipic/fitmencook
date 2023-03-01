@@ -22,13 +22,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( $related_products ) : ?>
 
 	<section class="related products spacing_1">
-	<div class="fmc_container">
 		<?php
-		$heading = apply_filters( 'woocommerce_product_related_products_heading', __( 'Related products', 'woocommerce' ) );
+		$heading = apply_filters( 'woocommerce_product_related_products_heading', __( 'You might be interested in', 'woocommerce' ) );
 
 		if ( $heading ) :
 			?>
-			<h2 class="fmc_main_title title_spacing_1"><?php echo esc_html( $heading ); ?></h2>
+			<h2 class="fmc_title_2 title_spacing_2"><?php echo esc_html( $heading ); ?></h2>
 		<?php endif; ?>
 
 		<?php woocommerce_product_loop_start(); ?>
@@ -40,13 +39,12 @@ if ( $related_products ) : ?>
 
 					setup_postdata( $GLOBALS['post'] =& $post_object ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited, Squiz.PHP.DisallowMultipleAssignments.Found
 
-					wc_get_template_part( 'content', 'product' );
+                    get_template_part('template-parts/content', 'product');
 					?>
 
 			<?php endforeach; ?>
 
 		<?php woocommerce_product_loop_end(); ?>
-	</div>
 	</section>
 	<?php
 endif;

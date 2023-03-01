@@ -36,7 +36,6 @@ if ( post_password_required() ) {
 			<?php
 			wp_list_comments(
 				array(
-					'avatar_size' => 80,
 					'style'      => 'ol',
 					'short_ping' => true,
 				)

@@ -171,12 +171,12 @@ function load_print_template( $template ) {
 
 add_action( 'after_setup_theme', 'fmc_theme_setup' );
 function fmc_theme_setup() {
-	add_image_size( 'fmc-post-featured', 735, 490, true );
+	add_image_size( 'fmc-post-featured', 1210, 600, true );
 }
 
 // Get average rating
 
-function get_avarage_rating ($post_ID, $style) {
+function get_avarage_rating ($post_ID, $style, $return_just_rating = false) {
     $comments = get_comments( array( 'post_id' => $post_ID ) );
     $comments_total = count($comments);
     $rating = 0;
@@ -185,11 +185,16 @@ function get_avarage_rating ($post_ID, $style) {
     if($comments_total > 0) {
         foreach($comments as $comment) {
 
-            $comment_rating = (float) get_comment_meta($comment->comment_ID, 'recipe_rating', true);
+            $comment_rating = (float) get_comment_meta($comment->comment_ID, 'rating', true);
             $rating += $comment_rating;
         }
 
         $avg_rating = number_format($rating / $comments_total, 1);
+    }
+
+    if($return_just_rating === true) {
+        return $avg_rating;
+
     }
 
     get_template_part('template-parts/avg-rating', "" , ['comments_number' => $comments_total, 'rating' => $avg_rating, 'style' => $style ]);

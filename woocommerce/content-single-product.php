@@ -65,6 +65,7 @@ if ( post_password_required() ) {
 				 * @hooked WC_Structured_Data::generate_product_data() - 60
 				 */
                 remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30);
+                remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_rating', 10);
 				do_action( 'woocommerce_single_product_summary' );
 				?>
 			</div>

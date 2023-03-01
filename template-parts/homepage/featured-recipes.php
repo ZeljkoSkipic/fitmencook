@@ -22,16 +22,22 @@
 				$the_query = new WP_Query( $args ); ?>
 
 				<?php if( $the_query->have_posts() ): ?>
-					<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+					<?php
+                    while ( $the_query->have_posts() ) : $the_query->the_post();
+                        $avg_rating = get_avarage_rating (get_the_ID(), "" , true);
+                    ?>
 						<div class="fmc_recipe">
 							<figure class="fmc_grid_figure">
-								<?php the_post_thumbnail('thumbnail'); ?>
+								<?php the_post_thumbnail('medium'); ?>
 							</figure>
 							<div class="fmc_recipe_content">
 								<div class="fmc_grid_meta">
 									<span class="fmc_grid_cat">
-										<?php the_category(); ?>
+										Breakfast
 									</span>
+
+                                    <?php if($avg_rating): ?>
+
 									<div class="meta_rating">
 									<svg xmlns="http://www.w3.org/2000/svg" width="12" height="11" viewBox="0 0 12 11" fill="none">
 									<g clip-path="url(#clip0_274_15268)">
@@ -43,8 +49,11 @@
 										</clipPath>
 									</defs>
 									</svg>
-									<span>5.0</span>
+									<span><?php echo $avg_rating;   ?></span>
 									</div>
+
+                                    <?php endif; ?>
+
 								</div>
 								<h3 class="fmc_grid_title">
 									<a href="<?php the_permalink(); ?>">
@@ -77,7 +86,7 @@
 				<?php wp_reset_query();   // Restore global post data stomped by the_post(). ?>
 
 			</div>
-			<a class="fmc_btn_2" href="/recipes"><span class="btn_text">View All</span><span class="btn_icon"><svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<a class="fmc_btn_2" href="#"><span class="btn_text">View All</span><span class="btn_icon"><svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<path fill-rule="evenodd" clip-rule="evenodd" d="M6.29289 0.292893C6.68342 -0.097631 7.31658 -0.0976311 7.70711 0.292893L11.7071 4.29289C12.0976 4.68342 12.0976 5.31658 11.7071 5.70711L7.70711 9.70711C7.31658 10.0976 6.68342 10.0976 6.29289 9.70711C5.90237 9.31658 5.90237 8.68342 6.29289 8.29289L8.58579 6L1 6C0.447716 6 -2.41411e-08 5.55228 0 5C2.41411e-08 4.44772 0.447716 4 1 4H8.58579L6.29289 1.70711C5.90237 1.31658 5.90237 0.683418 6.29289 0.292893Z" fill="#98A2B3"/>
 				</svg>
 				</span>
