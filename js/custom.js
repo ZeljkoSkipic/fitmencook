@@ -19,16 +19,6 @@ jQuery(document).ready(function ($) {
     pageDots: false
   });
 
-  // Logo slider block
-
-  /* $('.fmc_logo_slider').flickity({
-      // options
-      wrapAround: true,
-      contain: true,
-      pageDots: false,
-    });
-   */
-
   // Mobile navigation toggle
 
   $(".fmc_mm_trigger").click(function () {
@@ -54,7 +44,7 @@ jQuery(document).ready(function ($) {
     prevNextButtons: false
   });
 
-  // Category Carousel
+  // Category Logos
 
   $('.carousel-logos').flickity({
     // options
@@ -145,6 +135,26 @@ jQuery(document).ready(function ($) {
       tabReviews.next().attr('style', '');
     }, 500);
   }
+  (function ($) {
+    var plus = '.plus';
+    var minus = '.minus';
+    var body = $('body');
+    function increseQty() {
+      var val = parseInt($(this).prev('input').val());
+      var max = parseInt($(this).prev('input').attr('max'));
+      if (val < max || !max) {
+        $(this).prev('input').val(val + 1).trigger('change');
+      }
+    }
+    function decreseQty() {
+      var val = parseInt($(this).next('input').val());
+      if (val > 1) {
+        $(this).next('input').val(val - 1).trigger('change');
+      }
+    }
+    body.on('click', minus, decreseQty);
+    body.on('click', plus, increseQty);
+  })(jQuery);
 });
 var observer = new IntersectionObserver(function (_ref) {
   var _ref2 = _slicedToArray(_ref, 1),
@@ -153,5 +163,3 @@ var observer = new IntersectionObserver(function (_ref) {
 }, {
   threshold: [1]
 });
-
-//   observer.observe(document.querySelector('.fmc_mobile_header'));

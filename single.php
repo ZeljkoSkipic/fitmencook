@@ -53,11 +53,11 @@ get_header();
 			<div class="fmc_author">
 				<div class="fmc_author_inner">
 					<h3 class="fmc_author_prefix"><?php the_field('author_prefix', 'option'); ?></h3>
-					<h4 class="fmc_title_2 title_spacing_3">
+					<h4 class="title_spacing_3">
 						<?php the_field('author_title', 'option'); ?>
 					</h4>
 					<div class="fmc_author_content">
-					<?php echo wpautop( get_the_author_meta( 'description', '1' ) ); ?>
+					<?php echo wpautop( get_the_author_meta( 'description', '9' ) ); ?>
 
 					</div>
 					<div class="fmc_chef_share">
@@ -131,6 +131,24 @@ get_header();
 	</div>
 	</main><!-- #main -->
 
-
+<script type="text/javascript">
+(function() {
+    window.PinIt = window.PinIt || { loaded:false };
+    if (window.PinIt.loaded) return;
+    window.PinIt.loaded = true;
+    function async_load(){
+        var s = document.createElement("script");
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://assets.pinterest.com/js/pinit.js";
+        var x = document.getElementsByTagName("script")[0];
+        x.parentNode.insertBefore(s, x);
+    }
+    if (window.attachEvent)
+        window.attachEvent("onload", async_load);
+    else
+        window.addEventListener("load", async_load, false);
+})();
+</script>
 <?php
 get_footer();

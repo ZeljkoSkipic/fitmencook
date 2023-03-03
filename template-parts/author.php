@@ -14,7 +14,7 @@
 				<?php the_field('author_title', 'option'); ?>
 			</h4>
 			<div class="fmc_chef_content">
-			<?php echo wpautop( get_the_author_meta( 'description', '1' ) ); ?>
+			<?php echo wpautop( get_the_author_meta( 'description', '9' ) ); ?>
 
 			</div>
 			<div class="fmc_chef_share">

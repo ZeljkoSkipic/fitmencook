@@ -88,12 +88,10 @@ body:not(.home) {
 				@include clean-list;
 				opacity: 0;
 				pointer-events: none;
-				transition: var(--site-transition);
 				li {
 					a {
 						color: #fff;
-						padding: 1rem 2rem;
-						transition: var(--site-transition);
+						justify-content: flex-start;
 						&:hover {
 							background-color: #fff;
 							color: var(--color-1);
