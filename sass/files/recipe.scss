@@ -366,16 +366,29 @@ body.archive {
 		}
 	}
 }
-
+.rll-youtube-player {
+	img {
+		bottom: unset;
+		border-radius: 16px;
+		aspect-ratio: 16 / 9;
+		position: relative!important;
+	}
+}
 .fmc_video {
 	margin-bottom: 1rem;
 	left: 0;
 	z-index: 2;
 	position: relative;
 	padding-bottom: 56.25%;
-	overflow: hidden;
+ 	overflow: hidden;
 	max-width: 100%;
 	height: auto;
+	.rll-youtube-player {
+		margin-bottom: -56.23%;
+		img {
+
+		}
+	}
 	iframe {
 		width: 100%;
 		height: 100%;
@@ -399,7 +412,7 @@ body.archive {
 			transform: translateY(-100%);
 			animation: fade-in-up 0.75s ease forwards;
 			z-index: 3;
-			pointer-events: none;
+		/* 	pointer-events: none; */
 			iframe {
 				width: 360px;
 				height: 195px;
