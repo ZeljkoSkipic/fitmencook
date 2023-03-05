@@ -5,14 +5,15 @@
 
 .fmc_search_hero {
 	background-color: #F3F4F6;
+	.search_title {
+		font-size: 20px;
+		text-align: center;
+	}
 	.fmc_container {
 		max-width: 550px;
 		@include tab-only {
 			margin: auto;
 		}
-	}
-	.fmc_main_title {
-		text-align: center;
 	}
 }
 
@@ -72,6 +73,7 @@
 		margin: 3px!important;
 		.proinput {
 			font-size: 16px!important;
+			margin-left: 0!important;
 			input.orig {
 				height: 40px!important;
 				&::placeholder {
@@ -114,21 +116,34 @@
 		}
 	}
 }
-#ajaxsearchprobsettings1_1, #ajaxsearchprobsettings2_1 {
-	position: fixed!important;
-	top: 0;
-	height: 100vh;
+#ajaxsearchprosettings1_1 {
 	z-index: 999;
+	max-width: unset!important;
 	pointer-events: none;
-	@include tab-max {
-		display: none!important;
+	background: transparent;
+	@include limbo-min {
+		position: fixed!important;
+		left: auto!important;
+		right: 0;
+		top: 0!important;
+		height: 100vh;
+		form {
+			width: 420px;
+			margin-right: 0;
+			margin-left: auto!important;
+		}
 	}
-	form {
+	@include tab-max {
+		max-width: 550px!important;
+		width: calc(100vw - 50px)!important;
+		margin-left: -5px;
+		.asp_select_single {
+			padding: 0;
+		}
+	}
+ 	form {
 		pointer-events: all;
-		width: 420px;
 		height: 100%;
-		margin-right: 0;
-		margin-left: auto!important;
 		background-color: #fff;
 		border-radius: 16px;
 		padding: var(--spacing-3)!important;
@@ -142,6 +157,10 @@
 			padding-bottom: 16px;
 			margin-bottom: 16px;
 			font-weight: 700;
+			@include mob-only {
+				padding-bottom: 5px;
+				margin-bottom: 10px;
+			}
 		}
 		.category_filter_box {
 			margin-bottom: 16px!important;
@@ -164,25 +183,34 @@
 			display: block;
 			margin-left: 0;
 			margin-right: 0;
+			@include tab-max {
+				margin-top: 15px;
+			}
 		}
 		.slider-handles-up, .slider-handles-low {
-			font-size: 15px;
-			font-family: Nunito;
-			font-weight: 500;
-			width: 80px;
-			height: 32px;
-			background-color: #F9FAFB;
-			border: 1px solid #F2F4F7;
-			border-radius: 8px;
-			display: flex;
-			justify-content: center;
-			align-items: center;
+			font-size: 13px;
+			@include limbo-min {
+				font-size: 15px;
+				font-family: Nunito;
+				font-weight: 500;
+				width: 80px;
+				height: 32px;
+				background-color: #F9FAFB;
+				border: 1px solid #F2F4F7;
+				border-radius: 8px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
 		}
 		.noUi-target {
 			height: 4px;
 			box-shadow: none;
 			margin-bottom: 12px;
 			background-color: #667085;
+			@include tab-max {
+				margin: 5px;
+			}
 		}
 		.noUi-handle {
 			border-radius: 16px;
@@ -215,6 +243,9 @@
 				font-weight: 700;
 				color: var(--link-color);
 				padding: 0;
+				@include tab-max {
+					padding-left: 0!important;
+				}
 			}
 		}
 		@include tab-max {

@@ -7,10 +7,13 @@
  * @package fitmencook
  */
 
+ $avg_rating = get_avarage_rating (get_the_ID(), "" , true);
+ $categories = get_the_terms( $post->ID, 'recipe-category' );
 ?>
 
 <div class="fmc_recipe">
 	<figure class="fmc_grid_figure">
+
 	<a href="<?php the_permalink(); ?>">
 		<?php the_post_thumbnail('medium'); ?>
 	</a>
@@ -18,8 +21,12 @@
 	<div class="fmc_recipe_content">
 		<div class="fmc_grid_meta">
 			<span class="fmc_grid_cat">
-				Breakfast
+			<?php if ( ! empty( $categories ) ) {
+				echo '<a href="' . esc_url( get_category_link( $categories[0]->term_id ) ) . '">' . esc_html( $categories[0]->name ) . '</a>';
+			} ?>
 			</span>
+			<?php if($avg_rating): ?>
+
 			<div class="meta_rating">
 			<svg xmlns="http://www.w3.org/2000/svg" width="12" height="11" viewBox="0 0 12 11" fill="none">
 			<g clip-path="url(#clip0_274_15268)">
@@ -31,8 +38,10 @@
 				</clipPath>
 			</defs>
 			</svg>
-			<span>5.0</span>
+			<span><?php echo $avg_rating; ?></span>
 			</div>
+
+			<?php endif; ?>
 		</div>
 		<h3 class="fmc_grid_title">
 			<a href="<?php the_permalink(); ?>">

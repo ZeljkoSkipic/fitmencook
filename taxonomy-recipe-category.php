@@ -74,7 +74,7 @@ get_header(); ?>
 	</div>
 	<div class="fmc_archive_sidebar">
 		<div class="fmc_arch_cats">
-		<h3 class="fmc_sidebar_title">All Categories</h3>
+		<h3 class="fmc_sidebar_title"><?php the_field( 'all_categories_title', 'option' ); ?></h3>
 		<?php // Get the taxonomy's terms
 			$terms = get_terms(
 				array(
@@ -91,7 +91,7 @@ get_header(); ?>
 				foreach ( $terms as $term ) { ?>
 					<a class="sidebar-category" href="<?php echo esc_url( get_term_link( $term ) ) ?>">
 						<?php echo $term->name; ?>
-						<span>broj</span>
+						<span>(<?php echo $term->count; ?>)</span>
 					</a><?php
 				}
 			} ?>

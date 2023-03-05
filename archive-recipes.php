@@ -150,7 +150,7 @@ $size = 'full'
 	</div>
 	<div class="fmc_archive_sidebar">
 		<div class="fmc_arch_cats">
-		<h3 class="fmc_sidebar_title">All Categories</h3>
+		<h3 class="fmc_sidebar_title"><?php the_field( 'all_categories_title', 'option' ); ?></h3>
 		<?php // Get the taxonomy's terms
 			$terms = get_terms(
 				array(

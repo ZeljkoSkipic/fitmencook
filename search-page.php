@@ -6,11 +6,10 @@
 
 get_header();
 ?>
-<?php echo do_shortcode('[wpdreams_asp_settings id=1 element="div"]'); ?>
 	<main id="primary" class="site-main">
 		<div class="fmc_search_hero spacing_1">
 			<div class="fmc_container">
-			<h1 class="fmc_main_title title_spacing_2">
+			<h1 class="search_title title_spacing_2">
 			<?php the_field('search_page_title', 'option'); ?>
 		</h1>
 				<?php echo do_shortcode('[wpdreams_ajaxsearchpro id=1]'); ?>

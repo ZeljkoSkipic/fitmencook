@@ -64,6 +64,9 @@
 				font-size: 2.4rem;
 				line-height: 1.375;
 				font-weight: 800;
+				@include tab-max {
+					font-size: 18px;
+				}
 				bdi {
 					font-weight: 800;
 					text-decoration: none;
