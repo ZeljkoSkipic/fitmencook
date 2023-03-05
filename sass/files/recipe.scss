@@ -299,15 +299,15 @@ body.archive {
 				display: flex;
 				flex-direction: column;
 				position: relative;
-				padding-right: 16px;
 				&:not(:last-child) {
+					padding-right: 15px;
 					&::after {
 						content: "";
 						height: 12px;
 						width: 1px;
 						background-color: var(--color-5);
 						position: absolute;
-						right: 8px;
+						right: 7.5px;
 						top: calc(50% - 6px);
 					}
 				}

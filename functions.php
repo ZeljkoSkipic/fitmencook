@@ -205,7 +205,7 @@ function create_posttype() {
                 'all_items' => 'All Recipes',
                 'singular_name' => 'Recipe',
             ),
-            'supports' => array('title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions'),
+            'supports' => array('title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'permalink'),
             'taxonomies'  => array( 'recipe-category' ),
             'public' => true,
             'has_archive' => true,

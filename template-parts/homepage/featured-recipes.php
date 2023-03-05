@@ -25,7 +25,7 @@
 					<?php
                     while ( $the_query->have_posts() ) : $the_query->the_post();
                         $avg_rating = get_avarage_rating (get_the_ID(), "" , true);
-						$categories = get_the_category();
+						$categories = get_the_terms( $post->ID, 'recipe-category' );
                     ?>
 						<div class="fmc_recipe">
 							<figure class="fmc_grid_figure">

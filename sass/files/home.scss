@@ -469,34 +469,24 @@
 
 .fmc_category_track {
 	width: 100%;
-	/* enable Flickity by default */
-	.carousel-home:after {
+	/* .carousel-home:after {
 		content: 'flickity';
-		display: none; /* hide :after */
+		display: none;
 	}
 
 	@include limbo-min {
-		/* disable Flickity for large devices */
 		.carousel-home:after {
 		content: '';
 		}
-	}
+	} */
 	.fmc_ct_inner {
 		justify-content: space-between;
 		margin-left: auto;
 		margin-right: auto;
 		flex-wrap: wrap;
 		display: flex;
-		@include tab-max {
-			flex-direction: column;
-		}
 	}
-	@include mob-only {
-		.carousel-home {
-			margin-left: -25px;
-			margin-right: -25px;
-		}
-	}
+
 	figure {
 		position: relative;
 		text-align: center;
@@ -516,8 +506,7 @@
 			}
 		}
 		@include tab-only {
-			margin-left: 2rem;
-			margin-right: 2rem;
+			width: 30%;
 			img {
 				height: 70px;
 				width: 70px;
@@ -525,6 +514,7 @@
 			}
 		}
 		@include mob-only {
+			width: calc(100% / 3);
 			img {
 				height: 50px;
 				width: 70px;
