@@ -10,9 +10,6 @@ $box_type = get_field('box_type');
 
 ?>
 
-
-<?php echo do_shortcode('[wpdreams_asp_settings id=1 element="div"]'); ?>
-
 <div class="fmc_home_hero spacing_0_1">
 	<div class="fmc_container">
 		<div class="fmc_hh_left">

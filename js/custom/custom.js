@@ -21,12 +21,12 @@ jQuery(document).ready(function ($) {
         $('.fmc_mobile_header').toggleClass('fmc_nav_open')
     });
 
-    // Mobile navigation submenu
+	// Mobile Menu Behaviour
+	$( ".fmc_header ul li.menu-item-has-children > a" ).after( "<span class='fmc_submenu_acitvator'></span>" );
+		$( ".fmc_submenu_acitvator" ).click(function() {
+		$( this ).toggleClass( "sub-open" ).siblings( ".sub-menu" ).slideToggle();
+	});
 
-    $(".fmc_header ul > li:after").click(function () {
-        $(this).toggleClass('sub-open');
-        $(this).children('.sub-menu').slideToggle();
-    });
 
     // Category Carousel
 

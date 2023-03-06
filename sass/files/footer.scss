@@ -121,23 +121,52 @@ footer.fmc_footer {
 
 		}
 		.fmc_footer_col {
-			flex: 18% 0 0;
+			&:first-child {
+				width: 14%;
+			}
+			&:nth-child(2) {
+				width: 24%;
+			}
+			&:nth-child(3) {
+				width: 22%;
+				@include limbo-min {
+					margin-left: auto;
+				}
+			}
+			&:nth-child(4) {
+				width: 24%;
+			}
 			ul li {
 				font-size: 15px;
 			}
 			p {
 				font-size: 16px;
 			}
-			@include tab-max {
-				&:not(:first-child) {
-					margin-top: 20px;
+			@include tab-only {
+				&:first-child {
+					width: 30%;
+					order: 1;
+				}
+				&:nth-child(2) {
+					width: 80%;
+					order: 4;
+					margin: var(--spacing-3) auto 0;
+					text-align: center;
+				}
+				&:nth-child(3) {
+					width: 30%;
+					order: 2;
+				}
+				&:nth-child(4) {
+					width: 30%;
+					order: 3;
 				}
 			}
-			@include tab-only {
-				flex: 48% 0 0;
-			}
 			@include mob-only {
-				flex: 100% 0 0;
+				width: 100%!important;
+				&:not(:first-child) {
+					margin-top: var(--spacing-3);
+				}
 			}
 		}
 		.widget-title {
@@ -149,7 +178,7 @@ footer.fmc_footer {
 		.widget_text {
 			color: #666;
 		}
-		ul {
+		.widget_nav_menu ul {
 			@include clean-list;
 			li {
 				a {
@@ -157,20 +186,22 @@ footer.fmc_footer {
 					font-weight: 700;
 				}
 				&:not(:last-child) {
-					margin-bottom: var(--spacing-3);
+					margin-bottom: 15px;
 				}
 			}
 		}
 	}
 	.fmc_copyright {
 		.fmc_container {
+			@include mob-only {
+				padding-top: 0;
+			}
 			.widget {
 				width: 100%;
 				p {
 					margin-top: 0;
 					margin-bottom: 0;
 					font-size: 14px;
-					font-weight: 600;
 					color: var(--link-color);
 				}
 			}

@@ -195,6 +195,9 @@ body:not(.home) {
 				object-position: left;
 			}
 		}
+		.sub-menu {
+			display: none;
+		}
 		ul {
 			@include clean-list;
 			&:not(.sub-menu) {
@@ -215,27 +218,25 @@ body:not(.home) {
 					border-bottom: 1px solid rgba(255,255,255, .3);
 				}
 				&.menu-item-has-children {
-					> a {
-						&::after {
-							content: "";
-							width: 45px;
-							height: 100%;
-							position: absolute;
-							top: 0;
-							right: 0;
-							background-image: url(assets/icons/chevron-down.svg);
-							background-size: 25px;
-							background-repeat: no-repeat;
-							background-position: center;
-							z-index: 9;
-							transition: var(--site-transition);
-						}
+					position: relative;
+					.fmc_submenu_acitvator {
+						content: "";
+						width: 45px;
+						height: 43.05px;
+						position: absolute;
+						top: 0;
+						right: 0;
+						background-image: url(assets/icons/chevron-down.svg);
+						background-size: 25px;
+						background-repeat: no-repeat;
+						background-position: center;
+						z-index: 9;
+						transition: var(--site-transition);
 						&.sub-open {
-							&:after {
-								transform: rotate(-180deg);
-							}
+							transform: rotate(-180deg);
 						}
 					}
+
 				}
 				ul {
 					li {
