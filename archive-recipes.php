@@ -39,7 +39,7 @@ $size = 'full'
 				</div>
 				<a href="<?php the_permalink(); ?>"><h2 class="fmc_title_1"><?php the_title(); ?></h2></a>
 				<div class="fmc_featured_rating">
-						kao na single prpoductu <a href="https://prnt.sc/sN_V_kKhMLMw">https://prnt.sc/sN_V_kKhMLMw</a>
+				<?php echo get_avarage_rating(get_the_ID(), 'sidebar'); ?>
 				</div>
 				<div class="fmc_featured_macros">
 					<div class="rg_macro carbs">

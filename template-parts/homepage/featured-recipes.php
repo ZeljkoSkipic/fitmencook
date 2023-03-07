@@ -98,8 +98,8 @@
 	</div>
 
 	<?php dynamic_sidebar( 'ad1' ); ?>
-
-	<?php get_template_part('template-parts/category-track'); ?>
-
+	<div class="fmc_container">
+		<?php get_template_part('template-parts/category-track'); ?>
+	</div>
 
 </div>

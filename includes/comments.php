@@ -34,7 +34,7 @@ add_filter('comment_form_field_comment', 'render_stars', 99, 1);
 function render_stars($comment_field)
 {
 
-    if (!is_singular('recipes') && !is_product()) {
+    if (!is_singular('recipes') && !is_product() && !is_singular('meal-plans')) {
         return $comment_field;
     }
 
@@ -54,7 +54,7 @@ function save_rating_value( $comment_id, $approved, $commentdata ) {
 add_filter( 'comment_text', 'add_rating_to_review_text', 10, 1 );
 function add_rating_to_review_text( $text ) {
 
-	if ( is_admin() || (!is_singular('recipes') && !is_product()) ) {
+	if ( is_admin() || (!is_singular('recipes') && !is_product() && !is_singular('meal-plans') ) ) {
 		return $text;
 	}
 

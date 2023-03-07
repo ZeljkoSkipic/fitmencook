@@ -62,16 +62,6 @@ function fmc_widgets_init() {
         'after_title' => '</h3>',
     ) );
 
-	register_sidebar( array(
-        'name' => __( 'Footer Widget 5', 'fmc' ),
-        'id' => 'footer-5',
-        'description' => __( 'Displays in the footer', 'fmc' ),
-        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-        'after_widget' => '</aside>',
-        'before_title' => '<h3 class="widget-title">',
-        'after_title' => '</h3>',
-    ) );
-
 		register_sidebar( array(
         'name' => __( 'Copyright', 'fmc' ),
         'id' => 'copy',

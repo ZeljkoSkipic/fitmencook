@@ -17,7 +17,7 @@ class BE_Product_Review extends Article {
 	 * @return bool
 	 */
 	public function is_needed() {
-		$post_types = apply_filters( 'be_product_review_schema_post_types', array( 'product', 'recipes' ) );
+		$post_types = apply_filters( 'be_product_review_schema_post_types', array( 'product', 'recipes', 'meal-plans' ) );
 		if( is_singular( $post_types ) ) {
 			return true;
 		}
@@ -41,7 +41,7 @@ class BE_Product_Review extends Article {
 			'@id'              => $this->context->canonical . '#product-review',
 			'isPartOf'         => array( '@id' => $this->context->canonical . Schema_IDs::ARTICLE_HASH ),
 			'itemReviewed'     => array(
-					'@type'    => $post_type === 'recipes' ? "Recipe" :  'Product',
+					'@type'    => ($post_type === 'recipes' || $post_type === 'meal-plans' ) ? "Recipe" :  'Product',
 					'image'    => array(
 						'@id'  => $this->context->canonical . Schema_IDs::PRIMARY_IMAGE_HASH,
 					),

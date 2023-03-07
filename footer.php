@@ -26,9 +26,6 @@
 				<div class="fmc_footer_col">
 					<?php dynamic_sidebar( 'footer-4' ); ?>
 				</div>
-				<div class="fmc_footer_col">
-					<?php dynamic_sidebar( 'footer-5' ); ?>
-				</div>
 			</div>
 		</div>
 		<div class="fmc_copyright">

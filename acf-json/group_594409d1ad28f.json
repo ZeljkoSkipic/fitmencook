@@ -547,6 +547,22 @@
             "append": ""
         },
         {
+            "key": "field_64064e097ea72",
+            "label": "View All Link and Text",
+            "name": "view_all_link_and_text",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        },
+        {
             "key": "field_6359582b0b345",
             "label": "Products",
             "name": "featured_products",
@@ -725,5 +741,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1676572590
+    "modified": 1678134821
 }

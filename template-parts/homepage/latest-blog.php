@@ -18,6 +18,7 @@
 				<?php if( $the_query->have_posts() ): ?>
 					<?php while ( $the_query->have_posts() ) : $the_query->the_post();
 					$categories = get_the_category();
+					$author_id = $post->post_author;
 					?>
 						<div class="fmc_post">
 							<figure class="fmc_grid_figure">

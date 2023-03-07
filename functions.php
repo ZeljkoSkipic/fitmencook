@@ -121,7 +121,7 @@ function fmc_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	};
-	if(is_singular('recipes') || is_singular('product')) {
+	if(is_singular('recipes') || is_singular('product') || is_singular('meal-plans') || is_post_type_archive('recipes')) {
 		wp_enqueue_script( 'rateit-script', get_template_directory_uri() . '/js/vendor/rateit.min.js', array('jquery'), _S_VERSION, true );
 	}
 	if(is_singular('recipes') || is_singular('product')) {
@@ -301,23 +301,15 @@ function register_acf_blocks() {
 /**
  * Comment Form Placeholder Author, Email, URL
  */
-function placeholder_author_email_url_form_fields($fields) {
-    $replace_author = __('Your Name*', 'fmc');
-    $replace_email = __('Your Email*', 'fmc');
-
-    $fields['author'] = '<p class="comment-form-author">' . '<label for="author">' . __( 'Name', 'fmc' ) . '</label> ' . ( $req ? '<span class="required">*</span>' : '' ) .
-                    '<input id="author" name="author" type="text" placeholder="'.$replace_author.'" value="' . esc_attr( $commenter['comment_author'] ) . '" size="20"' . $aria_req . ' /></p>';
-
-    $fields['email'] = '<p class="comment-form-email"><label for="email">' . __( 'Email', 'fmc' ) . '</label> ' .
-    ( $req ? '<span class="required">*</span>' : '' ) .
-    '<input id="email" name="email" type="text" placeholder="'.$replace_email.'" value="' . esc_attr(  $commenter['comment_author_email'] ) .
-    '" size="30"' . $aria_req . ' /></p>';
-
-    return $fields;
-}
-
-add_filter('comment_form_default_fields','placeholder_author_email_url_form_fields');
-
+function placeholder_author_email_url_form_fields( $fields ) {
+	foreach( $fields as &$field ) {
+	  $field = str_replace( 'id="author"', 'id="author" placeholder="Your Name*"', $field );
+	  $field = str_replace( 'id="email"', 'id="email" placeholder="Your Email*"', $field );
+	  $field = str_replace( 'id="url"', 'id="url" placeholder="website"', $field );
+	}
+	return $fields;
+  }
+  add_filter( 'comment_form_default_fields', 'placeholder_author_email_url_form_fields' );
 /**
  * Comment Form Placeholder Comment Field
  */
@@ -388,10 +380,10 @@ remove_theme_support( 'wc-product-gallery-lightbox' );
 }
 
 
-add_filter ('add_to_cart_redirect', 'redirect_to_checkout');
+add_filter ('woocommerce_add_to_cart_redirect', 'redirect_to_checkout');
 
 function redirect_to_checkout() {
     global $woocommerce;
-    $checkout_url = $woocommerce->cart->get_checkout_url();
+    $checkout_url = wc_get_checkout_url();
     return $checkout_url;
 }
