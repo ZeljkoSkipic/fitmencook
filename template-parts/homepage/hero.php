@@ -45,9 +45,10 @@ $box_type = get_field('box_type');
 							<span class="fmc_grid_cat">
 								<?php
 								$avg_rating = get_avarage_rating (get_the_ID(), "" , true);
-								$category = get_the_category();
-								echo '<a href="' . get_category_link( $category[0]->term_id ) . '">' . $category[0]->cat_name . '</a>';
-								?>
+								$categories = get_the_terms( $post->ID, 'recipe-category' );
+								if ( ! empty( $categories ) ) {
+									echo '<a href="' . esc_url( get_category_link( $categories[0]->term_id ) ) . '">' . esc_html( $categories[0]->name ) . '</a>';
+								} ?>
 							</span>
 							<?php if($avg_rating): ?>
 

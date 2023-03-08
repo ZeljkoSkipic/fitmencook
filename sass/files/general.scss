@@ -196,6 +196,11 @@
 
 
 .fmc_comments {
+	.comment-awaiting-moderation {
+		font-size: 14px;
+		margin-top: 8px;
+		display: block;
+	}
 	.fmc_sidebar_rating  {
 		display: flex;
 		align-items: center;
@@ -275,6 +280,7 @@
 		}
 		.comment-content {
 			margin-top: 4px;
+			font-size: 14px;
 			p:not(.comment-date) {
 				font-size: 16px;
 			}
@@ -384,7 +390,7 @@
 		@include mob-only {
 			font-size: 2.3rem;
 		}
-		.fmc_icon {
+		.fmc_icon, a {
 			width: 40px;
 			height: 40px;
 			display: inline-flex;

@@ -99,6 +99,23 @@
 		}
 	}
 	.fmc_author {
+		display: flex;
+		@include mob-only {
+			flex-direction: column;
+			margin-top: var(--spacing-3);
+			margin-bottom: var(--spacing-3);
+		}
+		.fmc_author_img {
+			width: 80px;
+			flex-shrink: 0;
+			margin-top: var(--spacing-3);
+			margin-right: var(--spacing-3);
+			img {
+				width: 80px;
+				height: 80px;
+				border-radius: 80px;
+			}
+		}
 		.fmc_author_prefix {
 			font-size: 14px;
 			color: var(--misc-color);

@@ -231,8 +231,112 @@
             "append": ""
         },
         {
+            "key": "field_64088868a733f",
+            "label": "Description",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Description is set up in the WordPress profile 'Biographical Info' field.",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_6408871426502",
+            "label": "Social Profiles",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_6408864fd89d2",
+            "label": "Facebook",
+            "name": "facebook",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "https:\/\/www.facebook.com\/FitMenCook",
+            "placeholder": ""
+        },
+        {
+            "key": "field_6408867cd89d3",
+            "label": "Twitter",
+            "name": "twitter",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "https:\/\/twitter.com\/FitMenCook\/",
+            "placeholder": ""
+        },
+        {
+            "key": "field_6408868ad89d4",
+            "label": "Youtube",
+            "name": "youtube",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "https:\/\/www.youtube.com\/@fitmencook",
+            "placeholder": ""
+        },
+        {
+            "key": "field_640886dcd89d5",
+            "label": "Instagram",
+            "name": "instagram",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "https:\/\/www.instagram.com\/FitMenCook\/",
+            "placeholder": ""
+        },
+        {
             "key": "field_63dbbe451a3b5",
-            "label": "About the Author Background",
+            "label": "Recipe Author Background",
             "name": "author_background",
             "aria-label": "",
             "type": "image",
@@ -517,5 +621,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1678030539
+    "modified": 1678281109
 }
