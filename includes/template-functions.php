@@ -200,3 +200,14 @@ function get_avarage_rating ($post_ID, $style, $return_just_rating = false) {
     get_template_part('template-parts/avg-rating', "" , ['comments_number' => $comments_total, 'rating' => $avg_rating, 'style' => $style ]);
 
 }
+
+
+// Meal Plan Customize Global Query
+
+function meal_plans_global_query( $query ) {
+	if ( ! is_admin() && $query->is_main_query() && is_post_type_archive( 'meal-plans' ) ) {
+	  $query->set( 'posts_per_page', 4 );
+	  return;
+	}
+  }
+  add_action( 'pre_get_posts', 'meal_plans_global_query', 1 );

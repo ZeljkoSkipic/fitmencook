@@ -190,6 +190,26 @@
             "delay": 0
         },
         {
+            "key": "field_6409dd0cd3e3c",
+            "label": "In App",
+            "name": "in_app",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Check this if the Recipe is included in the FMC App",
+            "default_value": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
+        },
+        {
             "key": "field_63dbb24e51d6d",
             "label": "Sidebar - Times and Macros",
             "name": "",
@@ -452,5 +472,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1677951736
+    "modified": 1678368607
 }

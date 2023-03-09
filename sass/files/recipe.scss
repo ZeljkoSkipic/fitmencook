@@ -133,6 +133,19 @@ body.archive {
 		flex-direction: column;
 		justify-content: space-between;
 		align-items: center;
+		&.calories {
+			align-items: flex-start;
+			.rg_m_title {
+				background-image: url(assets/icons/fire.svg);
+				background-position: center left;
+				background-repeat: no-repeat;
+				padding-left: 30px;
+				display: flex;
+				align-items: center;
+				background-size: 14px;
+				font-size: 0;
+			}
+		}
 		.rg_m_title {
 			font-size: 14px;
 			line-height: 19px;
@@ -335,22 +348,33 @@ body.archive {
 			display: flex;
 			flex-wrap: wrap;
 			flex-direction: column;
+			.fmc_rs_title {
+				margin-bottom: 16px;
+			}
 			.fmc_macro {
 				display: flex;
 				justify-content: space-between;
 				align-items: center;
 				font-weight: 700;
 				font-size: 16px;
-				line-height: 22px;
+				line-height: 1;
 				color: var(--misc-color);
-				margin-bottom: 1.6rem;
+				margin-bottom: calc(1.6rem + 6px);
 				span {
 					color: var(--text-1);
 					font-weight: 700;
 				}
 				&.fmc_macro_cals {
 					span {
-						color: var(--color-1);
+						background-image: url(assets/icons/fire.svg);
+						background-position: center left;
+						background-repeat: no-repeat;
+						padding-left: 25px;
+						display: -webkit-box;
+						display: -ms-flexbox;
+						display: flex;
+						align-items: center;
+						background-size: 14px;
 					}
 				}
 			}
@@ -640,6 +664,53 @@ body.archive {
 			}
 		}
 
+	}
+}
+
+.fmc_in_app {
+	background-color: var(--color-1);
+	display: flex;
+	padding: var(--spacing-2);
+	margin-bottom: var(--spacing-2);
+	border-radius: 16px;
+	@include mob-only {
+		flex-direction: column;
+		.fmc_ia_left {
+			margin-bottom: var(--spacing-2);
+		}
+	}
+	.fmc_ia_left {
+		.fmc_ia_title {
+			text-transform: uppercase;
+			margin-bottom: 16px;
+		}
+		* {
+			color: #fff;
+		}
+	}
+	.fmc_app_icons {
+		@include tab-min {
+			width: 150px;
+			flex-shrink: 0;
+			margin-left: var(--spacing-3);
+			figure:first-child {
+				margin-bottom: 16px;
+			}
+		}
+		@include mob-only {
+			justify-content: center;
+			align-items: center;
+			display: flex;
+			figure {
+				&:first-child {
+					margin-right: 16px;
+				}
+				img {
+					width: 100%;
+					object-fit: contain;
+				}
+			}
+		}
 	}
 }
 

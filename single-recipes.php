@@ -62,6 +62,22 @@ $minutes = get_field('minutes', 'option');
 			<div class="spacing_2 fmc_additional_macro">
 				<?php the_field('additional_macro_information'); ?>
 			</div>
+			<!-- In APP Banner -->
+			<?php
+			if( get_field('in_app') ) { ?>
+				<div class="fmc_in_app">
+					<div class="fmc_ia_left">
+						<h4 class="fmc_ia_title fmc_title_4">
+							<?php the_field('in_app_title', 'option'); ?>
+						</h4>
+						<div class="fmc_ia_text text_1">
+							<?php the_field('in_app_text', 'option'); ?>
+						</div>
+					</div>
+					<?php get_template_part('template-parts/app-badges'); ?>
+				</div>
+			<?php } ?>
+
 			<!-- Comments -->
 			<div class="fmc_comments spacing_3_1">
 				<?php
@@ -103,8 +119,6 @@ $minutes = get_field('minutes', 'option');
 			<!-- Share -->
 			<div class="fmc_share fmc_recipe_share spacing_3_0">
 
-<!-- 				<div class="fmc_go"><a title="Go To Recipe" href="#fmc_gtr"><span class="fmc_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M416 0C400 0 288 32 288 176V288c0 35.3 28.7 64 64 64h32V480c0 17.7 14.3 32 32 32s32-14.3 32-32V352 240 32c0-17.7-14.3-32-32-32zM64 16C64 7.8 57.9 1 49.7 .1S34.2 4.6 32.4 12.5L2.1 148.8C.7 155.1 0 161.5 0 167.9c0 45.9 35.1 83.6 80 87.7V480c0 17.7 14.3 32 32 32s32-14.3 32-32V255.6c44.9-4.1 80-41.8 80-87.7c0-6.4-.7-12.8-2.1-19.1L191.6 12.5c-1.8-8-9.3-13.3-17.4-12.4S160 7.8 160 16V150.2c0 5.4-4.4 9.8-9.8 9.8c-5.1 0-9.3-3.9-9.8-9L127.9 14.6C127.2 6.3 120.3 0 112 0s-15.2 6.3-15.9 14.6L83.7 151c-.5 5.1-4.7 9-9.8 9c-5.4 0-9.8-4.4-9.8-9.8V16zm48.3 152l-.3 0-.3 0 .3-.7 .3 .7z"/></svg></span></a></div>
- -->
 				<div class="fmc_print"><a title="Print" href="<?php echo get_the_permalink()."?print=true"; ?>"><span class="fmc_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span></a></div>
 
 				<div class="fmc_fb"><a title="Share to Facebook" href="http://www.facebook.com/sharer.php?u=<?php echo  get_permalink() ?>"><span class="fmc_icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#101828" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></span></a></div>
@@ -130,8 +144,6 @@ $minutes = get_field('minutes', 'option');
 <!-- Related Recipes -->
 <?php get_template_part('template-parts/recipe/related-recipes'); ?>
 
-<?php get_footer(); ?>
-
 <script type="text/javascript">
 (function() {
     window.PinIt = window.PinIt || { loaded:false };
@@ -151,3 +163,5 @@ $minutes = get_field('minutes', 'option');
         window.addEventListener("load", async_load, false);
 })();
 </script>
+
+<?php get_footer();

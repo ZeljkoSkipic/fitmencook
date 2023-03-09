@@ -9,7 +9,7 @@
 
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '0.1.5' );
+	define( '_S_VERSION', '0.1.9' );
 }
 
 /**
@@ -387,3 +387,38 @@ function redirect_to_checkout() {
     $checkout_url = wc_get_checkout_url();
     return $checkout_url;
 }
+
+// Allow iFrames
+
+function allow_iframes( $allowedposttags ){
+
+	$allowedposttags['iframe'] = array(
+		'align' => true,
+		'allow' => true,
+		'allowfullscreen' => true,
+		'class' => true,
+		'frameborder' => true,
+		'height' => true,
+		'id' => true,
+		'marginheight' => true,
+		'marginwidth' => true,
+		'name' => true,
+		'scrolling' => true,
+		'src' => true,
+		'style' => true,
+		'width' => true,
+		'allowFullScreen' => true,
+		'class' => true,
+		'frameborder' => true,
+		'height' => true,
+		'mozallowfullscreen' => true,
+		'src' => true,
+		'title' => true,
+		'webkitAllowFullScreen' => true,
+		'width' => true
+	);
+
+	return $allowedposttags;
+}
+
+add_filter( 'wp_kses_allowed_html', 'allow_iframes', 1 );

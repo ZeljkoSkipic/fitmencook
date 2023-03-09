@@ -31,6 +31,9 @@ $l_sugar = get_field('l_sugar', 'option');
 
 <div class="fmc_macros">
 	<h4 class="fmc_rs_title fmc_macros_title"><?php echo $macros_title; ?></h4>
+	<?php if($calories) { ?>
+		<div class="fmc_macro fmc_macro_cals"><?php echo $l_calories ?><span><?php echo $calories ?>cal</span></div>
+	<?php } ?>
 	<?php if($protein) { ?>
 		<div class="fmc_macro"><?php echo $l_protein ?><span><?php echo $protein ?>g</span></div>
 	<?php } ?>
@@ -48,8 +51,5 @@ $l_sugar = get_field('l_sugar', 'option');
 	<?php } ?>
 	<?php if($sugar) { ?>
 		<div class="fmc_macro"><?php echo $l_sugar ?><span><?php echo $sugar?>g</span></div>
-	<?php } ?>
-	<?php if($calories) { ?>
-		<div class="fmc_macro fmc_macro_cals"><?php echo $l_calories ?><span><?php echo $calories ?>cal</span></div>
 	<?php } ?>
 </div>

@@ -123,7 +123,16 @@
 }
 
 /* Comments */
-
+.comment-respond {
+	#reply-title {
+		width: 100%;
+		padding-top: var(--spacing-3);
+		small {
+			margin-left: 8px;
+			flex-shrink: 0;
+		}
+	}
+}
 .comment-form {
 	display: flex;
 	flex-wrap: wrap;
@@ -146,7 +155,7 @@
 	}
 	input:not(.submit), textarea {
 		font-size: 15px;
-		padding: 1.5rem 1.5rem;
+		padding: 15px;
 		width: 100%;
 		border: 1px solid #F2F4F7;
 		border-radius: 8px;
@@ -161,17 +170,24 @@
 		width: 100%;
 		textarea {
 			height: 8.4rem;
+			@include mob-only {
+				height: 60px;
+			}
 		}
 	}
-	.comment-form-author {
+	.comment-form-author, .comment-form-email {
 		width: 48%;
-	}
-	.comment-form-email {
-		width: 48%;
+		@include mob-only {
+			margin-bottom: 0;
+			width: 100%;
+		}
 	}
 	.form-submit {
 		width: 100%;
 		margin-top: 0;
+		@include mob-only {
+			margin-top: 16px;
+		}
 		input {
 			padding: 12px 16px;
 			background-color: var(--color-1);

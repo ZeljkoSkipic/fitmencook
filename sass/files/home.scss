@@ -405,7 +405,7 @@
 		border-radius: 16px;
 		padding: 8rem 0 8rem 7rem;
 		@include mob-only {
-			padding: 8rem 7rem 200px;
+			padding: 8rem 4rem 200px;
 		}
 		.fmc_newsletter_inner {
 			@include limbo-min {
@@ -445,15 +445,33 @@
 				> div {
 					min-height: unset!important;
 				}
+				> .kl-private-reset-css-Xuajs1 {
+					&:after {
+						content: "";
+						position: absolute;
+						width: 20px;
+						height: 20px;
+						background-image: url(assets/icons/letter.svg);
+						left: 15px;
+						background-repeat: no-repeat;
+						background-position: center left;
+						background-size: contain;
+						@include mob-only {
+							left: 7px;
+							width: 18px;
+						}
+					}
+				}
 			}
 			div[data-testid="form-row"] {
 				background-color: #fff;
 				border-radius: 8px!important;
 				border: 1px solid #F2F4F7;
 				box-shadow: 0px 8px 16px rgba(52, 64, 84, 0.08);
+
 			}
 			div[data-testid="form-component"] {
-				padding: 4px!important;				;
+				padding: 4px!important;;
 			}
 			input {
 				border: none!important;
@@ -461,6 +479,15 @@
 			}
 			input[type="email"] {
 				height: 44px!important;
+				background-repeat: no-repeat;
+				padding-left: 42.5px!important;
+				background-color: #fff!important;
+				@include mob-only {
+					padding-left: 30px!important;
+					background-size: 18px;
+					font-size: 14px!important;
+				}
+
 			}
 			button {
 				background-color: var(--color-1)!important;
@@ -469,8 +496,14 @@
 				width: 100px;
 				font-family: Nunito!important;
 				height: 44px!important;
+				font-weight: 600!important;
 				&:hover {
 					background-color: var(--color-2)!important;
+				}
+				@include mob-only {
+					width: 65px;
+					font-weight: 500!important;
+					font-size: 14px!important;
 				}
 			}
 		}

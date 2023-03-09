@@ -8,6 +8,10 @@
 		background-image: url(assets/icons/fork-and-knife.svg);
 		background-repeat: no-repeat;
 		background-position: center left;
+		@include mob-only {
+			padding: 0 44px 0 0;
+			background-position: top right;
+		}
 	}
 	.recipe_no {
 		font-weight: 800;
@@ -15,6 +19,8 @@
 		line-height: 16px;
 		color: var(--misc-color);
 		text-transform: uppercase;
+		margin-bottom: 4px;
+		display: block;
 	}
 	.fmc_mpr_title {
 		margin-bottom: 1.6rem;
@@ -22,7 +28,10 @@
 	.fmc_recipe_times {
 		display: flex;
 		margin-bottom: var(--spacing-3);
-		padding: 0 44px;
+		flex-wrap: wrap;
+		@include tab-min {
+			padding: 0 44px;
+		}
 	}
 	.fmc_time_wrap {
 		font-size: 16px;
@@ -60,6 +69,16 @@
 		color: var(--color-2);
 		font-size: var(--title-size-4);
 		font-weight: 700;
+		background-image: url(assets/icons/fire.svg);
+		background-position: center left;
+		background-repeat: no-repeat;
+		padding-left: 30px;
+		display: flex;
+		align-items: center;
+		@include mob-only {
+			width: 100%;
+			margin-top: 8px;
+		}
 	}
 	.attachment-post-thumbnail {
 		width: 100%;
