@@ -217,15 +217,19 @@
 		margin-top: 8px;
 		display: block;
 	}
-	.fmc_sidebar_rating  {
+	.fmc_rating {
 		display: flex;
 		align-items: center;
-		margin-bottom: -37px;
-		justify-content: flex-end;
-		width: 50%;
+
 		z-index: 2;
-		margin-left: auto;
-		.fmc_sidebar_rating-wrapper {
+		@include tab-min {
+			margin-bottom: -60px;
+			justify-content: flex-end;
+			margin-left: auto;
+			width: 50%;
+
+		}
+		.fmc_rating-wrapper {
 			display: flex;
 			flex-direction: column;
 		}

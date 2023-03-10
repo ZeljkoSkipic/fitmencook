@@ -357,6 +357,46 @@
             "append": ""
         },
         {
+            "key": "field_640b271606f6b",
+            "label": "Related Plans Prefix",
+            "name": "related_plans_prefix",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Similar Meal Plans",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_640b272e06f6c",
+            "label": "Related Plans Title",
+            "name": "related_plans_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "You might also love",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_6384e6880bbd4",
             "label": "Post",
             "name": "",
@@ -606,5 +646,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1676723164
+    "modified": 1678452553
 }

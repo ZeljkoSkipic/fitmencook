@@ -68,6 +68,16 @@
 	.fmc_featured_rating {
 		margin-top: var(--spacing-3);
 		margin-bottom: var(--spacing-3);
+		span {
+			font-size: 14px;
+			font-weight: 700;
+			top: -2px;
+			position: relative;
+			margin-left: 8px;
+		}
+		.reviews-number {
+			color: var(--misc-color);
+		}
 	}
 	.fmc_featured_text {
 		margin-top: var(--spacing-3);

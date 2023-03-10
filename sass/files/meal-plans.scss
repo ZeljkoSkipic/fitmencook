@@ -1,3 +1,14 @@
+.single-meal-plans {
+	.fmc_sr_sidebar .fmc_macros .fmc_macro:first-child span {
+		background-image: url(assets/icons/fire.svg);
+		background-position: center left;
+		background-repeat: no-repeat;
+		padding-left: 25px;
+		display: flex;
+		align-items: center;
+		background-size: 14px;
+	}
+}
 .fmc_mp_recipe {
 	border: 2px solid #F2F4F7;
 	padding: var(--spacing-3);

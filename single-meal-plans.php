@@ -396,7 +396,7 @@ if ($custom_recipes) {
             if ($totals) : ?>
                 <div class="fmc_macros">
                     <?php foreach ($totals as $label => $total) : ?>
-                        <div class="fmc_macro"> <?php echo __('Total', 'fitmenCook') . ' ' . $label . ':' ?> <span class="fmc_total_number fmc_total_cal"> <?php echo $total; ?></span></div>
+                        <div class="fmc_macro"> <?php echo __('Total', 'fitmenCook') . ' ' . $label . ':' ?> <span class="fmc_total_number"> <?php echo $total; ?></span></div>
                     <?php endforeach; ?>
                 </div>
             <?php endif;
@@ -437,8 +437,8 @@ if ($custom_recipes) {
 <!-- Author -->
 <?php get_template_part('template-parts/author'); ?>
 
-<!-- Related Recipes -->
-<?php get_template_part('template-parts/recipe/related-recipes'); ?>
+<!-- Related Plans -->
+<!--<?php get_template_part('template-parts/related-meal-plans'); ?> -->
 
 <script type="text/javascript">
     (function() {
