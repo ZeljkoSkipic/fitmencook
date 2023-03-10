@@ -23,7 +23,9 @@ $blog_posts_delimetar = get_field('after_which_post_number_to_show_add', 'option
 	if( $featured_post ):
 	foreach( $featured_post as $post ):
 		// Setup this post for WP functions (variable must be named $post).
-		setup_postdata($post); ?>
+		setup_postdata($post);
+		$categories = get_the_category();
+		?>
 	<div class="fmc_featured_post">
 		<div class="fmc_featured_left">
 			<?php
@@ -38,7 +40,9 @@ $blog_posts_delimetar = get_field('after_which_post_number_to_show_add', 'option
 		<div class="fmc_featured_right">
 			<div class="fmc_grid_meta">
 				<span class="fmc_grid_cat">
-					Breakfast
+					<?php if ( ! empty( $categories ) ) {
+						echo '<a href="' . esc_url( get_category_link( $categories[0]->term_id ) ) . '">' . esc_html( $categories[0]->name ) . '</a>';
+					} ?>
 				</span>
 			</div>
 			<a href="<?php the_permalink(); ?>"><h2 class="fmc_title_1"><?php the_title(); ?></h2></a>
