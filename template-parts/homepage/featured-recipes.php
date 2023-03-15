@@ -29,7 +29,9 @@
                     ?>
 						<div class="fmc_recipe">
 							<figure class="fmc_grid_figure">
-								<?php the_post_thumbnail('medium'); ?>
+								<a href="<?php the_permalink(); ?>">
+									<?php the_post_thumbnail('medium'); ?>
+								</a>
 							</figure>
 							<div class="fmc_recipe_content">
 								<div class="fmc_grid_meta">
@@ -64,6 +66,10 @@
 									</a>
 								</h3>
 								<div class="fmc_recipe_grid_macros">
+									<div class="rg_macro calories">
+										<span class="rg_m_title"><?php the_field('l_calories', 'option'); ?></span>
+										<span class="rg_m_amount"><?php the_field('calories'); ?>cal</span>
+									</div>
 									<div class="rg_macro carbs">
 										<span class="rg_m_title"><?php the_field('l_carbs', 'option'); ?></span>
 										<span class="rg_m_amount"><?php the_field('carbs'); ?>g</span>
@@ -75,10 +81,6 @@
 									<div class="rg_macro protein">
 										<span class="rg_m_title"><?php the_field('l_protein', 'option'); ?></span>
 										<span class="rg_m_amount"><?php the_field('protein'); ?>g</span>
-									</div>
-									<div class="rg_macro calories">
-										<span class="rg_m_title"><?php the_field('l_calories', 'option'); ?></span>
-										<span class="rg_m_amount"><?php the_field('calories'); ?>cal</span>
 									</div>
 								</div>
 							</div>

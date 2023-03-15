@@ -29,8 +29,8 @@
 	<meta name="smartbanner:button-url-google" content="https://play.google.com/store/apps/details?id=com.nibbleapps.fitmencook">
 	<meta name="smartbanner:enabled-platforms" content="android,ios">
 	<meta name="p:domain_verify" content="630d33d666a4140aa5b91ccdf37cb378"/>
-
 	<?php wp_head(); ?>
+	<meta name="theme-color" content="#EAECF0" />
 </head>
 
 <body <?php body_class(); ?>>

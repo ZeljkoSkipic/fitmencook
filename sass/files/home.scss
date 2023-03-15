@@ -114,7 +114,16 @@
 /* Hero */
 
 .fmc_hero_prefix {
-	margin-bottom: var(--spacing-3);
+	margin-bottom: calc(var(--spacing-3) + 8px);
+	font-family: Nunito;
+    color: var(--link-color);
+    font-weight: 700;
+    font-size: 14px;
+    background-color: var(--color-5);
+    display: inline-flex;
+    padding: 2px 8px;
+    border-radius: 14px;
+    width: fit-content;
 	@include mob-only {
 		display: none;
 	}
@@ -122,8 +131,25 @@
 .fmc_hero_title {
 	font-size: 6.4rem;
 	line-height: 1.1;
+	margin-bottom: var(--spacing-3);
+	@include limbo-min {
+		background: rgba(255,255,255, .6);
+		border-radius: 16px;
+		padding: 8px 16px;
+		padding-bottom: 0;
+		margin-bottom: 8px;
+		padding-bottom: 8px;
+	}
 }
-
+.fmc_hh_text {
+	    @include limbo-min {
+			background: rgba(255,255,255, .6);
+			border-radius: 16px;
+			padding: 8px 16px;
+			padding-bottom: 0;
+			margin-bottom: 8px;
+		}
+}
 .fmc_app_badges {
 	@include tab-max {
 		margin-top: var(--spacing-1);
@@ -154,6 +180,7 @@
 			}
 		}
 	}
+
 }
 
 .fmc_home_hero {

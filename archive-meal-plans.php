@@ -36,6 +36,16 @@ $arch_intro = get_field('mp_arch_intro', 'option');
                             $recipe_images[] = get_the_post_thumbnail($existing_recipe['recipe'][0], 'large');
                         }
                     }
+
+                    // Add placeholders if array have less than 3 images
+
+                    if(count($recipe_images) < 3) {
+
+                        for($i = count($recipe_images); $i < 3; $i = count($recipe_images)) {
+                            array_push($recipe_images, '<img src="'.get_template_directory_uri() . '/assets/images/meal-placeholder.jpg'.'" alt="Placeholder Image" loading="lazy">');
+                        }
+                    }
+
                 ?>
 
                     <div class="fmc_plan">

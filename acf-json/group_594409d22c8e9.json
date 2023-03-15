@@ -78,11 +78,29 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
+            "default_value": "Ingredients",
             "maxlength": "",
             "placeholder": "",
             "prepend": "",
             "append": ""
+        },
+        {
+            "key": "field_6411c8a4eed29",
+            "label": "Number of Servings is set up in the 'Sidebar - Times and Macros' on top of the page",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "new_lines": "wpautop",
+            "esc_html": 0
         },
         {
             "key": "field_5930bf6590b40",
@@ -118,7 +136,7 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
+            "default_value": "Steps",
             "maxlength": "",
             "placeholder": "",
             "prepend": "",
@@ -281,6 +299,28 @@
             "conditional_logic": 0,
             "wrapper": {
                 "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "min": "",
+            "max": "",
+            "placeholder": "",
+            "step": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_6411c871729d0",
+            "label": "Number of Servings",
+            "name": "number_of_servings",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
                 "class": "",
                 "id": ""
             },
@@ -472,5 +512,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1678368607
+    "modified": 1678887157
 }

@@ -9,7 +9,6 @@
 
 get_header();
 ?>
-<?php echo do_shortcode('[wpdreams_asp_settings id=1 element="div"]'); ?>
 	<main id="primary" class="site-main">
 		<div class="fmc_search_hero spacing_1">
 			<div class="fmc_container">

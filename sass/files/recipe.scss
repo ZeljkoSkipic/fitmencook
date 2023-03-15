@@ -3,7 +3,7 @@
 	display: flex;
 	justify-content: space-between;
 	width: 80%;
-	max-width: 390px;
+	max-width: 450px;
 	padding: 16px 32px;
 	border: 1px solid #EAECF0;
 	border-radius: 16px;
@@ -12,6 +12,26 @@
 		display: flex;
 		flex-direction: column;
 		width: 23%;
+		&.calories {
+			.rg_m_title {
+				background-image: url(assets/icons/fire.svg);
+				background-position: center left;
+				background-repeat: no-repeat;
+				padding-left: 30px;
+				display: -webkit-box;
+				display: -ms-flexbox;
+				display: flex;
+				-webkit-box-align: center;
+				-ms-flex-align: center;
+				align-items: center;
+				background-size: 14px;
+				font-size: 0;
+				height: 19px;
+				@include limbo-max {
+					height: 16px;
+				}
+			}
+		}
 	}
 	.rg_m_title {
 		color: var(--misc-color);
@@ -77,8 +97,8 @@ body.archive {
 		@include limbo-min {
 			width: 25%;
 		}
-		@include mob-only {
-			width: 100%;
+		@include tab-max {
+			display: none;
 		}
 		.fmc_arch_cats {
 			background-color: #F9FAFB;
@@ -132,7 +152,7 @@ body.archive {
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-		align-items: center;
+		align-items: flex-start;
 		&.calories {
 			align-items: flex-start;
 			.rg_m_title {
@@ -296,6 +316,17 @@ body.archive {
 			margin-bottom: 12px;
 			font-weight: 800;
 			font-family: Nunito;
+			&.fmc_nos {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				span {
+					font-weight: 800;
+					font-size: 1.1em;
+					top: 2px;
+					position: relative;
+				}
+			}
 		}
 		.fmc_recipe_times {
 			display: flex;
@@ -536,11 +567,22 @@ body.archive {
 }
 
 /* Recipe Main */
-
+.fmc_ing_servings {
+	background-color: var(--color-3);
+	width: fit-content;
+	color: #fff;
+	padding: 8px 16px;
+	border-radius: 8px;
+	font-size: var(--title-size-5);
+	font-weight: 700;
+	margin-bottom: var(--spacing-1);
+	margin-top: -1.6rem;
+}
 .fmc_ingredients {
 	* {
 		font-size: 16px;
 	}
+
 	ul {
 
 		li {
@@ -758,7 +800,6 @@ body.archive {
 			&:first-child {
 				margin-right: 10px;
 				background-color: var(--color-3);
-				color: #000;
 			}
 		}
 

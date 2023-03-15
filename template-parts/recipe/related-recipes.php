@@ -24,7 +24,9 @@
 					?>
 						<div class="fmc_recipe">
 							<figure class="fmc_grid_figure">
-								<?php the_post_thumbnail('thumbnail'); ?>
+								<a href="<?php the_permalink(); ?>">
+									<?php the_post_thumbnail('medium'); ?>
+								</a>
 							</figure>
 							<div class="fmc_recipe_content">
 								<div class="fmc_grid_meta">

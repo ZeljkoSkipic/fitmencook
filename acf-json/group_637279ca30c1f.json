@@ -280,6 +280,46 @@
             "append": ""
         },
         {
+            "key": "field_6411c775665de",
+            "label": "Number of Servings Sidebar",
+            "name": "number_of_servings_sidebar",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Number of servings",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_6411c791665df",
+            "label": "Number of Servings After Ingredients",
+            "name": "number_of_servings_ing",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Servings",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_63dcef2222cda",
             "label": "Related Recipes Prefix",
             "name": "related_prefix",
@@ -646,5 +686,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1678452553
+    "modified": 1678886844
 }

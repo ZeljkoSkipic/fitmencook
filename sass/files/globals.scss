@@ -98,6 +98,36 @@ ul li {
 	font-size: var(--body-size);
 }
 
+blockquote {
+	background-image: url(assets/icons/quote.svg);
+	background-repeat: no-repeat;
+	margin: 0;
+	background-size: 25px;
+	padding: 8px var(--spacing-1);
+	&:after {
+		content: "";
+		position: absolute;
+		width: 25px;
+		height: 25px;
+		background-image: url(assets/icons/quote.svg);
+		background-size: contain;
+		background-repeat: no-repeat;
+		right: 0;
+		bottom: 25px;
+		transform: rotate(180deg);
+	}
+	@include mob-only {
+		background-size: 20px;
+		&:after {
+			width: 20px;
+			height: 20px;
+		}
+	}
+	* {
+		font-size: var(--title-size-4)!important;
+	}
+}
+
 .text_1 {
 	color: var(	--text-1);
 	font-size: var(--body-size);

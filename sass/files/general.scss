@@ -1,5 +1,6 @@
 .fmc_breadcrumbs {
 	font-size: 14px;
+	width: 100%;
 	span {
 		span:first-child {
 			a {
@@ -93,9 +94,11 @@
 	text-align: center;
 }
 
-.fmc_page_ad {
-	width: 90%;
-	max-width: 800px;
+@include desk-min {
+	.fmc_page_ad {
+		width: 90%;
+		max-width: 800px;
+	}
 }
 
 .single {

@@ -14,7 +14,7 @@ $box_type = get_field('box_type');
 	<div class="fmc_container">
 		<div class="fmc_hh_left">
 			<div class="fmc_hero_text">
-				<h2 class="fmc_hero_prefix fmc_grid_cat"><a href="<?php the_permalink( woocommerce_get_page_id( 'shop' ) ); ?>"><?php echo $prefix ?></a></h2>
+				<h2 class="fmc_hero_prefix"><?php echo $prefix ?></h2>
 				<h1 class="fmc_hero_title"><?php echo $title ?></h1>
 				<div class="fmc_hh_text"><?php echo $text ?></div>
 			</div>
@@ -70,6 +70,10 @@ $box_type = get_field('box_type');
 					</div>
 					<h3 class="fmc_grid_title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
 					<div class="fmc_recipe_grid_macros">
+						<div class="rg_macro calories">
+							<span class="rg_m_title"><?php the_field( 'l_calories', 'option' ); ?></span>
+							<span class="rg_m_amount"><?php the_field( 'calories' ); ?>g</span>
+						</div>
 						<div class="rg_macro">
 							<span class="rg_m_title"><?php the_field( 'l_protein', 'option' ); ?></span>
 							<span class="rg_m_amount"><?php the_field( 'protein' ); ?>g</span>
@@ -81,10 +85,6 @@ $box_type = get_field('box_type');
 						<div class="rg_macro">
 							<span class="rg_m_title"><?php the_field( 'l_carbs', 'option' ); ?></span>
 							<span class="rg_m_amount"><?php the_field( 'carbs' ); ?>g</span>
-						</div>
-						<div class="rg_macro">
-							<span class="rg_m_title"><?php the_field( 'l_calories', 'option' ); ?></span>
-							<span class="rg_m_amount"><?php the_field( 'calories' ); ?>g</span>
 						</div>
 					</div>
 				</div>
@@ -137,7 +137,7 @@ $box_type = get_field('box_type');
 					$custom = get_field('custom');
 					if($custom) : ?>
 					<div class="fmc_hr_left">
-					<h3 class="fmc_grid_title"><a href="<?php $link_url; ?>"><?php echo $custom['c_title']; ?></a></h3>
+					<h3 class="fmc_grid_title"><a href="<?php echo esc_url( $custom['c_link']['url'] ); ?>" target="<?php echo esc_attr( $custom['c_link']['target'] ) ?>"><?php echo $custom['c_title']; ?></a></h3>
 					<div class="fmc_grid_content text_2">
 					<?php echo $custom['c_text']; ?>
 					</div>

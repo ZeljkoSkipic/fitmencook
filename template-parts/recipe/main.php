@@ -2,11 +2,17 @@
 
 $ingredients = get_field('ingredients');
 
+$nosi = get_field('number_of_servings_ing', 'option');
+$servings_number = get_field('number_of_servings');
+
 
 if( $ingredients ) { ?>
 
 <div class="fmc_recipe_ingredients spacing_2_3" id="fmc_gtr">
 	<h4 class="fmc_title_3 title_spacing_2"><?php the_field('ingredients_title'); ?></h4>
+	<?php if($servings_number) { ?>
+	<div class="fmc_ing_servings"><?php echo $servings_number ?> <?php echo $nosi; ?></div>
+	<?php } ?>
 	<div class="fmc_ingredients">
 		<?php echo $ingredients; ?>
 	</div>

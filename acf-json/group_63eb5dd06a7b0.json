@@ -405,9 +405,9 @@
                         "id": ""
                     },
                     "default_value": "",
-                    "tabs": "text",
-                    "media_upload": 1,
+                    "tabs": "all",
                     "toolbar": "full",
+                    "media_upload": 1,
                     "delay": 0,
                     "parent_repeater": "field_63eb663b66487"
                 },
@@ -498,5 +498,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1676461537
+    "modified": 1678882315
 }

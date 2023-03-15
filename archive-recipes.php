@@ -17,16 +17,18 @@ $size = 'full'
 			setup_postdata($post);
 			$categories = get_the_terms( $post->ID, 'recipe-category' );
 			?>
-		<div class="fmc_featured_post">
+		<div class="fmc_featured_post fmc_featured_recipe">
 			<div class="fmc_featured_left">
-				<?php
-				if($featured_image) {
-					if( $featured_image ) {
-						echo wp_get_attachment_image( $featured_image, $size );
-					}
-				} else {
-					the_post_thumbnail('large');
-				}  ?>
+				<a href="<?php the_permalink(); ?>">
+					<?php
+					if($featured_image) {
+						if( $featured_image ) {
+							echo wp_get_attachment_image( $featured_image, $size );
+						}
+					} else {
+						the_post_thumbnail('large');
+					}  ?>
+				</a>
 			</div>
 			<div class="fmc_featured_right">
 				<span class="fmc_featured_prefix"><?php the_field('featured_prefix', 'option'); ?></span>
@@ -42,6 +44,10 @@ $size = 'full'
 				<?php echo get_avarage_rating(get_the_ID(), 'sidebar'); ?>
 				</div>
 				<div class="fmc_featured_macros">
+					<div class="rg_macro calories">
+						<span class="rg_m_title"><?php the_field('l_calories', 'option'); ?></span>
+						<span class="rg_m_amount"><?php the_field('calories'); ?>cal</span>
+					</div>
 					<div class="rg_macro carbs">
 						<span class="rg_m_title"><?php the_field('l_carbs', 'option'); ?></span>
 						<span class="rg_m_amount"><?php the_field('carbs'); ?>g</span>
@@ -53,10 +59,6 @@ $size = 'full'
 					<div class="rg_macro protein">
 						<span class="rg_m_title"><?php the_field('l_protein', 'option'); ?></span>
 						<span class="rg_m_amount"><?php the_field('protein'); ?>g</span>
-					</div>
-					<div class="rg_macro calories">
-						<span class="rg_m_title"><?php the_field('l_calories', 'option'); ?></span>
-						<span class="rg_m_amount"><?php the_field('calories'); ?>cal</span>
 					</div>
 				</div>
 				<div class="fmc_featured_prep">
@@ -120,6 +122,10 @@ $size = 'full'
 						</a>
 					</h3>
 					<div class="fmc_recipe_grid_macros">
+						<div class="rg_macro calories">
+							<span class="rg_m_title"><?php the_field('l_calories', 'option'); ?></span>
+							<span class="rg_m_amount"><?php the_field('calories'); ?>cal</span>
+						</div>
 						<div class="rg_macro carbs">
 							<span class="rg_m_title"><?php the_field('l_carbs', 'option'); ?></span>
 							<span class="rg_m_amount"><?php the_field('carbs'); ?>g</span>
@@ -131,10 +137,6 @@ $size = 'full'
 						<div class="rg_macro protein">
 							<span class="rg_m_title"><?php the_field('l_protein', 'option'); ?></span>
 							<span class="rg_m_amount"><?php the_field('protein'); ?>g</span>
-						</div>
-						<div class="rg_macro calories">
-							<span class="rg_m_title"><?php the_field('l_calories', 'option'); ?></span>
-							<span class="rg_m_amount"><?php the_field('calories'); ?>cal</span>
 						</div>
 					</div>
 				</div>
