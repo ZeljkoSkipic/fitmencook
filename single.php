@@ -13,13 +13,20 @@ get_header();
 	<main id="primary" class="site-main spacing_0_1">
 		<div class="fmc_post_hero spacing_2_3">
 			<div class="fmc_container">
-				<?php if ( function_exists('yoast_breadcrumb') ) {
-				yoast_breadcrumb( '<div class="fmc_breadcrumbs spacing_0_2">','</div>' );
-				} ?>
+				<div class="fmc_post_hero_top">
+					<div class="fmc_post_hero_left">
+						<?php if ( function_exists('yoast_breadcrumb') ) {
+						yoast_breadcrumb( '<div class="fmc_breadcrumbs spacing_0_2">','</div>' );
+						} ?>
 
-				<!-- Categories -->
-				<div class="fmc_categories">
-					<?php the_category(); ?>
+						<!-- Categories -->
+						<div class="fmc_categories">
+							<?php the_category(); ?>
+						</div>
+					</div>
+					<div class="fmc_post_hero_right">
+						<?php get_template_part('template-parts/last-updated'); ?>
+					</div>
 				</div>
 				<h1 class="fmc_title_1 title_spacing_2">
 					<?php the_title(); ?>

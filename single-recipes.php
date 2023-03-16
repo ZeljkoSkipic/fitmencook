@@ -36,10 +36,12 @@ $categories = get_the_terms( $post->ID, 'recipe-category' );
 				} ?>
 			</div>
 
+
 			<!-- Recipe Title -->
 			<h1 class="fmc_title_1 title_spacing_3">
 				<?php the_title(); ?>
 			</h1>
+			<?php get_template_part('template-parts/last-updated'); ?>
 
 			<!-- WP Content -->
 			<?php
@@ -103,7 +105,7 @@ $categories = get_the_terms( $post->ID, 'recipe-category' );
 			<h4 class="fmc_rs_title fmc_times_title"><?php echo $times_title; ?></h4>
 
 			<div class="fmc_recipe_times">
-				<?php if($prep_time) { ?>
+				<?php if(!empty($prep_time || $prep_hours)) : ?>
 					<div class="fmc_prep">
 						<span class="fmc_time"><?php echo $l_prep_time ?></span>
 						<?php if($prep_hours) { ?>
@@ -112,10 +114,13 @@ $categories = get_the_terms( $post->ID, 'recipe-category' );
 							</span>
 						<?php } ?>
 						</span>
-						<span class="fmc_amount"><?php echo $prep_time?><?php echo $minutes ?></span>
+						<?php if($prep_time) { ?>
+						<span class="fmc_amount"><?php echo $prep_time ?><?php echo $minutes ?></span>
+						<?php } ?>
 					</div>
-				<?php } ?>
-				<?php if($cook_time) { ?>
+				<?php endif ?>
+
+				<?php if(!empty($cook_time || $cook_hours)) : ?>
 					<div class="fmc_cook">
 						<span class="fmc_time"><?php echo $l_cook_time ?></span>
 						<?php if($cook_hours) { ?>
@@ -123,10 +128,13 @@ $categories = get_the_terms( $post->ID, 'recipe-category' );
 								<?php echo $cook_hours ?>h
 							</span>
 						<?php } ?>
-						<span class="fmc_amount"><?php echo $cook_time ?><?php echo $minutes ?></span>
+						<?php if($cook_time) { ?>
+							<span class="fmc_amount"><?php echo $cook_time ?><?php echo $minutes ?></span>
+						<?php } ?>
 					</div>
-				<?php } ?>
-				<?php if($total_time) { ?>
+				<?php endif; ?>
+
+				<?php if(!empty($total_time || $total_hours)) : ?>
 					<div class="fmc_total">
 						<span class="fmc_time"><?php echo $l_total_time ?></span>
 						<?php if($total_hours) { ?>
@@ -134,8 +142,11 @@ $categories = get_the_terms( $post->ID, 'recipe-category' );
 								<?php echo $total_hours ?>h
 							</span>
 						<?php } ?>
-						<span class="fmc_amount"><?php echo $total_time ?><?php echo $minutes ?></span></div>
-				<?php } ?>
+						<?php if($total_time) { ?>
+							<span class="fmc_amount"><?php echo $total_time ?><?php echo $minutes ?></span>
+						<?php } ?>
+					</div>
+				<?php endif; ?>
 			</div>
 			<!-- Macros -->
 			<?php get_template_part('template-parts/recipe/macros'); ?>

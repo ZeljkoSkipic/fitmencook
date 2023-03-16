@@ -140,6 +140,29 @@
                     "parent_repeater": "field_63eb663b66487"
                 },
                 {
+                    "key": "field_6412fee38e42e",
+                    "label": "All fields are required!",
+                    "name": "all_fields_are_required!",
+                    "aria-label": "",
+                    "type": "clone",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "97.5",
+                        "class": "",
+                        "id": ""
+                    },
+                    "clone": [
+                        "field_6412fe5e67f22"
+                    ],
+                    "display": "seamless",
+                    "layout": "block",
+                    "prefix_label": 0,
+                    "prefix_name": 0,
+                    "parent_repeater": "field_63eb663b66487"
+                },
+                {
                     "key": "field_6412f100158f6",
                     "label": "Prep Hours",
                     "name": "cr_prep_hours",
@@ -605,5 +628,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1678963380
+    "modified": 1678966726
 }

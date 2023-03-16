@@ -114,11 +114,12 @@ if ($custom_recipes) {
             <?php if (function_exists('yoast_breadcrumb')) {
                 yoast_breadcrumb('<div class="fmc_breadcrumbs spacing_0_2">', '</div>');
             } ?>
-
             <!-- Meal Plan Title -->
             <h1 class="fmc_title_1 title_spacing_3">
                 <?php the_title(); ?>
             </h1>
+
+			<?php get_template_part('template-parts/last-updated'); ?>
 
             <!-- WP Content -->
             <div class="spacing_0_2 fmc_recipe_the_content">
@@ -290,30 +291,42 @@ if ($custom_recipes) {
                             <h2 class="fmc_mpr_title fmc_title_3"><?php echo $recipe_title; ?></h2>
                         </div>
                         <div class="fmc_recipe_times">
-                            <div class="fmc_time_wrap fmc_prep">
-                                <span class="fmc_time"><?php echo $l_prep_time; ?></span>
-                                <span class="fmc_amount">
-									<?php if($cr_prep_hours) { ?>
-										<?php echo $cr_prep_hours ?>h
-									<?php } ?>
-									<?php echo $cr_prep_time; ?><?php echo $minutes ?></span>
-                            </div>
-                            <div class="fmc_time_wrap fmc_cook">
-                                <span class="fmc_time"><?php echo $l_cook_time; ?></span>
-                                <span class="fmc_amount">
-									<?php if($cr_cook_hours) { ?>
-										<?php echo $cr_cook_hours ?>h
-									<?php } ?>
-									<?php echo $cr_cook_time; ?><?php echo $minutes ?></span>
-                            </div>
-                            <div class="fmc_time_wrap fmc_total">
-                                <span class="fmc_time"><?php echo $l_total_time; ?></span>
-                                <span class="fmc_amount">
-								<?php if($cr_total_hours) { ?>
-									<?php echo $cr_total_hours ?>h
-								<?php } ?>
-								<?php echo $cr_total_time; ?><?php echo $minutes ?></span>
-                            </div>
+							<?php if(!empty($cr_prep_time || $cr_prep_hours)): ?>
+								<div class="fmc_time_wrap fmc_prep">
+									<span class="fmc_time"><?php echo $l_prep_time; ?></span>
+									<span class="fmc_amount">
+										<?php if($cr_prep_hours) { ?>
+											<?php echo $cr_prep_hours ?>h
+										<?php } ?>
+										<?php echo $cr_prep_time; ?><?php echo $minutes ?>
+									</span>
+								</div>
+							<?php endif; ?>
+
+							<?php if(!empty($cr_cook_time || $cr_cook_hours)): ?>
+								<div class="fmc_time_wrap fmc_cook">
+									<span class="fmc_time"><?php echo $l_cook_time; ?></span>
+									<span class="fmc_amount">
+										<?php if($cr_cook_hours) { ?>
+											<?php echo $cr_cook_hours ?>h
+										<?php } ?>
+										<?php echo $cr_cook_time; ?><?php echo $minutes ?>
+									</span>
+								</div>
+							<?php endif; ?>
+
+							<?php if(!empty($cr_total_time || $cr_total_hours)): ?>
+								<div class="fmc_time_wrap fmc_total">
+									<span class="fmc_time"><?php echo $l_total_time; ?></span>
+									<span class="fmc_amount">
+										<?php if($cr_total_hours) { ?>
+											<?php echo $cr_total_hours ?>h
+										<?php } ?>
+										<?php echo $cr_total_time; ?><?php echo $minutes ?>
+									</span>
+								</div>
+							<?php endif; ?>
+
                             <div class="fmc_cals">
                                 <?php if ($cr_calories) { ?>
                                     <?php echo $cr_calories ?>cal
@@ -483,7 +496,7 @@ if ($custom_recipes) {
 <?php get_template_part('template-parts/author'); ?>
 
 <!-- Related Plans -->
-<!--<?php get_template_part('template-parts/related-meal-plans'); ?> -->
+<?php get_template_part('template-parts/related-meal-plans'); ?>
 
 <script type="text/javascript">
     (function() {

@@ -245,6 +245,24 @@
             "endpoint": 0
         },
         {
+            "key": "field_6412fe5e67f22",
+            "label": "If the field is marked as 'required', and you do not have a value for it place '0' instead of leaving the field empty.",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "97.5",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
             "key": "field_6412db367a7ef",
             "label": "Prep Hours",
             "name": "prep_hours",
@@ -612,5 +630,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1678959546
+    "modified": 1678966856
 }

@@ -648,7 +648,6 @@
 	.fmc_rg_inner {
 		display: flex;
 		flex-wrap: wrap;
-		justify-content: space-between;
 		@include tab-max {
 			padding-bottom: 0;
 		}

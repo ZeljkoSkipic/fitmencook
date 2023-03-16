@@ -33,7 +33,18 @@
 		margin-left: 8px;
 	}
 }
-
+.last_updated {
+	display: flex;
+	font-size: 14px;
+	font-weight: 700;
+	color: var(--misc-color);
+	flex-wrap: wrap;
+	margin-bottom: var(--spacing-3);
+	span {
+		font-weight: 600;
+		margin-right: 8px;
+	}
+}
 .fmc_grid_cat {
 	ul {
 		display: flex;

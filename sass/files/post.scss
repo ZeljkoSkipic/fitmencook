@@ -8,6 +8,24 @@
 /* Single */
 
 .fmc_post_hero {
+	.fmc_post_hero_top {
+		display: flex;
+		justify-content: space-between;
+		@include mob-only {
+			flex-direction: column;
+		}
+		.fmc_post_hero_right {
+			flex-shrink: 0;
+			@include tab-min {
+				margin-left: var(--spacing-3);
+			}
+		}
+		.last_updated {
+			@include tab-min {
+				flex-direction: column;
+			}
+		}
+	}
 	figure {
 		width: 100%;
 		max-height: 60rem;
