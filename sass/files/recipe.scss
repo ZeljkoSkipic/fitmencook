@@ -43,6 +43,15 @@
 		font-weight: 700;
 		line-height: 1.375;
 		margin-top: 4px;
+		@include limbo-only {
+			font-size: 20px;
+		}
+		@include tab-only {
+			font-size: 22px;
+		}
+		@include mob-only {
+			font-size: 18px;
+		}
 	}
 
 }
@@ -73,7 +82,9 @@ body.archive {
 }
 
 .recipe_ad_after_featured {
-	width: 90%;
+	@include desk-min {
+		width: 90%;
+	}
 	max-width: 800px;
 	margin-left: auto;
 	margin-right: auto;
@@ -270,8 +281,13 @@ body.archive {
 		display: flex;
 	}
 	.fmc_sr_main {
-		.fmc_recipe_the_content * {
-			font-size: 16px;
+		.fmc_recipe_the_content {
+			img {
+				border-radius: 16px;
+			}
+			* {
+				font-size: 16px;
+			}
 		}
 
 	}
@@ -845,8 +861,12 @@ body.archive {
 				}
 				.fmc_recipe_times {
 					margin-top: 10px;
+					> div {
+
+					}
 					strong {
-						margin-right: 50px;
+						display: inline-block;
+						width: 100px;
 					}
 				}
 				ul {

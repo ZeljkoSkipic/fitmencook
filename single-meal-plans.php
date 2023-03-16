@@ -100,9 +100,9 @@ if ($custom_recipes) {
 
 
     // Time
-    $total_times[$l_prep_time] = $total_prep_time . ' ' . $minutes;
-    $total_times[$l_cook_time] = $total_cook_time . ' ' . $minutes;
-    $total_times[$l_total_time] = $total_time . ' ' . $minutes;
+    $total_times[$l_prep_time] = $total_prep_time . '' . $minutes;
+    $total_times[$l_cook_time] = $total_cook_time . '' . $minutes;
+    $total_times[$l_total_time] = $total_time . '' . $minutes;
 
 }
 
@@ -152,9 +152,12 @@ if ($custom_recipes) {
                             // Setup this post for WP functions (variable must be named $post).
                             setup_postdata($post);
 
-                            $prep_time = get_field('prep_time');
-                            $cook_time = get_field('cook_time');
-                            $total_time = get_field('total_time');
+                            $prep_hours = get_field('prep_hours');
+							$prep_time = get_field('prep_time');
+							$cook_hours = get_field('cook_hours');
+							$cook_time = get_field('cook_time');
+							$total_time = get_field('total_time');
+							$total_hours = get_field('total_hours');
                             $calories = get_field('calories');
                         ?>
 
@@ -166,18 +169,36 @@ if ($custom_recipes) {
                                     </a>
                                 </div>
                                 <div class="fmc_recipe_times">
-                                    <div class="fmc_time_wrap fmc_prep">
-                                        <span class="fmc_time"><?php echo $l_prep_time; ?></span>
-                                        <span class="fmc_amount"><?php echo $prep_time; ?><?php echo $minutes ?></span>
-                                    </div>
-                                    <div class="fmc_time_wrap fmc_cook">
-                                        <span class="fmc_time"><?php echo $l_cook_time; ?></span>
-                                        <span class="fmc_amount"><?php echo $cook_time; ?><?php echo $minutes ?></span>
-                                    </div>
-                                    <div class="fmc_time_wrap fmc_total">
-                                        <span class="fmc_time"><?php echo $l_total_time; ?></span>
-                                        <span class="fmc_amount"><?php echo $total_time; ?><?php echo $minutes ?></span>
-                                    </div>
+								<?php if($prep_time) { ?>
+									<div class="fmc_time_wrap fmc_prep">
+										<span class="fmc_time"><?php echo $l_prep_time ?></span>
+										</span>
+										<span class="fmc_amount">
+										<?php if($prep_hours) { ?>
+											<?php echo $prep_hours ?>h
+										<?php } ?>
+										<?php echo $prep_time?><?php echo $minutes ?></span>
+									</div>
+								<?php } ?>
+								<?php if($cook_time) { ?>
+									<div class="fmc_time_wrap fmc_cook">
+										<span class="fmc_time"><?php echo $l_cook_time ?></span>
+										<span class="fmc_amount">
+										<?php if($cook_hours) { ?>
+											<?php echo $cook_hours ?>h
+										<?php } ?>
+										<?php echo $cook_time ?><?php echo $minutes ?></span>
+									</div>
+								<?php } ?>
+								<?php if($total_time) { ?>
+									<div class="fmc_time_wrap fmc_total">
+										<span class="fmc_time"><?php echo $l_total_time ?></span>
+										<span class="fmc_amount">
+										<?php if($total_hours) { ?>
+											<?php echo $total_hours ?>h
+										<?php } ?>
+										<?php echo $total_time ?><?php echo $minutes ?></span></div>
+								<?php } ?>
 
                                     <?php if ($calories) : ?>
 
@@ -247,9 +268,14 @@ if ($custom_recipes) {
                 while (have_rows('custom_recipe')) : the_row();
 
                     $recipe_title = get_sub_field('recipe_title');
-                    $cr_prep_time = get_sub_field('cr_prep_time');
-                    $cr_cook_time = get_sub_field('cr_cook_time');
-                    $cr_total_time = get_sub_field('cr_total_time');
+
+                    $cr_prep_hours = get_sub_field('cr_prep_hours');
+					$cr_prep_time = get_sub_field('cr_prep_time');
+                    $cr_cook_hours = get_sub_field('cr_cook_hours');
+					$cr_cook_time = get_sub_field('cr_cook_time');
+                    $cr_total_hours = get_sub_field('cr_total_hours');
+					$cr_total_time = get_sub_field('cr_total_time');
+
                     $cr_calories = get_sub_field('cr_calories');
                     $cr_protein = get_sub_field('cr_protein');
                     $cr_fat = get_sub_field('cr_fat');
@@ -266,15 +292,27 @@ if ($custom_recipes) {
                         <div class="fmc_recipe_times">
                             <div class="fmc_time_wrap fmc_prep">
                                 <span class="fmc_time"><?php echo $l_prep_time; ?></span>
-                                <span class="fmc_amount"><?php echo $cr_prep_time; ?><?php echo $minutes ?></span>
+                                <span class="fmc_amount">
+									<?php if($cr_prep_hours) { ?>
+										<?php echo $cr_prep_hours ?>h
+									<?php } ?>
+									<?php echo $cr_prep_time; ?><?php echo $minutes ?></span>
                             </div>
                             <div class="fmc_time_wrap fmc_cook">
                                 <span class="fmc_time"><?php echo $l_cook_time; ?></span>
-                                <span class="fmc_amount"><?php echo $cr_cook_time; ?><?php echo $minutes ?></span>
+                                <span class="fmc_amount">
+									<?php if($cr_cook_hours) { ?>
+										<?php echo $cr_cook_hours ?>h
+									<?php } ?>
+									<?php echo $cr_cook_time; ?><?php echo $minutes ?></span>
                             </div>
                             <div class="fmc_time_wrap fmc_total">
                                 <span class="fmc_time"><?php echo $l_total_time; ?></span>
-                                <span class="fmc_amount"><?php echo $cr_total_time; ?><?php echo $minutes ?></span>
+                                <span class="fmc_amount">
+								<?php if($cr_total_hours) { ?>
+									<?php echo $cr_total_hours ?>h
+								<?php } ?>
+								<?php echo $cr_total_time; ?><?php echo $minutes ?></span>
                             </div>
                             <div class="fmc_cals">
                                 <?php if ($cr_calories) { ?>
@@ -282,16 +320,23 @@ if ($custom_recipes) {
                                 <?php } ?>
                             </div>
                         </div>
+						<?php
+						$custom_ingredients = get_sub_field('custom_ingredients');
+						if($custom_ingredients): ?>
                         <h4 class="fmc_mpr_subtitle"><?php the_sub_field('ingredients_title'); ?></h4>
-                        <div class="text_2 fmc_mpr_content fmc_mpr_ing"><?php the_sub_field('custom_ingredients'); ?></div>
-                        <h4 class="fmc_mpr_subtitle"><?php the_sub_field('steps_title'); ?></h4>
+                        <div class="text_2 fmc_mpr_content fmc_mpr_ing"><?php echo $custom_ingredients ?></div>
+						<?php endif; ?>
+
+
+                                    <?php
+									$steps_title = get_sub_field('steps_title');
+                                    // Check rows existexists.
+                                    if (have_rows('cr_steps')) : ?>
+									<h4 class="fmc_mpr_subtitle"><?php echo $steps_title; ?></h4>
                         <div class="text_2 fmc_mpr_content fmc_mpr_steps">
                             <div class="fmc_recipe_steps">
                                 <div class="fmc_steps">
-                                    <?php
-                                    // Check rows existexists.
-                                    if (have_rows('cr_steps')) :
-                                        $item = 1;
+                                        <?php $item = 1;
                                         // Loop through rows.
                                         while (have_rows('cr_steps')) : the_row();
 
@@ -311,12 +356,12 @@ if ($custom_recipes) {
                                     <?php // End loop.
                                             $item++;
 
-                                        endwhile;
+                                        endwhile; ?>
+										</div>
+										</div>
+									</div>
+                                   <?php  endif; ?>
 
-                                    endif; ?>
-                                </div>
-                            </div>
-                        </div>
                         <!-- Macros -->
                         <div class="fmc_macros">
                             <h4 class="fmc_rs_title fmc_macros_title"><?php echo $macros_title; ?></h4>
@@ -330,7 +375,7 @@ if ($custom_recipes) {
                                 <div class="fmc_macro"><?php echo $l_carbs ?><span><?php echo $cr_carbs ?>g</span></div>
                             <?php } ?>
                             <?php if ($cr_sodium) { ?>
-                                <div class="fmc_macro"><?php echo $l_sodium ?><span><?php echo $cr_sodium ?>g</span></div>
+                                <div class="fmc_macro"><?php echo $l_sodium ?><span><?php echo $cr_sodium ?>mg</span></div>
                             <?php } ?>
                             <?php if ($cr_fiber) { ?>
                                 <div class="fmc_macro"><?php echo $l_fiber ?><span><?php echo $cr_fiber ?>g</span></div>
@@ -410,7 +455,8 @@ if ($custom_recipes) {
 
                 <div class="fmc_fb"><a title="Share to Facebook" href="http://www.facebook.com/sharer.php?u=<?php echo  get_permalink() ?>"><span class="fmc_icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#101828" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook">
                                 <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                            </svg></span></a></div>
+                            </svg></span></a>
+				</div>
 
                 <div class="fmc_pin"><a title="Pin" href="http://pinterest.com/pin/create/button/?url=<?php echo urlencode(get_permalink($post->ID)); ?>"></a><span class="fmc_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
                             <path d="M204 6.5C101.4 6.5 0 74.9 0 185.6 0 256 39.6 296 63.6 296c9.9 0 15.6-27.6 15.6-35.4 0-9.3-23.7-29.1-23.7-67.8 0-80.4 61.2-137.4 140.4-137.4 68.1 0 118.5 38.7 118.5 109.8 0 53.1-21.3 152.7-90.3 152.7-24.9 0-46.2-18-46.2-43.8 0-37.8 26.4-74.4 26.4-113.4 0-66.2-93.9-54.2-93.9 25.8 0 16.8 2.1 35.4 9.6 50.7-13.8 59.4-42 147.9-42 209.1 0 18.9 2.7 37.5 4.5 56.4 3.4 3.8 1.7 3.4 6.9 1.5 50.4-69 48.6-82.5 71.4-172.8 12.3 23.4 44.1 36 69.3 36 106.2 0 153.9-103.5 153.9-196.8C384 71.3 298.2 6.5 204 6.5z" />

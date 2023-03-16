@@ -104,6 +104,9 @@ blockquote {
 	margin: 0;
 	background-size: 25px;
 	padding: 8px var(--spacing-1);
+	position: relative;
+	margin-bottom: 8px;
+	margin-bottom: var(--spacing-3);
 	&:after {
 		content: "";
 		position: absolute;

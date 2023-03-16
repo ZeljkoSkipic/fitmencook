@@ -6,12 +6,24 @@
 			<?php
 				// latest recipes query
 				// args
+                $current_recipe_terms = get_the_terms(get_the_ID(), 'recipe-category');
+
+                if($current_recipe_terms && is_array($current_recipe_terms)) {
+                    $current_recipe_terms = array_map(function($term) {
+                        return $term->term_id;
+                    },$current_recipe_terms);
+                }
 				$args = array(
 					'posts_per_page'   => 4,
 					'post_type'     => 'recipes',
-					'meta_query'    => array(
-						'relation'      => 'AND'
-					)
+					'tax_query' => array(
+                        array(
+                            'taxonomy' => 'recipe-category',
+                            'field'    => 'term_id',
+                            'terms'    => $current_recipe_terms,
+                        ),
+                    ),
+                    'post__not_in' => array(get_the_ID())
 				);
 
 				// query

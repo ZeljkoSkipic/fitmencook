@@ -289,6 +289,9 @@ function admin_styles() {
   .interface-interface-skeleton__content div.acf-field-tab, .acf-settings-wrap div.acf-field-tab * {
 	pointer-events: none!important;
   }
+  .total_minutes {
+	clear: none!important;
+  }
   </style>';
 }
 

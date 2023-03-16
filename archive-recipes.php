@@ -63,7 +63,7 @@ $size = 'full'
 				</div>
 				<div class="fmc_featured_prep">
 					<span class="fmc_time"><?php the_field('l_prep_time', 'option'); ?>:</span>
-					<span class="fmc_amount"><?php the_field('prep_time'); ?><?php the_field('minutes', 'option'); ?></span></div>
+					<span class="fmc_amount"><?php if(get_field('prep_hours')) { the_field('prep_hours'); } ?>h <?php the_field('prep_time'); ?><?php the_field('minutes', 'option'); ?></span></div>
 			</div>
 		</div>
 		<?php endforeach; ?>

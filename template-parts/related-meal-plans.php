@@ -8,7 +8,8 @@
 				// args
 				$args = array(
 					'posts_per_page'   => 4,
-					'post_type'     => 'meal-plans'
+					'post_type'     => 'meal-plans',
+                    'post__not_in' => array(get_the_ID())
 				);
 
 				// query
@@ -20,7 +21,7 @@
 					?>
 						<div class="fmc_recipe">
 							<figure class="fmc_grid_figure">
-								<?php the_post_thumbnail('thumbnail'); ?>
+								<?php the_post_thumbnail('medium'); ?>
 							</figure>
 							<div class="fmc_recipe_content">
 								<div class="fmc_grid_meta">

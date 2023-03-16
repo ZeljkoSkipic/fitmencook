@@ -245,8 +245,28 @@
             "endpoint": 0
         },
         {
+            "key": "field_6412db367a7ef",
+            "label": "Prep Hours",
+            "name": "prep_hours",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "15.5",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_59306fd036f76",
-            "label": "Prep Time",
+            "label": "Prep Minutes",
             "name": "prep_time",
             "aria-label": "",
             "type": "number",
@@ -254,7 +274,47 @@
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "33",
+                "width": "15.5",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "min": "",
+            "max": 59,
+            "placeholder": "",
+            "step": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_6412e16269da7",
+            "label": "|",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "2",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_6412db5d7a7f0",
+            "label": "Cook Hours",
+            "name": "cook_hours",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "15.5",
                 "class": "",
                 "id": ""
             },
@@ -268,7 +328,7 @@
         },
         {
             "key": "field_59306fdc36f77",
-            "label": "Cook Time",
+            "label": "Cook Minutes",
             "name": "cook_time",
             "aria-label": "",
             "type": "number",
@@ -276,7 +336,47 @@
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "33",
+                "width": "15.5",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "min": "",
+            "max": 59,
+            "placeholder": "",
+            "step": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_6412e17e69da8",
+            "label": "|",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "2",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_6412db6d7a7f1",
+            "label": "Total Hours",
+            "name": "total_hours",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "15.5",
                 "class": "",
                 "id": ""
             },
@@ -290,7 +390,7 @@
         },
         {
             "key": "field_59306fec36f78",
-            "label": "Total Time",
+            "label": "Total Minutes",
             "name": "total_time",
             "aria-label": "",
             "type": "number",
@@ -298,13 +398,13 @@
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "33",
-                "class": "",
+                "width": "15.5",
+                "class": "total_minutes",
                 "id": ""
             },
             "default_value": "",
             "min": "",
-            "max": "",
+            "max": 59,
             "placeholder": "",
             "step": "",
             "prepend": "",
@@ -320,7 +420,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "97.5",
                 "class": "",
                 "id": ""
             },
@@ -512,5 +612,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1678887157
+    "modified": 1678959546
 }

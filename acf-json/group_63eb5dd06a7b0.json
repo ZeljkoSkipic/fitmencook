@@ -128,7 +128,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "97.5",
                         "class": "",
                         "id": ""
                     },
@@ -140,16 +140,81 @@
                     "parent_repeater": "field_63eb663b66487"
                 },
                 {
+                    "key": "field_6412f100158f6",
+                    "label": "Prep Hours",
+                    "name": "cr_prep_hours",
+                    "aria-label": "",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "15.5",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "min": "",
+                    "max": "",
+                    "placeholder": "",
+                    "step": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_63eb663b66487"
+                },
+                {
                     "key": "field_63eb641c73c01",
-                    "label": "Prep Time",
+                    "label": "Prep Minutes",
                     "name": "cr_prep_time",
                     "aria-label": "",
                     "type": "number",
                     "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "15.5",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "min": "",
+                    "max": 59,
+                    "placeholder": "",
+                    "step": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_63eb663b66487"
+                },
+                {
+                    "key": "field_6412f1c2158fa",
+                    "label": "|",
+                    "name": "",
+                    "aria-label": "",
+                    "type": "message",
+                    "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "33",
+                        "width": "2",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "new_lines": "wpautop",
+                    "esc_html": 0,
+                    "parent_repeater": "field_63eb663b66487"
+                },
+                {
+                    "key": "field_6412f117158f7",
+                    "label": "Cook Hours",
+                    "name": "cr_cook_hours",
+                    "aria-label": "",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "15.5",
                         "class": "",
                         "id": ""
                     },
@@ -164,15 +229,57 @@
                 },
                 {
                     "key": "field_63eb642a73c02",
-                    "label": "Cook Time",
+                    "label": "Cook Minutes",
                     "name": "cr_cook_time",
                     "aria-label": "",
                     "type": "number",
                     "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "15.5",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "min": "",
+                    "max": 59,
+                    "placeholder": "",
+                    "step": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_63eb663b66487"
+                },
+                {
+                    "key": "field_6412f1b4158f9",
+                    "label": "|",
+                    "name": "",
+                    "aria-label": "",
+                    "type": "message",
+                    "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "33",
+                        "width": "2",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "new_lines": "wpautop",
+                    "esc_html": 0,
+                    "parent_repeater": "field_63eb663b66487"
+                },
+                {
+                    "key": "field_6412f135158f8",
+                    "label": "Total Hours",
+                    "name": "cr_total_hours",
+                    "aria-label": "",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "15.5",
                         "class": "",
                         "id": ""
                     },
@@ -187,21 +294,21 @@
                 },
                 {
                     "key": "field_63eb644473c03",
-                    "label": "Total Time",
+                    "label": "Total Minutes",
                     "name": "cr_total_time",
                     "aria-label": "",
                     "type": "number",
                     "instructions": "",
-                    "required": 0,
+                    "required": 1,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "33",
+                        "width": "15.5",
                         "class": "",
                         "id": ""
                     },
                     "default_value": "",
                     "min": "",
-                    "max": "",
+                    "max": 59,
                     "placeholder": "",
                     "step": "",
                     "prepend": "",
@@ -218,7 +325,7 @@
                     "required": 1,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "14",
+                        "width": "13.9",
                         "class": "",
                         "id": ""
                     },
@@ -241,7 +348,7 @@
                     "required": 1,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "14",
+                        "width": "13.9",
                         "class": "",
                         "id": ""
                     },
@@ -264,7 +371,7 @@
                     "required": 1,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "14",
+                        "width": "13.9",
                         "class": "",
                         "id": ""
                     },
@@ -287,7 +394,7 @@
                     "required": 1,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "14",
+                        "width": "13.9",
                         "class": "",
                         "id": ""
                     },
@@ -310,7 +417,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "14",
+                        "width": "13.9",
                         "class": "",
                         "id": ""
                     },
@@ -333,7 +440,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "14",
+                        "width": "13.9",
                         "class": "",
                         "id": ""
                     },
@@ -356,7 +463,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "14",
+                        "width": "13.9",
                         "class": "",
                         "id": ""
                     },
@@ -379,7 +486,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "97.5",
                         "class": "",
                         "id": ""
                     },
@@ -429,7 +536,7 @@
                     "maxlength": "",
                     "placeholder": "",
                     "prepend": "",
-                    "append": "",
+                    "append": "97.5",
                     "parent_repeater": "field_63eb663b66487"
                 },
                 {
@@ -498,5 +605,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1678882315
+    "modified": 1678963380
 }

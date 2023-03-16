@@ -5,15 +5,20 @@ $gallery = get_field('gallery');
 
 $times_title = get_field('times_title', 'option');
 
+$prep_hours = get_field('prep_hours');
 $prep_time = get_field('prep_time');
+$cook_hours = get_field('cook_hours');
 $cook_time = get_field('cook_time');
 $total_time = get_field('total_time');
+$total_hours = get_field('total_hours');
 
 $l_prep_time = get_field('l_prep_time', 'option');
 $l_cook_time = get_field('l_cook_time', 'option');
 $l_total_time = get_field('l_total_time', 'option');
 
 $minutes = get_field('minutes', 'option');
+
+$categories = get_the_terms( $post->ID, 'recipe-category' );
 
 ?>
 
@@ -26,7 +31,9 @@ $minutes = get_field('minutes', 'option');
 
 			<!-- Categories -->
 			<div class="fmc_categories">
-				<?php the_category(); ?>
+				<?php if ( ! empty( $categories ) ) {
+					echo get_the_term_list( $post->ID, 'recipe-category', '<div class="fmc_grid_cat">', '', '</div>');
+				} ?>
 			</div>
 
 			<!-- Recipe Title -->
@@ -99,18 +106,34 @@ $minutes = get_field('minutes', 'option');
 				<?php if($prep_time) { ?>
 					<div class="fmc_prep">
 						<span class="fmc_time"><?php echo $l_prep_time ?></span>
+						<?php if($prep_hours) { ?>
+							<span class="fmc_amount">
+								<?php echo $prep_hours ?>h
+							</span>
+						<?php } ?>
+						</span>
 						<span class="fmc_amount"><?php echo $prep_time?><?php echo $minutes ?></span>
 					</div>
 				<?php } ?>
 				<?php if($cook_time) { ?>
 					<div class="fmc_cook">
 						<span class="fmc_time"><?php echo $l_cook_time ?></span>
+						<?php if($cook_hours) { ?>
+							<span class="fmc_amount">
+								<?php echo $cook_hours ?>h
+							</span>
+						<?php } ?>
 						<span class="fmc_amount"><?php echo $cook_time ?><?php echo $minutes ?></span>
 					</div>
 				<?php } ?>
 				<?php if($total_time) { ?>
 					<div class="fmc_total">
 						<span class="fmc_time"><?php echo $l_total_time ?></span>
+						<?php if($total_hours) { ?>
+							<span class="fmc_amount">
+								<?php echo $total_hours ?>h
+							</span>
+						<?php } ?>
 						<span class="fmc_amount"><?php echo $total_time ?><?php echo $minutes ?></span></div>
 				<?php } ?>
 			</div>
