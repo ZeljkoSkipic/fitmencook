@@ -622,7 +622,6 @@
     "hide_on_screen": [
         "excerpt",
         "slug",
-        "author",
         "format",
         "tags",
         "send-trackbacks"
@@ -630,5 +629,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1678966856
+    "modified": 1679049277
 }

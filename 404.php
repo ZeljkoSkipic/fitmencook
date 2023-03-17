@@ -14,43 +14,34 @@ get_header();
 
 		<section class="error-404 not-found">
 			<header class="page-header">
-				<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'fmc' ); ?></h1>
+				<h1 class="page-title"></h1>
 			</header><!-- .page-header -->
 
 			<div class="page-content">
-				<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'fmc' ); ?></p>
-
-					<?php
-					get_search_form();
-
-					the_widget( 'WP_Widget_Recent_Posts' );
+					<div class="fmc_container">
+						<div class="left_404 spacing_1">
+							<?php the_custom_logo(); ?>
+							<h1 class="spacing_0_3"><?php the_field('title_404', 'option'); ?></h1>
+							<div class="message_404"><?php the_field('message_404', 'option'); ?></div>
+						<h5 class="fmc_title_3"><?php the_field('menu_title_404', 'option'); ?></h5>
+						<?php
+						wp_nav_menu(
+							array(
+								'theme_location' => 'menu_404',
+								'menu_id'        => '404'
+							)
+						);
 					?>
-
-					<div class="widget widget_categories">
-						<h2 class="widget-title"><?php esc_html_e( 'Most Used Categories', 'fmc' ); ?></h2>
-						<ul>
-							<?php
-							wp_list_categories(
-								array(
-									'orderby'    => 'count',
-									'order'      => 'DESC',
-									'show_count' => 1,
-									'title_li'   => '',
-									'number'     => 10,
-								)
-							);
-							?>
-						</ul>
-					</div><!-- .widget -->
-
-					<?php
-					/* translators: %1$s: smiley */
-					$fmc_archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'fmc' ), convert_smilies( ':)' ) ) . '</p>';
-					the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$fmc_archive_content" );
-
-					the_widget( 'WP_Widget_Tag_Cloud' );
-					?>
-
+						</div>
+						<div class="right_404">
+						<?php
+						$image_404 = get_field('image_404', 'option');
+						$size = 'full'; // (thumbnail, medium, large, full or custom size)
+						if( $image_404 ) {
+							echo wp_get_attachment_image( $image_404, $size );
+						} ?>
+						</div>
+					</div>
 			</div><!-- .page-content -->
 		</section><!-- .error-404 -->
 

@@ -50,6 +50,7 @@ function fmc_setup() {
 	register_nav_menus(
 		array(
 			'primary'  => __( 'Primary', 'fmc' ),
+			'menu_404'  => __( '404 Page', 'fmc' ),
 		)
 	);
 
