@@ -20,91 +20,8 @@ $l_sodium = get_field('l_sodium', 'option');
 $l_fiber = get_field('l_fiber', 'option');
 $l_sugar = get_field('l_sugar', 'option');
 
-$total_calories = 0;
-$total_proteins = 0;
-$total_fat = 0;
-$total_carbs = 0;
-$total_sodium = 0;
-$total_fiber = 0;
-$total_sugar = 0;
-$total_time = 0;
-$total_prep_time = 0;
-$total_cook_time = 0;
-$totals = [];
-$total_times = [];
 $meal_counter = 1;
-
-$existing_recipes = get_field('existing_recipe', get_the_ID());
-$custom_recipes = get_field('custom_recipe', get_the_ID());
-
-if ($existing_recipes) {
-    foreach ($existing_recipes as $existing_recipe) {
-        $existing_recipe_ID =  $existing_recipe['recipe'][0]->ID;
-        $total_time_recipe = (float) get_field('total_time', $existing_recipe_ID);
-        $total_time_prep_recipe = (float) get_field('prep_time', $existing_recipe_ID);
-        $total_time_cook_recipe = (float) get_field('cook_time', $existing_recipe_ID);
-        $calories = (float) get_field('calories', $existing_recipe_ID);
-        $protein = (float) get_field('protein', $existing_recipe_ID);
-        $fat = (float) get_field('fat', $existing_recipe_ID);
-        $carbs = (float) get_field('carbs', $existing_recipe_ID);
-        $sodium = (float) get_field('sodium', $existing_recipe_ID);
-        $fiber = (float) get_field('fiber', $existing_recipe_ID);
-        $sugar = (float) get_field('sugar', $existing_recipe_ID);
-
-        $total_time += $total_time_recipe;
-        $total_prep_time +=  $total_time_prep_recipe;
-        $total_cook_time +=  $total_time_cook_recipe;
-        $total_calories += $calories;
-        $total_proteins += $protein;
-        $total_fat += $fat;
-        $total_carbs += $carbs;
-        $total_sodium += $sodium;
-        $total_fiber += $fiber;
-        $total_sugar += $sugar;
-    }
-}
-
-if ($custom_recipes) {
-    foreach ($custom_recipes as $custom_recipe) {
-        $cr_total_time = (float) $custom_recipe['cr_total_time'];
-        $cr_prep_time = (float) $custom_recipe['cr_prep_time'];
-        $cr_cook_time = (float) $custom_recipe['cr_cook_time'];
-        $cr_calories = (float) $custom_recipe['cr_calories'];
-        $cr_protein = (float) $custom_recipe['cr_protein'];
-        $cr_fat = (float) $custom_recipe['cr_fat'];
-        $cr_carbs = (float) $custom_recipe['cr_carbs'];
-        $cr_sodium = (float) $custom_recipe['cr_sodium'];
-        $cr_fiber = (float) $custom_recipe['cr_fiber'];
-        $cr_sugar = (float) $custom_recipe['cr_sugar'];
-
-        $total_time += $cr_total_time;
-        $total_prep_time +=  $cr_prep_time;
-        $total_cook_time +=  $cr_cook_time;
-        $total_calories += $cr_calories;
-        $total_proteins += $cr_protein;
-        $total_fat += $cr_fat;
-        $total_carbs += $cr_carbs;
-        $total_sodium += $cr_sodium;
-        $total_fiber += $cr_fiber;
-        $total_sugar += $cr_sugar;
-    }
-
-    // Macros
-    $totals[$l_calories] = $total_calories . __('cal', 'fitmencook');
-    $totals[$l_protein] = $total_proteins . __('g', 'fitmencook');
-    $totals[$l_fat] =  $total_fat . __('g', 'fitmencook');
-    $totals[$l_carbs] = $total_carbs . __('g', 'fitmencook');
-    $totals[$l_sodium] =  $total_sodium . __('g', 'fitmencook');
-    $totals[$l_fiber] = $total_fiber . __('g', 'fitmencook');
-    $totals[$l_sugar] = $total_sugar . __('g', 'fitmencook');
-
-
-    // Time
-    $total_times[$l_prep_time] = $total_prep_time . '' . $minutes;
-    $total_times[$l_cook_time] = $total_cook_time . '' . $minutes;
-    $total_times[$l_total_time] = $total_time . '' . $minutes;
-
-}
+$calculations = meal_plan_calculations();
 
 ?>
 
@@ -426,17 +343,18 @@ if ($custom_recipes) {
 
             <h4 class="fmc_rs_title fmc_times_title"><?php echo $times_title; ?></h4>
 
-            <?php if ($total_times) : ?>
+			<?php if ($calculations['total_times']) : ?>
 
                 <div class="fmc_recipe_times">
 
                     <?php
-                    foreach ($total_times as $label_time => $single_time) :
+                    foreach ($calculations['total_times'] as  $single_time) :
 
                     ?>
                         <div class="fmc_prep">
-                            <span class="fmc_time"><?php echo $label_time; ?></span>
-                            <span class="fmc_amount"> <?php echo $single_time; ?></span>
+                            <span class="fmc_time"><?php echo $single_time['label']; ?></span>
+                            <span class="fmc_amount"><?php echo $single_time['hours']; ?></span>
+                            <span class="fmc_amount"> <?php echo $single_time['min']; ?></span>
                         </div>
 
                     <?php
@@ -450,9 +368,9 @@ if ($custom_recipes) {
 
             <!-- Macros -->
             <?php
-            if ($totals) : ?>
+            if ($calculations['totals']) : ?>
                 <div class="fmc_macros">
-                    <?php foreach ($totals as $label => $total) : ?>
+                    <?php foreach ($calculations['totals'] as $label => $total) : ?>
                         <div class="fmc_macro"> <?php echo __('Total', 'fitmenCook') . ' ' . $label . ':' ?> <span class="fmc_total_number"> <?php echo $total; ?></span></div>
                     <?php endforeach; ?>
                 </div>

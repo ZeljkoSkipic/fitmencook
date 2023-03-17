@@ -25,6 +25,23 @@
             "prefix_name": 0
         },
         {
+            "key": "field_641453cdd666c",
+            "label": "Video",
+            "name": "video",
+            "aria-label": "",
+            "type": "oembed",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "width": 1280,
+            "height": 780
+        },
+        {
             "key": "field_63eb623b73bfc",
             "label": "Existing Recipe",
             "name": "existing_recipe",
@@ -628,5 +645,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1678966726
+    "modified": 1679053811
 }
