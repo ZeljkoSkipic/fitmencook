@@ -15,20 +15,17 @@
 		&.calories {
 			.rg_m_title {
 				background-image: url(assets/icons/fire.svg);
-				background-position: center left;
+				background-position: top .5px left;
 				background-repeat: no-repeat;
-				padding-left: 30px;
-				display: -webkit-box;
-				display: -ms-flexbox;
+				padding-left: 18px;
 				display: flex;
-				-webkit-box-align: center;
-				-ms-flex-align: center;
 				align-items: center;
 				background-size: 14px;
-				font-size: 0;
 				height: 19px;
 				@include limbo-max {
 					height: 16px;
+					background-size: 12px;
+					padding-left: 15px;
 				}
 			}
 		}
@@ -168,13 +165,12 @@ body.archive {
 			align-items: flex-start;
 			.rg_m_title {
 				background-image: url(assets/icons/fire.svg);
-				background-position: center left;
+				background-position: top 1px left;
 				background-repeat: no-repeat;
-				padding-left: 30px;
+				padding-left: 15px;
 				display: flex;
 				align-items: center;
-				background-size: 14px;
-				font-size: 0;
+				background-size: 12px;
 			}
 		}
 		.rg_m_title {
@@ -253,11 +249,41 @@ body.archive {
 
 
 /* Single */
-
+.fmc_top_author {
+	display: flex;
+	align-items: center;
+	margin-bottom: 8px;
+	margin-top: 8px;
+	span {
+		font-size: 14px;
+		font-style: italic;
+		font-weight: 700;
+		color: var(--misc-color);
+	}
+	p {
+		font-weight: 700;
+		font-size: 16px;
+	}
+	img {
+		width: 48px;
+		height: 48px;
+		border-radius: 48px;
+		margin-right: 16px;
+	}
+}
 .fmc_single_recipe {
 	flex-wrap: wrap;
 	justify-content: space-between;
 	position: relative;
+	.fmc_recipe_top_wrap {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		align-items: flex-start;
+	}
+	.fmc_recipe_top_left {
+		margin-right: var(--spacing-3);
+	}
 	.attachment-post-thumbnail {
 		max-height: 49rem;
 		border-radius: 16px;
@@ -334,6 +360,15 @@ body.archive {
 			margin-bottom: 12px;
 			font-weight: 800;
 			font-family: Nunito;
+			&.fmc_nos, &.fmc_ss {
+				color: var(--misc-color);
+			}
+			&.fmc_ss {
+				display: flex;
+				justify-content: space-between;
+				flex-wrap: wrap;
+				column-gap: 30px;
+			}
 			&.fmc_nos {
 				display: flex;
 				justify-content: space-between;
@@ -585,16 +620,25 @@ body.archive {
 }
 
 /* Recipe Main */
-.fmc_ing_servings {
-	background-color: var(--color-3);
+.fmc_ing_servings, .fmc_ing_servings_size {
 	width: fit-content;
-	color: #fff;
 	padding: 8px 16px;
 	border-radius: 8px;
 	font-size: var(--title-size-5);
 	font-weight: 700;
 	margin-bottom: var(--spacing-1);
 	margin-top: -1.6rem;
+	display: inline-flex;
+	flex-wrap: wrap;
+}
+.fmc_ing_servings {
+	margin-right: 16px;
+	background-color: var(--color-3);
+	color: #fff;
+}
+.fmc_ing_servings_size {
+	background-color: var(--color-4);
+	column-gap: 8px;
 }
 .fmc_ingredients {
 	* {

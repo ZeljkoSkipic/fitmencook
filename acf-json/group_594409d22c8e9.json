@@ -103,6 +103,24 @@
             "esc_html": 0
         },
         {
+            "key": "field_641864fd816bd",
+            "label": "Serving Size is set up in the 'Sidebar - Times and Macros' on top of the page",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
             "key": "field_5930bf6590b40",
             "label": "Ingredients",
             "name": "ingredients",
@@ -429,6 +447,26 @@
             "append": ""
         },
         {
+            "key": "field_6418612b659f5",
+            "label": "Serving Size",
+            "name": "serving_size",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_6411c871729d0",
             "label": "Number of Servings",
             "name": "number_of_servings",
@@ -629,5 +667,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1679053794
+    "modified": 1679320330
 }

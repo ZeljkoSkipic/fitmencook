@@ -209,139 +209,156 @@ function meal_plans_global_query( $query ) {
 
   // Meal Plan calculations
 
-function meal_plan_calculations()
-{
-    $l_prep_time = get_field('l_prep_time', 'option');
-    $l_cook_time = get_field('l_cook_time', 'option');
-    $l_total_time = get_field('l_total_time', 'option');
-    $minutes = get_field('minutes', 'option');
-    $l_calories = get_field('l_calories', 'option');
-    $l_protein = get_field('l_protein', 'option');
-    $l_fat = get_field('l_fat', 'option');
-    $l_carbs = get_field('l_carbs', 'option');
-    $l_sodium = get_field('l_sodium', 'option');
-    $l_fiber = get_field('l_fiber', 'option');
-    $l_sugar = get_field('l_sugar', 'option');
+  function meal_plan_calculations()
+  {
+	  $l_prep_time = get_field('l_prep_time', 'option');
+	  $l_cook_time = get_field('l_cook_time', 'option');
+	  $l_total_time = get_field('l_total_time', 'option');
+	  $minutes = get_field('minutes', 'option');
+	  $l_calories = get_field('l_calories', 'option');
+	  $l_protein = get_field('l_protein', 'option');
+	  $l_fat = get_field('l_fat', 'option');
+	  $l_carbs = get_field('l_carbs', 'option');
+	  $l_sodium = get_field('l_sodium', 'option');
+	  $l_fiber = get_field('l_fiber', 'option');
+	  $l_sugar = get_field('l_sugar', 'option');
 
-    $total_calories = 0;
-    $total_proteins = 0;
-    $total_fat = 0;
-    $total_carbs = 0;
-    $total_sodium = 0;
-    $total_fiber = 0;
-    $total_sugar = 0;
-    $total_time = 0;
-    $total_prep_time = 0;
-    $total_cook_time = 0;
-    $total_prep_hours = 0;
-    $total_cook_hours = 0;
-    $hours_totals = 0;
-    $totals = [];
-    $total_times = [];
+	  $total_calories = 0;
+	  $total_proteins = 0;
+	  $total_fat = 0;
+	  $total_carbs = 0;
+	  $total_sodium = 0;
+	  $total_fiber = 0;
+	  $total_sugar = 0;
+	  $total_time = 0;
+	  $total_prep_time = 0;
+	  $total_cook_time = 0;
+	  $total_prep_hours = 0;
+	  $total_cook_hours = 0;
+	  $hours_totals = 0;
+	  $totals = [];
+	  $total_times = [];
 
-    $existing_recipes = get_field('existing_recipe', get_the_ID());
-    $custom_recipes = get_field('custom_recipe', get_the_ID());
+	  $existing_recipes = get_field('existing_recipe', get_the_ID());
+	  $custom_recipes = get_field('custom_recipe', get_the_ID());
 
-    if ($existing_recipes) {
-        foreach ($existing_recipes as $existing_recipe) {
-            $existing_recipe_ID =  $existing_recipe['recipe'][0]->ID;
-            $total_time_recipe = (float) get_field('total_time', $existing_recipe_ID);
-            $total_time_prep_recipe = (float) get_field('prep_time', $existing_recipe_ID);
-            $total_time_cook_recipe = (float) get_field('cook_time', $existing_recipe_ID);
-            $prep_hours = (float) get_field('prep_hours', $existing_recipe_ID);
-            $cook_hours = (float) get_field('cook_hours', $existing_recipe_ID);
-            $total_hours = (float) get_field('total_hours', $existing_recipe_ID);
-            $calories = (float) get_field('calories', $existing_recipe_ID);
-            $protein = (float) get_field('protein', $existing_recipe_ID);
-            $fat = (float) get_field('fat', $existing_recipe_ID);
-            $carbs = (float) get_field('carbs', $existing_recipe_ID);
-            $sodium = (float) get_field('sodium', $existing_recipe_ID);
-            $fiber = (float) get_field('fiber', $existing_recipe_ID);
-            $sugar = (float) get_field('sugar', $existing_recipe_ID);
+	  if ($existing_recipes) {
+		  foreach ($existing_recipes as $existing_recipe) {
+			  $existing_recipe_ID =  $existing_recipe['recipe'][0]->ID;
+			  $total_time_recipe = (float) get_field('total_time', $existing_recipe_ID);
+			  $total_time_prep_recipe = (float) get_field('prep_time', $existing_recipe_ID);
+			  $total_time_cook_recipe = (float) get_field('cook_time', $existing_recipe_ID);
+			  $prep_hours = (float) get_field('prep_hours', $existing_recipe_ID);
+			  $cook_hours = (float) get_field('cook_hours', $existing_recipe_ID);
+			  $total_hours = (float) get_field('total_hours', $existing_recipe_ID);
+			  $calories = (float) get_field('calories', $existing_recipe_ID);
+			  $protein = (float) get_field('protein', $existing_recipe_ID);
+			  $fat = (float) get_field('fat', $existing_recipe_ID);
+			  $carbs = (float) get_field('carbs', $existing_recipe_ID);
+			  $sodium = (float) get_field('sodium', $existing_recipe_ID);
+			  $fiber = (float) get_field('fiber', $existing_recipe_ID);
+			  $sugar = (float) get_field('sugar', $existing_recipe_ID);
 
-            $total_time += $total_time_recipe;
-            $total_prep_time +=  $total_time_prep_recipe;
-            $total_cook_time +=  $total_time_cook_recipe;
-            $total_prep_hours += $prep_hours;
-            $total_cook_hours += $cook_hours;
-            $hours_totals += $total_hours;
+			  $total_time += $total_time_recipe;
+			  $total_prep_time +=  $total_time_prep_recipe;
+			  $total_cook_time +=  $total_time_cook_recipe;
+			  $total_prep_hours += $prep_hours;
+			  $total_cook_hours += $cook_hours;
+			  $hours_totals += $total_hours;
 
-            $total_calories += $calories;
-            $total_proteins += $protein;
-            $total_fat += $fat;
-            $total_carbs += $carbs;
-            $total_sodium += $sodium;
-            $total_fiber += $fiber;
-            $total_sugar += $sugar;
-        }
-    }
+			  $total_calories += $calories;
+			  $total_proteins += $protein;
+			  $total_fat += $fat;
+			  $total_carbs += $carbs;
+			  $total_sodium += $sodium;
+			  $total_fiber += $fiber;
+			  $total_sugar += $sugar;
+		  }
+	  }
 
-    if ($custom_recipes) {
-        foreach ($custom_recipes as $custom_recipe) {
-            $cr_total_time = (float) $custom_recipe['cr_total_time'];
-            $cr_prep_time = (float) $custom_recipe['cr_prep_time'];
-            $cr_cook_time = (float) $custom_recipe['cr_cook_time'];
-            $cr_prep_hours = (float) $custom_recipe['cr_prep_hours'];
-            $cr_cook_hours = (float) $custom_recipe['cr_cook_hours'];
-            $cr_total_hours = (float) $custom_recipe['cr_total_hours'];
-            $cr_calories = (float) $custom_recipe['cr_calories'];
-            $cr_protein = (float) $custom_recipe['cr_protein'];
-            $cr_fat = (float) $custom_recipe['cr_fat'];
-            $cr_carbs = (float) $custom_recipe['cr_carbs'];
-            $cr_sodium = (float) $custom_recipe['cr_sodium'];
-            $cr_fiber = (float) $custom_recipe['cr_fiber'];
-            $cr_sugar = (float) $custom_recipe['cr_sugar'];
+	  if ($custom_recipes) {
+		  foreach ($custom_recipes as $custom_recipe) {
+			  $cr_total_time = (float) $custom_recipe['cr_total_time'];
+			  $cr_prep_time = (float) $custom_recipe['cr_prep_time'];
+			  $cr_cook_time = (float) $custom_recipe['cr_cook_time'];
+			  $cr_prep_hours = (float) $custom_recipe['cr_prep_hours'];
+			  $cr_cook_hours = (float) $custom_recipe['cr_cook_hours'];
+			  $cr_total_hours = (float) $custom_recipe['cr_total_hours'];
+			  $cr_calories = (float) $custom_recipe['cr_calories'];
+			  $cr_protein = (float) $custom_recipe['cr_protein'];
+			  $cr_fat = (float) $custom_recipe['cr_fat'];
+			  $cr_carbs = (float) $custom_recipe['cr_carbs'];
+			  $cr_sodium = (float) $custom_recipe['cr_sodium'];
+			  $cr_fiber = (float) $custom_recipe['cr_fiber'];
+			  $cr_sugar = (float) $custom_recipe['cr_sugar'];
 
-            $total_time += $cr_total_time;
-            $total_prep_time +=  $cr_prep_time;
-            $total_cook_time +=  $cr_cook_time;
-            $total_prep_hours += $cr_prep_hours;
-            $total_cook_hours += $cr_cook_hours;
-            $hours_totals += $cr_total_hours;
+			  $total_time += $cr_total_time;
+			  $total_prep_time +=  $cr_prep_time;
+			  $total_cook_time +=  $cr_cook_time;
+			  $total_prep_hours += $cr_prep_hours;
+			  $total_cook_hours += $cr_cook_hours;
+			  $hours_totals += $cr_total_hours;
 
-            $total_calories += $cr_calories;
-            $total_proteins += $cr_protein;
-            $total_fat += $cr_fat;
-            $total_carbs += $cr_carbs;
-            $total_sodium += $cr_sodium;
-            $total_fiber += $cr_fiber;
-            $total_sugar += $cr_sugar;
-        }
+			  $total_calories += $cr_calories;
+			  $total_proteins += $cr_protein;
+			  $total_fat += $cr_fat;
+			  $total_carbs += $cr_carbs;
+			  $total_sodium += $cr_sodium;
+			  $total_fiber += $cr_fiber;
+			  $total_sugar += $cr_sugar;
+		  }
 
-        // Macros
-        $totals[$l_calories] = $total_calories . __('cal', 'fitmencook');
-        $totals[$l_protein] = $total_proteins . __('g', 'fitmencook');
-        $totals[$l_fat] =  $total_fat . __('g', 'fitmencook');
-        $totals[$l_carbs] = $total_carbs . __('g', 'fitmencook');
-        $totals[$l_sodium] =  $total_sodium . __('mg', 'fitmencook');
-        $totals[$l_fiber] = $total_fiber . __('g', 'fitmencook');
-        $totals[$l_sugar] = $total_sugar . __('g', 'fitmencook');
-
-
-        // Time
-
-        $total_times['prep_times'] = [
-            'label' => $l_prep_time,
-            'min'   => $total_prep_time . ' ' . $minutes,
-            'hours' => $total_prep_hours. "h"
-        ];
-
-        $total_times['cook_times'] = [
-            'label' => $l_cook_time,
-            'min'   => $total_cook_time . ' ' . $minutes,
-            'hours' => $total_cook_hours. "h"
-        ];
-
-        $total_times['totals'] = [
-            'label' => $l_total_time,
-            'min'   => $total_time . ' ' . $minutes,
-            'hours' => $hours_totals. "h"
-        ];
-    }
+		  // Macros
+		  $totals[$l_calories] = $total_calories . __('cal', 'fitmencook');
+		  $totals[$l_protein] = $total_proteins . __('g', 'fitmencook');
+		  $totals[$l_fat] =  $total_fat . __('g', 'fitmencook');
+		  $totals[$l_carbs] = $total_carbs . __('g', 'fitmencook');
+		  $totals[$l_sodium] =  $total_sodium . __('mg', 'fitmencook');
+		  $totals[$l_fiber] = $total_fiber . __('g', 'fitmencook');
+		  $totals[$l_sugar] = $total_sugar . __('g', 'fitmencook');
 
 
-    return [
-        'total_times' => $total_times,
-        'totals'      => $totals
-    ];
-}
+		  // Time
+
+		  // Convert minutes to hours and leftover minutes join prep times
+
+		  $hours_prep = floor($total_prep_time / 60);
+		  $leftover_minutes_cook = ($total_prep_time -   floor($total_prep_time / 60) * 60);
+
+		  $total_times['prep_times'] = [
+			  'label' => $l_prep_time,
+			  'min'   =>  $leftover_minutes_cook . ' ' . $minutes,
+			  'hours' => ($total_prep_hours + $hours_prep). "h"
+		  ];
+
+
+		  // Convert minutes to hours and leftover minutes join cook times
+
+		  $hours_cook = floor($total_cook_time / 60);
+		  $leftover_minutes_cook = ($total_cook_time -   floor($total_cook_time / 60) * 60);
+
+
+		  $total_times['cook_times'] = [
+			  'label' => $l_cook_time,
+			  'min'   => $leftover_minutes_cook . ' ' . $minutes,
+			  'hours' => ($total_cook_hours + $hours_cook). "h"
+		  ];
+
+		  // Convert minutes to hours and leftover minutes join total times
+
+		  $hours_total = floor($total_time / 60);
+		  $leftover_minutes_total = ($total_time -   floor($total_time / 60) * 60);
+
+		  $total_times['totals'] = [
+			  'label' => $l_total_time,
+			  'min'   =>  $leftover_minutes_total . ' ' . $minutes,
+			  'hours' => ($hours_totals + $hours_total) . "h"
+		  ];
+	  }
+
+
+	  return [
+		  'total_times' => $total_times,
+		  'totals'      => $totals
+	  ];
+  }

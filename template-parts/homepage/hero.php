@@ -71,8 +71,8 @@ $box_type = get_field('box_type');
 					<h3 class="fmc_grid_title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
 					<div class="fmc_recipe_grid_macros">
 						<div class="rg_macro calories">
-							<span class="rg_m_title"><?php the_field( 'l_calories', 'option' ); ?></span>
-							<span class="rg_m_amount"><?php the_field( 'calories' ); ?>g</span>
+							<span class="rg_m_title">Cal</span>
+							<span class="rg_m_amount"><?php the_field( 'calories' ); ?></span>
 						</div>
 						<div class="rg_macro">
 							<span class="rg_m_title"><?php the_field( 'l_protein', 'option' ); ?></span>

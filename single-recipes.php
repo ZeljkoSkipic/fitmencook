@@ -19,23 +19,34 @@ $l_total_time = get_field('l_total_time', 'option');
 $minutes = get_field('minutes', 'option');
 
 $categories = get_the_terms( $post->ID, 'recipe-category' );
+$author_id = $post->post_author;
 
 ?>
 
 <div class="fmc_single_recipe fmc_container spacing_2">
 	<div class="fmc_sr_main">
 		<div class="fmc_recipe_hero spacing_0_3">
-			<?php if ( function_exists('yoast_breadcrumb') ) {
-			yoast_breadcrumb( '<div class="fmc_breadcrumbs spacing_0_2">','</div>' );
-			} ?>
 
-			<!-- Categories -->
-			<div class="fmc_categories">
-				<?php if ( ! empty( $categories ) ) {
-					echo get_the_term_list( $post->ID, 'recipe-category', '<div class="fmc_grid_cat">', '', '</div>');
-				} ?>
+			<!-- Top Wrap -->
+			<div class="fmc_recipe_top_wrap">
+				<div class="fmc_recipe_top_left">
+					<?php if ( function_exists('yoast_breadcrumb') ) {
+					yoast_breadcrumb( '<div class="fmc_breadcrumbs spacing_0_2">','</div>' );
+					} ?>
+					<div class="fmc_categories">
+						<?php if ( ! empty( $categories ) ) {
+							echo get_the_term_list( $post->ID, 'recipe-category', '<div class="fmc_grid_cat">', '', '</div>');
+						} ?>
+					</div>
+				</div>
+				<div class="fmc_top_author">
+					<?php echo get_avatar( $author_id ); ?>
+					<h5 class="fmc_autor_top_name">
+						<span>Author:</span>
+						<?php echo wpautop( get_the_author_meta( 'display_name', $author_id ) ); ?>
+					</h5>
+				</div>
 			</div>
-
 
 			<!-- Recipe Title -->
 			<h1 class="fmc_title_1 title_spacing_3">
@@ -173,7 +184,11 @@ $categories = get_the_terms( $post->ID, 'recipe-category' );
 </div>
 
 <!-- Author -->
-<?php get_template_part('template-parts/author'); ?>
+<?php
+	$author_id = $post->post_author;
+	if($author_id == 9) {
+	get_template_part('template-parts/author');
+} ?>
 
 <!-- Related Recipes -->
 <?php get_template_part('template-parts/recipe/related-recipes'); ?>
