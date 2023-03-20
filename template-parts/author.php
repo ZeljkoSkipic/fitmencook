@@ -1,4 +1,7 @@
-<div class="fmc_container">
+<?php
+	$author_id = $post->post_author;
+	if($author_id == 9) { ?>
+	<div class="fmc_container">
 	<div class="fmc_chef">
 		<div class="img_bg">
 		<?php
@@ -25,5 +28,28 @@
 			</div>
 		</div>
 	</div>
-
 </div>
+<?php } else { ?>
+	<div class="fmc_container">
+	<div class="fmc_chef">
+		<div class="img_bg">
+		<?php
+			$community_background = get_field('community_background', 'option');
+			$size = 'full'; // (thumbnail, medium, large, full or custom size)
+			if( $community_background ) {
+				echo wp_get_attachment_image( $community_background, $size );
+			} ?>
+		</div>
+		<div class="fmc_chef_inner">
+			<h3 class="fmc_author_prefix"><?php the_field('author_prefix', 'option'); ?></h3>
+			<h4 class="fmc_title_2 title_spacing_3">
+				<?php the_field('community_title', 'option'); ?>
+			</h4>
+			<div class="fmc_chef_content">
+			<?php echo wpautop( get_the_author_meta( 'description', '10' ) ); ?>
+
+			</div>
+		</div>
+	</div>
+</div>
+<?php } ?>

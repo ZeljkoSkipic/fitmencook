@@ -74,6 +74,7 @@
 			}
 		}
 		.fmc_btn {
+			margin-left: auto;
 			@include tab-max {
 				font-size: 16px;
 			}

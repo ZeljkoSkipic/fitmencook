@@ -36,10 +36,10 @@ $l_sugar = get_field('l_sugar', 'option');
 
 <div class="fmc_macros">
 	<?php if($servings_number) { ?>
-	<h4 class="fmc_rs_title fmc_macros_title fmc_nos"><?php echo $noss; ?><span><?php echo $servings_number ?></span></h4>
+	<div class="fmc_macro fmc_nos"><?php echo $noss; ?><span><?php echo $servings_number ?></span></div>
 	<?php } ?>
 	<?php if($serving_size) { ?>
-	<h4 class="fmc_rs_title fmc_macros_title fmc_ss"><?php echo $l_serving_size; ?>:<span><?php echo $serving_size ?></span></h4>
+	<div class="fmc_macro fmc_ss"><?php echo $l_serving_size; ?>:<span><?php echo $serving_size ?></span></div>
 	<?php } ?>
 	<h4 class="fmc_rs_title fmc_macros_title"><?php echo $macros_title; ?></h4>
 	<?php if($calories) { ?>

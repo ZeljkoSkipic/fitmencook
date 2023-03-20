@@ -252,7 +252,7 @@
         },
         {
             "key": "field_63dbbfc7281f8",
-            "label": "Title",
+            "label": "Kevin Title",
             "name": "author_title",
             "aria-label": "",
             "type": "text",
@@ -265,6 +265,26 @@
                 "id": ""
             },
             "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_64189ef99543b",
+            "label": "Community Title",
+            "name": "community_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Community",
             "maxlength": "",
             "placeholder": "",
             "prepend": "",
@@ -376,8 +396,33 @@
         },
         {
             "key": "field_63dbbe451a3b5",
-            "label": "Recipe Author Background",
+            "label": "Recipe Author Background - Kevin",
             "name": "author_background",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_64189f369543c",
+            "label": "Recipe Author Background - Community",
+            "name": "community_background",
             "aria-label": "",
             "type": "image",
             "instructions": "",
@@ -763,5 +808,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1679052519
+    "modified": 1679335242
 }

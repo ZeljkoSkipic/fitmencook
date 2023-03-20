@@ -360,9 +360,6 @@ body.archive {
 			margin-bottom: 12px;
 			font-weight: 800;
 			font-family: Nunito;
-			&.fmc_nos, &.fmc_ss {
-				color: var(--misc-color);
-			}
 			&.fmc_ss {
 				display: flex;
 				justify-content: space-between;
@@ -624,12 +621,15 @@ body.archive {
 	width: fit-content;
 	padding: 8px 16px;
 	border-radius: 8px;
-	font-size: var(--title-size-5);
+	font-size: 18px;
 	font-weight: 700;
 	margin-bottom: var(--spacing-1);
 	margin-top: -1.6rem;
 	display: inline-flex;
 	flex-wrap: wrap;
+	@include mob-only {
+		font-size: 14px;
+	}
 }
 .fmc_ing_servings {
 	margin-right: 16px;

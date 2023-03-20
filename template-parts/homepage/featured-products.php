@@ -22,8 +22,17 @@
 					</div>
 					<h3 class="fmc_grid_title"><?php echo $product_title ?></h3>
 					<div class="fmc_product_grid_bottom">
-						<span>($<?php echo $price ?>)</span>
-						<a class="fmc_btn" href="<?php echo $link ?>">Buy Now</a>
+						<?php if($price) { ?>
+							<span>($<?php echo $price ?>)</span>
+						<?php } ?>
+						<?php
+						if( $link ):
+							$link_url = $link['url'];
+							$link_title = $link['title'];
+							$link_target = $link['target'] ? $link['target'] : '_self';
+							?>
+							<a class="fmc_btn" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+						<?php endif; ?>
 					</div>
 				</div>
 				<?php endwhile; ?>

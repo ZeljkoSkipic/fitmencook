@@ -184,11 +184,7 @@ $author_id = $post->post_author;
 </div>
 
 <!-- Author -->
-<?php
-	$author_id = $post->post_author;
-	if($author_id == 9) {
-	get_template_part('template-parts/author');
-} ?>
+<?php get_template_part('template-parts/author'); ?>
 
 <!-- Related Recipes -->
 <?php get_template_part('template-parts/recipe/related-recipes'); ?>
