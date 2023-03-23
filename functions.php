@@ -156,6 +156,11 @@ require get_template_directory() . '/includes/comments.php';
 require get_template_directory() . '/includes/yoast/yoast.php';
 
 require_once( get_template_directory(). '/includes/post-types.php' );
+
+if(is_admin()) {
+	require get_template_directory() . '/includes/admin-recipe-time-modified.php';
+}
+
 /**
  * Load WooCommerce compatibility file.
  */

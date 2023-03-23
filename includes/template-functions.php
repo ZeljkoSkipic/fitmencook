@@ -362,3 +362,33 @@ function meal_plans_global_query( $query ) {
 		  'totals'      => $totals
 	  ];
   }
+
+
+// Email when recipe is created
+
+add_action('save_post_recipes', 'send_email_recipe_created', 10, 3);
+
+function send_email_recipe_created($post_ID, $post, $update)
+{
+	$recipient_email = get_field('recipient_email', 'option');
+
+    if (wp_is_post_revision($post_ID)) return;
+
+    $is_email_sent = get_post_meta($post_ID, 'email_sent', true);
+    $post_status = get_post_status($post);
+
+    if (!$is_email_sent && $post_status == 'publish') {
+        $to = $recipient_email;
+        $subject = $post->post_title;
+        $headers[] = 'Content-Type: text/html; charset=UTF-8';
+
+        ob_start();
+        get_template_part('template-parts/recipe/email', 'template', ['post' => $post]);
+        $message = ob_get_clean();
+        $email = wp_mail($to, $subject, $message, $headers);
+
+        if ($email) {
+            add_post_meta($post_ID, 'email_sent', 1);
+        }
+    }
+}
