@@ -133,6 +133,45 @@ function create_posttype() {
             'menu_icon' => 'dashicons-food'
         )
     );
+	register_post_type( 'multiple-recipes', array(
+		// Multiple Recipes
+		'labels' => array(
+			'name' => 'Multiple Recipes',
+			'singular_name' => 'Recipes',
+			'menu_name' => 'Multiple Recipes',
+			'all_items' => 'All Multiple Recipes',
+			'edit_item' => 'Edit Recipse',
+			'view_item' => 'View Recipes',
+			'view_items' => 'View Multiple Recipes',
+			'add_new_item' => 'Add Multiple Recipes',
+			'new_item' => 'New Recipes',
+			'parent_item_colon' => 'Parent Recipes:',
+			'search_items' => 'Search Multiple Recipes',
+			'not_found' => 'No multiple recipes found',
+			'not_found_in_trash' => 'No multiple recipes found in Trash',
+			'archives' => 'Recipes Archives',
+			'attributes' => 'Recipes Attributes',
+			'insert_into_item' => 'Insert into recipes',
+			'uploaded_to_this_item' => 'Uploaded to this recipes',
+			'filter_items_list' => 'Filter multiple recipes list',
+			'filter_by_date' => 'Filter multiple recipes by date',
+			'items_list_navigation' => 'Multiple Recipes list navigation',
+			'items_list' => 'Multiple Recipes list',
+			'item_published' => 'Recipes published',
+			'item_published_privately' => 'Recipes published privately.',
+			'item_reverted_to_draft' => 'Recipes reverted to draft.',
+			'item_scheduled' => 'Recipes scheduled.',
+			'item_updated' => 'Recipes updated.',
+			'item_link' => 'Recipes Link',
+			'item_link_description' => 'A link to a recipes.',
+		),
+		'public' => true,
+		'has_archive' => false,
+		'exclude_from_search' => false,
+		'show_in_rest' => false,
+		'supports' => array('title', 'editor', 'comments', 'author', 'thumbnail', 'revisions'),
+		'menu_icon' => 'dashicons-editor-ol'
+	) );
 }
 // Hooking up our function to theme setup
 add_action( 'init', 'create_posttype' );

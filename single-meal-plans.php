@@ -81,7 +81,7 @@ $calculations = meal_plan_calculations();
 
                             <div class="fmc_mp_recipe">
                                 <div class="fmc_mpr_top">
-                                    <span class="recipe_no"><?php echo __('Meal', 'fitmencook') . ' ' . $meal_counter; ?></span>
+                                    <span class="recipe_no"><?php echo __('Recipe', 'fitmencook') . ' ' . $meal_counter; ?></span>
                                     <a href="<?php the_permalink(); ?>">
                                         <h2 class="fmc_mpr_title fmc_title_3"><?php the_title(); ?></h2>
                                     </a>
@@ -204,7 +204,7 @@ $calculations = meal_plan_calculations();
 
                     <div class="fmc_mp_recipe">
                         <div class="fmc_mpr_top">
-                            <span class="recipe_no"><?php echo __('Meal', 'fitmencook') . ' ' . $meal_counter; ?></span>
+                            <span class="recipe_no"><?php echo __('Recipe', 'fitmencook') . ' ' . $meal_counter; ?></span>
                             <h2 class="fmc_mpr_title fmc_title_3"><?php echo $recipe_title; ?></h2>
                         </div>
                         <div class="fmc_recipe_times">
@@ -348,14 +348,28 @@ $calculations = meal_plan_calculations();
                 <div class="fmc_recipe_times">
 
                     <?php
-                    foreach ($calculations['total_times'] as  $single_time) :
+                    foreach ($calculations['total_times'] as $single_time) :
 
                     ?>
+                        <?php if($single_time['hours'] || $single_time['min']): ?>
+
                         <div class="fmc_prep">
                             <span class="fmc_time"><?php echo $single_time['label']; ?></span>
+
+                            <?php if($single_time['hours']): ?>
+
                             <span class="fmc_amount"><?php echo $single_time['hours']; ?></span>
-                            <span class="fmc_amount"> <?php echo $single_time['min']; ?></span>
+
+                            <?php endif; ?>
+
+                            <?php if($single_time['min']): ?>
+                            <span class="fmc_amount"><?php echo $single_time['min']; ?></span>
+
+                            <?php endif; ?>
+
                         </div>
+
+                        <?php endif; ?>
 
                     <?php
 
@@ -413,8 +427,13 @@ $calculations = meal_plan_calculations();
 <!-- Author -->
 <?php get_template_part('template-parts/author'); ?>
 
-<!-- Related Plans -->
-<?php get_template_part('template-parts/related-meal-plans'); ?>
+<!-- Related -->
+<?php if (is_singular('meal-plans')) {
+	get_template_part('template-parts/related-meal-plans');
+} ?>
+<?php if (is_singular('multiple-recipes')) {
+	get_template_part('template-parts/related-multiple-recipes');
+} ?>
 
 <script type="text/javascript">
     (function() {

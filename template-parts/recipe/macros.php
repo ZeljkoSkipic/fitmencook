@@ -9,11 +9,6 @@ $l_cook_time = get_field('l_cook_time', 'option');
 $l_total_time = get_field('l_total_time', 'option');
 
 $macros_title = get_field('macros_title', 'option');
-$noss = get_field('number_of_servings_sidebar', 'option');
-$servings_number = get_field('number_of_servings');
-$serving_size = get_field('serving_size');
-$l_serving_size = get_field('l_serving_size', 'option');
-
 
 $calories = get_field('calories');
 $protein = get_field('protein');
@@ -35,12 +30,6 @@ $l_sugar = get_field('l_sugar', 'option');
 
 
 <div class="fmc_macros">
-	<?php if($servings_number) { ?>
-	<div class="fmc_macro fmc_nos"><?php echo $noss; ?><span><?php echo $servings_number ?></span></div>
-	<?php } ?>
-	<?php if($serving_size) { ?>
-	<div class="fmc_macro fmc_ss"><?php echo $l_serving_size; ?>:<span><?php echo $serving_size ?></span></div>
-	<?php } ?>
 	<h4 class="fmc_rs_title fmc_macros_title"><?php echo $macros_title; ?></h4>
 	<?php if($calories) { ?>
 		<div class="fmc_macro fmc_macro_cals"><?php echo $l_calories ?><span><?php echo $calories ?>cal</span></div>

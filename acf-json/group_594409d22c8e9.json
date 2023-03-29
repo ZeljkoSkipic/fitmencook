@@ -1,6 +1,6 @@
 {
     "key": "group_594409d22c8e9",
-    "title": "Recipes",
+    "title": "Recipes: Default",
     "fields": [
         {
             "key": "field_63dbb23b51d6c",
@@ -649,6 +649,11 @@
                 "param": "post_type",
                 "operator": "==",
                 "value": "recipes"
+            },
+            {
+                "param": "post_template",
+                "operator": "==",
+                "value": "default"
             }
         ]
     ],
@@ -667,5 +672,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1679320330
+    "modified": 1680089510
 }

@@ -160,7 +160,29 @@ $author_id = $post->post_author;
 				<?php endif; ?>
 			</div>
 			<!-- Macros -->
+			<?php
+
+			$noss = get_field('number_of_servings_sidebar', 'option');
+			$servings_number = get_field('number_of_servings');
+			$serving_size = get_field('serving_size');
+			$l_serving_size = get_field('l_serving_size', 'option');
+
+			if($servings_number) { ?>
+			<div class="fmc_nos"><?php echo $noss; ?><span><?php echo $servings_number ?></span></div>
+			<?php } ?>
+			<?php if($serving_size) { ?>
+			<div class="fmc_ss"><?php echo $l_serving_size; ?>:<span><?php echo $serving_size ?></span></div>
+			<?php } ?>
 			<?php get_template_part('template-parts/recipe/macros'); ?>
+
+			<h4 class="fmc_rs_title fmc_mp_title">Meal plan</h4>
+			<div class="fmc_included_in_plan">
+				<span>Included in</span>
+				<div class="fmc_sidebar_mp">
+					Eat in a day - mediterran...
+				</div>
+			</div>
+
 			<!-- Share -->
 			<div class="fmc_share fmc_recipe_share spacing_3_0">
 
@@ -175,6 +197,8 @@ $author_id = $post->post_author;
 				<div class="fmc_email"><a title="Email" href="mailto:?subject=<?php echo get_the_title(); ?>&body=<?php echo get_the_title() . ' ' . get_permalink(); ?>"><span class="fmc_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M64 112c-8.8 0-16 7.2-16 16v22.1L220.5 291.7c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16H64zM48 212.2V384c0 8.8 7.2 16 16 16H448c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0L48 212.2zM0 128C0 92.7 28.7 64 64 64H448c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z"/></svg></span></a></div>
 
 			</div>
+
+
 		</div>
 
 		<?php dynamic_sidebar( 'ad5' ); ?>

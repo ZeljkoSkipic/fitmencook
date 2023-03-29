@@ -329,6 +329,7 @@ body.archive {
 		max-width: 400px;
 		margin-left: auto;
 		margin-right: auto;
+
 	}
 	.fmc_sr_sidebar {
 		height: fit-content;
@@ -360,23 +361,6 @@ body.archive {
 			margin-bottom: 12px;
 			font-weight: 800;
 			font-family: Nunito;
-			&.fmc_ss {
-				display: flex;
-				justify-content: space-between;
-				flex-wrap: wrap;
-				column-gap: 30px;
-			}
-			&.fmc_nos {
-				display: flex;
-				justify-content: space-between;
-				align-items: center;
-				span {
-					font-weight: 800;
-					font-size: 1.1em;
-					top: 2px;
-					position: relative;
-				}
-			}
 		}
 		.fmc_recipe_times {
 			display: flex;
@@ -422,6 +406,26 @@ body.archive {
 				}
 			}
 		}
+		.fmc_nos, .fmc_ss {
+			display: flex;
+			justify-content: space-between;
+			flex-wrap: wrap;
+			align-items: center;
+			font-weight: 700;
+			font-size: 16px;
+			line-height: 1;
+			color: var(--misc-color);
+			margin-bottom: 12px;
+			span {
+				font-weight: 800;
+				font-size: 1.1em;
+				top: 2px;
+				position: relative;
+			}
+		}
+		.fmc_ss {
+			padding-bottom: 8px;
+		}
 
 		/* Recipe Macros */
 
@@ -458,6 +462,28 @@ body.archive {
 						background-size: 14px;
 					}
 				}
+			}
+		}
+		.fmc_mp_title {
+			margin-top: 5px;
+		}
+		.fmc_included_in_plan {
+			padding: 0 0 0 30px;
+			background-size: 16px;
+			background-image: url(assets/icons/fork-and-knife.svg);
+			background-repeat: no-repeat;
+			background-position: center left;
+
+			span {
+				font-weight: 700;
+				font-size: 16px;
+				line-height: 1;
+				color: var(--misc-color);
+			}
+			.fmc_sidebar_mp {
+				font-size: 16px;
+				line-height: 22px;
+				font-weight: 700;
 			}
 		}
 		.fmc_recipe_share {

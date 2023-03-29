@@ -9,7 +9,7 @@
 
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '0.2.2' );
+	define( '_S_VERSION', '1.0.0' );
 }
 
 /**
@@ -122,10 +122,10 @@ function fmc_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	};
-	if(is_singular('recipes') || is_singular('product') || is_singular('meal-plans') || is_post_type_archive('recipes')) {
+	if(is_singular('recipes') || is_singular('product') || is_singular('meal-plans') || is_singular('multiple-recipes') || is_post_type_archive('recipes')) {
 		wp_enqueue_script( 'rateit-script', get_template_directory_uri() . '/js/vendor/rateit.min.js', array('jquery'), _S_VERSION, true );
 	}
-	if(is_singular('recipes') || is_singular('product')) {
+	if(is_singular('recipes') || is_singular('multiple-recipes') || is_singular('meal-plans') || is_singular('product')) {
         wp_enqueue_script( 'validate', get_template_directory_uri() . '/js/vendor/jquery.validate.min.js', array('jquery'), _S_VERSION, true );
     }
 }
@@ -353,3 +353,18 @@ function allow_iframes( $allowedposttags ){
 }
 
 add_filter( 'wp_kses_allowed_html', 'allow_iframes', 1 );
+
+
+
+
+add_filter( 'template_include', function( $template )
+{
+    // your custom post types
+    $my_types = array( 'meal-plans', 'multiple-recipes' );
+    $post_type = get_post_type();
+
+    if ( ! in_array( $post_type, $my_types ) )
+        return $template;
+
+    return get_stylesheet_directory() . '/single-meal-plans.php';
+});

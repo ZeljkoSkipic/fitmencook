@@ -1,6 +1,6 @@
 {
     "key": "group_63eb5dd06a7b0",
-    "title": "Meal Plans",
+    "title": "Multiple Recipes",
     "fields": [
         {
             "key": "field_63eb5dd1d0b54",
@@ -599,6 +599,7 @@
                     "collapsed": "",
                     "button_label": "Add Step",
                     "rows_per_page": 20,
+                    "parent_repeater": "field_63eb663b66487",
                     "sub_fields": [
                         {
                             "key": "field_63ecaef5c0149",
@@ -621,8 +622,7 @@
                             "delay": 0,
                             "parent_repeater": "field_63ecaef5c0148"
                         }
-                    ],
-                    "parent_repeater": "field_63eb663b66487"
+                    ]
                 }
             ]
         }
@@ -633,6 +633,13 @@
                 "param": "post_type",
                 "operator": "==",
                 "value": "meal-plans"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "multiple-recipes"
             }
         ]
     ],
@@ -645,5 +652,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1679053811
+    "modified": 1680091117
 }

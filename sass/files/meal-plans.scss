@@ -122,7 +122,6 @@
 		padding: var(--spacing-3) var(--spacing-3);
 		display: flex;
 		justify-content: space-between;
-		margin-bottom: var(--spacing-3);
 		flex-wrap: wrap;
 		.fmc_macro {
 			display: flex;
@@ -158,6 +157,8 @@
 		background-size: 18px;
 		padding-right: 23px;
 		transition: var(--site-transition);
+		margin-top: var(--spacing-3);
+		display: inline-flex;
 		&:hover {
 			padding-right: 28px;
 		}

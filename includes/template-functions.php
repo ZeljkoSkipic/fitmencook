@@ -327,10 +327,9 @@ function meal_plans_global_query( $query ) {
 
 		  $total_times['prep_times'] = [
 			  'label' => $l_prep_time,
-			  'min'   =>  $leftover_minutes_cook . ' ' . $minutes,
-			  'hours' => ($total_prep_hours + $hours_prep). "h"
+			  'min'   => ($leftover_minutes_cook) ?  $leftover_minutes_cook . '' . $minutes : 0,
+			  'hours' => ($total_prep_hours + $hours_prep) ?  ($total_prep_hours + $hours_prep). "h" : 0
 		  ];
-
 
 		  // Convert minutes to hours and leftover minutes join cook times
 
@@ -340,8 +339,8 @@ function meal_plans_global_query( $query ) {
 
 		  $total_times['cook_times'] = [
 			  'label' => $l_cook_time,
-			  'min'   => $leftover_minutes_cook . ' ' . $minutes,
-			  'hours' => ($total_cook_hours + $hours_cook). "h"
+			  'min'   => $leftover_minutes_cook ? $leftover_minutes_cook . '' . $minutes : 0,
+			  'hours' => ($total_cook_hours + $hours_cook) ? ($total_cook_hours + $hours_cook). "h" : 0
 		  ];
 
 		  // Convert minutes to hours and leftover minutes join total times
@@ -351,8 +350,8 @@ function meal_plans_global_query( $query ) {
 
 		  $total_times['totals'] = [
 			  'label' => $l_total_time,
-			  'min'   =>  $leftover_minutes_total . ' ' . $minutes,
-			  'hours' => ($hours_totals + $hours_total) . "h"
+			  'min'   => $leftover_minutes_total ?  $leftover_minutes_total . '' . $minutes : 0,
+			  'hours' => ($hours_totals + $hours_total) ?  ($hours_totals + $hours_total) . "h" : 0
 		  ];
 	  }
 
@@ -383,7 +382,7 @@ function send_email_recipe_created($post_ID, $post, $update)
         $headers[] = 'Content-Type: text/html; charset=UTF-8';
 
         ob_start();
-        get_template_part('template-parts/recipe/email', 'template', ['post' => $post]);
+        get_template_part('template-parts/email', 'template', ['post' => $post]);
         $message = ob_get_clean();
         $email = wp_mail($to, $subject, $message, $headers);
 
