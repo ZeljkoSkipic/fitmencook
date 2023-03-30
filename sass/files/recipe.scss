@@ -643,6 +643,11 @@ body.archive {
 }
 
 /* Recipe Main */
+.single-recipes {
+	.fmc_ing_servings, .fmc_ing_servings_size {
+		margin-top: -1.6rem;
+	}
+}
 .fmc_ing_servings, .fmc_ing_servings_size {
 	width: fit-content;
 	padding: 8px 16px;
@@ -650,7 +655,6 @@ body.archive {
 	font-size: 18px;
 	font-weight: 700;
 	margin-bottom: var(--spacing-1);
-	margin-top: -1.6rem;
 	display: inline-flex;
 	flex-wrap: wrap;
 	@include mob-only {

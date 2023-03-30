@@ -538,6 +538,50 @@
                     "parent_repeater": "field_63eb663b66487"
                 },
                 {
+                    "key": "field_642558c41aa66",
+                    "label": "Number of Servings",
+                    "name": "number_of_servings",
+                    "aria-label": "",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "min": "",
+                    "max": "",
+                    "placeholder": "",
+                    "step": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_63eb663b66487"
+                },
+                {
+                    "key": "field_6425591e1aa67",
+                    "label": "Serving Size",
+                    "name": "serving_size",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_63eb663b66487"
+                },
+                {
                     "key": "field_63eb67370efaa",
                     "label": "Ingredients",
                     "name": "custom_ingredients",
@@ -576,7 +620,7 @@
                     "maxlength": "",
                     "placeholder": "",
                     "prepend": "",
-                    "append": "97.5",
+                    "append": "",
                     "parent_repeater": "field_63eb663b66487"
                 },
                 {
@@ -652,5 +696,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1680091117
+    "modified": 1680170420
 }

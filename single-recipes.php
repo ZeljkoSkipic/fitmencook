@@ -176,12 +176,12 @@ $author_id = $post->post_author;
 			<?php get_template_part('template-parts/recipe/macros'); ?>
 
 			<h4 class="fmc_rs_title fmc_mp_title">Meal plan</h4>
-			<div class="fmc_included_in_plan">
+			<!-- <div class="fmc_included_in_plan">
 				<span>Included in</span>
 				<div class="fmc_sidebar_mp">
 					Eat in a day - mediterran...
 				</div>
-			</div>
+			</div> -->
 
 			<!-- Share -->
 			<div class="fmc_share fmc_recipe_share spacing_3_0">

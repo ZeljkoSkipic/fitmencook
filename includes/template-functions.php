@@ -171,7 +171,7 @@ function fmc_theme_setup() {
 // Get average rating
 
 function get_avarage_rating ($post_ID, $style, $return_just_rating = false) {
-    $comments = get_comments( array( 'post_id' => $post_ID ) );
+    $comments = get_comments( array( 'post_id' => $post_ID, 'status' => 'approve' ) );
     $comments_total = count($comments);
     $rating = 0;
     $avg_rating = 0;
@@ -309,13 +309,13 @@ function meal_plans_global_query( $query ) {
 		  }
 
 		  // Macros
-		  $totals[$l_calories] = $total_calories . __('cal', 'fitmencook');
-		  $totals[$l_protein] = $total_proteins . __('g', 'fitmencook');
-		  $totals[$l_fat] =  $total_fat . __('g', 'fitmencook');
-		  $totals[$l_carbs] = $total_carbs . __('g', 'fitmencook');
-		  $totals[$l_sodium] =  $total_sodium . __('mg', 'fitmencook');
-		  $totals[$l_fiber] = $total_fiber . __('g', 'fitmencook');
-		  $totals[$l_sugar] = $total_sugar . __('g', 'fitmencook');
+		  $totals[$l_calories] = $total_calories ? $total_calories . __('cal', 'fitmencook') : 0;
+		  $totals[$l_protein] = $total_proteins ? $total_proteins . __('g', 'fitmencook') : 0;
+		  $totals[$l_fat] = $total_fat ?  $total_fat . __('g', 'fitmencook') : 0;
+		  $totals[$l_carbs] = $total_carbs ? $total_carbs . __('g', 'fitmencook') : 0;
+		  $totals[$l_sodium] = $total_sodium ?  $total_sodium . __('mg', 'fitmencook') : 0;
+		  $totals[$l_fiber] = $total_fiber ? $total_fiber . __('g', 'fitmencook') : 0;
+		  $totals[$l_sugar] = $total_sugar ? $total_sugar . __('g', 'fitmencook') : 0;
 
 
 		  // Time

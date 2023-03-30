@@ -20,6 +20,9 @@ $l_sodium = get_field('l_sodium', 'option');
 $l_fiber = get_field('l_fiber', 'option');
 $l_sugar = get_field('l_sugar', 'option');
 
+$nosi = get_field('number_of_servings_ing', 'option');
+$l_serving_size = get_field('l_serving_size', 'option');
+
 $meal_counter = 1;
 $calculations = meal_plan_calculations();
 
@@ -77,6 +80,8 @@ $calculations = meal_plan_calculations();
 							$total_time = get_field('total_time');
 							$total_hours = get_field('total_hours');
                             $calories = get_field('calories');
+							$servings_number = get_field('number_of_servings');
+							$serving_size = get_field('serving_size');
                         ?>
 
                             <div class="fmc_mp_recipe">
@@ -128,6 +133,12 @@ $calculations = meal_plan_calculations();
                                 </div>
                                 <?php the_post_thumbnail(); ?>
                                 <h4 class="fmc_mpr_subtitle"><?php the_field('ingredients_title'); ?></h4>
+								<?php if($servings_number) { ?>
+								<div class="fmc_ing_servings"><?php echo $servings_number ?> <?php echo $nosi; ?></div>
+								<?php } ?>
+								<?php if($serving_size) { ?>
+								<div class="fmc_ing_servings_size"><?php echo $l_serving_size; ?>:<span><?php echo $serving_size ?></span></div>
+								<?php } ?>
                                 <div class="text_2 fmc_mpr_content fmc_mpr_ing"><?php the_field('ingredients'); ?></div>
                                 <?php if ($include_steps) : ?>
                                     <h4 class="fmc_mpr_subtitle"><?php the_field('steps_title'); ?></h4>
@@ -252,17 +263,23 @@ $calculations = meal_plan_calculations();
                         </div>
 						<?php
 						$custom_ingredients = get_sub_field('custom_ingredients');
+						$custom_nos = get_sub_field('number_of_servings');
+						$custom_ss = get_sub_field('serving_size');
 						if($custom_ingredients): ?>
                         <h4 class="fmc_mpr_subtitle"><?php the_sub_field('ingredients_title'); ?></h4>
+						<?php if($custom_nos) { ?>
+						<div class="fmc_ing_servings"><?php echo $custom_nos ?> <?php echo $nosi; ?></div>
+						<?php } ?>
+						<?php if($custom_ss) { ?>
+						<div class="fmc_ing_servings_size"><?php echo $l_serving_size; ?>:<span><?php echo $custom_ss ?></span></div>
+						<?php } ?>
                         <div class="text_2 fmc_mpr_content fmc_mpr_ing"><?php echo $custom_ingredients ?></div>
 						<?php endif; ?>
-
-
-                                    <?php
-									$steps_title = get_sub_field('steps_title');
-                                    // Check rows existexists.
-                                    if (have_rows('cr_steps')) : ?>
-									<h4 class="fmc_mpr_subtitle"><?php echo $steps_title; ?></h4>
+						<?php
+						$steps_title = get_sub_field('steps_title');
+						// Check rows existexists.
+						if (have_rows('cr_steps')) : ?>
+						<h4 class="fmc_mpr_subtitle"><?php echo $steps_title; ?></h4>
                         <div class="text_2 fmc_mpr_content fmc_mpr_steps">
                             <div class="fmc_recipe_steps">
                                 <div class="fmc_steps">
@@ -384,7 +401,7 @@ $calculations = meal_plan_calculations();
             <?php
             if ($calculations['totals']) : ?>
                 <div class="fmc_macros">
-                    <?php foreach ($calculations['totals'] as $label => $total) : ?>
+                    <?php foreach ($calculations['totals'] as $label => $total) : if($total === 0) continue; ?>
                         <div class="fmc_macro"> <?php echo __('Total', 'fitmenCook') . ' ' . $label . ':' ?> <span class="fmc_total_number"> <?php echo $total; ?></span></div>
                     <?php endforeach; ?>
                 </div>
