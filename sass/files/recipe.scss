@@ -249,6 +249,13 @@ body.archive {
 
 
 /* Single */
+
+.admin-bar .fmc_single_recipe .fmc_sr_sidebar {
+	top: 32px;
+	@include limbo-only {
+		top: 92px;
+	}
+}
 .fmc_top_author {
 	display: flex;
 	align-items: center;
@@ -654,7 +661,7 @@ body.archive {
 	border-radius: 8px;
 	font-size: 18px;
 	font-weight: 700;
-	margin-bottom: var(--spacing-1);
+	margin-bottom: var(--spacing-2);
 	display: inline-flex;
 	flex-wrap: wrap;
 	@include mob-only {

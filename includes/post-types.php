@@ -140,7 +140,7 @@ function create_posttype() {
 			'singular_name' => 'Recipes',
 			'menu_name' => 'Multiple Recipes',
 			'all_items' => 'All Multiple Recipes',
-			'edit_item' => 'Edit Recipse',
+			'edit_item' => 'Edit Multiple Recipes',
 			'view_item' => 'View Recipes',
 			'view_items' => 'View Multiple Recipes',
 			'add_new_item' => 'Add Multiple Recipes',
@@ -166,9 +166,10 @@ function create_posttype() {
 			'item_link_description' => 'A link to a recipes.',
 		),
 		'public' => true,
-		'has_archive' => false,
+		'has_archive' => true,
 		'exclude_from_search' => false,
 		'show_in_rest' => false,
+		'rewrite' => array('slug' => 'multiple-recipes', 'with_front' => false),
 		'supports' => array('title', 'editor', 'comments', 'author', 'thumbnail', 'revisions'),
 		'menu_icon' => 'dashicons-editor-ol'
 	) );

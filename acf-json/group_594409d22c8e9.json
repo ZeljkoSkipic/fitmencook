@@ -86,25 +86,7 @@
         },
         {
             "key": "field_6411c8a4eed29",
-            "label": "Number of Servings is set up in the 'Sidebar - Times and Macros' on top of the page",
-            "name": "",
-            "aria-label": "",
-            "type": "message",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "new_lines": "wpautop",
-            "esc_html": 0
-        },
-        {
-            "key": "field_641864fd816bd",
-            "label": "Serving Size is set up in the 'Sidebar - Times and Macros' on top of the page",
+            "label": "Number of Servings and Serving Size is set up in the 'Sidebar - Times and Macros' on top of the page",
             "name": "",
             "aria-label": "",
             "type": "message",
@@ -281,6 +263,24 @@
             "esc_html": 0
         },
         {
+            "key": "field_6425633122f73",
+            "label": "Times",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
             "key": "field_6412db367a7ef",
             "label": "Prep Hours",
             "name": "prep_hours",
@@ -290,7 +290,7 @@
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "15.5",
+                "width": "16.6",
                 "class": "",
                 "id": ""
             },
@@ -310,7 +310,7 @@
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "15.5",
+                "width": "16.6",
                 "class": "",
                 "id": ""
             },
@@ -323,24 +323,6 @@
             "append": ""
         },
         {
-            "key": "field_6412e16269da7",
-            "label": "|",
-            "name": "",
-            "aria-label": "",
-            "type": "message",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "2",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "new_lines": "wpautop",
-            "esc_html": 0
-        },
-        {
             "key": "field_6412db5d7a7f0",
             "label": "Cook Hours",
             "name": "cook_hours",
@@ -350,7 +332,7 @@
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "15.5",
+                "width": "16.6",
                 "class": "",
                 "id": ""
             },
@@ -372,7 +354,7 @@
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "15.5",
+                "width": "16.6",
                 "class": "",
                 "id": ""
             },
@@ -385,24 +367,6 @@
             "append": ""
         },
         {
-            "key": "field_6412e17e69da8",
-            "label": "|",
-            "name": "",
-            "aria-label": "",
-            "type": "message",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "2",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "new_lines": "wpautop",
-            "esc_html": 0
-        },
-        {
             "key": "field_6412db6d7a7f1",
             "label": "Total Hours",
             "name": "total_hours",
@@ -412,7 +376,7 @@
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "15.5",
+                "width": "16.6",
                 "class": "",
                 "id": ""
             },
@@ -434,7 +398,7 @@
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "15.5",
+                "width": "16.6",
                 "class": "total_minutes",
                 "id": ""
             },
@@ -447,6 +411,24 @@
             "append": ""
         },
         {
+            "key": "field_6425634d22f75",
+            "label": "Servings",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
             "key": "field_6418612b659f5",
             "label": "Serving Size",
             "name": "serving_size",
@@ -456,7 +438,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -476,7 +458,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "97.5",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -489,6 +471,24 @@
             "append": ""
         },
         {
+            "key": "field_6425633e22f74",
+            "label": "Macros",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
             "key": "field_59306eeb36f6e",
             "label": "Protein",
             "name": "protein",
@@ -498,7 +498,7 @@
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "14",
+                "width": "14.25",
                 "class": "",
                 "id": ""
             },
@@ -520,7 +520,7 @@
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "14",
+                "width": "14.25",
                 "class": "",
                 "id": ""
             },
@@ -542,7 +542,7 @@
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "14",
+                "width": "14.25",
                 "class": "",
                 "id": ""
             },
@@ -564,7 +564,7 @@
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "14",
+                "width": "14.25",
                 "class": "",
                 "id": ""
             },
@@ -586,7 +586,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "14",
+                "width": "14.25",
                 "class": "",
                 "id": ""
             },
@@ -608,7 +608,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "14",
+                "width": "14.25",
                 "class": "",
                 "id": ""
             },
@@ -630,7 +630,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "14",
+                "width": "14.25",
                 "class": "",
                 "id": ""
             },
@@ -672,5 +672,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1680089510
+    "modified": 1680171954
 }

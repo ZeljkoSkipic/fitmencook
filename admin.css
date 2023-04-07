@@ -1,3 +1,37 @@
+.wp-admin .wp-block {
+	max-width: 90%;
+}
+.wp-admin .postbox.acf-postbox div.acf-field-tab, .acf-settings-wrap div.acf-field-tab {
+	display: block!important;
+	font-size: 0;
+	height: 0;
+	padding: 0!important;
+	opacity: 0;
+	pointer-events: none;
+
+  }
+  .wp-admin .postbox.acf-postbox div.acf-field-tab *, .acf-settings-wrap div.acf-field-tab * {
+	pointer-events: none!important;
+  }
+
+/* ACF Chrome bug Fix */
+
+.interface-interface-skeleton__content div.acf-field-tab, .acf-settings-wrap div.acf-field-tab {
+display: block!important;
+font-size: 0;
+height: 0;
+padding: 0!important;
+opacity: 0;
+pointer-events: none;
+
+}
+.interface-interface-skeleton__content div.acf-field-tab, .acf-settings-wrap div.acf-field-tab * {
+pointer-events: none!important;
+}
+.total_minutes {
+clear: none!important;
+}
+
 .curtime #wplmi-timestamp:before {
     font: 400 20px/1 dashicons;
     display: inline-block;

@@ -10,11 +10,11 @@ get_header();
 
 <?php get_template_part('template-parts/homepage/hero'); ?>
 
-<?php get_template_part('template-parts/homepage/featured-recipes'); ?>
+<?php get_template_part('template-parts/homepage/featured-products'); ?>
 
 <?php get_template_part('template-parts/homepage/featured-logos'); ?>
 
-<?php get_template_part('template-parts/homepage/featured-products'); ?>
+<?php get_template_part('template-parts/homepage/featured-recipes'); ?>
 
 <?php dynamic_sidebar( 'ad2' ); ?>
 

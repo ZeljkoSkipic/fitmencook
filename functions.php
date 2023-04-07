@@ -9,7 +9,7 @@
 
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '1.0.1' );
+	define( '_S_VERSION', '1.0.3' );
 }
 
 /**
@@ -131,6 +131,11 @@ function fmc_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'fmc_scripts' );
 
+function fmc_admin_styles() {
+	wp_enqueue_style( 'backend-styles', get_template_directory_uri() . '/admin.css' );
+}
+add_action( 'admin_enqueue_scripts', 'fmc_admin_styles' );
+
 /**
  * Custom template tags for this theme.
  */
@@ -158,7 +163,7 @@ require get_template_directory() . '/includes/yoast/yoast.php';
 require_once( get_template_directory(). '/includes/post-types.php' );
 
 if(is_admin()) {
-	require get_template_directory() . '/includes/admin-recipe-time-modified.php';
+	require get_template_directory() . '/includes/admin-time-modified.php';
 }
 
 /**
@@ -259,49 +264,6 @@ function move_comment_field( $fields ) {
     return $fields;
 }
 
-// Admin styles - move to individual file
-
-add_action('admin_head', 'admin_styles');
-
-function admin_styles() {
-  echo '<style>
-	.wp-admin .wp-block {
-		max-width: 90%;
-	}
-	.wp-admin .postbox.acf-postbox div.acf-field-tab, .acf-settings-wrap div.acf-field-tab {
-		display: block!important;
-		font-size: 0;
-		height: 0;
-		padding: 0!important;
-		opacity: 0;
-		pointer-events: none;
-
-	  }
-	  .wp-admin .postbox.acf-postbox div.acf-field-tab *, .acf-settings-wrap div.acf-field-tab * {
-		pointer-events: none!important;
-	  }
-
-/* ACF Chrome bug Fix */
-
-.interface-interface-skeleton__content div.acf-field-tab, .acf-settings-wrap div.acf-field-tab {
-	display: block!important;
-	font-size: 0;
-	height: 0;
-	padding: 0!important;
-	opacity: 0;
-	pointer-events: none;
-
-  }
-  .interface-interface-skeleton__content div.acf-field-tab, .acf-settings-wrap div.acf-field-tab * {
-	pointer-events: none!important;
-  }
-  .total_minutes {
-	clear: none!important;
-  }
-  </style>';
-}
-
-
 // Remove Zoom and Lightbox from WooCommerce produt
 add_filter( 'woocommerce_single_product_zoom_enabled', '__return_false' );
 
@@ -353,18 +315,3 @@ function allow_iframes( $allowedposttags ){
 }
 
 add_filter( 'wp_kses_allowed_html', 'allow_iframes', 1 );
-
-
-
-
-add_filter( 'template_include', function( $template )
-{
-    // your custom post types
-    $my_types = array( 'meal-plans', 'multiple-recipes' );
-    $post_type = get_post_type();
-
-    if ( ! in_array( $post_type, $my_types ) )
-        return $template;
-
-    return get_stylesheet_directory() . '/single-meal-plans.php';
-});

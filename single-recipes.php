@@ -175,8 +175,8 @@ $author_id = $post->post_author;
 			<?php } ?>
 			<?php get_template_part('template-parts/recipe/macros'); ?>
 
-			<h4 class="fmc_rs_title fmc_mp_title">Meal plan</h4>
-			<!-- <div class="fmc_included_in_plan">
+			<!--<h4 class="fmc_rs_title fmc_mp_title">Meal plan</h4>
+			 <div class="fmc_included_in_plan">
 				<span>Included in</span>
 				<div class="fmc_sidebar_mp">
 					Eat in a day - mediterran...
