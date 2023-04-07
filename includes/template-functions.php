@@ -141,8 +141,20 @@ if( function_exists('acf_add_options_page') ) {
 
 	acf_add_options_sub_page(array(
         'page_title'    => 'Meal Plans Archive',
-        'menu_title'    => 'Archive',
+        'menu_title'    => 'MP Archive',
         'parent_slug'   => 'edit.php?post_type=meal-plans',
+    ));
+
+	acf_add_options_sub_page(array(
+        'page_title'    => 'Multiple Recipes Archive',
+        'menu_title'    => 'MR Archive',
+        'parent_slug'   => 'edit.php?post_type=multiple-recipes',
+    ));
+
+	acf_add_options_sub_page(array(
+        'page_title'    => 'Shop Archive',
+        'menu_title'    => 'Shop Archive',
+        'parent_slug'   => 'edit.php?post_type=product',
     ));
 
 }
@@ -199,7 +211,7 @@ function get_avarage_rating ($post_ID, $style, $return_just_rating = false) {
 // Meal Plan Customize Global Query
 
 function meal_plans_global_query( $query ) {
-	if ( ! is_admin() && $query->is_main_query() && is_post_type_archive( 'meal-plans' ) ) {
+	if ( ! is_admin() && $query->is_main_query() && is_post_type_archive( 'meal-plans' ) || is_post_type_archive( 'multiple-recipes' ) ) {
 	  $query->set( 'posts_per_page', 4 );
 	  return;
 	}

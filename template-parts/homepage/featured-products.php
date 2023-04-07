@@ -1,12 +1,39 @@
-<?php if( have_rows('featured_products') ): ?>
+<?php
+$size = 'medium'; // (thumbnail, medium, large, full or custom size)
+if( have_rows('featured_products') ): ?>
 <div class="fmc_home_products spacing_2_1">
 	<div class="fmc_container">
 		<h3 class="fmc_title_2 title_spacing_2"><?php the_field('fp_title') ?></h3>
 		<div class="fmc_home_p_inner">
-		<?php while( have_rows('featured_products') ) : the_row();
+
+		<?php // Existing Products
+			$existing_featured_products = get_field('existing_featured_products');
+			if( $existing_featured_products ): ?>
+				<?php foreach( $existing_featured_products as $post ):
+
+					// Setup this post for WP functions (variable must be named $post).
+					setup_postdata($post);
+					$product = wc_get_product(get_the_ID());
+					?>
+					<div class="fmc_product">
+					<figure class="fmc_grid_figure">
+						<?php the_post_thumbnail( $size ); ?>
+					</figure>
+					<h3 class="fmc_grid_title"><?php the_title(); ?></h3>
+					<div class="fmc_product_grid_bottom">
+						<span>(<?php echo  $product->get_price_html(); ?>)</span>
+						<a class="fmc_btn" href="?add-to-cart=<?php the_ID(); ?>">Buy Now</a>
+					</div>
+				</div>
+				<?php endforeach; ?>
+				<?php
+				// Reset the global post object so that the rest of the page works correctly.
+				wp_reset_postdata(); ?>
+			<?php endif; ?>
+
+		<?php while( have_rows('featured_products') ) : the_row(); // Custom Products
 			// Load sub field value.
 			$image = get_sub_field('product_image');
-			$size = 'full'; // (thumbnail, medium, large, full or custom size)
 			$product_title = get_sub_field('product_title');
 			$price = get_sub_field('price');
 			$link = get_sub_field('link'); ?>
@@ -16,9 +43,6 @@
 						<?php echo wp_get_attachment_image( $image, $size ); ?>
 					</figure>
 					<div class="fmc_grid_meta">
-						<!-- <span class="fmc_grid_cat">
-							Breakfast
-						</span> -->
 					</div>
 					<h3 class="fmc_grid_title"><?php echo $product_title ?></h3>
 					<div class="fmc_product_grid_bottom">

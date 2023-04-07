@@ -1,9 +1,9 @@
 {
-    "key": "group_63eccf47e9067",
-    "title": "Meal Plans Archive",
+    "key": "group_64300bd5317e1",
+    "title": "Multiple Recipes Archive",
     "fields": [
         {
-            "key": "field_63eccfb321d0d",
+            "key": "field_64300bd5458cf",
             "label": "Intro",
             "name": "",
             "aria-label": "",
@@ -20,9 +20,9 @@
             "endpoint": 0
         },
         {
-            "key": "field_63eccf4821d0b",
+            "key": "field_64300bd54936f",
             "label": "Title",
-            "name": "mp_arch_title",
+            "name": "mr_arch_title",
             "aria-label": "",
             "type": "text",
             "instructions": "",
@@ -40,9 +40,9 @@
             "append": ""
         },
         {
-            "key": "field_63eccf6721d0c",
+            "key": "field_64300bd54cded",
             "label": "Intro Text",
-            "name": "mp_arch_intro",
+            "name": "mr_arch_intro",
             "aria-label": "",
             "type": "wysiwyg",
             "instructions": "",
@@ -60,8 +60,8 @@
             "delay": 0
         },
         {
-            "key": "field_63eccfc421d0e",
-            "label": "Latest Plans",
+            "key": "field_64300bd550885",
+            "label": "Latest Multiple Recipes",
             "name": "",
             "aria-label": "",
             "type": "tab",
@@ -77,7 +77,7 @@
             "endpoint": 0
         },
         {
-            "key": "field_63eccfcf21d0f",
+            "key": "field_64300bd554332",
             "label": "",
             "name": "",
             "aria-label": "",
@@ -90,12 +90,12 @@
                 "class": "",
                 "id": ""
             },
-            "message": "Latest Plans are generated automatically from the Meal Plans Inserted <a href=\"\/wp-admin\/edit.php?post_type=meal-plans\">here<\/a>.",
+            "message": "Latest Multiple Recipes are generated automatically from the Meal Plans Inserted <a href=\"\/wp-admin\/edit.php?post_type=multiple-recipes\">here<\/a>.",
             "new_lines": "wpautop",
             "esc_html": 0
         },
         {
-            "key": "field_63ecd043bf875",
+            "key": "field_64300bd557dbe",
             "label": "Content",
             "name": "",
             "aria-label": "",
@@ -112,9 +112,9 @@
             "endpoint": 0
         },
         {
-            "key": "field_63ecd013bf873",
+            "key": "field_64300bd55b85a",
             "label": "Content",
-            "name": "mp_arch_content",
+            "name": "mr_arch_content",
             "aria-label": "",
             "type": "repeater",
             "instructions": "",
@@ -134,9 +134,9 @@
             "rows_per_page": 20,
             "sub_fields": [
                 {
-                    "key": "field_63ecd16fe8b46",
+                    "key": "field_64300bd57a095",
                     "label": "Section Title",
-                    "name": "mp_arch_sec_title",
+                    "name": "mr_arch_sec_title",
                     "aria-label": "",
                     "type": "text",
                     "instructions": "",
@@ -152,10 +152,10 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "parent_repeater": "field_63ecd013bf873"
+                    "parent_repeater": "field_64300bd55b85a"
                 },
                 {
-                    "key": "field_63ece188b4543",
+                    "key": "field_64300bd57db24",
                     "label": "Anchor Label",
                     "name": "anchor_label",
                     "aria-label": "",
@@ -173,12 +173,12 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "parent_repeater": "field_63ecd013bf873"
+                    "parent_repeater": "field_64300bd55b85a"
                 },
                 {
-                    "key": "field_63ecd029bf874",
+                    "key": "field_64300bd5815d6",
                     "label": "Section Content",
-                    "name": "mp_arch_sec",
+                    "name": "mr_arch_sec",
                     "aria-label": "",
                     "type": "wysiwyg",
                     "instructions": "",
@@ -194,7 +194,7 @@
                     "toolbar": "full",
                     "media_upload": 1,
                     "delay": 0,
-                    "parent_repeater": "field_63ecd013bf873"
+                    "parent_repeater": "field_64300bd55b85a"
                 }
             ]
         }
@@ -204,7 +204,7 @@
             {
                 "param": "options_page",
                 "operator": "==",
-                "value": "acf-options-mp-archive"
+                "value": "acf-options-mr-archive"
             }
         ]
     ],
@@ -217,5 +217,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1680870349
+    "modified": 1680870438
 }

@@ -1,11 +1,11 @@
 {
-    "key": "group_6390bf3ccd61c",
-    "title": "Product Info Boxes",
+    "key": "group_64300cb7eebf6",
+    "title": "Shop Archive",
     "fields": [
         {
-            "key": "field_6390c1bc334e1",
-            "label": "Info Boxes",
-            "name": "info_boxes",
+            "key": "field_64300e26e8472",
+            "label": "Custom Products",
+            "name": "featured_products",
             "aria-label": "",
             "type": "repeater",
             "instructions": "",
@@ -19,22 +19,22 @@
             "layout": "table",
             "pagination": 0,
             "min": 0,
-            "max": 0,
+            "max": 5,
             "collapsed": "",
-            "button_label": "Add Column",
+            "button_label": "Add Product",
             "rows_per_page": 20,
             "sub_fields": [
                 {
-                    "key": "field_6390c1ef334e2",
-                    "label": "Icon",
-                    "name": "icon",
+                    "key": "field_64300e26e8473",
+                    "label": "Image",
+                    "name": "product_image",
                     "aria-label": "",
                     "type": "image",
                     "instructions": "",
-                    "required": 0,
+                    "required": 1,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "15",
+                        "width": "",
                         "class": "",
                         "id": ""
                     },
@@ -43,24 +43,24 @@
                     "min_width": "",
                     "min_height": "",
                     "min_size": "",
-                    "max_width": 75,
+                    "max_width": "",
                     "max_height": "",
                     "max_size": "",
                     "mime_types": "",
                     "preview_size": "medium",
-                    "parent_repeater": "field_6390c1bc334e1"
+                    "parent_repeater": "field_64300e26e8472"
                 },
                 {
-                    "key": "field_6390c21f334e3",
+                    "key": "field_64300e26e8474",
                     "label": "Title",
-                    "name": "title",
+                    "name": "product_title",
                     "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "40",
+                        "width": "",
                         "class": "",
                         "id": ""
                     },
@@ -69,28 +69,45 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "parent_repeater": "field_6390c1bc334e1"
+                    "parent_repeater": "field_64300e26e8472"
                 },
                 {
-                    "key": "field_6390c233334e4",
-                    "label": "Text",
-                    "name": "text",
+                    "key": "field_64300e26e8475",
+                    "label": "Price",
+                    "name": "price",
                     "aria-label": "",
-                    "type": "wysiwyg",
+                    "type": "text",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "45",
+                        "width": "",
                         "class": "",
                         "id": ""
                     },
                     "default_value": "",
-                    "tabs": "text",
-                    "media_upload": 0,
-                    "toolbar": "full",
-                    "delay": 0,
-                    "parent_repeater": "field_6390c1bc334e1"
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_64300e26e8472"
+                },
+                {
+                    "key": "field_64300e26e8476",
+                    "label": "Product Link",
+                    "name": "link",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "parent_repeater": "field_64300e26e8472"
                 }
             ]
         }
@@ -98,9 +115,9 @@
     "location": [
         [
             {
-                "param": "post_type",
+                "param": "options_page",
                 "operator": "==",
-                "value": "product"
+                "value": "acf-options-shop-archive"
             }
         ]
     ],
@@ -113,5 +130,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1680864191
+    "modified": 1680871471
 }

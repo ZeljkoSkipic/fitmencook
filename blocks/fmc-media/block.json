@@ -1,0 +1,15 @@
+{
+    "name": "acf/fmc-media",
+    "title": "FMC Media",
+    "description": "Media Block used on Media page",
+    "category": "formatting",
+    "icon": "images-alt",
+    "keywords": ["media", "fmc"],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "fmc-media.php"
+    },
+	"supports": {
+		"align": false
+	}
+}

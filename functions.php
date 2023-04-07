@@ -224,11 +224,11 @@ function register_acf_blocks() {
 	register_block_type( __DIR__ . '/blocks/philosophy' );
 	register_block_type( __DIR__ . '/blocks/app-cta' );
 	register_block_type( __DIR__ . '/blocks/blurbs' );
-
     register_block_type( __DIR__ . '/blocks/order' );
 	register_block_type( __DIR__ . '/blocks/button' );
 	register_block_type( __DIR__ . '/blocks/section' );
 	register_block_type( __DIR__ . '/blocks/logo-slide' );
+	register_block_type( __DIR__ . '/blocks/fmc-media' );
 }
 
 /**

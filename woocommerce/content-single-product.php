@@ -75,10 +75,10 @@ if ( post_password_required() ) {
 			<?php
 
 			// Check rows existexists.
-			if( have_rows('why_choose_fmc') ):
+			if( have_rows('info_boxes') ):
 
 				// Loop through rows.
-				while( have_rows('why_choose_fmc') ) : the_row();
+				while( have_rows('info_boxes') ) : the_row();
 
 					// Load sub field value.
 					$icon = get_sub_field('icon');
