@@ -9,7 +9,7 @@
 
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '1.0.3' );
+	define( '_S_VERSION', '1.1.1' );
 }
 
 /**
@@ -229,6 +229,7 @@ function register_acf_blocks() {
 	register_block_type( __DIR__ . '/blocks/section' );
 	register_block_type( __DIR__ . '/blocks/logo-slide' );
 	register_block_type( __DIR__ . '/blocks/fmc-media' );
+	register_block_type( __DIR__ . '/blocks/cta-banner' );
 }
 
 /**

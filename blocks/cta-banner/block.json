@@ -1,0 +1,15 @@
+{
+    "name": "acf/cta-banner",
+    "title": "FMC CTA Banner",
+    "description": "A custom simple Text Button.",
+    "category": "formatting",
+    "icon": "editor-kitchensink",
+    "keywords": ["cta", "banner", "fmc"],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "cta-banner.php"
+    },
+	"supports": {
+		"align": false
+	}
+}

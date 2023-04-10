@@ -476,3 +476,22 @@
 	}
 
   }
+
+/* Get Fit */
+.fmc_ctab_content {
+	padding: 8rem var(--spacing-3);
+	max-width: 1220px;
+	object-fit: cover;
+	object-position: center;
+	text-align: center;
+	.img_bg {
+		z-index: -1;
+		img {
+			border-radius: 16px;
+		}
+	}
+	.fmc_btn {
+		margin-top: var(--spacing-2);
+		display: inline-flex;
+	}
+}

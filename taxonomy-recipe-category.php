@@ -86,7 +86,7 @@ get_header(); ?>
 			$terms = get_terms(
 				array(
 					'taxonomy'   => 'recipe-category',
-					'hide_empty' => false,
+					'hide_empty' => true,
 					'show_count' => true
 
 				)

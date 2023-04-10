@@ -140,6 +140,12 @@ if( function_exists('acf_add_options_page') ) {
     ));
 
 	acf_add_options_sub_page(array(
+        'page_title'    => 'External Scripts - Tracking Codes',
+        'menu_title'    => 'External Scripts',
+        'parent_slug'   => 'theme-general-settings',
+    ));
+
+	acf_add_options_sub_page(array(
         'page_title'    => 'Meal Plans Archive',
         'menu_title'    => 'MP Archive',
         'parent_slug'   => 'edit.php?post_type=meal-plans',

@@ -29,12 +29,14 @@
 	<meta name="smartbanner:button-url-google" content="https://play.google.com/store/apps/details?id=com.nibbleapps.fitmencook">
 	<meta name="smartbanner:enabled-platforms" content="android,ios">
 	<meta name="p:domain_verify" content="630d33d666a4140aa5b91ccdf37cb378"/>
+	<?php the_field('body_top_script', 'option'); ?> <!-- Head External Code -->
 	<?php wp_head(); ?>
 	<meta name="theme-color" content="#EAECF0" />
 </head>
 
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
+<?php the_field('head_script', 'option'); ?> <!-- Body Top External Code -->
 <div id="main-content" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'fmc' ); ?></a>
 	<div class="fmc_mobile_header">

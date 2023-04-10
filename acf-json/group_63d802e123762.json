@@ -80,6 +80,31 @@
             "delay": 0
         },
         {
+            "key": "field_6433c609dd940",
+            "label": "Image",
+            "name": "app_image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Recommended image size 610px x 407px",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": 611,
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "medium"
+        },
+        {
             "key": "field_63ee59c219515",
             "label": "Global Badges",
             "name": "",
@@ -197,5 +222,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1676565297
+    "modified": 1681114886
 }
