@@ -489,50 +489,6 @@
             "esc_html": 0
         },
         {
-            "key": "field_59306eeb36f6e",
-            "label": "Protein",
-            "name": "protein",
-            "aria-label": "",
-            "type": "number",
-            "instructions": "",
-            "required": 1,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "14.25",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "min": "",
-            "max": "",
-            "placeholder": "",
-            "step": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_59306f0736f70",
-            "label": "Carbs",
-            "name": "carbs",
-            "aria-label": "",
-            "type": "number",
-            "instructions": "",
-            "required": 1,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "14.25",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "min": "",
-            "max": "",
-            "placeholder": "",
-            "step": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
             "key": "field_59306e9e36f6d",
             "label": "Calories",
             "name": "calories",
@@ -555,9 +511,53 @@
             "append": ""
         },
         {
+            "key": "field_59306eeb36f6e",
+            "label": "Protein",
+            "name": "protein",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "14.25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "min": "",
+            "max": "",
+            "placeholder": "",
+            "step": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_59306ef636f6f",
             "label": "Fat",
             "name": "fat",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "14.25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "min": "",
+            "max": "",
+            "placeholder": "",
+            "step": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_59306f0736f70",
+            "label": "Carbs",
+            "name": "carbs",
             "aria-label": "",
             "type": "number",
             "instructions": "",
@@ -672,5 +672,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1680171954
+    "modified": 1681388621
 }

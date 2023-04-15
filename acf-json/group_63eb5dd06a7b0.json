@@ -685,6 +685,18 @@
                 "operator": "==",
                 "value": "multiple-recipes"
             }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "recipes"
+            },
+            {
+                "param": "post_template",
+                "operator": "==",
+                "value": "single-recipes-multiple.php"
+            }
         ]
     ],
     "menu_order": 0,
@@ -696,5 +708,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1680173171
+    "modified": 1681552989
 }

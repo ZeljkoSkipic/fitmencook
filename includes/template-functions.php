@@ -217,7 +217,7 @@ function get_avarage_rating ($post_ID, $style, $return_just_rating = false) {
 // Meal Plan Customize Global Query
 
 function meal_plans_global_query( $query ) {
-	if ( ! is_admin() && $query->is_main_query() && is_post_type_archive( 'meal-plans' ) || is_post_type_archive( 'multiple-recipes' ) ) {
+	if ( ! is_admin() && $query->is_main_query() && is_post_type_archive( 'meal-plans' ) || ! is_admin() && is_post_type_archive( 'multiple-recipes' ) ) {
 	  $query->set( 'posts_per_page', 4 );
 	  return;
 	}
