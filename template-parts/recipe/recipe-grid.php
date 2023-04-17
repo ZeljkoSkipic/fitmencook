@@ -1,12 +1,23 @@
 <?php
 
 $avg_rating = get_avarage_rating (get_the_ID(), "" , true);
-$categories = get_the_terms( $post->ID, 'recipe-category' ); ?>
+$categories = get_the_terms( $post->ID, 'recipe-category' );
+
+$carbs = get_field('carbs');
+$cals = get_field('calories');
+$fat = get_field('fat');
+$protein = get_field('protein');
+
+?>
 
 <div class="fmc_recipe">
 	<figure class="fmc_grid_figure">
 		<a href="<?php the_permalink(); ?>">
-			<?php the_post_thumbnail('medium'); ?>
+		<?php if( has_post_thumbnail() ) {
+			the_post_thumbnail();
+		} else { ?>
+			<img src="<?php echo get_template_directory_uri(); ?>/assets/images/placeholder.jpg" alt="Placeholder Image" loading="lazy">
+		<?php } ?>
 		</a>
 	</figure>
 	<div class="fmc_recipe_content">
@@ -42,22 +53,30 @@ $categories = get_the_terms( $post->ID, 'recipe-category' ); ?>
 			</a>
 		</h3>
 		<div class="fmc_recipe_grid_macros">
+			<?php if($cals) : ?>
 			<div class="rg_macro calories">
 				<span class="rg_m_title">Cal</span>
-				<span class="rg_m_amount"><?php the_field('calories'); ?></span>
+				<span class="rg_m_amount"><?php echo $cals; ?></span>
 			</div>
+			<?php endif; ?>
+			<?php if($carbs) : ?>
 			<div class="rg_macro carbs">
 				<span class="rg_m_title"><?php the_field('l_carbs', 'option'); ?></span>
-				<span class="rg_m_amount"><?php the_field('carbs'); ?>g</span>
+				<span class="rg_m_amount"><?php echo $carbs; ?>g</span>
 			</div>
+			<?php endif; ?>
+			<?php if($fat) : ?>
 			<div class="rg_macro fat">
 				<span class="rg_m_title"><?php the_field('l_fat', 'option'); ?></span>
-				<span class="rg_m_amount"><?php the_field('fat'); ?>g</span>
+				<span class="rg_m_amount"><?php echo $fat; ?>g</span>
 			</div>
+			<?php endif; ?>
+			<?php if($protein) : ?>
 			<div class="rg_macro protein">
 				<span class="rg_m_title"><?php the_field('l_protein', 'option'); ?></span>
-				<span class="rg_m_amount"><?php the_field('protein'); ?>g</span>
+				<span class="rg_m_amount"><?php echo $protein; ?>g</span>
 			</div>
+			<?php endif; ?>
 		</div>
 	</div>
 </div>

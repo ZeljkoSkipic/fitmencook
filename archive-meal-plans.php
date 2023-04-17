@@ -42,7 +42,7 @@ $arch_intro = get_field('mp_arch_intro', 'option');
                     if(count($recipe_images) < 3) {
 
                         for($i = count($recipe_images); $i < 3; $i = count($recipe_images)) {
-                            array_push($recipe_images, '<img src="'.get_template_directory_uri() . '/assets/images/meal-placeholder.jpg'.'" alt="Placeholder Image" loading="lazy">');
+                            array_push($recipe_images, '<img src="'.get_template_directory_uri() . '/assets/images/placeholder.jpg'.'" alt="Placeholder Image" loading="lazy">');
                         }
                     }
 

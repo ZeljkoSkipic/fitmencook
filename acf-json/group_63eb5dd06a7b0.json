@@ -683,13 +683,6 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "multiple-recipes"
-            }
-        ],
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
                 "value": "recipes"
             },
             {
@@ -708,5 +701,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1681552989
+    "modified": 1681769145
 }

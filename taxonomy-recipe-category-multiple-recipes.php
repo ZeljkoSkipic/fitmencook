@@ -1,16 +1,13 @@
 <?php
 
 get_header();
-$arch_title = get_field('mr_arch_title', 'option');
-$arch_intro = get_field('mr_arch_intro', 'option');
 ?>
 <div class="fmc_mp_archive_wrap fmc_container spacing_2">
     <div class="fmc_mp_archive_top">
         <?php if (function_exists('yoast_breadcrumb')) {
             yoast_breadcrumb('<div class="fmc_breadcrumbs spacing_0_2">', '</div>');
         } ?>
-        <h1 class="fmc_title_1 title_spacing_3"><?php echo $arch_title; ?></h1>
-        <div class="fmc_arch_intro"><?php echo $arch_intro; ?></div>
+        <h1 class="fmc_title_1 title_spacing_3"><?php single_term_title(); ?></h1>
         <div class="fmc_mp_grid fmc_archive_main">
             <div class="fmc_archive_inner">
 
@@ -102,67 +99,6 @@ $arch_intro = get_field('mr_arch_intro', 'option');
             </div>
             <div class="spacing_3_1">
                 <?php fmc_pagination(); ?>
-            </div>
-        </div>
-    </div>
-
-    <div class="fmc_mp_archive_main">
-        <div class="fmc_mp_archive_anchors">
-            <?php
-            // Check rows existexists.
-            if (have_rows('mr_arch_content', 'option')) :
-
-                // Loop through rows.
-                while (have_rows('mr_arch_content', 'option')) : the_row();
-
-
-                    // Load sub field value.
-                    $mr_sec_anchor = get_sub_field('anchor_label');
-                    // Do something...
-                    if ($mr_sec_anchor) : ?>
-                        <a href="#<?php echo str_replace(' ', '', $mr_sec_anchor); ?>">
-                            <?php echo $mr_sec_anchor; ?>
-                        </a>
-            <?php endif;
-
-                // End loop.
-                endwhile;
-
-            endif; ?>
-        </div>
-        <div class="fmc_mp_arch_main_inner spacing_2">
-            <div class="fmc_mp_archive_left">
-                <?php
-
-                // Check rows existexists.
-                if (have_rows('mr_arch_content', 'option')) :
-
-                    // Loop through rows.
-                    while (have_rows('mr_arch_content', 'option')) : the_row();
-
-
-                        // Load sub field value.
-                        $mr_sec_anchor = get_sub_field('anchor_label');
-                        $mr_arch_sec_title = get_sub_field('mr_arch_sec_title');
-                        $mr_arch_sec = get_sub_field('mr_arch_sec');
-
-                        // Do something...
-                ?>
-                        <div class="fmc_mp_arch_sec" id="<?php echo str_replace(' ', '', $mr_sec_anchor); ?>">
-                            <?php if ($mr_arch_sec_title) : ?>
-                                <h2 class="fmc_title_3 spacing_0_3"><?php echo $mr_arch_sec_title; ?></h2>
-                            <?php endif; ?>
-                            <div><?php echo $mr_arch_sec; ?></div>
-                        </div>
-                <?php // End loop.
-                    endwhile;
-
-                endif; ?>
-            </div>
-            <div class="fmc_archive_sidebar">
-
-                <?php dynamic_sidebar('ad5'); ?>
-
             </div>
         </div>
     </div>

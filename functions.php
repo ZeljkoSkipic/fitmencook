@@ -122,10 +122,10 @@ function fmc_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	};
-	if(is_singular('recipes') || is_singular('product') || is_singular('meal-plans') || is_singular('multiple-recipes') || is_post_type_archive('recipes')) {
+	if(is_singular('recipes') || is_singular('product') || is_singular('meal-plans') || is_post_type_archive('recipes')) {
 		wp_enqueue_script( 'rateit-script', get_template_directory_uri() . '/js/vendor/rateit.min.js', array('jquery'), _S_VERSION, true );
 	}
-	if(is_singular('recipes') || is_singular('multiple-recipes') || is_singular('meal-plans') || is_singular('product')) {
+	if(is_singular('recipes') || is_singular('meal-plans') || is_singular('product')) {
         wp_enqueue_script( 'validate', get_template_directory_uri() . '/js/vendor/jquery.validate.min.js', array('jquery'), _S_VERSION, true );
     }
 }

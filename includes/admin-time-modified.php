@@ -51,7 +51,6 @@ add_filter('manage_edit-recipes_sortable_columns', 'sortable_mycpt_posts_columns
 add_filter('manage_edit-product_sortable_columns', 'sortable_mycpt_posts_columns');
 add_filter('manage_edit-post_sortable_columns', 'sortable_mycpt_posts_columns');
 add_filter('manage_edit-meal-plans_sortable_columns', 'sortable_mycpt_posts_columns');
-add_filter('manage_edit-multiple-recipes_sortable_columns', 'sortable_mycpt_posts_columns');
 function sortable_mycpt_posts_columns($columns)
 {
     $columns['last_modified'] = 'Last modified';
