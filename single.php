@@ -59,7 +59,7 @@ get_header();
 				?>
 			<div class="fmc_author">
 				<figure class="fmc_author_img">
-				<?php echo get_avatar( get_the_author_meta( 'ID' ), 9 ); ?>
+				<?php echo get_avatar( get_the_author_meta( 'ID', 9 ) ); ?>
 				</figure>
 				<div class="fmc_author_inner">
 					<h3 class="fmc_author_prefix"><?php the_field('author_prefix', 'option'); ?></h3>
