@@ -210,6 +210,7 @@
 			justify-content: space-between;
 			img {
 				border-radius: 8px;
+				width: 100%;
 			}
 			@include mob-only {
 				flex-direction: column;
@@ -240,6 +241,9 @@
 					}
 				}
 			}
+		}
+		a {
+			text-decoration: none;
 		}
 		.fmc_plan_title {
 			margin-top: 20px;

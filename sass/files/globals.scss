@@ -19,6 +19,7 @@ html {
 body {
 	max-width: 2560px;
     margin: auto;
+	background-color: #fff;
 }
 * {
 	color: var(--text-1);
@@ -61,6 +62,12 @@ p {
 	}
 }
 
+a {
+	text-decoration: underline;
+}
+img {
+	height: auto;
+}
 .img_bg {
 	position: absolute;
 	width: 100%;
@@ -254,6 +261,7 @@ blockquote {
 	font-size: 15px;
 	transition: var(--site-transition);
 	font-weight: 700;
+	text-decoration: none;
 	&:hover {
 		background-color: var(--color-2);
 		color: #fff;

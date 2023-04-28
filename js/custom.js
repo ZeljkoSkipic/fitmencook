@@ -10,7 +10,8 @@ jQuery(document).ready(function ($) {
   // 1st carousel, main
   $('.carousel-main').flickity({
     prevNextButtons: false,
-    pageDots: false
+    pageDots: false,
+    adaptiveHeight: true
   });
   // 2nd carousel, navigation
   $('.carousel-nav').flickity({
@@ -154,6 +155,15 @@ jQuery(document).ready(function ($) {
     body.on('click', minus, decreseQty);
     body.on('click', plus, increseQty);
   })(jQuery);
+
+  // Delete rating for reply
+
+  var reply = $('.reply');
+  reply.on('click', function () {
+    $(this).parent().next().find('#recipe-rate').remove();
+    $(this).parent().next().find('.recipe-rate-label').remove();
+    $(this).parent().next().find('.rateit').remove();
+  });
 });
 var observer = new IntersectionObserver(function (_ref) {
   var _ref2 = _slicedToArray(_ref, 1),

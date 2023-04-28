@@ -33,7 +33,6 @@ return ob_get_clean();
 add_filter('comment_form_field_comment', 'render_stars', 99, 1);
 function render_stars($comment_field)
 {
-
     if (!is_singular('recipes') && !is_product() && !is_singular('meal-plans') ) {
         return $comment_field;
     }
@@ -44,8 +43,11 @@ function render_stars($comment_field)
 
 add_action( 'comment_post', 'save_rating_value', 10, 3 );
 function save_rating_value( $comment_id, $approved, $commentdata ) {
-    $recipe_rating = isset( $_POST['rateRecipe'] ) ? wp_strip_all_tags($_POST['rateRecipe']) : '';
-    update_comment_meta( $comment_id, 'rating', $recipe_rating );
+
+    if($commentdata['comment_parent'] == 0) {
+        $recipe_rating = isset( $_POST['rateRecipe'] ) ? wp_strip_all_tags($_POST['rateRecipe']) : '';
+        update_comment_meta( $comment_id, 'rating', $recipe_rating );
+    }
 
 }
 
@@ -60,12 +62,18 @@ function add_rating_to_review_text( $text ) {
 
 	$rating = get_comment_meta( get_comment_ID(), 'rating', true );
     $date = get_comment_date('M d Y');
+    $comment = get_comment(get_comment_ID());
 
 	$rating_html = '<div class="comment-items">
         <div class="rateit" data-rateit-starwidth="19" data-rateit-starheight="16" data-rateit-value="'.$rating.'" data-rateit-ispreset="true" data-rateit-readonly="true"></div>
         <p class="comment-date"> '.$date.' </p></div>';
 
+    if($comment->comment_parent != 0) {
+        $rating_html = "";
+    }
+
 	$updated_text = $rating_html. $text;
+
 
 	return $updated_text;
 }

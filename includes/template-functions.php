@@ -182,29 +182,30 @@ function fmc_theme_setup() {
 
 // Get average rating
 
-function get_avarage_rating ($post_ID, $style, $return_just_rating = false) {
-    $comments = get_comments( array( 'post_id' => $post_ID, 'status' => 'approve' ) );
-    $comments_total = count($comments);
-    $rating = 0;
-    $avg_rating = 0;
+function get_avarage_rating($post_ID, $style, $return_just_rating = false)
+{
+  $comments = get_comments(array('post_id' => $post_ID, 'status' => 'approve', 'parent' => 0));
+  $comments_total = count($comments);
+  $rating = 0;
+  $avg_rating = 0;
 
-    if($comments_total > 0) {
-        foreach($comments as $comment) {
+  if ($comments_total > 0) {
+    foreach ($comments as $comment) {
 
-            $comment_rating = (float) get_comment_meta($comment->comment_ID, 'rating', true);
-            $rating += $comment_rating;
-        }
+      if($comment->comment_parent != 0) continue;
 
-        $avg_rating = number_format($rating / $comments_total, 1);
+      $comment_rating = (float) get_comment_meta($comment->comment_ID, 'rating', true);
+      $rating += $comment_rating;
     }
 
-    if($return_just_rating === true) {
-        return $avg_rating;
+    $avg_rating = number_format($rating / $comments_total, 1);
+  }
 
-    }
+  if ($return_just_rating === true) {
+    return $avg_rating;
+  }
 
-    get_template_part('template-parts/avg-rating', "" , ['comments_number' => $comments_total, 'rating' => $avg_rating, 'style' => $style ]);
-
+  get_template_part('template-parts/avg-rating', "", ['comments_number' => $comments_total, 'rating' => $avg_rating, 'style' => $style]);
 }
 
 

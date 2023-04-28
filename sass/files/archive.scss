@@ -67,6 +67,9 @@
 		height: 100%;
 		flex-direction: column;
 	}
+	a {
+		text-decoration: none;
+	}
 	.fmc_featured_prefix {
 		text-transform: uppercase;
 		color: var(--misc-color);

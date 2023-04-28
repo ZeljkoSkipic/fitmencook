@@ -4,7 +4,8 @@ jQuery(document).ready(function ($) {
     $('.carousel-main').flickity(
         {
             prevNextButtons: false,
-            pageDots: false
+            pageDots: false,
+			adaptiveHeight: true
         }
     );
     // 2nd carousel, navigation
@@ -169,6 +170,16 @@ jQuery(document).ready(function ($) {
 	body.on('click', plus, increseQty);
 
 	}(jQuery));
+
+	// Delete rating for reply
+
+    const reply = $('.reply');
+
+    reply.on('click', function() {
+        $(this).parent().next().find('#recipe-rate').remove();
+        $(this).parent().next().find('.recipe-rate-label').remove();
+        $(this).parent().next().find('.rateit').remove();
+    });
 
 });
 

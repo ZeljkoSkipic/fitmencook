@@ -5,6 +5,9 @@
 	.menu-item-has-children {
 		cursor: pointer;
 	}
+	a {
+		text-decoration: none;
+	}
 }
 .fmc_sitehead, .fmc_mobile_header {
 	img {
@@ -77,6 +80,7 @@ body:not(.home) {
 					align-items: center;
 					padding: 1rem 2.5rem;
 					font-weight: 700;
+					color: var(--text-1);
 				}
 			}
 			.sub-menu {

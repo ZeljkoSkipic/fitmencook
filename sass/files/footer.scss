@@ -184,6 +184,7 @@ footer.fmc_footer {
 				a {
 					color: var(--link-color);
 					font-weight: 700;
+					text-decoration: none;
 				}
 				&:not(:last-child) {
 					margin-bottom: 15px;

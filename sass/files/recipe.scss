@@ -123,6 +123,7 @@ body.archive {
 			line-height: 1.36;
 			margin-bottom: 16px;
 			display: flex;
+			text-decoration: none;
 			span {
 				color: var(--misc-color);
 				font-weight: 700;
@@ -232,9 +233,10 @@ body.archive {
 		width: 100%;
 		margin-right: 0;
 	}
-	figure {
+	figure.fmc_grid_figure {
 		img {
 			width: 100%;
+			aspect-ratio: 282 / 162;
 			object-fit: cover;
 			border-radius: 16px 16px 0 0;
 		}
@@ -278,6 +280,9 @@ body.archive {
 		margin-right: 16px;
 	}
 }
+.fmc_recipe_hero {
+	border-radius: 16px;
+}
 .fmc_single_recipe {
 	flex-wrap: wrap;
 	justify-content: space-between;
@@ -292,7 +297,6 @@ body.archive {
 		margin-right: var(--spacing-3);
 	}
 	.attachment-post-thumbnail {
-		max-height: 49rem;
 		border-radius: 16px;
 	}
 	@include desk-min {
@@ -579,14 +583,15 @@ body.archive {
 }
 
 .carousel-main {
+	.flickity-viewport {
+		transition: height 0.2s;
+	}
 	.carousel-cell {
 		width: 100%;
 		img, picture {
 			border-radius: 16px;
 		}
-		@include limbo-min {
-			height: 49rem;
-		}
+
 		img {
 			width: 100%;
 			height: 100%;
@@ -598,6 +603,7 @@ body.archive {
 		}
 	}
 }
+
 .carousel-nav {
 	.carousel-cell {
 		width: 10rem;

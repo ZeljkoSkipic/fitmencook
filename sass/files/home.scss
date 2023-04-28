@@ -552,16 +552,6 @@
 
 .fmc_category_track {
 	width: 100%;
-	/* .carousel-home:after {
-		content: 'flickity';
-		display: none;
-	}
-
-	@include limbo-min {
-		.carousel-home:after {
-		content: '';
-		}
-	} */
 	.fmc_ct_inner {
 		justify-content: space-between;
 		margin-left: auto;
@@ -569,7 +559,6 @@
 		flex-wrap: wrap;
 		display: flex;
 	}
-
 	figure {
 		position: relative;
 		text-align: center;
@@ -605,6 +594,7 @@
 			}
 		}
 		a {
+			text-decoration: none;
 			@include desk-min {
 				padding: 3rem 4.3rem;
 			}
