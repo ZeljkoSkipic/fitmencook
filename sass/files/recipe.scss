@@ -612,6 +612,7 @@ body.archive {
 		@include mob-only {
 			width: 30px;
 			height: 30px;
+			bottom: - 8.8rem;
 		}
 		.flickity-button-icon {
 			fill: var(--text-1);

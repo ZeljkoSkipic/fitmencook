@@ -62,8 +62,19 @@ $size = 'full'
 					</div>
 				</div>
 				<div class="fmc_featured_prep">
-					<span class="fmc_time"><?php the_field('l_prep_time', 'option'); ?>:</span>
-					<span class="fmc_amount"><?php if(get_field('prep_hours')) { the_field('prep_hours');?>h <?php } ?> <?php the_field('prep_time'); ?><?php the_field('minutes', 'option'); ?></span></div>
+					<div class="fmc_f_time_container">
+						<span class="fmc_time"><?php the_field('l_prep_time', 'option'); ?>:</span>
+						<span class="fmc_amount"><?php if(get_field('prep_hours')) { the_field('prep_hours');?>h <?php } ?> <?php the_field('prep_time'); ?><?php the_field('minutes', 'option'); ?></span>
+					</div>
+					<div class="fmc_f_time_container">
+						<span class="fmc_time"><?php the_field('l_cook_time', 'option'); ?>:</span>
+						<span class="fmc_amount"><?php if(get_field('cook_hours')) { the_field('cook_hours');?>h <?php } ?> <?php the_field('cook_time'); ?><?php the_field('minutes', 'option'); ?></span>
+					</div>
+					<div class="fmc_f_time_container">
+						<span class="fmc_time"><?php the_field('l_total_time', 'option'); ?>:</span>
+						<span class="fmc_amount"><?php if(get_field('total_hours')) { the_field('total_hours');?>h <?php } ?> <?php the_field('total_time'); ?><?php the_field('minutes', 'option'); ?></span>
+					</div>
+				</div>
 			</div>
 		</div>
 		<?php endforeach; ?>

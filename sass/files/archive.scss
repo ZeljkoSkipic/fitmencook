@@ -108,11 +108,15 @@
 		background-position: center left;
 		padding-left: 32px;
 		background-size: 20px;
+		display: flex;
 		span {
 			font-weight: 700;
 		}
 		.fmc_time {
 			color: var(--misc-color);
+		}
+		.fmc_f_time_container {
+			margin-right: 12px;
 		}
 	}
 }
