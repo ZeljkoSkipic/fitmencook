@@ -101,8 +101,21 @@ p {
 	line-height: 1.375;
 }
 
-ul li {
-	font-size: var(--body-size);
+ul, ol {
+	margin-top: 2.4rem;
+	margin-bottom: 2.4rem;
+	li {
+		font-size: var(--body-size);
+	}
+	ul, ol {
+		margin-top: 8px
+	}
+}
+
+ol {
+	li {
+		margin-bottom: 1em;
+	}
 }
 
 blockquote {
