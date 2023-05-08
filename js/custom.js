@@ -9,7 +9,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 jQuery(document).ready(function ($) {
   // 1st carousel, main
   $('.carousel-main').flickity({
-    prevNextButtons: false,
+    prevNextButtons: true,
     pageDots: false,
     adaptiveHeight: true
   });
@@ -17,7 +17,8 @@ jQuery(document).ready(function ($) {
   $('.carousel-nav').flickity({
     asNavFor: '.carousel-main',
     contain: true,
-    pageDots: false
+    pageDots: false,
+    prevNextButtons: false
   });
 
   // Mobile navigation toggle

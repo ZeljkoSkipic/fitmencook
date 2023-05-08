@@ -28,12 +28,14 @@ get_header();
 						<?php get_template_part('template-parts/last-updated'); ?>
 					</div>
 				</div>
-				<h1 class="fmc_title_1 title_spacing_2">
-					<?php the_title(); ?>
-				</h1>
-				<figure>
-					<?php the_post_thumbnail( 'fmc-post-featured' ); ?>
-			</figure>
+				<div class="fmc_post_featured">
+					<h1 class="fmc_title_1 title_spacing_2">
+						<?php the_title(); ?>
+					</h1>
+					<figure>
+						<?php the_post_thumbnail( 'fmc-post-featured' ); ?>
+					</figure>
+				</div>
 			</div>
 		</div>
 		<div class="fmc_container fmc_post_main spacing_3_1">

@@ -15,7 +15,9 @@ get_header();
 				<?php echo do_shortcode('[wpdreams_ajaxsearchpro id=1]'); ?>
 			</div>
 		</div>
-		<div class="spacing_1"></div>
+		<div class="fmc_container">
+		<?php get_template_part('template-parts/category-track'); ?>
+		</div>
 		<?php get_template_part('template-parts/app'); ?>
 	</main><!-- #main -->
 

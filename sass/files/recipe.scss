@@ -583,6 +583,7 @@ body.archive {
 }
 
 .carousel-main {
+	z-index: 2;
 	.flickity-viewport {
 		transition: height 0.2s;
 	}
@@ -601,20 +602,6 @@ body.archive {
 		iframe {
 			width: 100%;
 			height: 100%;
-		}
-	}
-}
-
-.carousel-nav {
-	.carousel-cell {
-		width: 10rem;
-		height: 12rem;
-		padding: 2rem 1rem;
-		img {
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
-			border-radius: 16px;
 		}
 	}
 	.flickity-button {
@@ -637,6 +624,23 @@ body.archive {
 		}
 		&.next {
 			right: 0;
+		}
+	}
+}
+
+.carousel-nav {
+	z-index: 1;
+	width: 90%;
+	margin-inline: auto;
+	.carousel-cell {
+		width: 10rem;
+		height: 12rem;
+		padding: 2rem 1rem;
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			border-radius: 16px;
 		}
 	}
 }

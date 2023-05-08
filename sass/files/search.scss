@@ -2,7 +2,13 @@
 	box-shadow: 0px 20px 40px rgba(52, 64, 84, 0.08)!important;
 	border: 1px solid #F2F4F7!important;
 }
-
+.page-template-search-page {
+	.fmc_category_track {
+		h2 {
+			text-align: center;
+		}
+	}
+}
 .fmc_search_hero {
 	background-color: #F3F4F6;
 	.search_title {
