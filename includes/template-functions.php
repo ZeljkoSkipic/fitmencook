@@ -222,7 +222,7 @@ function meal_plans_global_query( $query ) {
 
 // Meal Plan calculations
 
-function meal_plan_calculations()
+function meal_plan_calculations($featured = false)
 {
 	$l_prep_time = get_field('l_prep_time', 'option');
 	$l_cook_time = get_field('l_cook_time', 'option');
@@ -254,6 +254,7 @@ function meal_plan_calculations()
 
 	$existing_recipes = get_field('existing_recipe', get_the_ID());
 	$custom_recipes = get_field('custom_recipe', get_the_ID());
+
 
 	if ($existing_recipes) {
 
@@ -291,7 +292,6 @@ function meal_plan_calculations()
 	}
 
 
-
 	if ($custom_recipes) {
 		foreach ($custom_recipes as $custom_recipe) {
 			$cr_total_time = (float) $custom_recipe['cr_total_time'];
@@ -327,14 +327,17 @@ function meal_plan_calculations()
 
 
 	// Macros
-	$totals[$l_calories] = $total_calories ? $total_calories . __('cal', 'fitmencook') : 0;
-	$totals[$l_protein] = $total_proteins ? $total_proteins . __('g', 'fitmencook') : 0;
-	$totals[$l_fat] = $total_fat ?  $total_fat . __('g', 'fitmencook') : 0;
+	!$featured ? $cal_label = "cal" :  $cal_label =  "";
+	$totals[$l_calories] = $total_calories ? $total_calories . __($cal_label, 'fitmencook') : 0;
 	$totals[$l_carbs] = $total_carbs ? $total_carbs . __('g', 'fitmencook') : 0;
-	$totals[$l_sodium] = $total_sodium ?  $total_sodium . __('mg', 'fitmencook') : 0;
-	$totals[$l_fiber] = $total_fiber ? $total_fiber . __('g', 'fitmencook') : 0;
-	$totals[$l_sugar] = $total_sugar ? $total_sugar . __('g', 'fitmencook') : 0;
+	$totals[$l_fat] = $total_fat ?  $total_fat . __('g', 'fitmencook') : 0;
+	$totals[$l_protein] = $total_proteins ? $total_proteins . __('g', 'fitmencook') : 0;
 
+	if(!$featured) {
+		$totals[$l_sodium] = $total_sodium ?  $total_sodium . __('mg', 'fitmencook') : 0;
+		$totals[$l_fiber] = $total_fiber ? $total_fiber . __('g', 'fitmencook') : 0;
+		$totals[$l_sugar] = $total_sugar ? $total_sugar . __('g', 'fitmencook') : 0;
+	}
 
 	// Time
 

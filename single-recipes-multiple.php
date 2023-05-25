@@ -406,11 +406,11 @@ $calculations = meal_plan_calculations();
 
             <!-- Macros -->
             <?php
-            if ($calculations['totals']) : ?>
+            if ($calculations['totals']) : $count_calculations = 1; ?>
                 <div class="fmc_macros">
                     <?php foreach ($calculations['totals'] as $label => $total) : if($total === 0) continue; ?>
-                        <div class="fmc_macro"> <?php echo __('Total', 'fitmenCook') . ' ' . $label . ':' ?> <span class="fmc_total_number"> <?php echo $total; ?></span></div>
-                    <?php endforeach; ?>
+                        <div class="fmc_macro<?php if($count_calculations === 1) echo ' calories'; ?>"> <?php echo __('Total', 'fitmenCook') . ' ' . $label . ':' ?> <span class="fmc_total_number"> <?php echo $total; ?></span></div>
+                    <?php $count_calculations++; endforeach; ?>
                 </div>
             <?php endif;
             ?>
