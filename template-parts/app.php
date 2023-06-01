@@ -14,5 +14,13 @@
 			<div class="fmc_fa_content"><?php the_field('app_content', 'option'); ?></div>
 			<?php get_template_part('template-parts/app-badges'); ?>
 		</div>
+		<div class="fmc_app_leaf">
+			<?php
+			$corner_image = get_field('corner_image', 'option');
+			$size = 'full';
+			if( $corner_image ) {
+				echo wp_get_attachment_image( $corner_image, $size, "", array( "class" => "corner_image" ) );
+			} ?>
+		</div>
     </div>
 </div>

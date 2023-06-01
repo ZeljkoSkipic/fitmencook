@@ -12,16 +12,30 @@
 	.fmc_post_hero_top {
 		display: flex;
 		justify-content: space-between;
-		@include mob-only {
+		@include tab-max {
 			flex-direction: column;
 		}
 		.fmc_post_hero_right {
 			flex-shrink: 0;
-			@include tab-min {
+			display: flex;
+			align-items: flex-start;
+			margin-bottom: var(--spacing-3);
+			.fmc_top_author {
+				margin-top: 0;
+			}
+			@include limbo-min {
 				margin-left: var(--spacing-3);
+			}
+			@include mob-only {
+				flex-direction: column;
+				.last_updated {
+					order: 2;
+				}
 			}
 		}
 		.last_updated {
+			margin-bottom: 0;
+			margin-top: 4px;
 			@include tab-min {
 				flex-direction: column;
 			}

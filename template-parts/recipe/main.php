@@ -11,8 +11,8 @@ $l_serving_size = get_field('l_serving_size', 'option');
 
 if( $ingredients ) { ?>
 
-<div class="fmc_recipe_ingredients spacing_2_3" id="fmc_gtr">
-	<h4 class="fmc_title_3 title_spacing_2"><?php the_field('ingredients_title'); ?></h4>
+<div class="fmc_recipe_ingredients spacing_0_3" id="fmc_gtr">
+	<h4 class="fmc_title_3 title_spacing_3"><?php the_field('ingredients_title'); ?></h4>
 	<?php if($servings_number) { ?>
 	<div class="fmc_ing_servings"><?php echo $servings_number ?> <?php echo $nosi; ?></div>
 	<?php } ?>
@@ -30,7 +30,7 @@ dynamic_sidebar( 'ad3' ); ?>
 // Check rows existexists.
 if( have_rows('steps') ): ?>
 <div class="fmc_recipe_steps">
-	<h4 class="fmc_title_3 title_spacing_2"><?php the_field('steps_title'); ?></h4>
+	<h4 class="fmc_title_3 title_spacing_3"><?php the_field('steps_title'); ?></h4>
 	<div class="fmc_steps">
 	<?php $item = 1;
 	// Loop through rows.

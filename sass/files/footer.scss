@@ -1,5 +1,5 @@
 .fmc_app {
-	.fmc_container::after {
+	.fmc_app_leaf {
 		z-index: 9;
 		content: "";
 		background-image: url(assets/images/app-leaf.webp);
@@ -33,7 +33,7 @@
 			object-position: bottom right;
 		}
 	}
-	.fmc_container::after {
+	.fmc_app_leaf {
 		@include limbo-only {
 		z-index: 9;
 		content: "";

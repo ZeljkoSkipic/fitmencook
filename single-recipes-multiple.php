@@ -139,7 +139,11 @@ $calculations = meal_plan_calculations();
                                     <?php endif; ?>
                                 </div>
                                 <?php the_post_thumbnail(); ?>
-                                <h4 class="fmc_mpr_subtitle"><?php the_field('ingredients_title'); ?></h4>
+								<?php
+								$ingredients_title = get_field('ingredients_title');
+								if($ingredients_title) : ?>
+                                <h4 class="fmc_mpr_subtitle"><?php echo $ingredients_title ?></h4>
+								<?php endif; ?>
 								<?php if($servings_number) { ?>
 								<div class="fmc_ing_servings"><?php echo $servings_number ?> <?php echo $nosi; ?></div>
 								<?php } ?>

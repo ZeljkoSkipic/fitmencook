@@ -8,6 +8,7 @@
  */
 
 get_header();
+$author_id = $post->post_author;
 ?>
 
 	<main id="primary" class="site-main spacing_0_1">
@@ -26,16 +27,21 @@ get_header();
 					</div>
 					<div class="fmc_post_hero_right">
 						<?php get_template_part('template-parts/last-updated'); ?>
+						<div class="fmc_top_author">
+							<?php echo get_avatar( $author_id ); ?>
+							<h5 class="fmc_autor_top_name">
+								<span>Author:</span>
+								<?php echo wpautop( get_the_author_meta( 'display_name', $author_id ) ); ?>
+							</h5>
+						</div>
 					</div>
 				</div>
-				<div class="fmc_post_featured">
-					<h1 class="fmc_title_1 title_spacing_2">
-						<?php the_title(); ?>
-					</h1>
-					<figure>
-						<?php the_post_thumbnail( 'fmc-post-featured' ); ?>
-					</figure>
-				</div>
+				<h1 class="fmc_title_1 title_spacing_2">
+					<?php the_title(); ?>
+				</h1>
+				<figure>
+					<?php the_post_thumbnail( 'fmc-post-featured' ); ?>
+				</figure>
 			</div>
 		</div>
 		<div class="fmc_container fmc_post_main spacing_3_1">
@@ -90,26 +96,27 @@ get_header();
 
 	<?php get_template_part('template-parts/newsletter'); ?>
 
-	<div class="fmc_latest_blog fmc_related_blogs spacing_2_1">
-		<div class="fmc_container">
-			<span class="fmc_title_prefix"><?php the_field('rb_prefix', 'option') ?></span>
-			<h3 class="fmc_title_2 title_spacing_1"><?php the_field('rb_title', 'option') ?></h3>
-			<div class="fmc_latest_blog_inner">
-			<?php
+	<?php
 
-				$args = array(
-					'category__in'   => wp_get_post_categories( $post->ID ),
-					'posts_per_page'   => 3,
-					'post__not_in'   => array( $post->ID ),
-					'post_type'     => 'post',
-					'meta_query'    => array(
-						'relation'      => 'AND'
-					)
-				);
+		$args = array(
+			'category__in'   => wp_get_post_categories( $post->ID ),
+			'posts_per_page'   => 3,
+			'post__not_in'   => array( $post->ID ),
+			'post_type'     => 'post',
+			'meta_query'    => array(
+				'relation'      => 'AND'
+			)
+		);
 
-				// query
-				$the_query = new WP_Query( $args ); ?>
-				<?php if( $the_query->have_posts() ): ?>
+		// query
+		$the_query = new WP_Query( $args ); ?>
+		<?php if( $the_query->have_posts() ): ?>
+
+		<div class="fmc_latest_blog fmc_related_blogs spacing_2_1">
+			<div class="fmc_container">
+				<span class="fmc_title_prefix"><?php the_field('rb_prefix', 'option') ?></span>
+				<h3 class="fmc_title_2 title_spacing_1"><?php the_field('rb_title', 'option') ?></h3>
+				<div class="fmc_latest_blog_inner">
 					<?php while ( $the_query->have_posts() ) : $the_query->the_post();
 					$categories = get_the_category();
 					?>
@@ -134,13 +141,14 @@ get_header();
 							</div>
 						</div>
 					<?php endwhile; ?>
-				<?php endif; ?>
-
-				<?php wp_reset_query();   // Restore global post data stomped by the_post(). ?>
-
+				</div>
 			</div>
 		</div>
-	</div>
+		<?php endif; ?>
+
+		<?php wp_reset_query();   // Restore global post data stomped by the_post(). ?>
+
+
 	</main><!-- #main -->
 
 <script type="text/javascript">

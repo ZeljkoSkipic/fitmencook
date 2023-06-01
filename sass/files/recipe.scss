@@ -665,9 +665,10 @@ body.archive {
 }
 
 /* Recipe Main */
+
 .single-recipes {
-	.fmc_ing_servings, .fmc_ing_servings_size {
-		margin-top: -1.6rem;
+	.fmc_recipe_ingredients {
+		margin-top: var(--spacing-2);
 	}
 }
 .fmc_ing_servings, .fmc_ing_servings_size {
@@ -676,7 +677,7 @@ body.archive {
 	border-radius: 8px;
 	font-size: 18px;
 	font-weight: 700;
-	margin-bottom: var(--spacing-2);
+	margin-bottom: var(--spacing-3);
 	display: inline-flex;
 	flex-wrap: wrap;
 	@include mob-only {
@@ -685,11 +686,11 @@ body.archive {
 }
 .fmc_ing_servings {
 	margin-right: 16px;
-	background-color: var(--color-3);
+	background-color: #44803f;
 	color: #fff;
 }
 .fmc_ing_servings_size {
-	background-color: var(--color-4);
+	background-color: #b4cf66;
 	column-gap: 8px;
 }
 .fmc_ingredients {
