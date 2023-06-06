@@ -54,6 +54,34 @@ $author_id = $post->post_author;
 			</h1>
 			<?php get_template_part('template-parts/last-updated'); ?>
 
+			<!-- Recipe Sponsor Image -->
+
+			<?php
+			if ($categories) : ?>
+				<div class="fmc_sponsor_images">
+					<?php
+					foreach ($categories as $cat) : ?>
+						<?php $sponsor_image = get_field('recipe_sponsor_image', $cat);
+						if ($sponsor_image) :
+							$cat_image_link = get_field('category_image_link', $cat);
+							if( $cat_image_link ):
+								$cat_image_link_url = $cat_image_link['url'];
+								$cat_image_link_target = $cat_image_link['target'] ? $cat_image_link['target'] : '_self'; ?>
+							<div class="fmc_sponsor_image">
+							<a href="<?php echo esc_url( $cat_image_link_url ); ?>" target="<?php echo esc_attr( $cat_image_link_target ); ?>">
+							<?php endif; ?>
+							<?php echo wp_get_attachment_image($sponsor_image, 'full'); ?>
+						<?php if( $cat_image_link ): ?>
+						</a>
+						</div>
+						<?php endif; ?>
+					<?php endif; ?>
+
+					<?php endforeach; ?>
+
+				</div>
+			<?php endif; ?>
+
 			<!-- WP Content -->
 			<?php
 			$content = apply_filters( 'the_content', get_the_content() );
@@ -174,14 +202,6 @@ $author_id = $post->post_author;
 			<div class="fmc_ss"><?php echo $l_serving_size; ?>:<span><?php echo $serving_size ?></span></div>
 			<?php } ?>
 			<?php get_template_part('template-parts/recipe/macros'); ?>
-
-			<!--<h4 class="fmc_rs_title fmc_mp_title">Meal plan</h4>
-			 <div class="fmc_included_in_plan">
-				<span>Included in</span>
-				<div class="fmc_sidebar_mp">
-					Eat in a day - mediterran...
-				</div>
-			</div> -->
 
 			<!-- Share -->
 			<div class="fmc_share fmc_recipe_share spacing_3_0">

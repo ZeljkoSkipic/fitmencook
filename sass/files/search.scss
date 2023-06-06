@@ -3,11 +3,48 @@
 	border: 1px solid #F2F4F7!important;
 }
 .page-template-search-page {
-	.fmc_category_track {
-		h2 {
+	h2 {
+		text-align: center;
+	}
+}
+.fmc_search_cats {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	figure {
+		width: 9%;
+		transition: var(--site-transition);
+		border-radius: 16px;
+		margin: .5%;
+		text-align: center;
+		@include limbo-only {
+			width: calc(100% / 8 - 1%);
+		}
+		@include tab-only {
+			width: calc(100% / 6 - 1%);
+		}
+		@include mob-only {
+			margin: .5% 1%;
+			width: calc(100% / 3 - 2%);
+		}
+		a {
+			text-decoration: none;
+			padding: 8px var(--spacing-3);
+			display: block;
+		}
+
+		figcaption {
 			text-align: center;
+			margin-top: 1rem;
+			font-size: 16px;
+			font-weight: 700;
+			color: var(--link-color);
+		}
+		&:hover {
+			box-shadow: 0px 20px 40px rgba(52, 64, 84, 0.08);
 		}
 	}
+
 }
 .fmc_search_hero {
 	background-color: #F3F4F6;

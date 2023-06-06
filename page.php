@@ -12,7 +12,12 @@
  * @package fitmencook
  */
 
+
+if (is_page('app')) {
+get_header('app');
+} else {
 get_header();
+}
 ?>
 
 	<main id="primary" class="site-main">

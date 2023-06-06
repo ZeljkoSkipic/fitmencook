@@ -56,6 +56,31 @@
 
 /* Category */
 
+.fmc_cat_title_wrap {
+	display: flex;
+	align-items: center;
+	img {
+		height: 45px;
+		width: auto;
+		margin-right: 16px;
+		@include mob-only {
+			height: 35px;
+			margin-right: 8px;
+		}
+	}
+}
+.fmc_category_description {
+	margin-bottom: var(--spacing-3);
+	font-size: var(--body-size-2);
+	margin-top: -8px;
+}
+.category_sponsor_image {
+	margin-bottom: var(--spacing-2);
+	border-radius: 16px;
+	img {
+		border-radius: 16px;
+	}
+}
 body.archive {
 	.fmc_recipe {
 		margin-bottom: var(--spacing-3);
@@ -278,6 +303,14 @@ body.archive {
 		height: 48px;
 		border-radius: 48px;
 		margin-right: 16px;
+	}
+}
+.fmc_sponsor_image {
+	img {
+		border-radius: 16px;
+	}
+	&:not(:last-child) {
+		margin-bottom: var(--spacing-3);
 	}
 }
 .fmc_recipe_hero {

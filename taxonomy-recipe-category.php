@@ -1,12 +1,44 @@
 <?php
 
-get_header(); ?>
+get_header();
+
+$cat = get_queried_object();
+$category_icon = get_field('category_icon', $cat);
+$category_sponsor_image = get_field('category_sponsor_image', $cat);
+$size = 'full';
+
+$cat_image_link = get_field('category_image_link', $cat);
+if( $cat_image_link ):
+    $cat_image_link_url = $cat_image_link['url'];
+    $cat_image_link_target = $cat_image_link['target'] ? $cat_image_link['target'] : '_self';
+ endif;
+
+?>
+
 <div class="fmc_archive_wrap fmc_container spacing_2">
 	<div class="fmc_recipe_grid fmc_archive_main">
 		<?php if ( function_exists('yoast_breadcrumb') ) {
 			yoast_breadcrumb( '<div class="fmc_breadcrumbs spacing_0_2">','</div>' );
 		} ?>
-		<h1 class="fmc_title_2 title_spacing_3"><?php single_cat_title(); ?></h1>
+		<div class="fmc_cat_title_wrap title_spacing_3">
+			<?php if( $category_icon ) {
+				echo wp_get_attachment_image( $category_icon, $size, "", array( "class" => "category_icon" ) );
+			} ?>
+			<h1 class="fmc_title_2"><?php single_cat_title(); ?></h1>
+		</div>
+		<div class="fmc_category_description">
+			<?php echo $cat->description; ?>
+		</div>
+		<?php if( $cat_image_link ): ?>
+		<a href="<?php echo esc_url( $cat_image_link_url ); ?>" target="<?php echo esc_attr( $cat_image_link_target ); ?>">
+		<?php endif; ?>
+		<?php
+		if( $category_sponsor_image ) {
+			echo wp_get_attachment_image( $category_sponsor_image, $size, "", array( "class" => "category_sponsor_image" ) );
+		} ?>
+		<?php if( $cat_image_link ): ?>
+		</a>
+		<?php endif; ?>
 		<div class="fmc_archive_inner fmc_rg_inner">
 
 		<?php while ( have_posts() ) : the_post();

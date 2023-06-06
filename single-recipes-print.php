@@ -1,6 +1,8 @@
+<head>
 <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>"
 type="text/css" media="screen, print" />
-
+<meta name="robots" content="noindex">
+</head>
 
 <?php
 $prep_hours = get_field('prep_hours');
