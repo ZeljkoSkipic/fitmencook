@@ -106,6 +106,10 @@ ul, ol {
 	margin-bottom: 2.4rem;
 	li {
 		font-size: var(--body-size);
+		line-height: 1.375;
+		@include tab-max {
+			font-size: 16px;
+		}
 	}
 	ul, ol {
 		margin-top: 8px

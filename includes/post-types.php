@@ -43,6 +43,40 @@ function register_taxonomy_recipe_category() {
 }
 add_action( 'init', 'register_taxonomy_recipe_category' );
 
+
+// Recipe Tools
+register_taxonomy('tools', array(
+	0 => 'recipes',
+), array(
+	'labels' => array(
+		'name' => 'Tools',
+		'singular_name' => 'Tool',
+		'menu_name' => 'Tools',
+		'all_items' => 'All Tools',
+		'edit_item' => 'Edit Tool',
+		'view_item' => 'View Tool',
+		'update_item' => 'Update Tool',
+		'add_new_item' => 'Add New Tool',
+		'new_item_name' => 'New Tool Name',
+		'parent_item' => 'Parent Tool',
+		'parent_item_colon' => 'Parent Tool:',
+		'search_items' => 'Search Tools',
+		'not_found' => 'No tools found',
+		'no_terms' => 'No tools',
+		'filter_by_item' => 'Filter by tool',
+		'items_list_navigation' => 'Tools list navigation',
+		'items_list' => 'Tools list',
+		'back_to_items' => '← Go to tools',
+		'item_link' => 'Tool Link',
+		'item_link_description' => 'A link to a tool',
+	),
+	'public' => true,
+	'hierarchical' => true,
+	'show_in_menu' => true,
+	'show_in_rest' => true,
+) );
+
+
 // Recipes custom post type function
 function create_posttype() {
 

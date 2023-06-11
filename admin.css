@@ -132,3 +132,7 @@ clear: none!important;
     color: green;
     font-weight: 700;
 }
+
+#taxonomy-tools #tools-adder {
+	display: none;
+}
