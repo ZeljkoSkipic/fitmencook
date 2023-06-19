@@ -183,7 +183,8 @@ $size = 'full'
 				array(
 					'taxonomy'   => 'recipe-category',
 					'hide_empty' => true,
-					'show_count' => true
+					'show_count' => true,
+					'exclude'    => '59'
 
 				)
 			);

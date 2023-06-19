@@ -322,3 +322,17 @@ blockquote {
 figure.fmc_grid_figure {
 	margin-bottom: var(--spacing-3);
 }
+
+figure {
+	&.alignleft {
+		float: left;
+		margin-right: 16px;
+	}
+	&.alignright {
+		float: right;
+		margin-left: 16px;
+	}
+	&.aligncenter {
+		margin-inline: auto;
+	}
+}
