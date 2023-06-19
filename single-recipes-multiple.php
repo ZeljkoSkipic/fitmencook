@@ -323,6 +323,9 @@ $calculations = meal_plan_calculations();
                         <!-- Macros -->
                         <div class="fmc_macros">
                             <h4 class="fmc_rs_title fmc_macros_title"><?php echo $macros_title; ?></h4>
+							<?php if ($cr_calories) { ?>
+                                <div class="fmc_macro"><?php echo $l_calories ?><span><?php echo $cr_calories ?>cal</span></div>
+                            <?php } ?>
                             <?php if ($cr_protein) { ?>
                                 <div class="fmc_macro"><?php echo $l_protein ?><span><?php echo $cr_protein ?>g</span></div>
                             <?php } ?>
