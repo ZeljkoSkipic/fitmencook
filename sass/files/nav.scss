@@ -8,6 +8,9 @@
 	a {
 		text-decoration: none;
 	}
+	.prosettings {
+		display: none;
+	}
 }
 .fmc_sitehead, .fmc_mobile_header {
 	img {
@@ -112,9 +115,38 @@ body:not(.home) {
 			> * {
 				margin-left: 30px;
 			}
-
+			.search_icon {
+				margin-left: 20px;
+				top: 2px;
+				transition: var(--site-transition);
+				background-position: center top 2px;
+				background-repeat: no-repeat;
+				cursor: pointer;
+				svg {
+					transition: var(--site-transition);
+				}
+				&.fmc_search_open {
+					background-image: url(assets/icons/close.svg);
+					background-size: 16px;
+					svg {
+						opacity: 0;
+					}
+				}
+			}
+			.fmc_search_container {
+				z-index: 9;
+				display: flex;
+				align-items: center;
+				position: absolute;
+				right: 130px;
+				.asp_w_container  {
+					width: 400px;
+					display: none;
+				}
+			}
 			.fmc_btn {
 				padding: 10px 12px;
+				flex-shrink: 0;
 			}
 		}
 	}

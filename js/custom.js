@@ -26,6 +26,10 @@ jQuery(document).ready(function ($) {
     $(".fmc_toggle_content").slideToggle();
     $(this).toggleClass('fmc_toggle_open');
   });
+  $(".search_icon").click(function () {
+    $(".fmc_search_container .asp_w_container").slideToggle();
+    $(this).toggleClass('fmc_search_open');
+  });
 
   // Mobile navigation toggle
 
