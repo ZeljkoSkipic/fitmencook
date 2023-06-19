@@ -6,7 +6,7 @@
 				// latest recipes query
 				// args
 				$args = array(
-					'posts_per_page'   => 4,
+					'posts_per_page'   => 3,
 					'post_type'     => 'post',
 					'meta_query'    => array(
 						'relation'      => 'AND'
