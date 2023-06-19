@@ -22,13 +22,48 @@ get_header();
 			</div>
 		</div>
 
+		<div class="fmc_container spacing_1">
+		<h2 class="fmc_title_2 title_spacing_2_0 fmc_toggle_trigger"><?php the_field('category-track-title', 'option'); ?><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#344054" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></h2>
+		<div class="fmc_toggle_content">
+		<div class="fmc_search_cats">
+			<?php // Get the taxonomy's terms
+			$terms = get_terms(
+				array(
+					'taxonomy'   => 'recipe-category',
+					'hide_empty' => true,
+					'exclude' => '59'
+				)
+			);
+
+			// Check if any term exists
+			if ( ! empty( $terms ) && is_array( $terms ) ) :
+				// Run a loop and print them all
+
+				foreach ( $terms as $term ) : ?>
+				<figure>
+				<?php
+				$cat_icon = get_field('category_icon', $term);
+				$size = 'full'; ?>
+				<a href="<?php echo esc_url( get_term_link( $term ) ) ?>">
+					<?php if( $cat_icon ) {
+						echo wp_get_attachment_image( $cat_icon, $size, "", array( "class" => "cat_icon" ) );
+					} ?>
+					<figcaption><?php echo $term->name; ?></figcaption>
+				</a>
+				</figure>
+				<?php endforeach; ?>
+			<?php endif; ?>
+		</div>
+		</div>
+		</div>
+
 
 		<?php if ( have_posts() ) : ?>
 
 			<header class="page-header">
 
 			</header><!-- .page-header -->
-			<div class="fmc_recipe_grid spacing_1">
+			<div class="fmc_recipe_grid spacing_0_1">
 			<div class="fmc_container">
 			<div class="fmc_rg_inner">
 			<?php

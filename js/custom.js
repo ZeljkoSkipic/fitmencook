@@ -21,6 +21,12 @@ jQuery(document).ready(function ($) {
     prevNextButtons: false
   });
 
+  // Search Toggle
+  $(".fmc_toggle_trigger").click(function () {
+    $(".fmc_toggle_content").slideToggle();
+    $(this).toggleClass('fmc_toggle_open');
+  });
+
   // Mobile navigation toggle
 
   $(".fmc_mm_trigger").click(function () {

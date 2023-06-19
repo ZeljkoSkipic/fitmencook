@@ -257,6 +257,34 @@
 	}
 }
 
+.fmc_toggle_content {
+	display: none;
+}
+.fmc_toggle_trigger {
+	transition: var(--site-transition);
+	display: flex;
+	align-items: center;
+	svg {
+		position: relative;
+		margin-left: var(--spacing-3);
+		transition: var(--site-transition);
+		flex-shrink: 0;
+		@include limbo-min {
+			top: 5px;
+		}
+		@include tab-max {
+			width: 20px;
+			top: 3px;
+		}
+	}
+	cursor: pointer;
+	&.fmc_toggle_open {
+		padding-bottom: var(--spacing-2);
+		svg {
+			transform: rotate(-180deg);
+		}
+	}
+}
 
 .fmc_no_results {
 	text-align: center;
