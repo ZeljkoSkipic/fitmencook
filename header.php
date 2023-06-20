@@ -58,6 +58,41 @@
 		<div></div>
 		</div>
 	</div>
+	<div class="fmc_full_screen_search">
+		<div class="fmc_full_screen_close">CLOSE</div>
+		<div class="fmc_fss_inner">
+			<?php echo do_shortcode('[wpdreams_ajaxsearchpro id=1]'); ?>
+			<div class="fmc_search_cats">
+			<?php // Get the taxonomy's terms
+			$terms = get_terms(
+				array(
+					'taxonomy'   => 'recipe-category',
+					'hide_empty' => true,
+					'exclude' => '59'
+				)
+			);
+
+			// Check if any term exists
+			if ( ! empty( $terms ) && is_array( $terms ) ) :
+				// Run a loop and print them all
+
+				foreach ( $terms as $term ) : ?>
+				<figure>
+				<?php
+				$cat_icon = get_field('category_icon', $term);
+				$size = 'full'; ?>
+				<a href="<?php echo esc_url( get_term_link( $term ) ) ?>">
+					<?php if( $cat_icon ) {
+						echo wp_get_attachment_image( $cat_icon, $size, "", array( "class" => "cat_icon" ) );
+					} ?>
+					<figcaption><?php echo $term->name; ?></figcaption>
+				</a>
+				</figure>
+				<?php endforeach; ?>
+			<?php endif; ?>
+		</div>
+		</div>
+	</div>
 	<div class="fmc_sitehead">
 	<header class="fmc_header">
 		<figure class="fmc_mobile_logo">
@@ -71,10 +106,17 @@
 				)
 			);
 		?>
+
 		<div class="fmc_header_right">
 			<div class="fmc_search_container">
+
 				<?php echo do_shortcode('[wpdreams_ajaxsearchpro id=1]'); ?>
 				<div class="search_icon">
+					<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M16.5 16.5L11.5 11.5M13.1667 7.33333C13.1667 10.555 10.555 13.1667 7.33333 13.1667C4.11167 13.1667 1.5 10.555 1.5 7.33333C1.5 4.11167 4.11167 1.5 7.33333 1.5C10.555 1.5 13.1667 4.11167 13.1667 7.33333Z" stroke="#344054" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+					</svg>
+				</div>
+				<div class="search_icon2">
 					<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path d="M16.5 16.5L11.5 11.5M13.1667 7.33333C13.1667 10.555 10.555 13.1667 7.33333 13.1667C4.11167 13.1667 1.5 10.555 1.5 7.33333C1.5 4.11167 4.11167 1.5 7.33333 1.5C10.555 1.5 13.1667 4.11167 13.1667 7.33333Z" stroke="#344054" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 					</svg>

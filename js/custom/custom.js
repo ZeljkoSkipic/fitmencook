@@ -22,9 +22,15 @@ jQuery(document).ready(function ($) {
         $(this).toggleClass('fmc_toggle_open')
     });
 
+	// Nav Search Toggle
 	$(".search_icon").click(function () {
         $(".fmc_search_container .asp_w_container").slideToggle();
 		$(this).toggleClass('fmc_search_open')
+    });
+
+	// Full Nav Search Toggle
+	$(".search_icon2, .fmc_full_screen_close").click(function () {
+        $(".fmc_full_screen_search").fadeToggle();
     });
 
     // Mobile navigation toggle

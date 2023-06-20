@@ -1,3 +1,5 @@
+<?php get_header(); ?>
+
 <head>
 <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>"
 type="text/css" media="screen, print" />
@@ -9,15 +11,14 @@ $prep_hours = get_field('prep_hours');
 $prep_time = get_field('prep_time');
 $cook_hours = get_field('cook_hours');
 $cook_time = get_field('cook_time');
-$total_hours = get_field('total_hours');
 $total_time = get_field('total_time');
+$total_hours = get_field('total_hours');
 
 $l_prep_time = get_field('l_prep_time', 'option');
 $l_cook_time = get_field('l_cook_time', 'option');
 $l_total_time = get_field('l_total_time', 'option');
 
-$minute = get_field('minute_single', 'option');
-$minutes = get_field('minute_plural', 'option');
+$minutes = get_field('minutes', 'option');
 
 $calories = get_field('calories');
 $protein = get_field('protein');
@@ -35,8 +36,6 @@ $l_sodium = get_field('l_sodium', 'option');
 $l_fiber = get_field('l_fiber', 'option');
 $l_sugar = get_field('l_sugar', 'option');
 
-$categories = get_the_terms( $post->ID, 'recipe-category' );
-
 
 ?>
 
@@ -48,13 +47,10 @@ $categories = get_the_terms( $post->ID, 'recipe-category' );
 	<div class="fmc_pt_inner">
 		<div class="fmc_pt_hero">
 			<div class="fmc_pt_hero_left">
-				<?php the_post_thumbnail(); ?>
+				<?php the_custom_logo(); ?>
 			</div>
 			<div class="fmc_pt_hero_right">
 				<h1><?php the_title(); ?></h1>
-				<strong>Categories</strong>: <?php if ( ! empty( $categories ) ) {
-					echo strip_tags(get_the_term_list( $post->ID, 'recipe-category', '<div class="fmc_grid_cat">', ', ', '</div>') );
-				} ?>
 				<div class="fmc_recipe_times">
 			<?php if($prep_time) { ?>
 				<div class="fmc_prep"><strong><?php echo $l_prep_time ?>: </strong>
@@ -121,3 +117,5 @@ $categories = get_the_terms( $post->ID, 'recipe-category' );
 	</div>
 
 </div>
+
+<?php get_footer(); ?>

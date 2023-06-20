@@ -983,10 +983,10 @@ body.archive {
 			display: flex;
 			margin-bottom: 20px;
 			.fmc_pt_hero_left {
-				width: 30%;
+				width: 15%;
 				margin-right: 20px;
 				img {
-					width: 100%;
+					width: 80px;
 					height: auto;
 				}
 			}
@@ -998,9 +998,6 @@ body.archive {
 				}
 				.fmc_recipe_times {
 					margin-top: 10px;
-					> div {
-
-					}
 					strong {
 						display: inline-block;
 						width: 100px;
