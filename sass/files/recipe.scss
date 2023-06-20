@@ -182,11 +182,15 @@ body.archive {
 	justify-content: space-between;
 	padding-top: 20px;
 	margin-top: auto;
+
 	.rg_macro {
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
 		align-items: flex-start;
+		&.sodium, &.sugar, &.fiber {
+			display: none;
+		}
 		&.calories {
 			align-items: flex-start;
 			.rg_m_title {

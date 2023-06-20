@@ -199,6 +199,15 @@ jQuery(document).ready(function ($) {
         $(this).parent().next().find('.rateit').remove();
     });
 
+
+	// Replace Multiple Recipe text
+	$(".fmc_recipe_grid_macros .rg_m_amount").text(function () {
+		return $(this).text().replace("cal", "");
+	});
+	$(".rg_macro.calories .rg_m_title").text(function () {
+		return $(this).text().replace("Calories", "Cal");
+	});
+
 });
 
 
