@@ -741,9 +741,11 @@ body.archive {
 	}
 
 	ul {
-
 		li {
-			margin-bottom: 16px;
+			margin-bottom: 12px;
+		}
+		ul {
+			margin-bottom: 0;
 		}
 	}
 	img {

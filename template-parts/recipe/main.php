@@ -6,25 +6,60 @@ $nosi = get_field('number_of_servings_ing', 'option');
 $servings_number = get_field('number_of_servings');
 
 $serving_size = get_field('serving_size');
-$l_serving_size = get_field('l_serving_size', 'option');
+$l_serving_size = get_field('l_serving_size', 'option'); ?>
 
-
-if( $ingredients ) { ?>
+<?php if( $ingredients || have_rows('ingredients_instacart')) : ?>
 
 <div class="fmc_recipe_ingredients spacing_0_3" id="fmc_gtr">
 	<h4 class="fmc_title_3 title_spacing_3"><?php the_field('ingredients_title'); ?></h4>
+
 	<?php if($servings_number) { ?>
 	<div class="fmc_ing_servings"><?php echo $servings_number ?> <?php echo $nosi; ?></div>
 	<?php } ?>
 	<?php if($serving_size) { ?>
 	<div class="fmc_ing_servings_size"><?php echo $l_serving_size; ?>:<span><?php echo $serving_size ?></span></div>
 	<?php } ?>
+
+
+	<?php // Instacart Ingredients
+
+	if( have_rows('ingredients_instacart') ) { ?>
 	<div class="fmc_ingredients">
-		<?php echo $ingredients; ?>
+		<ul>
+		<?php while( have_rows('ingredients_instacart') ) : the_row(); ?>
+
+			<?php
+			$ingredient = get_sub_field('ingredient'); ?>
+			<li><?php echo $ingredient; ?>
+		<?php endwhile; ?>
+		</ul>
 	</div>
+	<script>
+	(function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) { return; } js = d.createElement(s); js.id = id; js.src = "https://widgets.instacart.com/widget-bundle.js"; js.async = true; fjs.parentNode.insertBefore(js, fjs); })(document, "script", "standard-instacart-widget-v1");
+	</script>
+
+	<div id="shop-with-instacart-v1"></div>
+
+	<?php } else {
+
+ 	if( $ingredients ) { ?>
+
+	<div class="fmc_recipe_ingredients spacing_0_3" id="fmc_gtr">
+
+		<div class="fmc_ingredients">
+			<?php echo $ingredients; ?>
+		</div>
+	</div>
+	<?php }
+	} ?>
+
+
+
 </div>
-<?php }
-dynamic_sidebar( 'ad3' ); ?>
+
+<?php endif; ?>
+
+<?php dynamic_sidebar( 'ad3' ); ?>
 
 <?php
 // Check rows existexists.
