@@ -641,6 +641,51 @@
             "step": "",
             "prepend": "",
             "append": ""
+        },
+        {
+            "key": "field_6492c90db2fe7",
+            "label": "ing test",
+            "name": "ing_test",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Add Row",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_6492c917b2fe8",
+                    "label": "ing",
+                    "name": "ing",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_6492c90db2fe7"
+                }
+            ]
         }
     ],
     "location": [
@@ -672,5 +717,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1681388621
+    "modified": 1687341344
 }

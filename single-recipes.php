@@ -1,3 +1,7 @@
+<script>
+(function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) { return; } js = d.createElement(s); js.id = id; js.src = "https://widgets.instacart.com/widget-bundle.js"; js.async = true; fjs.parentNode.insertBefore(js, fjs); })(document, "script", "standard-instacart-widget-v1");
+</script>
+
 <?php get_header();
 
 $video = get_field('video');
@@ -22,6 +26,9 @@ $categories = get_the_terms( $post->ID, 'recipe-category' );
 $author_id = $post->post_author;
 
 ?>
+
+<div id="shop-with-instacart-v1">asdf</div>
+
 
 <div class="fmc_single_recipe fmc_container spacing_2">
 	<div class="fmc_sr_main">
@@ -226,7 +233,18 @@ $author_id = $post->post_author;
 	</div>
 
 </div>
+<?php
 
+if( have_rows('instacart_ingredients') ): ?>
+
+	<?php while( have_rows('instacart_ingredients') ) : the_row(); ?>
+
+		<?php
+		$ingredient = get_sub_field('ingredient');
+		echo $ingredient;
+	endwhile; ?>
+
+<?php endif; ?>
 <!-- Author -->
 <?php get_template_part('template-parts/author'); ?>
 
