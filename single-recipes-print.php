@@ -1,5 +1,3 @@
-<?php get_header(); ?>
-
 <head>
 <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>"
 type="text/css" media="screen, print" />
@@ -117,5 +115,3 @@ $l_sugar = get_field('l_sugar', 'option');
 	</div>
 
 </div>
-
-<?php get_footer(); ?>
