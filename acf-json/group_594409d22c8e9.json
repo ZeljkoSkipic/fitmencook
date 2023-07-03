@@ -103,6 +103,26 @@
             "esc_html": 0
         },
         {
+            "key": "field_64a29ecfafe34",
+            "label": "Standard or Instacart Ingredients",
+            "name": "ingredients_switch",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui_on_text": "Instacart",
+            "ui_off_text": "Standard",
+            "ui": 1
+        },
+        {
             "key": "field_6492c90db2fe7",
             "label": "Ingredients (To work with Instacart)",
             "name": "ingredients_instacart",
@@ -158,8 +178,9 @@
             "conditional_logic": [
                 [
                     {
-                        "field": "field_6492c90db2fe7",
-                        "operator": "==empty"
+                        "field": "field_64a29ecfafe34",
+                        "operator": "!=",
+                        "value": "1"
                     }
                 ]
             ],
@@ -724,5 +745,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1687775263
+    "modified": 1688379193
 }

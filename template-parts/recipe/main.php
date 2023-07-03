@@ -2,6 +2,8 @@
 
 $ingredients = get_field('ingredients');
 
+$categories = get_the_terms( $post->ID, 'recipe-category' );
+
 $nosi = get_field('number_of_servings_ing', 'option');
 $servings_number = get_field('number_of_servings');
 
@@ -23,7 +25,7 @@ $l_serving_size = get_field('l_serving_size', 'option'); ?>
 
 	<?php // Instacart Ingredients
 
-	if( have_rows('ingredients_instacart') ) { ?>
+	if( get_field('ingredients_switch') ) { ?>
 	<div class="fmc_ingredients">
 		<ul>
 		<?php while( have_rows('ingredients_instacart') ) : the_row(); ?>
@@ -58,6 +60,34 @@ $l_serving_size = get_field('l_serving_size', 'option'); ?>
 </div>
 
 <?php endif; ?>
+
+<!-- Recipe Sponsor Image -->
+
+<?php
+	if ($categories) : ?>
+		<div class="fmc_sponsor_images">
+			<?php
+			foreach ($categories as $cat) : ?>
+				<?php $sponsor_image = get_field('recipe_sponsor_image', $cat);
+				if ($sponsor_image) :
+					$cat_image_link = get_field('category_image_link', $cat);
+					if( $cat_image_link ):
+						$cat_image_link_url = $cat_image_link['url'];
+						$cat_image_link_target = $cat_image_link['target'] ? $cat_image_link['target'] : '_self'; ?>
+					<div class="fmc_sponsor_image">
+					<a href="<?php echo esc_url( $cat_image_link_url ); ?>" target="<?php echo esc_attr( $cat_image_link_target ); ?>">
+					<?php endif; ?>
+					<?php echo wp_get_attachment_image($sponsor_image, 'full'); ?>
+				<?php if( $cat_image_link ): ?>
+				</a>
+				</div>
+				<?php endif; ?>
+			<?php endif; ?>
+
+			<?php endforeach; ?>
+
+		</div>
+	<?php endif; ?>
 
 <?php dynamic_sidebar( 'ad3' ); ?>
 

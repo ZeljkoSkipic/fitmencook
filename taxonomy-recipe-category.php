@@ -26,9 +26,9 @@ if( $cat_image_link ):
 			} ?>
 			<h1 class="fmc_title_2"><?php single_cat_title(); ?></h1>
 		</div>
-		<div class="fmc_category_description">
-			<?php echo $cat->description; ?>
-		</div>
+
+		<?php the_archive_description('<div class="fmc_category_description">', '</div>' ); ?>
+
 		<?php if( $cat_image_link ): ?>
 		<a href="<?php echo esc_url( $cat_image_link_url ); ?>" target="<?php echo esc_attr( $cat_image_link_target ); ?>">
 		<?php endif; ?>
@@ -119,7 +119,8 @@ if( $cat_image_link ):
 				array(
 					'taxonomy'   => 'recipe-category',
 					'hide_empty' => true,
-					'show_count' => true
+					'show_count' => true,
+					'exclude'    => '59'
 
 				)
 			);
