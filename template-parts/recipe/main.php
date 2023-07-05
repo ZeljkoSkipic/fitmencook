@@ -27,14 +27,39 @@ $l_serving_size = get_field('l_serving_size', 'option'); ?>
 
 	if( get_field('ingredients_switch') ) { ?>
 	<div class="fmc_ingredients">
-		<ul>
-		<?php while( have_rows('ingredients_instacart') ) : the_row(); ?>
+		<?php
 
-			<?php
-			$ingredient = get_sub_field('ingredient'); ?>
-			<li><?php echo $ingredient; ?>
-		<?php endwhile; ?>
-		</ul>
+		if( have_rows('ing_group') ): ?>
+
+			<?php while( have_rows('ing_group') ) : the_row(); ?>
+			<?php $ing_title = get_sub_field('ing_g_title'); ?>
+			<strong><?php echo $ing_title; ?></strong>
+			<ul>
+			<?php while( have_rows('ingredients_instacart') ) : the_row(); ?>
+
+				<?php
+				$ingredient = get_sub_field('ingredient');
+				$note = get_sub_field('note');
+				$substitution = get_sub_field('substitution');
+				?>
+				<li><?php echo $ingredient; ?>
+				<?php if( $note || $substitution ) : ?>
+					<ul>
+						<?php if( $note ) { ?>
+						<li><?php echo $note; ?></li>
+						<?php } ?>
+						<?php if( $substitution ) { ?>
+						<li><?php echo $substitution; ?></li>
+						<?php } ?>
+					</ul>
+				<?php endif; ?>
+			</li>
+			<?php endwhile; ?>
+			</ul>
+
+			<?php endwhile; ?>
+
+		<?php endif; ?>
 	</div>
 	<script>
 	(function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) { return; } js = d.createElement(s); js.id = id; js.src = "https://widgets.instacart.com/widget-bundle.js"; js.async = true; fjs.parentNode.insertBefore(js, fjs); })(document, "script", "standard-instacart-widget-v1");

@@ -182,6 +182,26 @@
                     "parent_repeater": "field_642427d59878c"
                 }
             ]
+        },
+        {
+            "key": "field_64a528e80be38",
+            "label": "Conclusion",
+            "name": "conclusion",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "text",
+            "media_upload": 0,
+            "toolbar": "full",
+            "delay": 0
         }
     ],
     "location": [
@@ -202,5 +222,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1680092188
+    "modified": 1688545535
 }

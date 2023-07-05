@@ -128,7 +128,7 @@ $meal_counter = 1;
 							if( $recipe_image ) {
 								echo wp_get_attachment_image( $recipe_image, $size, "", array ('class' => 'attachment-post-thumbnail' ) );
 							} ?>
-						<div class="fmc_cr_description">
+						<div class="fmc_cr_description spacing_3_0">
 							<?php echo $recipe_description; ?>
 						</div>
 						<?php
@@ -142,7 +142,9 @@ $meal_counter = 1;
                 endwhile;
 
             endif; ?>
-
+			<div class="fmc_conclusion spacing_0_2">
+				<?php the_field('conclusion'); ?>
+			</div>
             <!-- Comments -->
             <div class="fmc_comments spacing_3_1">
                 <?php

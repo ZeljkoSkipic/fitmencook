@@ -46,7 +46,7 @@ class BE_Product_Ingredients extends Article {
 			'mainEntityOfPage' => $this->context->canonical . Schema_IDs::WEBPAGE_HASH,
 		);
 
-        $ingredients = get_field('ingredients_instacart', get_the_ID());
+        $ingredients = get_sub_field('ingredients_instacart', get_the_ID());
         $steps = get_field('steps', get_the_ID());
 
         if($ingredients) {
