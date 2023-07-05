@@ -33,7 +33,9 @@ $l_serving_size = get_field('l_serving_size', 'option'); ?>
 
 			<?php while( have_rows('ing_group') ) : the_row(); ?>
 			<?php $ing_title = get_sub_field('ing_g_title'); ?>
-			<strong><?php echo $ing_title; ?></strong>
+			<?php if( $ing_title ) { ?>
+				<strong><?php echo $ing_title; ?></strong>
+			<?php } ?>
 			<ul>
 			<?php while( have_rows('ingredients_instacart') ) : the_row(); ?>
 

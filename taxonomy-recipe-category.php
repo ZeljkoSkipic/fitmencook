@@ -29,16 +29,18 @@ if( $cat_image_link ):
 
 		<?php the_archive_description('<div class="fmc_category_description">', '</div>' ); ?>
 
-		<?php if( $cat_image_link ): ?>
-		<a href="<?php echo esc_url( $cat_image_link_url ); ?>" target="<?php echo esc_attr( $cat_image_link_target ); ?>">
-		<?php endif; ?>
-		<?php
-		if( $category_sponsor_image ) {
-			echo wp_get_attachment_image( $category_sponsor_image, $size, "", array( "class" => "category_sponsor_image" ) );
-		} ?>
-		<?php if( $cat_image_link ): ?>
-		</a>
-		<?php endif; ?>
+		<div class="cat_sponsor_img_wrap">
+			<?php if( $cat_image_link ): ?>
+			<a href="<?php echo esc_url( $cat_image_link_url ); ?>" target="<?php echo esc_attr( $cat_image_link_target ); ?>">
+			<?php endif; ?>
+			<?php
+			if( $category_sponsor_image ) {
+				echo wp_get_attachment_image( $category_sponsor_image, $size, "", array( "class" => "category_sponsor_image" ) );
+			} ?>
+			<?php if( $cat_image_link ): ?>
+			</a>
+			<?php endif; ?>
+		</div>
 		<div class="fmc_archive_inner fmc_rg_inner">
 
 		<?php while ( have_posts() ) : the_post();

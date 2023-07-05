@@ -138,7 +138,7 @@
             },
             "layout": "block",
             "pagination": 0,
-            "min": 1,
+            "min": 0,
             "max": 0,
             "collapsed": "",
             "button_label": "Add Group",
@@ -890,5 +890,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1688547714
+    "modified": 1688548557
 }
