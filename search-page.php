@@ -16,7 +16,7 @@ get_header();
 			</div>
 		</div>
 		<div class="fmc_container spacing_1">
-		<h2 class="fmc_title_2 title_spacing_2"><?php the_field('category-track-title', 'option'); ?></h2>
+		<h2 class="fmc_title_2 title_spacing_2 fmc_search_title"><?php the_field('category-track-title', 'option'); ?></h2>
 		<div class="fmc_search_cats">
 			<?php // Get the taxonomy's terms
 			$terms = get_terms(
