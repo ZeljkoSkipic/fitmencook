@@ -46,12 +46,24 @@ class BE_Product_Ingredients extends Article {
 			'mainEntityOfPage' => $this->context->canonical . Schema_IDs::WEBPAGE_HASH,
 		);
 
-        $ingredients = get_sub_field('ingredients_instacart', get_the_ID());
+        $ingredients_groups = get_field('ing_group', get_the_ID());
         $steps = get_field('steps', get_the_ID());
 
-        if($ingredients) {
-            foreach($ingredients as $ingredient) {
-                $data['recipeIngredient'][] = $ingredient['ingredient'];
+        if($ingredients_groups) {
+            foreach($ingredients_groups as $ingredients_group) {
+				if($ingredients_group['ingredients_instacart']) {
+					foreach($ingredients_group['ingredients_instacart'] as $ingredient) {
+						if( $ingredient['ingredient']) {
+							$data['recipeIngredient'][] = $ingredient['ingredient'];
+						}
+						
+						if($ingredient['substitution']) {
+							$data['recipeIngredient'][] = $ingredient['substitution'];
+						}
+						
+					}
+				}
+               
             }
         }
 
