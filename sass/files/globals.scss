@@ -324,7 +324,7 @@ figure.fmc_grid_figure {
 	margin-bottom: var(--spacing-3);
 }
 
-figure {
+figure, img {
 	&.alignleft {
 		float: left;
 		margin-right: 16px;
