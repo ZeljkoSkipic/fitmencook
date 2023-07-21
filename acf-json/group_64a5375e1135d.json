@@ -101,6 +101,26 @@
                 "id": ""
             },
             "return_format": "array"
+        },
+        {
+            "key": "field_64ba635dd3688",
+            "label": "Separator",
+            "name": "separator",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Add horizontal separator after the sponsor image.\r\nThis will add the spacing after the separator, as well.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
         }
     ],
     "location": [
@@ -121,5 +141,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1688549702
+    "modified": 1689937036
 }

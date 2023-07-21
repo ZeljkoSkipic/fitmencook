@@ -41,6 +41,12 @@ if( $cat_image_link ):
 			</a>
 			<?php endif; ?>
 		</div>
+		<?php $separator = get_field('separator', $cat);
+
+		if( $separator ) : ?>
+			<hr class="cat_sponsor_sep">
+		<?php endif; ?>
+
 		<div class="fmc_archive_inner fmc_rg_inner">
 
 		<?php while ( have_posts() ) : the_post();
