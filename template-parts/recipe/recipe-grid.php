@@ -53,14 +53,6 @@ $protein = get_field('protein');
 			</a>
 		</h3>
 		<div class="fmc_recipe_grid_macros">
-			<?php
-			$calculations = meal_plan_calculations();
-			if ($calculations['totals']) : $count_calculations = 1; ?>
-				<?php foreach ($calculations['totals'] as $label => $total) : if($total === 0) continue; ?>
-					<div class="rg_macro <?php echo strtolower($label);  ?>"><span class="rg_m_title"><?php echo $label ?></span> <span class="rg_m_amount"> <?php echo $total; ?></span></div>
-				<?php $count_calculations++; endforeach; ?>
-			<?php endif;
-			?>
 			<?php if($cals) : ?>
 			<div class="rg_macro calories">
 				<span class="rg_m_title">Cal</span>

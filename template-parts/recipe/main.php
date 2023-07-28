@@ -10,7 +10,7 @@ $servings_number = get_field('number_of_servings');
 $serving_size = get_field('serving_size');
 $l_serving_size = get_field('l_serving_size', 'option'); ?>
 
-<?php if( $ingredients || have_rows('ingredients_instacart')) : ?>
+<?php if( $ingredients || have_rows('ing_group') ) : ?>
 
 <div class="fmc_recipe_ingredients spacing_0_3" id="fmc_gtr">
 	<h4 class="fmc_title_3 title_spacing_3"><?php the_field('ingredients_title'); ?></h4>

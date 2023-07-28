@@ -32,6 +32,7 @@
 	<?php the_field('body_top_script', 'option'); ?> <!-- Head External Code -->
 	<?php wp_head(); ?>
 	<meta name="theme-color" content="#EAECF0" />
+
 </head>
 
 <body <?php body_class(); ?>>
