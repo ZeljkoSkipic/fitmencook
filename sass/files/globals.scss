@@ -336,16 +336,18 @@ figure.fmc_grid_figure {
 	margin-bottom: var(--spacing-3);
 }
 
-figure, img {
+picture, img {
 	&.alignleft {
 		float: left;
-		margin-right: 16px;
+    	margin: 0.5em 1em 0.5em 0;
+	}
+	&.aligncenter {
+		display: block;
+		margin-inline: auto;
+		text-align: center;
 	}
 	&.alignright {
 		float: right;
-		margin-left: 16px;
-	}
-	&.aligncenter {
-		margin-inline: auto;
+    	margin: 0.5em 0 0.5em 1em;
 	}
 }

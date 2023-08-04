@@ -56,6 +56,7 @@ $blog_posts_delimetar = get_field('after_which_post_number_to_show_add', 'option
 	// Reset the global post object so that the rest of the page works correctly.
 	wp_reset_postdata(); ?>
 	<?php endif; ?>
+	<div class="atm-ad-slot" data-slot-type="middleboard-ad"></div>
 	<h2 class="fmc_title_2 title_spacing_2"><?php the_field('blog_title', 'option'); ?></h2>
 	</div>
 

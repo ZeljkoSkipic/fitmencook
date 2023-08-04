@@ -297,12 +297,12 @@ body.archive {
 
 /* Single */
 
-.admin-bar .fmc_single_recipe .fmc_sr_sidebar {
+/* .admin-bar .fmc_single_recipe .fmc_sr_sidebar {
 	top: 32px;
 	@include limbo-only {
 		top: 92px;
 	}
-}
+} */
 .fmc_top_author {
 	display: flex;
 	align-items: center;
@@ -414,7 +414,7 @@ body.archive {
 	}
 	.fmc_sr_sidebar {
 		height: fit-content;
-		@include sidebar-stick;
+		/* @include sidebar-stick; */
 		@include desk-min {
 			width: 23%;
 		}

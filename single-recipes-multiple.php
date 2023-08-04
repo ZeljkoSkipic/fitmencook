@@ -49,7 +49,7 @@ $calculations = meal_plan_calculations();
 			<?php get_template_part('template-parts/last-updated'); ?>
 
             <!-- WP Content -->
-            <div class="spacing_0_2 fmc_recipe_the_content">
+            <div class="spacing_0_2 fmc_recipe_the_content fmc_ad_container">
                 <?php the_content(); ?>
             </div>
 
@@ -456,9 +456,7 @@ $calculations = meal_plan_calculations();
 		</div>
         </div>
 
-
-
-        <?php dynamic_sidebar('ad5'); ?>
+		<div class="atm-ad-slot" data-slot-type="rail-ad"></div>
 
     </div>
 

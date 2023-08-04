@@ -59,7 +59,7 @@ $author_id = $post->post_author;
 			$content = apply_filters( 'the_content', get_the_content() );
 			if( $content ) :
 			?>
-			<div class="spacing_0_2 fmc_recipe_the_content">
+			<div class="spacing_0_2 fmc_recipe_the_content fmc_ad_container">
 				<?php echo $content; ?>
 			</div>
 			<?php endif; ?>
@@ -76,6 +76,7 @@ $author_id = $post->post_author;
 					</div>
 				</div>
 			<?php endif; ?>
+
 			<!-- Ingredients and Steps -->
 			<?php get_template_part('template-parts/recipe/main'); ?>
 			<!-- Additional Macro Info -->
@@ -201,7 +202,7 @@ Jump to Recipe</a>
 
 		</div>
 
-		<?php dynamic_sidebar( 'ad5' ); ?>
+		<div class="atm-ad-slot" data-slot-type="rail-ad"></div>
 
 	</div>
 

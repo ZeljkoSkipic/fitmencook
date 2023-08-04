@@ -42,7 +42,7 @@ $calculations = meal_plan_calculations();
 			<?php get_template_part('template-parts/last-updated'); ?>
 
             <!-- WP Content -->
-            <div class="spacing_0_2 fmc_recipe_the_content">
+            <div class="spacing_0_2 fmc_recipe_the_content fmc_ad_container">
                 <?php the_content(); ?>
             </div>
 

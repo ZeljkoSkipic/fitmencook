@@ -50,7 +50,7 @@ $meal_counter = 1;
 			$content = apply_filters( 'the_content', get_the_content() );
 			if( $content ) :
 			?>
-			<div class="spacing_0_2 fmc_recipe_the_content">
+			<div class="spacing_0_2 fmc_recipe_the_content fmc_ad_container">
 				<?php echo $content; ?>
 			</div>
 			<?php the_post_thumbnail(); ?>

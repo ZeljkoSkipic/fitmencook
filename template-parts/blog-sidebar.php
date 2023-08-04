@@ -37,7 +37,6 @@
 
 	<?php wp_reset_query();   // Restore global post data stomped by the_post(). ?>
 	</div>
-	<?php dynamic_sidebar( 'blog_ad_1' ); ?>
 	<h3 class="spacing_0_3"><?php the_field('latest_blogs_title', 'option'); ?></h3>
 
 	<div class="fmc_blog_sidebar_grid">
@@ -84,5 +83,6 @@
 		</div>
 </div>
 
-	<?php dynamic_sidebar( 'blog_ad_2' ); ?>
+<div class="atm-ad-slot" data-slot-type="rail-ad"></div> <!-- Single Blog Post AD -->
+
 </div>

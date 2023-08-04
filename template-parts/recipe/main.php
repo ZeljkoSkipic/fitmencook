@@ -13,6 +13,13 @@ $l_serving_size = get_field('l_serving_size', 'option'); ?>
 <?php if( $ingredients || have_rows('ing_group') ) : ?>
 
 <div class="fmc_recipe_ingredients spacing_0_3" id="fmc_gtr">
+
+		<div class="atm-ad-slot" data-slot-type="incontent-ad"></div> <!-- AD -->
+
+		<h2 class="fmc_title_1 spacing_1_3">
+			<?php the_title(); ?>
+		</h2>
+
 	<h4 class="fmc_title_3 title_spacing_3"><?php the_field('ingredients_title'); ?></h4>
 
 	<?php if($servings_number) { ?>
@@ -132,7 +139,7 @@ $l_serving_size = get_field('l_serving_size', 'option'); ?>
 // Check rows existexists.
 if( have_rows('steps') ): ?>
 <div class="fmc_recipe_steps">
-	<h4 class="fmc_title_3 title_spacing_3"><?php the_field('steps_title'); ?></h4>
+	<h4 class="fmc_title_3 spacing_1_3"><?php the_field('steps_title'); ?></h4>
 	<div class="fmc_steps">
 	<?php $item = 1;
 	// Loop through rows.

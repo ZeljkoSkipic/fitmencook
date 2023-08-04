@@ -157,7 +157,7 @@ $size = 'full'
 		wp_reset_postdata(); ?>
 	<?php endif; ?>
 
-	<?php dynamic_sidebar('ad6'); ?>
+	<div class="atm-ad-slot" data-slot-type="leaderboard-ad"></div> <!-- AD -->
 
 	<?php get_template_part('template-parts/category-track'); ?>
 
@@ -174,6 +174,9 @@ $size = 'full'
 		<div class="spacing_3_1">
 			<?php fmc_pagination(); ?>
 		</div>
+
+		<div class="atm-ad-slot" data-slot-type="footerboard-ad"></div>
+
 	</div>
 	<div class="fmc_archive_sidebar">
 		<div class="fmc_arch_cats">
