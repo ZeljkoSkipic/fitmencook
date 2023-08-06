@@ -1105,9 +1105,11 @@ body.archive {
 	a {
 		display: flex;
 		align-items: center;
-		font-size: var(--body-size);
+		font-size: 16px;
+		font-weight: 700;
 		text-decoration: none;
 		margin-bottom: 8px;
+		color: var(--misc-color);
 		img {
 			height: 20px;
 			width: 20px;
