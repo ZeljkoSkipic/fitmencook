@@ -175,7 +175,6 @@ $author_id = $post->post_author;
 			<div class="fmc_ss"><?php echo $l_serving_size; ?>:<span><?php echo $serving_size ?></span></div>
 			<?php } ?>
 			<?php get_template_part('template-parts/recipe/macros'); ?>
-			<?php get_template_part('template-parts/recipe/tools'); ?>
 			<!-- Share -->
 			<div class="fmc_share fmc_recipe_share spacing_3_0">
 

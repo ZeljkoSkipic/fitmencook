@@ -787,6 +787,12 @@ body.archive {
 	background-color: #b4cf66;
 	column-gap: 8px;
 }
+.recipes-template-single-recipes-multiple {
+	#shop-with-instacart-v1 {
+		margin-bottom: var(--spacing-1);
+	}
+}
+
 .fmc_ingredients {
 	* {
 		font-size: 16px;
@@ -1096,11 +1102,22 @@ body.archive {
 /* Tools */
 
 .fmc_tools {
+	background-color: #F9FAFB;
+	padding: var(--spacing-2);
+	width: fit-content;
+	max-width: 100%;
+	width: 450px;
+	border-radius: 16px;
 	.fmc_tools_title {
-		font-size: 16px;
+		font-size: var(--title-size-3);
 		font-weight: 800;
 		font-family: Nunito;
 		margin-bottom: 1.33em;
+	}
+	.tools_inner {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
 	}
 	a {
 		display: flex;
@@ -1108,11 +1125,15 @@ body.archive {
 		font-size: 16px;
 		font-weight: 700;
 		text-decoration: none;
-		margin-bottom: 8px;
+		margin-bottom: calc(1.6rem + 6px);
 		color: var(--misc-color);
+		width: 30%;
+		@include mob-only {
+			width: 48%;
+		}
 		img {
-			height: 20px;
-			width: 20px;
+			height: 35px;
+			width: 35px;
 			object-fit: contain;
 			margin-right: 10px;
 		}

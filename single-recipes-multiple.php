@@ -150,7 +150,72 @@ $calculations = meal_plan_calculations();
 								<?php if($serving_size) { ?>
 								<div class="fmc_ing_servings_size"><?php echo $l_serving_size; ?>:<span><?php echo $serving_size ?></span></div>
 								<?php } ?>
+
+								<!-- Ingredients -->
+
+								<?php // Instacart Ingredients
+
+								if( get_field('ingredients_switch') ) { ?>
+								<div class="fmc_ingredients">
+									<?php
+
+									if( have_rows('ing_group') ): ?>
+
+										<?php while( have_rows('ing_group') ) : the_row(); ?>
+										<?php $ing_title = get_sub_field('ing_g_title'); ?>
+										<?php if( $ing_title ) { ?>
+											<strong><?php echo $ing_title; ?></strong>
+										<?php } ?>
+										<ul>
+										<?php while( have_rows('ingredients_instacart') ) : the_row(); ?>
+
+											<?php
+											$ingredient = get_sub_field('ingredient');
+											$ingredient_link = get_sub_field('ingredient_link');
+											$note = get_sub_field('note');
+											$substitution = get_sub_field('substitution');
+											?>
+											<li>
+
+											<?php if( $ingredient_link ) { ?>
+												<a href="<?php echo $ingredient_link; ?>" target="_blank">
+											<?php } ?>
+											<?php echo $ingredient; ?>
+											<?php if( $ingredient_link ) { ?>
+												</a>
+											<?php } ?>
+
+
+
+											<?php if( $note || $substitution ) : ?>
+												<ul>
+													<?php if( $note ) { ?>
+													<li><?php echo $note; ?></li>
+													<?php } ?>
+													<?php if( $substitution ) { ?>
+													<li><?php echo $substitution; ?></li>
+													<?php } ?>
+												</ul>
+											<?php endif; ?>
+										</li>
+										<?php endwhile; ?>
+										</ul>
+
+										<?php endwhile; ?>
+
+									<?php endif; ?>
+								</div>
+								<script>
+								(function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) { return; } js = d.createElement(s); js.id = id; js.src = "https://widgets.instacart.com/widget-bundle.js"; js.async = true; fjs.parentNode.insertBefore(js, fjs); })(document, "script", "standard-instacart-widget-v1");
+								</script>
+
+								<div id="shop-with-instacart-v1"></div>
+
+								<?php } else { ?>
+
                                 <div class="text_2 fmc_mpr_content fmc_mpr_ing"><?php the_field('ingredients'); ?></div>
+
+								<? } ?>
                                 <?php if ($include_steps) : ?>
                                     <h4 class="fmc_mpr_subtitle"><?php the_field('steps_title'); ?></h4>
                                     <div class="text_2 fmc_mpr_content fmc_mpr_steps">
@@ -284,7 +349,69 @@ $calculations = meal_plan_calculations();
 						<?php if($custom_ss) { ?>
 						<div class="fmc_ing_servings_size"><?php echo $l_serving_size; ?>:<span><?php echo $custom_ss ?></span></div>
 						<?php } ?>
+
+						<?php // Instacart Ingredients
+
+						if( get_sub_field('ingredients_switch') ) { ?>
+						<div class="fmc_ingredients">
+							<?php
+
+							if( have_rows('ing_group') ): ?>
+
+								<?php while( have_rows('ing_group') ) : the_row(); ?>
+								<?php $ing_title = get_sub_field('ing_g_title'); ?>
+								<?php if( $ing_title ) { ?>
+									<strong><?php echo $ing_title; ?></strong>
+								<?php } ?>
+								<ul>
+								<?php while( have_rows('ingredients_instacart') ) : the_row(); ?>
+
+									<?php
+									$ingredient = get_sub_field('ingredient');
+									$ingredient_link = get_sub_field('ingredient_link');
+									$note = get_sub_field('note');
+									$substitution = get_sub_field('substitution');
+									?>
+									<li>
+
+									<?php if( $ingredient_link ) { ?>
+										<a href="<?php echo $ingredient_link; ?>" target="_blank">
+									<?php } ?>
+									<?php echo $ingredient; ?>
+									<?php if( $ingredient_link ) { ?>
+										</a>
+									<?php } ?>
+
+
+
+									<?php if( $note || $substitution ) : ?>
+										<ul>
+											<?php if( $note ) { ?>
+											<li><?php echo $note; ?></li>
+											<?php } ?>
+											<?php if( $substitution ) { ?>
+											<li><?php echo $substitution; ?></li>
+											<?php } ?>
+										</ul>
+									<?php endif; ?>
+								</li>
+								<?php endwhile; ?>
+								</ul>
+
+								<?php endwhile; ?>
+
+							<?php endif; ?>
+						</div>
+						<script>
+						(function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) { return; } js = d.createElement(s); js.id = id; js.src = "https://widgets.instacart.com/widget-bundle.js"; js.async = true; fjs.parentNode.insertBefore(js, fjs); })(document, "script", "standard-instacart-widget-v1");
+						</script>
+
+						<div id="shop-with-instacart-v1"></div>
+
+						<?php } // End Instacart ingredients
+						else { ?>
                         <div class="text_2 fmc_mpr_content fmc_mpr_ing"><?php echo $custom_ingredients ?></div>
+						<?php }  ?>
 						<?php endif; ?>
 						<?php
 						$steps_title = get_sub_field('steps_title');

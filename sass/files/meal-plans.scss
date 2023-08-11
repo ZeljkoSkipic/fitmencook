@@ -112,6 +112,9 @@
 			margin-top: 8px;
 			margin-bottom: 8px;
 		}
+		&.fmc_mpr_ing {
+			margin-bottom: var(--spacing-1);
+		}
 	}
 	.fmc_macros_title {
 		display: none;

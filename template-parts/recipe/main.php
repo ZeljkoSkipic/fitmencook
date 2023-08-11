@@ -107,6 +107,9 @@ $l_serving_size = get_field('l_serving_size', 'option'); ?>
 
 <?php endif; ?>
 
+<?php get_template_part('template-parts/recipe/tools'); ?>
+
+
 <!-- Recipe Sponsor Image -->
 
 <?php
