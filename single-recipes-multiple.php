@@ -215,7 +215,7 @@ $calculations = meal_plan_calculations();
 
                                 <div class="text_2 fmc_mpr_content fmc_mpr_ing"><?php the_field('ingredients'); ?></div>
 
-								<? } ?>
+								<?php } ?>
                                 <?php if ($include_steps) : ?>
                                     <h4 class="fmc_mpr_subtitle"><?php the_field('steps_title'); ?></h4>
                                     <div class="text_2 fmc_mpr_content fmc_mpr_steps">
