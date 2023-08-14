@@ -775,6 +775,7 @@ body.archive {
 		img {
 			width: 20px;
 			margin-right: 8px;
+			border-radius: 0;
 		}
 	}
 }
@@ -1120,7 +1121,11 @@ body.archive {
 		font-size: var(--title-size-3);
 		font-weight: 800;
 		font-family: Nunito;
-		margin-bottom: 1.33em;
+	}
+	em {
+		font-size: 18px;
+		margin-bottom: var(--spacing-2);
+		display: block;
 	}
 	.tools_inner {
 		display: flex;

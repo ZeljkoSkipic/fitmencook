@@ -176,6 +176,46 @@
             "append": ""
         },
         {
+            "key": "field_64da2e595293c",
+            "label": "Tools Title",
+            "name": "tools_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Tools",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_64da2e9e5293d",
+            "label": "Tools Intro",
+            "name": "tools_intro",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Select a tool for a recommendation",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_6409e08419cd7",
             "label": "In App Title",
             "name": "in_app_title",
@@ -916,5 +956,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1692011442
+    "modified": 1692020466
 }

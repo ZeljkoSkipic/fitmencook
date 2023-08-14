@@ -2,8 +2,9 @@
 $tools = get_field('tools');
 if( $tools ): ?>
 	<div class="fmc_tools">
-		<h4 class="fmc_tools_title">Tools</h4>
-			<div class="tools_inner">
+		<h4 class="fmc_tools_title"><?php the_field('tools_title', 'option'); ?></h4>
+		<em><?php the_field('tools_intro', 'option'); ?></em>
+		<div class="tools_inner">
 			<?php foreach( $tools as $post ): ?>
 				<?php // Setup this post for WP functions (variable must be named $post).
 				setup_postdata($post); ?>
