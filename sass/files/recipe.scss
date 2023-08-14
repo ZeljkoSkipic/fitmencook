@@ -756,6 +756,27 @@ body.archive {
 	.fmc_recipe_ingredients {
 		margin-top: var(--spacing-2);
 	}
+	.legend {
+		display: flex;
+		flex-direction: column;
+		&:not(:last-child) {
+			margin-bottom: var(--spacing-3);
+		}
+		span {
+			font-size: 14px;
+			font-style: italic;
+
+			margin-bottom: 4px;
+		}
+	}
+	.note, .sub {
+		display: flex;
+		align-items: center;
+		img {
+			width: 20px;
+			margin-right: 8px;
+		}
+	}
 }
 .fmc_ing_servings, .fmc_ing_servings_size {
 	width: fit-content;

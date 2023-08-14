@@ -90,7 +90,8 @@
             "max": 1,
             "elements": [
                 "featured_image"
-            ]
+            ],
+            "bidirectional_target": []
         },
         {
             "key": "field_63deb44a877e6",
@@ -151,7 +152,8 @@
             "return_format": "object",
             "field_type": "multi_select",
             "allow_null": 0,
-            "multiple": 0
+            "multiple": 0,
+            "bidirectional_target": []
         },
         {
             "key": "field_6404b6ab4047e",
@@ -487,7 +489,8 @@
             "max": 1,
             "elements": [
                 "featured_image"
-            ]
+            ],
+            "bidirectional_target": []
         },
         {
             "key": "field_63e2778404e5b",
@@ -622,7 +625,8 @@
             "max": 3,
             "elements": [
                 "featured_image"
-            ]
+            ],
+            "bidirectional_target": []
         },
         {
             "key": "field_63ff4d434fb08",
@@ -685,7 +689,8 @@
             "return_format": "object",
             "field_type": "multi_select",
             "allow_null": 0,
-            "multiple": 0
+            "multiple": 0,
+            "bidirectional_target": []
         },
         {
             "key": "field_64144e8573cf4",
@@ -824,6 +829,73 @@
             "placeholder": "",
             "prepend": "",
             "append": ""
+        },
+        {
+            "key": "field_64da0b6157d73",
+            "label": "Instacart",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_64da0b6c57d74",
+            "label": "Note Icon",
+            "name": "note_icon",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "svg",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_64da0b8a57d75",
+            "label": "Substitution Icon",
+            "name": "sub_icon",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "svg",
+            "preview_size": "medium"
         }
     ],
     "location": [
@@ -844,5 +916,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1679515831
+    "modified": 1692011442
 }
