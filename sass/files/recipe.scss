@@ -381,23 +381,16 @@ body.archive {
 	.attachment-post-thumbnail, .attachment-post-thumbnail img {
 		border-radius: 16px;
 	}
-	@include desk-min {
+	@include limbo-min {
+		display: flex;
 		margin: auto;
 		.fmc_sr_main  {
-			width: 73%;
+			width: calc(96% - 300px);
 		}
 		.fmc_sr_recipe_content {
 			width: 80%;
 			margin-left: auto;
 		}
-	}
-	@include limbo-only {
-		.fmc_sr_main  {
-			width: 65%;
-		}
-	}
-	@include limbo-min {
-		display: flex;
 	}
 
 
@@ -414,12 +407,8 @@ body.archive {
 	}
 	.fmc_sr_sidebar {
 		height: fit-content;
-		/* @include sidebar-stick; */
-		@include desk-min {
-			width: 23%;
-		}
-		@include limbo-only {
-			width: 30%;
+		@include limbo-min {
+			width: 300px
 		}
 		.fmc_rating {
 			margin-bottom: var(--spacing-3);
@@ -597,6 +586,9 @@ body.archive {
 					transform: rotate(-45deg)
 				}
 			}
+		}
+		#shop-with-instacart-v1 {
+			margin-block: var(--spacing-3);
 		}
 	}
 	.fmc_additional_macro {
@@ -786,11 +778,6 @@ body.archive {
 .fmc_ing_servings_size {
 	background-color: #b4cf66;
 	column-gap: 8px;
-}
-.recipes-template-single-recipes-multiple {
-	#shop-with-instacart-v1 {
-		margin-bottom: var(--spacing-1);
-	}
 }
 
 .fmc_ingredients {

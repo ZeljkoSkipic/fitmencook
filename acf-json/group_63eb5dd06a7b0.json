@@ -42,6 +42,26 @@
             "height": 780
         },
         {
+            "key": "field_64da03d6f9800",
+            "label": "Include Instacart Button in the Sidebar",
+            "name": "instacart_sidebar",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "30",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
+        },
+        {
             "key": "field_63eb623b73bfc",
             "label": "Existing Recipe",
             "name": "existing_recipe",
@@ -634,7 +654,15 @@
                     "type": "wysiwyg",
                     "instructions": "",
                     "required": 0,
-                    "conditional_logic": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_64d61484b6a5f",
+                                "operator": "!=",
+                                "value": "1"
+                            }
+                        ]
+                    ],
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -746,5 +774,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1691752417
+    "modified": 1692009699
 }
