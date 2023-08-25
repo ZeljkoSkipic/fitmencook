@@ -1,5 +1,7 @@
 <?php get_header();
 
+$featured_image_switch = get_field('featured_image_switch');
+
 $video = get_field('video');
 $gallery = get_field('gallery');
 
@@ -43,7 +45,11 @@ $calculations = meal_plan_calculations();
 
             <!-- WP Content -->
             <div class="spacing_0_2 fmc_recipe_the_content fmc_ad_container">
-                <?php the_content(); ?>
+				<?php
+					if( $featured_image_switch ) {
+						the_post_thumbnail();
+					} ?>
+				<?php the_content(); ?>
             </div>
 
             <!-- Gallery -->

@@ -11,6 +11,8 @@ get_header();
 $categories = get_the_terms( $post->ID, 'recipe-category' );
 $author_id = $post->post_author;
 
+$video = get_field('video');
+
 $see_full = get_field('see_full', 'option');
 $meal_counter = 1;
 
@@ -57,7 +59,16 @@ $meal_counter = 1;
 			<?php endif; ?>
 		</div>
 		<div class="fmc_sr_recipe_content">
-              <?php
+			<!-- Video -->
+            <?php if ($video) : ?>
+                <div class="video-wrap">
+                    <div class="fmc_video">
+                        <?php echo $video; ?>
+                    </div>
+                </div>
+            <?php endif; ?>
+
+            <?php
 
             if (have_rows('existing_recipe')) : // Existing Recipes
 

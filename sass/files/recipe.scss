@@ -80,6 +80,10 @@
 	border-radius: 16px;
 	border: 1px solid;
 }
+
+.cat_sponsor_video_wrap {
+	margin-bottom: var(--spacing-2);
+}
 .cat_sponsor_img_wrap {
 	padding-bottom: var(--spacing-1);
 	display: flex;
@@ -755,6 +759,11 @@ body.archive {
 .single-recipes {
 	.fmc_recipe_ingredients {
 		margin-top: var(--spacing-2);
+	}
+	.fmc_single_recipe.fmc_container {
+		@include limbo-only {
+			padding-inline: 25px;
+		}
 	}
 	.legend {
 		display: flex;

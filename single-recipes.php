@@ -1,5 +1,7 @@
 <?php get_header();
 
+$featured_image_switch = get_field('featured_image_switch');
+
 $video = get_field('video');
 $gallery = get_field('gallery');
 
@@ -60,6 +62,10 @@ $author_id = $post->post_author;
 			if( $content ) :
 			?>
 			<div class="spacing_0_2 fmc_recipe_the_content fmc_ad_container">
+				<?php
+				if( $featured_image_switch ) {
+					the_post_thumbnail();
+				} ?>
 				<?php echo $content; ?>
 			</div>
 			<?php endif; ?>

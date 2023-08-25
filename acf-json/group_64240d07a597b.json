@@ -3,6 +3,23 @@
     "title": "Recipes: Collection",
     "fields": [
         {
+            "key": "field_64e88b4b84af2",
+            "label": "Video",
+            "name": "video",
+            "aria-label": "",
+            "type": "oembed",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "width": 1280,
+            "height": 780
+        },
+        {
             "key": "field_642427d298789",
             "label": "Existing Recipe",
             "name": "existing_recipe",
@@ -49,7 +66,8 @@
                     "min": 1,
                     "max": 1,
                     "elements": "",
-                    "parent_repeater": "field_642427d298789"
+                    "parent_repeater": "field_642427d298789",
+                    "bidirectional_target": []
                 },
                 {
                     "key": "field_6424280400a5a",
@@ -222,5 +240,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1688545535
+    "modified": 1692961812
 }

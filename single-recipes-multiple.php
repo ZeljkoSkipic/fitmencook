@@ -7,6 +7,8 @@
 
 get_header();
 
+$featured_image_switch = get_field('featured_image_switch');
+
 $video = get_field('video');
 $gallery = get_field('gallery');
 
@@ -50,7 +52,12 @@ $calculations = meal_plan_calculations();
 
             <!-- WP Content -->
             <div class="spacing_0_2 fmc_recipe_the_content fmc_ad_container">
-                <?php the_content(); ?>
+			<?php
+			if( $featured_image_switch ) {
+				the_post_thumbnail();
+			} ?>
+
+			<?php the_content(); ?>
             </div>
 
             <!-- Gallery -->
@@ -288,8 +295,7 @@ $calculations = meal_plan_calculations();
 						<?php
 						$custom_ingredients = get_sub_field('custom_ingredients');
 						$custom_nos = get_sub_field('number_of_servings');
-						$custom_ss = get_sub_field('serving_size');
-						if($custom_ingredients): ?>
+						$custom_ss = get_sub_field('serving_size'); ?>
                         <h4 class="fmc_mpr_subtitle"><?php the_sub_field('ingredients_title'); ?></h4>
 						<?php if($custom_nos) { ?>
 						<div class="fmc_ing_servings"><?php echo $custom_nos ?> <?php echo $nosi; ?></div>
@@ -309,7 +315,6 @@ $calculations = meal_plan_calculations();
 						else { ?>
                         <div class="text_2 fmc_mpr_content fmc_mpr_ing"><?php echo $custom_ingredients ?></div>
 						<?php }  ?>
-						<?php endif; ?>
 						<?php
 						$steps_title = get_sub_field('steps_title');
 						// Check rows existexists.

@@ -7,6 +7,8 @@ $category_icon = get_field('category_icon', $cat);
 $category_sponsor_image = get_field('category_sponsor_image', $cat);
 $size = 'full';
 
+$sponsor_video = get_field('category_sponsor_video', $cat);
+
 $cat_image_link = get_field('category_image_link', $cat);
 if( $cat_image_link ):
     $cat_image_link_url = $cat_image_link['url'];
@@ -28,6 +30,12 @@ if( $cat_image_link ):
 		</div>
 
 		<?php the_archive_description('<div class="fmc_category_description">', '</div>' ); ?>
+
+		<?php if($sponsor_video) { ?>
+			<div class="cat_sponsor_video_wrap">
+				<?php echo $sponsor_video; ?>
+			</div>
+		<?php } ?>
 
 		<div class="cat_sponsor_img_wrap">
 			<?php if( $cat_image_link ): ?>
