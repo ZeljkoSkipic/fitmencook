@@ -83,6 +83,11 @@
 
 .cat_sponsor_video_wrap {
 	margin-bottom: var(--spacing-2);
+	iframe {
+		width: 100%;
+		aspect-ratio: 16/9;
+		height: 100%;
+	}
 }
 .cat_sponsor_img_wrap {
 	padding-bottom: var(--spacing-1);

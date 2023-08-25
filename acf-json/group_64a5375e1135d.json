@@ -75,8 +75,8 @@
                 "class": "",
                 "id": ""
             },
-            "width": "",
-            "height": ""
+            "width": 1280,
+            "height": 780
         },
         {
             "key": "field_64788b53a37ea",
@@ -158,5 +158,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1692961162
+    "modified": 1692972382
 }
