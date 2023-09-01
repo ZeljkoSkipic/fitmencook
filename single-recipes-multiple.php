@@ -29,6 +29,7 @@ $l_sodium = get_field('l_sodium', 'option');
 $l_fiber = get_field('l_fiber', 'option');
 $l_sugar = get_field('l_sugar', 'option');
 
+$nos_single = get_field('number_of_servings_ing_single', 'option');
 $nosi = get_field('number_of_servings_ing', 'option');
 $l_serving_size = get_field('l_serving_size', 'option');
 
@@ -152,7 +153,13 @@ $calculations = meal_plan_calculations();
                                 <h4 class="fmc_mpr_subtitle"><?php echo $ingredients_title ?></h4>
 								<?php endif; ?>
 								<?php if($servings_number) { ?>
-								<div class="fmc_ing_servings"><?php echo $servings_number ?> <?php echo $nosi; ?></div>
+									<div class="fmc_ing_servings"><?php echo $servings_number ?>
+										<?php if($servings_number == 1) {
+											echo $nos_single;
+										} else {
+											echo $nosi;
+										} ?>
+									</div>
 								<?php } ?>
 								<?php if($serving_size) { ?>
 								<div class="fmc_ing_servings_size"><?php echo $l_serving_size; ?>:<span><?php echo $serving_size ?></span></div>
@@ -298,7 +305,13 @@ $calculations = meal_plan_calculations();
 						$custom_ss = get_sub_field('serving_size'); ?>
                         <h4 class="fmc_mpr_subtitle"><?php the_sub_field('ingredients_title'); ?></h4>
 						<?php if($custom_nos) { ?>
-						<div class="fmc_ing_servings"><?php echo $custom_nos ?> <?php echo $nosi; ?></div>
+							<div class="fmc_ing_servings"><?php echo $custom_nos ?>
+								<?php if($custom_nos == 1) {
+									echo $nos_single;
+								} else {
+									echo $nosi;
+								} ?>
+							</div>
 						<?php } ?>
 						<?php if($custom_ss) { ?>
 						<div class="fmc_ing_servings_size"><?php echo $l_serving_size; ?>:<span><?php echo $custom_ss ?></span></div>

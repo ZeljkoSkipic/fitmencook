@@ -136,3 +136,7 @@ clear: none!important;
 #taxonomy-tools #tools-adder {
 	display: none;
 }
+
+.highlight {
+	background-color: #ffffe0;
+}

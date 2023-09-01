@@ -316,3 +316,54 @@ function allow_iframes( $allowedposttags ){
 }
 
 add_filter( 'wp_kses_allowed_html', 'allow_iframes', 1 );
+
+
+
+// Add TinyMCE editor button to Highlight the text
+add_action( 'after_setup_theme', 'fitmencook_theme_setup' );
+
+if ( ! function_exists( 'fitmencook_theme_setup' ) ) {
+	function fitmencook_theme_setup(){
+		/********* Registers an editor stylesheet for the theme ***********/
+		add_action( 'admin_init', 'fitmencook_theme_add_editor_styles' );
+		/********* TinyMCE Buttons ***********/
+		add_action( 'init', 'fitmencook_buttons' );
+	}
+}
+
+/********* Registers an editor stylesheet for the theme ***********/
+if ( ! function_exists( 'fitmencook_theme_add_editor_styles' ) ) {
+	function fitmencook_theme_add_editor_styles() {
+	    add_editor_style( 'admin.css' );
+	}
+}
+
+/********* TinyMCE Buttons ***********/
+if ( ! function_exists( 'fitmencook_buttons' ) ) {
+	function fitmencook_buttons() {
+		if ( ! current_user_can( 'edit_posts' ) && ! current_user_can( 'edit_pages' ) ) {
+	        return;
+	    }
+
+	    if ( get_user_option( 'rich_editing' ) !== 'true' ) {
+	        return;
+	    }
+
+	    add_filter( 'mce_external_plugins', 'fitmencook_add_buttons' );
+	    add_filter( 'mce_buttons', 'fitmencook_register_buttons' );
+	}
+}
+
+if ( ! function_exists( 'fitmencook_add_buttons' ) ) {
+	function fitmencook_add_buttons( $plugin_array ) {
+	    $plugin_array['highlight'] = get_template_directory_uri().'/js/tinymce_buttons.js';
+	    return $plugin_array;
+	}
+}
+
+if ( ! function_exists( 'fitmencook_register_buttons' ) ) {
+	function fitmencook_register_buttons( $buttons ) {
+	    array_push( $buttons, 'highlight' );
+	    return $buttons;
+	}
+}

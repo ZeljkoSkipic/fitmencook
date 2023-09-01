@@ -129,7 +129,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "50",
+                "width": "33",
                 "class": "",
                 "id": ""
             },
@@ -140,8 +140,28 @@
             "append": ""
         },
         {
+            "key": "field_64f1cf9116eaf",
+            "label": "Number of Servings After Ingredients (Single)",
+            "name": "number_of_servings_ing_single",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Serving",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_6411c791665df",
-            "label": "Number of Servings After Ingredients",
+            "label": "Number of Servings After Ingredients (Plural)",
             "name": "number_of_servings_ing",
             "aria-label": "",
             "type": "text",
@@ -149,7 +169,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "50",
+                "width": "33",
                 "class": "",
                 "id": ""
             },
@@ -706,5 +726,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1680088949
+    "modified": 1693569024
 }

@@ -145,7 +145,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "60",
                 "class": "",
                 "id": ""
             },
@@ -160,6 +160,34 @@
             "other_choice": 0,
             "layout": "horizontal",
             "save_other_choice": 0
+        },
+        {
+            "key": "field_64f1bf6f70fe7",
+            "label": "Hide Macros",
+            "name": "hide_macros",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_63ea2327880bb",
+                        "operator": "==",
+                        "value": "recipe"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "40",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
         },
         {
             "key": "field_63d691f449822",
@@ -179,13 +207,14 @@
                 ]
             ],
             "wrapper": {
-                "width": "50",
+                "width": "60",
                 "class": "",
                 "id": ""
             },
             "post_type": [
                 "recipes"
             ],
+            "post_status": "",
             "taxonomy": "",
             "filters": [
                 "search"
@@ -193,7 +222,9 @@
             "return_format": "object",
             "min": 1,
             "max": 1,
-            "elements": ""
+            "elements": "",
+            "bidirectional": 0,
+            "bidirectional_target": []
         },
         {
             "key": "field_63ea23c3880bc",
@@ -213,13 +244,14 @@
                 ]
             ],
             "wrapper": {
-                "width": "50",
+                "width": "60",
                 "class": "",
                 "id": ""
             },
             "post_type": [
                 "post"
             ],
+            "post_status": "",
             "taxonomy": "",
             "filters": [
                 "search"
@@ -227,7 +259,9 @@
             "return_format": "object",
             "min": 1,
             "max": 1,
-            "elements": ""
+            "elements": "",
+            "bidirectional": 0,
+            "bidirectional_target": []
         },
         {
             "key": "field_63ea23dd880bd",
@@ -247,7 +281,7 @@
                 ]
             ],
             "wrapper": {
-                "width": "50",
+                "width": "60",
                 "class": "",
                 "id": ""
             },
@@ -329,7 +363,7 @@
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "50",
+                "width": "40",
                 "class": "",
                 "id": ""
             },
@@ -517,7 +551,8 @@
             "return_format": "object",
             "min": "",
             "max": "",
-            "elements": ""
+            "elements": "",
+            "bidirectional_target": []
         },
         {
             "key": "field_64064e097ea72",
@@ -781,5 +816,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1680870973
+    "modified": 1693565025
 }

@@ -4,6 +4,7 @@ $ingredients = get_field('ingredients');
 
 $categories = get_the_terms( $post->ID, 'recipe-category' );
 
+$nos_single = get_field('number_of_servings_ing_single', 'option');
 $nosi = get_field('number_of_servings_ing', 'option');
 $servings_number = get_field('number_of_servings');
 
@@ -23,7 +24,13 @@ $l_serving_size = get_field('l_serving_size', 'option'); ?>
 	<h4 class="fmc_title_3 title_spacing_3"><?php the_field('ingredients_title'); ?></h4>
 
 	<?php if($servings_number) { ?>
-	<div class="fmc_ing_servings"><?php echo $servings_number ?> <?php echo $nosi; ?></div>
+	<div class="fmc_ing_servings"><?php echo $servings_number ?>
+		<?php if($servings_number == 1) {
+			echo $nos_single;
+		} else {
+			echo $nosi;
+		}
+		?></div>
 	<?php } ?>
 	<?php if($serving_size) { ?>
 	<div class="fmc_ing_servings_size"><?php echo $l_serving_size; ?>:<span><?php echo $serving_size ?></span></div>

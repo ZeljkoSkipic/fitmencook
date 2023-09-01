@@ -34,6 +34,7 @@ $box_type = get_field('box_type');
 			</div>
 			<div class="fmc_hh_box">
 			<?php // Recipe box Start
+				$hide_macros = get_field('hide_macros');
 				$featured_recipe = get_field('featured_recipe');
 				if( $box_type == 'recipe'): ?>
 					<?php foreach( $featured_recipe as $post ):
@@ -69,6 +70,7 @@ $box_type = get_field('box_type');
 							<?php endif; ?>
 					</div>
 					<h3 class="fmc_grid_title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+					<?php if(!$hide_macros) { ?>
 					<div class="fmc_recipe_grid_macros">
 						<div class="rg_macro calories">
 							<span class="rg_m_title">Cal</span>
@@ -87,6 +89,7 @@ $box_type = get_field('box_type');
 							<span class="rg_m_amount"><?php the_field( 'carbs' ); ?>g</span>
 						</div>
 					</div>
+					<?php } ?>
 				</div>
 				<div class="fmc_hr_right">
 					<a href="<?php the_permalink(); ?>">
