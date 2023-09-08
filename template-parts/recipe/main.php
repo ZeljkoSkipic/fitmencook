@@ -45,7 +45,7 @@ $l_serving_size = get_field('l_serving_size', 'option'); ?>
 	(function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) { return; } js = d.createElement(s); js.id = id; js.src = "https://widgets.instacart.com/widget-bundle.js"; js.async = true; fjs.parentNode.insertBefore(js, fjs); })(document, "script", "standard-instacart-widget-v1");
 	</script>
 
-	<div id="shop-with-instacart-v1" data-affiliate_id="2985" data-source_origin="affiliate_hub" data-affiliate_platform="recipe_widget" \>
+	<div id="shop-with-instacart-v1" data-affiliate_id="2985" data-source_origin="affiliate_hub" data-affiliate_platform="recipe_widget" \></div>
 
 	<?php } else {
 

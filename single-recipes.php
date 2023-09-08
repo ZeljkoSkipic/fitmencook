@@ -115,7 +115,6 @@ $author_id = $post->post_author;
 		</div>
 
 	</div>
-
 	<div class="fmc_sr_sidebar">
 		<div class="fmc_recipe_details">
             <?php get_avarage_rating(get_the_ID(), 'sidebar'); ?>
@@ -212,6 +211,9 @@ Jump to Recipe</a>
 		<div class="atm-ad-slot" data-slot-type="rail-ad"></div>
 
 	</div>
+
+
+
 
 </div>
 
