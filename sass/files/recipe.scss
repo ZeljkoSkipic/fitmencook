@@ -776,27 +776,34 @@ body.archive {
 			padding-inline: 25px;
 		}
 	}
-	.legend {
-		display: flex;
-		flex-direction: column;
-		&:not(:last-child) {
-			margin-bottom: var(--spacing-3);
-		}
-		span {
-			font-size: 14px;
-			font-style: italic;
-
-			margin-bottom: 4px;
-		}
+}
+.legend {
+	display: flex;
+	flex-direction: column;
+	&:not(:last-child) {
+		margin-bottom: var(--spacing-3);
 	}
-	.note, .sub {
-		display: flex;
-		align-items: center;
-		img {
-			width: 20px;
-			margin-right: 8px;
-			border-radius: 0;
-		}
+	span {
+		font-size: 14px;
+		font-style: italic;
+
+		margin-bottom: 4px;
+	}
+}
+.note, .sub {
+	display: flex;
+	align-items: center;
+	img {
+		width: 20px;
+		margin-right: 8px;
+		border-radius: 0;
+		display: inline-flex!important;
+	}
+}
+.optional {
+	span {
+		width: 20px;
+		display: inline-flex;
 	}
 }
 .fmc_ing_servings, .fmc_ing_servings_size {
@@ -1032,7 +1039,7 @@ body.archive {
 	max-width: 650px;
 	margin: auto;
 	* {
-		font-family: Arial, Helvetica, sans-serif;
+		font-family: Arial, Helvetica, sans-serif!important;
 	}
 	.fmc_pt_btns {
 		display: flex;
@@ -1049,6 +1056,12 @@ body.archive {
 			}
 		}
 
+	}
+	.fmc_ing_servings, .fmc_ing_servings_size {
+		color: var(--text-1);
+		background-color: transparent;
+		padding: 0;
+		margin-bottom: 0;
 	}
 	.fmc_pt_inner {
 		font-size: 15px;
@@ -1076,8 +1089,9 @@ body.archive {
 			display: flex;
 			margin-bottom: 20px;
 			.fmc_pt_hero_left {
-				width: 15%;
+				width: 80px;
 				margin-right: 20px;
+				flex-shrink: 0;
 				img {
 					width: 80px;
 					height: auto;
@@ -1110,10 +1124,26 @@ body.archive {
 			.fmc_step_title {
 				padding-bottom: 5px;
 				font-size: 18px;
+				color: var(--text-1);
 			}
 			img, picture {
 				display: none;
 			}
+		}
+	}
+	.fmc_mp_recipe {
+		margin-top: 0;
+		.fmc_mpr_top {
+			background-image: none;
+			padding-left: 0;
+		}
+		.fmc_recipe_times {
+			padding-left: 0;
+		}
+		.fmc_mpr_title {
+			font-size: 25px;
+			line-height: 1.1;
+			margin-bottom: 10px;
 		}
 	}
 }

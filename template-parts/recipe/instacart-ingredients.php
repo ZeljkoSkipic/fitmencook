@@ -21,13 +21,20 @@ $sub_icon = get_field('sub_icon', 'option'); ?>
 			$ingredient_link = get_sub_field('ingredient_link');
 			$note = get_sub_field('note');
 			$substitution = get_sub_field('substitution');
+			$optional = get_sub_field('optional');
 			?>
 			<li>
 
 			<?php if( $ingredient_link ) { ?>
 				<a href="<?php echo $ingredient_link; ?>" target="_blank">
 			<?php } ?>
+			<?php if( $optional ) { ?>
+				<em>
+			<?php } ?>
 			<?php echo $ingredient; ?>
+			<?php if( $optional ) { ?>
+				*</em>
+			<?php } ?>
 			<?php if( $ingredient_link ) { ?>
 				</a>
 			<?php } ?>
@@ -57,4 +64,5 @@ $sub_icon = get_field('sub_icon', 'option'); ?>
 <div class="legend">
 	<span class="note"><img src="<?php echo $note_icon ?>">Note</span>
 	<span class="sub"><img src="<?php echo $sub_icon ?>">Substitution</span>
+	<span class="optional"><span>*</span> Optional</span>
 </div>

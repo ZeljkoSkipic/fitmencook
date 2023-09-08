@@ -9,7 +9,7 @@
 
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '1.4.7' );
+	define( '_S_VERSION', '1.5.0' );
 }
 
 /**
@@ -113,8 +113,12 @@ add_action( 'after_setup_theme', 'fmc_content_width', 0 );
  * Enqueue scripts and styles.
  */
 function fmc_scripts() {
+	$css_cache_buster = date("YmdHi", filemtime( get_stylesheet_directory() . '/main.css'));
+	$js_cache_buster = date("YmdHi", filemtime( get_stylesheet_directory() . '/js/custom.js'));
+
 	wp_enqueue_style( 'fmc-style', get_stylesheet_uri(), array(), _S_VERSION );
-	wp_enqueue_script( 'custom', get_template_directory_uri() . '/js/custom.js', array('jquery'), _S_VERSION );
+	wp_enqueue_style( 'main', get_stylesheet_directory_uri() . '/main.css', array(), $css_cache_buster, 'all' );
+	wp_enqueue_script( 'custom', get_template_directory_uri() . '/js/custom.js', array('jquery'), $js_cache_buster );
 
 	wp_enqueue_script( 'flickity', get_template_directory_uri() . '/js/vendor/flickity.js',array('jquery'),_S_VERSION,true);
 	wp_enqueue_script( 'smart-banner', get_template_directory_uri() . '/js/vendor/smartbanner.js',array('jquery'),_S_VERSION,true);
