@@ -56,12 +56,12 @@ $query_var = get_query_var('product_cat', "-1");
             <div class="fmc_product_cats">
                 <a <?php if($query_var == -1 ) echo "class='current'"; ?> href="<?php echo get_permalink( wc_get_page_id( 'shop' )); ?>"><?php esc_html_e('All products', 'fitmenCook'); ?></a>
 
-                <?php 
+                <?php
                 foreach($product_categories as $product_cat) {
                     ?>
                          <a <?php if($query_var === $product_cat->slug ) echo "class='current'"; ?> href="<?php echo get_term_link($product_cat); ?>"><?php echo $product_cat->name; ?></a>
                     <?php
-                } 
+                }
                 ?>
 
             </div>
@@ -111,12 +111,5 @@ $query_var = get_query_var('product_cat', "-1");
  * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
  */
 do_action('woocommerce_after_main_content');
-
-/**
- * Hook: woocommerce_sidebar.
- *
- * @hooked woocommerce_get_sidebar - 10
- */
-do_action('woocommerce_sidebar');
 
 get_footer('shop');

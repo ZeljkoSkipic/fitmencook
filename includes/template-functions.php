@@ -161,15 +161,34 @@ if( function_exists('acf_add_options_page') ) {
 
 // Load recipe-print template for printing option
 
-add_filter( 'template_include', 'load_print_template', 99 );
-function load_print_template( $template ) {
-    if ( is_singular( 'recipes' ) && isset($_GET['print']) && $_GET['print'] ) {
-        $new_template = locate_template( array( 'single-recipes-print.php' ) );
-	if ( '' != $new_template ) {
-	    return $new_template ;
-	}
+add_filter('template_include', 'load_print_template', 99);
+function load_print_template($template)
+{
+  if (is_singular('recipes') && isset($_GET['print']) && $_GET['print']) {
+    $current_template = get_page_template_slug(get_the_ID());
+
+    if ($current_template == 'single-recipes-multiple.php') {
+      $new_template = locate_template(array('single-recipes-multiple-print.php'));
+    } else {
+      $new_template = locate_template(array('single-recipes-print.php'));
     }
-    return $template;
+
+    if ('' != $new_template) {
+      return $new_template;
+    }
+  }
+
+  elseif(is_singular('meal-plans') && isset($_GET['print']) && $_GET['print']) {
+
+    $new_template = locate_template(array('single-meal-plans-print.php'));
+
+    if ('' != $new_template) {
+      return $new_template;
+    }
+  }
+
+
+  return $template;
 }
 
 

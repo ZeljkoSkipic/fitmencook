@@ -1,5 +1,5 @@
 <head>
-<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>"
+<link rel="stylesheet" href="/wp-content/themes/fitmencook/main.css"
 type="text/css" media="screen, print" />
 <meta name="robots" content="noindex">
 </head>

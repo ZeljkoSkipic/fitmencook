@@ -1130,6 +1130,9 @@ body.archive {
 				display: none;
 			}
 		}
+		.fmc_mpr_rm {
+			display: none;
+		}
 	}
 	.fmc_mp_recipe {
 		margin-top: 0;
@@ -1144,6 +1147,27 @@ body.archive {
 			font-size: 25px;
 			line-height: 1.1;
 			margin-bottom: 10px;
+		}
+		.fmc_cals {
+			display: none;
+		}
+		.fmc_macros {
+			background-color: transparent;
+			.fmc_macro {
+				color: #000;
+				font-size: 14px;
+				span {
+					color: #000;
+					font-size: 16px;
+				}
+			}
+		}
+		.fmc_mpr_content {
+			ul {
+				li {
+					font-size: 16px;
+				}
+			}
 		}
 	}
 }
