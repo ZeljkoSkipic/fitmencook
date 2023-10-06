@@ -280,6 +280,27 @@ blockquote {
 	padding-bottom: var(--spacing-3);
 }
 
+@mixin fmc-btn {
+	padding: 12px 16px;
+	background-color: var(--color-1);
+	border-radius: 8px;
+	color: #fff;
+	display: flex;
+	max-width: 100%;
+	justify-content: center;
+	align-items: center;
+	font-size: 15px;
+	transition: var(--site-transition);
+	font-weight: 700;
+	text-decoration: none;
+	cursor: pointer;
+	border: none;
+	&:hover {
+		background-color: var(--color-2);
+		color: #fff;
+	}
+}
+
 .fmc_btn {
 	padding: 12px 16px;
 	background-color: var(--color-1);
