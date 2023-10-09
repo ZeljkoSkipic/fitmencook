@@ -102,11 +102,13 @@ input {
 		.fmc_product_quantity-wrapper {
 			display: flex;
 			justify-content: space-between;
-			align-items: center;
 			@include limbo-min {
 				padding-top: 16px;
 				border-top: 2px solid #F2F4F7;
 				margin-top: 16px;
+		}
+		.fmc_product_quantity_label {
+			padding-top: 6px;
 		}
 			}
 
@@ -145,6 +147,23 @@ input {
 			border: none;
 			margin-top: 20px;
 			cursor: pointer;
+		}
+		.stock {
+			font-size: 12px;
+			text-align: right;
+			margin-top: 8px;
+			background-size: 12.5px;
+			background-position: center left;
+			width: fit-content;
+			background-repeat: no-repeat;
+			padding-left: 15px;
+			margin-right: 0;
+			margin-left: auto;
+			font-weight: 700;
+			&.in-stock {
+				background-image: url(assets/icons/checkmark.svg);
+				color: var(--misc-color);
+			}
 		}
 		@include tab-max {
 			position: fixed;
@@ -987,6 +1006,7 @@ input {
 			margin-bottom: 16px;
 			display: flex;
 			justify-content: space-between;
+			align-items: center;
 			* {
 				font-size: 14px;
 				font-weight: 700;
@@ -1131,6 +1151,7 @@ input {
 		transition: var(--site-transition);
 		font-weight: 700;
 		border: none;
+		cursor: pointer;
 		&:hover {
 			background-color: var(--color-2);
 		}
