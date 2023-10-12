@@ -649,7 +649,6 @@ body.archive .fmc_recipe{margin-bottom:var(--spacing-3)}
 .fmc_single_recipe .fmc_recipe_top_left{margin-right:var(--spacing-3)}
 .fmc_single_recipe .attachment-post-thumbnail,.fmc_single_recipe .attachment-post-thumbnail img{border-radius:16px}
 .fmc_single_recipe .fmc_recipe_details{background-color:#f9fafb;padding:var(--spacing-3);border-radius:16px;max-width:400px;margin-left:auto;margin-right:auto}
-.fmc_single_recipe .fmc_sr_sidebar{height:-webkit-fit-content;height:-moz-fit-content;height:fit-content}
 .fmc_single_recipe .fmc_sr_sidebar .fmc_rating{margin-bottom:var(--spacing-3);display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;font-size:14px;font-weight:700}
 .fmc_single_recipe .fmc_sr_sidebar .fmc_rating img{margin-right:8px}
 .fmc_single_recipe .fmc_sr_sidebar .fmc_rating span{font-size:14px;font-weight:700;color:var(--misc-color);margin-left:8px}
@@ -680,6 +679,7 @@ body.archive .fmc_recipe{margin-bottom:var(--spacing-3)}
 .fmc_single_recipe .fmc_sr_sidebar .fmc_jtr:hover{opacity:.9}
 .fmc_single_recipe .fmc_sr_sidebar .fmc_jtr:hover svg{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}
 .fmc_single_recipe .fmc_sr_sidebar #shop-with-instacart-v1{margin-block:var(--spacing-3)}
+.fmc_single_recipe .fmc_sr_sidebar .atm-ad-slot{margin-top:16px;position:sticky;top:8px}
 .fmc_single_recipe .fmc_additional_macro *{font-size:var(--body-size-2)}
 .rll-youtube-player img{bottom:unset;border-radius:16px;aspect-ratio:16 / 9;position:relative !important}
 .fmc_video{margin-bottom:1rem;left:0;z-index:2;position:relative;padding-bottom:56.25%;overflow:hidden;max-width:100%;height:auto}

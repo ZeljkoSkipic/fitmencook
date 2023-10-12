@@ -421,7 +421,6 @@ body.archive {
 
 	}
 	.fmc_sr_sidebar {
-		height: fit-content;
 		@include limbo-min {
 			width: 300px
 		}
@@ -604,6 +603,11 @@ body.archive {
 		}
 		#shop-with-instacart-v1 {
 			margin-block: var(--spacing-3);
+		}
+		.atm-ad-slot {
+			margin-top: 16px;
+			position: sticky;
+			top: 8px;
 		}
 	}
 	.fmc_additional_macro {
