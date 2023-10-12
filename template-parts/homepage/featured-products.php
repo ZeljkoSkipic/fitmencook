@@ -21,7 +21,7 @@ if( have_rows('featured_products') ): ?>
 					</figure>
 					<h3 class="fmc_grid_title"><?php the_title(); ?></h3>
 					<div class="fmc_product_grid_bottom">
-						<span>(<?php echo  $product->get_price_html(); ?>)</span>
+						<span><?php echo  $product->get_price_html(); ?></span>
 						<a class="fmc_btn" href="?add-to-cart=<?php the_ID(); ?>">Buy Now</a>
 					</div>
 				</div>
@@ -47,7 +47,7 @@ if( have_rows('featured_products') ): ?>
 					<h3 class="fmc_grid_title"><?php echo $product_title ?></h3>
 					<div class="fmc_product_grid_bottom">
 						<?php if($price) { ?>
-							<span>($<?php echo $price ?>)</span>
+							<span>$<?php echo $price ?></span>
 						<?php } ?>
 						<?php
 						if( $link ):

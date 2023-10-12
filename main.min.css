@@ -837,7 +837,7 @@ body.archive .fmc_recipe{margin-bottom:var(--spacing-3)}
 .single-product .fmc_product_right .fmc_product_price>div .fmc_product_unit_price{color:#374151}
 .single-product .fmc_product_right .fmc_product_price>div .fmc_product_unit_total,.single-product .fmc_product_right .fmc_product_price>div .fmc_product_unit_total-js{color:#374151;font-size:24px}
 .single-product .fmc_product_right .fmc_btn{width:100%;border:0;margin-top:20px;cursor:pointer}
-.single-product .fmc_product_right .stock{font-size:12px;text-align:right;margin-top:8px;background-size:12.5px;background-position:center left;width:-webkit-fit-content;width:-moz-fit-content;width:fit-content;background-repeat:no-repeat;padding-left:15px;margin-right:0;margin-left:auto;font-weight:700}
+.single-product .fmc_product_right .stock{font-size:12px;text-align:right;margin-top:8px;background-size:12.5px;background-position:center left;width:-webkit-fit-content;width:-moz-fit-content;width:fit-content;background-repeat:no-repeat;padding-left:15px;margin-right:0;margin-left:auto;font-weight:700;display:none}
 .single-product .fmc_product_right .stock.in-stock{background-image:url(assets/icons/checkmark.svg);color:var(--misc-color)}
 .single-product .fmc_product_main{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}
 .single-product .fmc_product_main .onsale{display:none}
