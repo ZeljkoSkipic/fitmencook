@@ -1280,6 +1280,7 @@ body.archive .fmc_recipe:not(:nth-child(3n+3)){margin-right:2%}
 .fmc_nav_open .fmc_mm_trigger:before{-webkit-transform:translateY(10px) rotate(135deg);transform:translateY(10px) rotate(135deg)}
 .fmc_nav_open .fmc_mm_trigger:after{-webkit-transform:translateY(-10px) rotate(-135deg);transform:translateY(-10px) rotate(-135deg)}
 .fmc_nav_open .fmc_mm_trigger div{-webkit-transform:scale(0);transform:scale(0)}
+.cart_icon{margin-right:20px}
 .search_icon{margin-left:auto;margin-right:20px;margin-top:2px}
 .search_icon svg{width:20px;height:20px}
 .fmc_header_right .cart,.fmc_header_right .search_icon{display:none}

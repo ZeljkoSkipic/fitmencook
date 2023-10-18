@@ -22,7 +22,7 @@ if( have_rows('featured_products') ): ?>
 					<h3 class="fmc_grid_title"><?php the_title(); ?></h3>
 					<div class="fmc_product_grid_bottom">
 						<span><?php echo  $product->get_price_html(); ?></span>
-						<a class="fmc_btn" href="?add-to-cart=<?php the_ID(); ?>">Buy Now</a>
+						<a class="fmc_btn" href="<?php the_permalink(); ?>">Buy Now</a>
 					</div>
 				</div>
 				<?php endforeach; ?>
