@@ -278,6 +278,9 @@ function meal_plan_calculations($featured = false)
 	if ($existing_recipes) {
 
 		foreach ($existing_recipes as $existing_recipe) {
+			$exclude_recipe = $existing_recipe['exclude_recipe'];
+			if($exclude_recipe === true) continue;
+
 			$existing_recipe_ID =  $existing_recipe['recipe'][0]->ID;
 			$total_time_recipe = (float) get_field('total_time', $existing_recipe_ID);
 			$total_time_prep_recipe = (float) get_field('prep_time', $existing_recipe_ID);
@@ -313,6 +316,9 @@ function meal_plan_calculations($featured = false)
 
 	if ($custom_recipes) {
 		foreach ($custom_recipes as $custom_recipe) {
+			$exclude_recipe = $custom_recipe['exclude_recipe'];
+			if($exclude_recipe === true) continue;
+
 			$cr_total_time = (float) $custom_recipe['cr_total_time'];
 			$cr_prep_time = (float) $custom_recipe['cr_prep_time'];
 			$cr_cook_time = (float) $custom_recipe['cr_cook_time'];
@@ -399,6 +405,18 @@ function meal_plan_calculations($featured = false)
 		'total_times' => $total_times,
 		'totals'      => $totals
 	];
+}
+
+// Chnage position of assoc array items
+
+function ksort_arr (&$arr, $index_arr) {
+    $arr_t=array();
+    foreach($index_arr as $i=>$v) {
+        foreach($arr as $k=>$b) {
+            if ($k==$v) $arr_t[$k]=$b;
+        }
+    }
+    $arr=$arr_t;
 }
 
 

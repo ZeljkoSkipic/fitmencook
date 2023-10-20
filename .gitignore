@@ -28,6 +28,7 @@ node_modules/
 ######################
 **.DS_Store*
 ehthumbs.db
+Icon?
 Thumbs.db
 ._*
 
@@ -66,11 +67,7 @@ assets/bower_components/*
 library/vendors/composer
 assets/img/.DS_Store
 .editorconfig
-.eslintrc.js
 .eslintignore
-gulpfile.babel.js
-js/custom.min.js
-package-lock.json
-package.json
+.eslintrc.js
 wpgulp.config.js
-style.min.css
+*.json

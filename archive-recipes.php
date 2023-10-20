@@ -19,11 +19,7 @@ $size = 'full'
 			setup_postdata($post);
 			$categories = get_the_terms($post->ID, 'recipe-category');
 			$calculations = meal_plan_calculations(true);
-			$template_slug = get_page_template_slug();
-
-
-
-	?>
+			$template_slug = get_page_template_slug();	?>
 			<div class="fmc_featured_post fmc_featured_recipe">
 				<div class="fmc_featured_left">
 					<a href="<?php the_permalink(); ?>">

@@ -40,7 +40,9 @@ $box_type = get_field('box_type');
 					<?php foreach( $featured_recipe as $post ):
 
 						// Setup this post for WP functions (variable must be named $post).
-						setup_postdata($post); ?>
+						setup_postdata($post); 
+						if(get_page_template_slug($post) === 'single-recipes-multiple.php')  $calculations = meal_plan_calculations(true);
+						?>
 						<div class="fmc_hr_left">
 						<div class="fmc_grid_meta">
 							<span class="fmc_grid_cat">
@@ -70,7 +72,7 @@ $box_type = get_field('box_type');
 							<?php endif; ?>
 					</div>
 					<h3 class="fmc_grid_title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-					<?php if(!$hide_macros) { ?>
+					<?php if(!$hide_macros && !isset($calculations)) { ?>
 					<div class="fmc_recipe_grid_macros">
 						<div class="rg_macro calories">
 							<span class="rg_m_title">Cal</span>
@@ -89,7 +91,18 @@ $box_type = get_field('box_type');
 							<span class="rg_m_amount"><?php the_field( 'carbs' ); ?>g</span>
 						</div>
 					</div>
-					<?php } ?>
+					<?php } else if (!$hide_macros && isset($calculations)) {
+						if ($calculations['totals']) : $count_calculations = 1; 
+						$index_arr = array("Calories","Protein","Fats","Carbs");
+						ksort_arr($calculations['totals'], $index_arr);	
+						?>
+							<div class="fmc_recipe_grid_macros">
+								<?php foreach ($calculations['totals'] as $label => $total) : if($total === 0) continue; ?>
+									<div class="rg_macro <?php if($count_calculations === 1) echo ' calories'; ?>"> <span class="rg_m_title"><?php echo $label; ?></span> <span class="rg_m_amount"> <?php echo $total; ?></span></div>
+								<?php $count_calculations++; endforeach; ?>
+							</div>
+						<?php endif;
+						}?>
 				</div>
 				<div class="fmc_hr_right">
 					<a href="<?php the_permalink(); ?>">
