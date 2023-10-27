@@ -68,7 +68,7 @@
 			wp_reset_postdata(); ?>
 		<?php endif; ?>
 	</div>
-	<div class="fmc_top_cats spacing_2_0">
+	<!-- <div class="fmc_top_cats spacing_2_0">
 		<div class="fmc_tc_inner">
 		<h3 class="spacing_0_3"><?php the_field('top_categories_title', 'option'); ?></h3>
 			<?php $top_categories = get_field('top_categories', 'option') ?>
@@ -81,7 +81,7 @@
 			</a>
 		<?php } ?>
 		</div>
-</div>
+	</div> -->
 
 <div class="atm-ad-slot" data-slot-type="rail-ad"></div> <!-- Single Blog Post AD -->
 

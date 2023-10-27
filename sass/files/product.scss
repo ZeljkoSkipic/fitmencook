@@ -796,6 +796,8 @@ input {
 /* Archive */
 
 .archive {
+
+
 	.fmc_product_archive_header {
 		display: flex;
 		justify-content: space-between;
@@ -812,6 +814,7 @@ input {
 	.fmc_product_cats {
 		display: flex;
 		flex-wrap: wrap;
+		margin-left: auto;
 		@include mob-only {
 			justify-content: center;
 		}

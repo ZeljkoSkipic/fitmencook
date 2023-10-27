@@ -27,32 +27,57 @@ $arch_intro = get_field('mp_arch_intro', 'option');
 
                     <div class="fmc_plan">
 
-                        <?php if ($meal_plans_archive_images) : ?>
 
-                            <div class="fmc_plan_images">
-                                <div class="left">
+                        <div class="fmc_plan_images">
+                            <div class="left">
 
-                                    <?php if (isset($meal_plans_archive_images[0]['image'])) : ?>
+                                <?php if ($meal_plans_archive_images && isset($meal_plans_archive_images[0]['image']) && $meal_plans_archive_images[0] ) : ?>
 
-                                        <figure>
-                                            <?php echo wp_get_attachment_image($meal_plans_archive_images[0]['image'], 'large'); ?>
-                                        </figure>
+                                    <figure>
+                                        <?php echo wp_get_attachment_image($meal_plans_archive_images[0]['image'], 'large'); ?>
+                                    </figure>
 
-                                    <?php endif; ?>
+                                <?php else : ?>
+                                    <figure>
+                                        <img src="<?php echo get_template_directory_uri() . '/assets/images/meal-placeholder.jpg' ?>" alt="Meal plan placeholder image">
+                                    </figure>
+                                <?php endif; ?>
 
-                                </div>
-                                <div class="right">
-
-                                    <?php foreach ($meal_plans_archive_images as $key => $meal_plans_archive_image) : if ($key === 0) continue; ?>
-                                        <figure>
-                                            <?php echo wp_get_attachment_image($meal_plans_archive_image['image'], 'large'); ?>
-                                        </figure>
-                                    <?php endforeach; ?>
-
-                                </div>
                             </div>
+                            <div class="right">
 
-                        <?php endif; ?>
+                                <?php if ($meal_plans_archive_images && isset($meal_plans_archive_images[1]) && $meal_plans_archive_images[1] ) : ?>
+
+                                    <figure>
+                                        <?php echo wp_get_attachment_image($meal_plans_archive_images[1]['image'], 'large'); ?>
+                                    </figure>
+
+                                <?php else : ?>
+
+                                    <figure>
+                                        <img src="<?php echo get_template_directory_uri() . '/assets/images/meal-placeholder.jpg' ?>" alt="Meal plan placeholder image">
+                                    </figure>
+
+                                <?php endif; ?>
+
+                                <?php if ($meal_plans_archive_images && isset($meal_plans_archive_images[2]) && $meal_plans_archive_images[2] ) : ?>
+
+                                    <figure>
+                                        <?php echo wp_get_attachment_image($meal_plans_archive_images[2]['image'], 'large'); ?>
+                                    </figure>
+
+                                <?php else : ?>
+
+                                    <figure>
+                                        <img src="<?php echo get_template_directory_uri() . '/assets/images/meal-placeholder.jpg' ?>" alt="Meal plan placeholder image">
+                                    </figure>
+
+                                <?php endif; ?>
+
+                            </div>
+                        </div>
+
+
 
                         <a href="<?php the_permalink(); ?>">
                             <h3 class="fmc_plan_title fmc_title_4"><?php the_title(); ?></h3>
