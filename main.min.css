@@ -646,6 +646,7 @@ body.archive .fmc_recipe{margin-bottom:var(--spacing-3)}
 .single-recipes .fmc_sr_main .fmc_recipe_the_content figcaption.wp-caption-text{font-size:14px;font-style:italic;margin-top:-5px}
 .single-recipes .fmc_sr_main .fmc_recipe_the_content p,.single-recipes .fmc_sr_main .fmc_recipe_the_content li{font-size:16px}
 .fmc_single_recipe{-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;position:relative}
+.fmc_single_recipe .featured_image_top{margin-bottom:var(--spacing-3)}
 .fmc_single_recipe .fmc_recipe_top_wrap{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-align:start;-ms-flex-align:start;align-items:flex-start}
 .fmc_single_recipe .fmc_recipe_top_left{margin-right:var(--spacing-3)}
 .fmc_single_recipe .attachment-post-thumbnail,.fmc_single_recipe .attachment-post-thumbnail img{border-radius:16px}
@@ -702,12 +703,13 @@ body.archive .fmc_recipe{margin-bottom:var(--spacing-3)}
 .fmc_title_prefix{text-align:left;width:100%;display:block;font-size:12px;text-transform:uppercase;font-weight:800;color:var(--misc-color)}
 .fmc_related_recipes .fmc_title_2{text-align:left}
 .single-recipes .fmc_recipe_ingredients{margin-top:var(--spacing-2)}
-.legend{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}
+.legend{display:-webkit-box;display:-ms-flexbox;display:flex}
+.legend>span:not(:last-child){margin-right:16px}
 .legend:not(:last-child){margin-bottom:var(--spacing-3)}
 .legend span{font-size:14px;font-style:italic;margin-bottom:4px}
 .note,.sub{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
-.note img,.sub img{width:20px;margin-right:8px;border-radius:0;display:-webkit-inline-box !important;display:-ms-inline-flexbox !important;display:inline-flex !important}
-.optional span{width:20px;display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex}
+.note img,.sub img{width:20px;margin-right:4px;border-radius:0;display:-webkit-inline-box !important;display:-ms-inline-flexbox !important;display:inline-flex !important}
+.optional span{width:8px;display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex}
 .fmc_ing_servings,.fmc_ing_servings_size{width:-webkit-fit-content;width:-moz-fit-content;width:fit-content;padding:8px 16px;border-radius:8px;font-size:18px;font-weight:700;margin-bottom:var(--spacing-3);display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex;-ms-flex-wrap:wrap;flex-wrap:wrap}
 .fmc_ing_servings{margin-right:16px;background-color:#44803f;color:#fff}
 .fmc_ing_servings_size{background-color:#b4cf66;-webkit-column-gap:8px;-moz-column-gap:8px;column-gap:8px}
@@ -767,7 +769,7 @@ body.archive .fmc_recipe{margin-bottom:var(--spacing-3)}
 .fmc_print_template .fmc_mp_recipe .fmc_macros .fmc_macro span{color:#000;font-size:16px}
 .fmc_print_template .fmc_mp_recipe .fmc_mpr_content ul li{font-size:16px}
 .fmc_tools{background-color:#f9fafb;padding:var(--spacing-2);width:-webkit-fit-content;width:-moz-fit-content;width:fit-content;max-width:100%;width:450px;border-radius:16px;margin-block:var(--spacing-3) var(--spacing-1)}
-.fmc_tools .fmc_tools_title{font-size:var(--title-size-3);font-weight:800;font-family:Nunito}
+.fmc_tools .fmc_tools_title{font-size:var(--title-size-3);font-family:Nunito;margin-bottom:16px}
 .fmc_tools em{font-size:16px;margin-bottom:var(--spacing-2);display:block}
 .fmc_tools .tools_inner{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;-ms-flex-wrap:wrap;flex-wrap:wrap}
 .fmc_tools a{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;font-size:16px;font-weight:700;text-decoration:none;margin-bottom:calc(1.6rem + 6px);color:var(--misc-color);width:30%}
@@ -838,7 +840,7 @@ body.archive .fmc_recipe{margin-bottom:var(--spacing-3)}
 .single-product .fmc_product_right .fmc_product_price>div .fmc_product_unit_price{color:#374151}
 .single-product .fmc_product_right .fmc_product_price>div .fmc_product_unit_total,.single-product .fmc_product_right .fmc_product_price>div .fmc_product_unit_total-js{color:#374151;font-size:24px}
 .single-product .fmc_product_right .fmc_btn{width:100%;border:0;margin-top:20px;cursor:pointer}
-.single-product .fmc_product_right .stock{font-size:12px;text-align:right;margin-top:8px;background-size:12.5px;background-position:center left;width:-webkit-fit-content;width:-moz-fit-content;width:fit-content;background-repeat:no-repeat;padding-left:15px;margin-right:0;margin-left:auto;font-weight:700}
+.single-product .fmc_product_right .stock{font-size:12px;text-align:right;margin-top:8px;background-size:12.5px;background-position:center left;width:-webkit-fit-content;width:-moz-fit-content;width:fit-content;background-repeat:no-repeat;padding-left:15px;margin-right:0;margin-left:auto;font-weight:700;display:none}
 .single-product .fmc_product_right .stock.in-stock{background-image:url(assets/icons/checkmark.svg);color:var(--misc-color)}
 .single-product .fmc_product_main{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}
 .single-product .fmc_product_main .onsale{display:none}

@@ -7,6 +7,7 @@
 
 get_header();
 
+$featured_image_switch = get_field('featured_image_switch');
 
 $categories = get_the_terms( $post->ID, 'recipe-category' );
 $author_id = $post->post_author;
@@ -45,9 +46,18 @@ $meal_counter = 1;
 			<h1 class="fmc_title_1 title_spacing_3">
 				<?php the_title(); ?>
 			</h1>
+
+			<?php
+			if( $featured_image_switch ) { ?>
+				<figure class="featured_image_top">
+					<?php the_post_thumbnail(); ?>
+				</figure>
+			<?php } ?>
+
 			<?php get_template_part('template-parts/last-updated'); ?>
 
 			<!-- WP Content -->
+
 			<?php
 			$content = apply_filters( 'the_content', get_the_content() );
 			if( $content ) :

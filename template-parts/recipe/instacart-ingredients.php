@@ -1,8 +1,3 @@
-<?php
-
-$note_icon = get_field('note_icon', 'option');
-$sub_icon = get_field('sub_icon', 'option'); ?>
-
 <div class="fmc_ingredients">
 	<?php
 
@@ -58,11 +53,4 @@ $sub_icon = get_field('sub_icon', 'option'); ?>
 		<?php endwhile; ?>
 
 	<?php endif; ?>
-</div>
-
-
-<div class="legend">
-	<span class="note"><img src="<?php echo $note_icon ?>">Note</span>
-	<span class="sub"><img src="<?php echo $sub_icon ?>">Substitution</span>
-	<span class="optional"><span>*</span> Optional</span>
 </div>

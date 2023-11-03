@@ -9,7 +9,11 @@ $nosi = get_field('number_of_servings_ing', 'option');
 $servings_number = get_field('number_of_servings');
 
 $serving_size = get_field('serving_size');
-$l_serving_size = get_field('l_serving_size', 'option'); ?>
+$l_serving_size = get_field('l_serving_size', 'option');
+
+$note_icon = get_field('note_icon', 'option');
+$sub_icon = get_field('sub_icon', 'option'); ?>
+
 
 <?php if( $ingredients || have_rows('ing_group') ) : ?>
 
@@ -35,6 +39,12 @@ $l_serving_size = get_field('l_serving_size', 'option'); ?>
 	<?php if($serving_size) { ?>
 	<div class="fmc_ing_servings_size"><?php echo $l_serving_size; ?>:<span><?php echo $serving_size ?></span></div>
 	<?php } ?>
+
+	<div class="legend">
+		<span class="note"><img src="<?php echo $note_icon ?>">Note</span>
+		<span class="sub"><img src="<?php echo $sub_icon ?>">Substitution</span>
+		<span class="optional"><span>*</span> Optional</span>
+	</div>
 
 
 	<?php // Instacart Ingredients

@@ -160,6 +160,7 @@ input {
 			margin-right: 0;
 			margin-left: auto;
 			font-weight: 700;
+			display: none;
 			&.in-stock {
 				background-image: url(assets/icons/checkmark.svg);
 				color: var(--misc-color);

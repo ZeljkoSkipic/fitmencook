@@ -49,14 +49,17 @@ $calculations = meal_plan_calculations();
                 <?php the_title(); ?>
             </h1>
 
+			<?php
+			if( $featured_image_switch ) { ?>
+				<figure class="featured_image_top">
+					<?php the_post_thumbnail(); ?>
+				</figure>
+			<?php } ?>
+
 			<?php get_template_part('template-parts/last-updated'); ?>
 
             <!-- WP Content -->
             <div class="spacing_0_2 fmc_recipe_the_content fmc_ad_container">
-			<?php
-			if( $featured_image_switch ) {
-				the_post_thumbnail();
-			} ?>
 
 			<?php the_content(); ?>
             </div>

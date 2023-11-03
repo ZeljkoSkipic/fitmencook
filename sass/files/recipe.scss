@@ -310,12 +310,6 @@ body.archive {
 
 /* Single */
 
-/* .admin-bar .fmc_single_recipe .fmc_sr_sidebar {
-	top: 32px;
-	@include limbo-only {
-		top: 92px;
-	}
-} */
 .fmc_top_author {
 	display: flex;
 	align-items: center;
@@ -388,6 +382,9 @@ body.archive {
 	flex-wrap: wrap;
 	justify-content: space-between;
 	position: relative;
+	.featured_image_top {
+		margin-bottom: var(--spacing-3);
+	}
 	.fmc_recipe_top_wrap {
 		display: flex;
 		justify-content: space-between;
@@ -787,7 +784,11 @@ body.archive {
 }
 .legend {
 	display: flex;
-	flex-direction: column;
+	> span {
+		&:not(:last-child) {
+			margin-right: 16px;
+		}
+	}
 	&:not(:last-child) {
 		margin-bottom: var(--spacing-3);
 	}
@@ -803,14 +804,14 @@ body.archive {
 	align-items: center;
 	img {
 		width: 20px;
-		margin-right: 8px;
+		margin-right: 4px;
 		border-radius: 0;
 		display: inline-flex!important;
 	}
 }
 .optional {
 	span {
-		width: 20px;
+		width: 8px;
 		display: inline-flex;
 	}
 }
@@ -1202,8 +1203,8 @@ body.archive {
 	margin-block: var(--spacing-3) var(--spacing-1);
 	.fmc_tools_title {
 		font-size: var(--title-size-3);
-		font-weight: 800;
 		font-family: Nunito;
+		margin-bottom: 16px;
 	}
 	em {
 		font-size: 16px;
