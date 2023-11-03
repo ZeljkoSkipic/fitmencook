@@ -47,14 +47,15 @@ $query_var = get_query_var('product_cat', "-1");
             yoast_breadcrumb('<div class="fmc_breadcrumbs spacing_0_2">', '</div>');
         } ?>
 		<div class="fmc_featured_post">
-		<div class="fmc_featured_left">
 			<?php
 			$featured_image = get_field('featured_image', 'option');
 			$size = 'full';
-			if( $featured_image ) {
-				echo wp_get_attachment_image( $featured_image, $size, "", array( "class" => "featured_image" ) );
-			} ?>
-		</div>
+			if( $featured_image ) { ?>
+			<div class="fmc_featured_left">
+				<?php echo wp_get_attachment_image( $featured_image, $size, "", array( "class" => "featured_image" ) ); ?>
+			</div>
+		<?php } ?>
+
 		<div class="fmc_featured_right">
 			<div class="fmc_grid_meta">
 				<?php if (apply_filters('woocommerce_show_page_title', true)) : ?>
