@@ -145,7 +145,22 @@ $calculations = meal_plan_calculations();
 								<?php if($serving_size) { ?>
 								<div class="fmc_ing_servings_size"><?php echo $l_serving_size; ?>:<span><?php echo $serving_size ?></span></div>
 								<?php } ?>
+
+
+								<!-- Ingredients -->
+
+								<?php // Instacart Ingredients
+
+								if( get_field('ingredients_switch') ) { ?>
+
+								<?php get_template_part('template-parts/recipe/instacart-ingredients'); ?>
+
+								<?php } else { ?>
+
                                 <div class="text_2 fmc_mpr_content fmc_mpr_ing"><?php the_field('ingredients'); ?></div>
+
+								<?php } ?>
+
                                 <?php if ($include_steps) : ?>
                                     <h4 class="fmc_mpr_subtitle"><?php the_field('steps_title'); ?></h4>
                                     <div class="text_2 fmc_mpr_content fmc_mpr_steps">
@@ -279,7 +294,21 @@ $calculations = meal_plan_calculations();
 						<?php if($custom_ss) { ?>
 						<div class="fmc_ing_servings_size"><?php echo $l_serving_size; ?>:<span><?php echo $custom_ss ?></span></div>
 						<?php } ?>
+
+						<!-- Ingredients -->
+
+						<?php // Instacart Ingredients
+
+						if( get_sub_field('ingredients_switch') ) { ?>
+
+						<?php get_template_part('template-parts/recipe/instacart-ingredients'); ?>
+
+						<?php } else { ?>
+
                         <div class="text_2 fmc_mpr_content fmc_mpr_ing"><?php echo $custom_ingredients ?></div>
+
+						<?php } ?>
+
 						<?php endif; ?>
 						<?php
 						$steps_title = get_sub_field('steps_title');
@@ -441,7 +470,14 @@ $calculations = meal_plan_calculations();
 
             </div>
         </div>
+		<?php
+		if( get_field('instacart_sidebar') ) { // Include Instacart Button in Sidebar?>
+		<script>
+		(function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) { return; } js = d.createElement(s); js.id = id; js.src = "https://widgets.instacart.com/widget-bundle.js"; js.async = true; fjs.parentNode.insertBefore(js, fjs); })(document, "script", "standard-instacart-widget-v1");
+		</script>
 
+		<div id="shop-with-instacart-v1" data-affiliate_id="2985" data-source_origin="affiliate_hub" data-affiliate_platform="recipe_widget" \></div>
+		<?php } ?>
         <?php dynamic_sidebar('ad5'); ?>
 
     </div>

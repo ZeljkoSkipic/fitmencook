@@ -114,6 +114,9 @@
 		}
 		&.fmc_mpr_ing {
 			margin-bottom: var(--spacing-1);
+			* {
+				font-size: 16px;
+			}
 		}
 	}
 	.fmc_macros_title {

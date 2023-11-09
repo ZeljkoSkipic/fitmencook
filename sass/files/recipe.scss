@@ -875,10 +875,12 @@ body.archive {
 			font-size: 18px;
 		}
 	}
-	img, picture {
-		margin-top: 2rem;
-		display: block;
-		border-radius: 16px;
+	.fmc_step_content {
+		img, picture {
+			margin-top: 2rem;
+			display: block;
+			border-radius: 16px;
+		}
 	}
 	.fmc_step { // Temp
 		margin-bottom: 4rem;

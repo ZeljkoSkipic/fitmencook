@@ -124,6 +124,34 @@ if( have_rows('steps') ): ?>
 			<h5 class="fmc_step_title spacing_0_3">
 				Step <?php echo $item; ?>
 			</h5>
+
+			<?php
+			$step_tools = get_sub_field('step_tools');
+			if( $step_tools ): ?>
+				<div class="fmc_tools">
+					<h4 class="fmc_tools_title"><?php the_field('tools_title', 'option'); ?></h4>
+					<em><?php the_field('tools_intro', 'option'); ?></em>
+					<div class="tools_inner">
+						<?php foreach( $step_tools as $post ): ?>
+							<?php // Setup this post for WP functions (variable must be named $post).
+							setup_postdata($post); ?>
+								<a href="<?php the_field('tool_link'); ?>" target="_blank">
+								<?php
+								$icon = get_field('icon');
+								$size = 'full';
+								if( $icon ) {
+									echo wp_get_attachment_image( $icon, $size, "", array( "class" => "icon" ) );
+								} ?>
+								<?php the_title(); ?>
+								</a>
+						<?php endforeach; ?>
+					</div>
+				<?php
+				// Reset the global post object so that the rest of the page works correctly.
+				wp_reset_postdata(); ?>
+				</div>
+			<?php endif; ?>
+
 			<div class="fmc_step_content">
 				<?php echo $step; ?>
 			</div>
