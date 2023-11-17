@@ -62,7 +62,7 @@ if ($pinned_custom_products) {
 $all_products = array_merge($products, $custom_products_formated);
 
 if ($all_products && count($show_products) < 4) {
-	$random_products_keys = array_rand($all_products, 4 - count($show_products));
+	$random_products_keys = (array) array_rand($all_products, 4 - count($show_products));
 
 	if ($random_products_keys) {
 		foreach ($random_products_keys as $random_product_key) {
