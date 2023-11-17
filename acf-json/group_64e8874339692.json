@@ -4,8 +4,8 @@
     "fields": [
         {
             "key": "field_64e8874467861",
-            "label": "Include Featured Image on top of the page",
-            "name": "featured_image_switch",
+            "label": "Remove Featured Image",
+            "name": "remove_featured_image",
             "aria-label": "",
             "type": "true_false",
             "instructions": "",
@@ -41,5 +41,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1699014524
+    "modified": 1700224860
 }

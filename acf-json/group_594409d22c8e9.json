@@ -230,9 +230,9 @@
                             "parent_repeater": "field_64a52c3be38ae"
                         },
                         {
-                            "key": "field_64a5307946ff9",
-                            "label": "Add Sub",
-                            "name": "add_substitution",
+                            "key": "field_64ba674471f5d",
+                            "label": "Add Link",
+                            "name": "add_link",
                             "aria-label": "",
                             "type": "true_false",
                             "instructions": "",
@@ -251,9 +251,9 @@
                             "parent_repeater": "field_64a52c3be38ae"
                         },
                         {
-                            "key": "field_64ba674471f5d",
-                            "label": "Add Link",
-                            "name": "add_link",
+                            "key": "field_64a5307946ff9",
+                            "label": "Add Sub",
+                            "name": "add_substitution",
                             "aria-label": "",
                             "type": "true_false",
                             "instructions": "",
@@ -319,9 +319,9 @@
                             "parent_repeater": "field_64a52c3be38ae"
                         },
                         {
-                            "key": "field_64a530b246ffb",
-                            "label": "Note",
-                            "name": "note",
+                            "key": "field_64a530ba46ffc",
+                            "label": "Substitution",
+                            "name": "substitution",
                             "aria-label": "",
                             "type": "text",
                             "instructions": "",
@@ -329,7 +329,7 @@
                             "conditional_logic": [
                                 [
                                     {
-                                        "field": "field_64a530a646ffa",
+                                        "field": "field_64a5307946ff9",
                                         "operator": "==",
                                         "value": "1"
                                     }
@@ -348,9 +348,9 @@
                             "parent_repeater": "field_64a52c3be38ae"
                         },
                         {
-                            "key": "field_64a530ba46ffc",
-                            "label": "Substitution",
-                            "name": "substitution",
+                            "key": "field_64a530b246ffb",
+                            "label": "Note",
+                            "name": "note",
                             "aria-label": "",
                             "type": "text",
                             "instructions": "",
@@ -358,7 +358,7 @@
                             "conditional_logic": [
                                 [
                                     {
-                                        "field": "field_64a5307946ff9",
+                                        "field": "field_64a530a646ffa",
                                         "operator": "==",
                                         "value": "1"
                                     }
@@ -1016,5 +1016,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1699540319
+    "modified": 1700226283
 }

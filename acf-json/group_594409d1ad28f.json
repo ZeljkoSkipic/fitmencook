@@ -401,7 +401,7 @@
             "name": "fp_title",
             "aria-label": "",
             "type": "text",
-            "instructions": "Here you can insert the Custom Products from external sources\r\nand the Existin Products inserted on your website.\r\nIdeal combined number for both should be 4.",
+            "instructions": "Four random products will be displayed from all WooCommerce products and custom products that are created. You can pin specific products if you want them to be shown securely.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -447,7 +447,7 @@
                     "required": 1,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "20",
                         "class": "",
                         "id": ""
                     },
@@ -473,7 +473,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "20",
                         "class": "",
                         "id": ""
                     },
@@ -494,7 +494,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "20",
                         "class": "",
                         "id": ""
                     },
@@ -515,19 +515,40 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "30",
                         "class": "",
                         "id": ""
                     },
                     "return_format": "array",
+                    "parent_repeater": "field_6359582b0b345"
+                },
+                {
+                    "key": "field_655276bf7d8ea",
+                    "label": "Pin",
+                    "name": "pin",
+                    "aria-label": "",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "10",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": "",
+                    "ui": 1,
                     "parent_repeater": "field_6359582b0b345"
                 }
             ]
         },
         {
             "key": "field_642ff3e91f37e",
-            "label": "Existing Products",
-            "name": "existing_featured_products",
+            "label": "Pin WooCommerce Products",
+            "name": "pinned_products",
             "aria-label": "",
             "type": "relationship",
             "instructions": "",
@@ -550,8 +571,9 @@
             ],
             "return_format": "object",
             "min": "",
-            "max": "",
+            "max": 4,
             "elements": "",
+            "bidirectional": 0,
             "bidirectional_target": []
         },
         {
@@ -816,5 +838,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1693565025
+    "modified": 1700143207
 }

@@ -20,7 +20,7 @@ class BE_Product_Ingredients extends Article
 	 */
 	public function is_needed()
 	{
-		$post_types = apply_filters('be_product_ingredients_schema_post_types', array('recipes'));
+		$post_types = apply_filters('be_product_ingredients_schema_post_types', array('recipes', 'meal-plans'));
 		if (is_singular($post_types)) {
 			return true;
 		}
@@ -51,7 +51,7 @@ class BE_Product_Ingredients extends Article
 
 		$template  = get_page_template_slug(get_the_ID());
 
-		if ($template === 'single-recipes-multiple.php') {
+		if ($template === 'single-recipes-multiple.php' || is_singular('meal-plans')) {
 
 			// Existing Recipes
 
@@ -152,6 +152,7 @@ class BE_Product_Ingredients extends Article
 
 			$data = apply_filters('be_ingredients_schema_data', $data, $this->context);
 		}
+
 
 		return $data;
 	}

@@ -41,9 +41,9 @@ $sub_icon = get_field('sub_icon', 'option'); ?>
 	<?php } ?>
 
 	<div class="legend">
-		<span class="note"><img src="<?php echo $note_icon ?>">Note</span>
-		<span class="sub"><img src="<?php echo $sub_icon ?>">Substitution</span>
 		<span class="optional"><span>*</span> Optional</span>
+		<span class="sub"><img src="<?php echo $sub_icon ?>">Substitution</span>
+		<span class="note"><img src="<?php echo $note_icon ?>">Note</span>
 	</div>
 
 
@@ -130,7 +130,6 @@ if( have_rows('steps') ): ?>
 			if( $step_tools ): ?>
 				<div class="fmc_tools">
 					<h4 class="fmc_tools_title"><?php the_field('tools_title', 'option'); ?></h4>
-					<em><?php the_field('tools_intro', 'option'); ?></em>
 					<div class="tools_inner">
 						<?php foreach( $step_tools as $post ): ?>
 							<?php // Setup this post for WP functions (variable must be named $post).

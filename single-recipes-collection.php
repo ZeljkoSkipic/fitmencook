@@ -47,12 +47,8 @@ $meal_counter = 1;
 				<?php the_title(); ?>
 			</h1>
 
-			<?php
-			if( $featured_image_switch ) { ?>
-				<figure class="featured_image_top">
-					<?php the_post_thumbnail(); ?>
-				</figure>
-			<?php } ?>
+			<!-- Featured Image -->
+			<?php get_template_part('template-parts/recipe/featured-image'); ?>
 
 			<?php get_template_part('template-parts/last-updated'); ?>
 
@@ -65,7 +61,6 @@ $meal_counter = 1;
 			<div class="spacing_0_2 fmc_recipe_the_content fmc_ad_container">
 				<?php echo $content; ?>
 			</div>
-			<?php the_post_thumbnail(); ?>
 			<?php endif; ?>
 		</div>
 		<div class="fmc_sr_recipe_content">

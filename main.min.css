@@ -707,8 +707,9 @@ body.archive .fmc_recipe{margin-bottom:var(--spacing-3)}
 .legend>span:not(:last-child){margin-right:16px}
 .legend:not(:last-child){margin-bottom:var(--spacing-3)}
 .legend span{font-size:14px;font-style:italic;margin-bottom:4px}
-.note,.sub{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
-.note img,.sub img{width:20px;margin-right:4px;border-radius:0;display:-webkit-inline-box !important;display:-ms-inline-flexbox !important;display:inline-flex !important}
+.note{background-color:lightgray;width:-webkit-fit-content;width:-moz-fit-content;width:fit-content;border-radius:4px;padding:1px 5px;font-style:italic}
+.note,.sub,.optional{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
+.note img,.sub img,.optional img{width:20px;margin-right:4px;border-radius:0;display:-webkit-inline-box !important;display:-ms-inline-flexbox !important;display:inline-flex !important}
 .optional span{width:8px;display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex}
 .fmc_ing_servings,.fmc_ing_servings_size{width:-webkit-fit-content;width:-moz-fit-content;width:fit-content;padding:8px 16px;border-radius:8px;font-size:18px;font-weight:700;margin-bottom:var(--spacing-3);display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex;-ms-flex-wrap:wrap;flex-wrap:wrap}
 .fmc_ing_servings{margin-right:16px;background-color:#44803f;color:#fff}
@@ -718,6 +719,7 @@ body.archive .fmc_recipe{margin-bottom:var(--spacing-3)}
 .fmc_ingredients ul ul{margin-bottom:0}
 .fmc_ingredients img{border-radius:16px}
 .fmc_steps *{font-size:16px}
+.fmc_steps .fmc_tools .fmc_tools_title{font-size:var(--title-size-4)}
 .fmc_steps .fmc_step_title{font-family:Nunito;font-size:2.4rem;color:var(--color-1);font-weight:700}
 .fmc_steps .fmc_step_content img,.fmc_steps .fmc_step_content picture{margin-top:2rem;display:block;border-radius:16px}
 .fmc_steps .fmc_step{margin-bottom:4rem}

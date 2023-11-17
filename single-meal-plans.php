@@ -25,6 +25,9 @@ $l_sugar = get_field('l_sugar', 'option');
 $nosi = get_field('number_of_servings_ing', 'option');
 $l_serving_size = get_field('l_serving_size', 'option');
 
+$note_icon = get_field('note_icon', 'option');
+$sub_icon = get_field('sub_icon', 'option');
+
 $meal_counter = 1;
 $calculations = meal_plan_calculations();
 
@@ -152,6 +155,13 @@ $calculations = meal_plan_calculations();
 								<?php // Instacart Ingredients
 
 								if( get_field('ingredients_switch') ) { ?>
+
+								<div class="legend">
+									<span class="optional"><span>*</span> Optional</span>
+									<span class="sub"><img src="<?php echo $sub_icon ?>">Substitution</span>
+									<span class="note"><img src="<?php echo $note_icon ?>">Note</span>
+								</div>
+
 
 								<?php get_template_part('template-parts/recipe/instacart-ingredients'); ?>
 
@@ -300,6 +310,12 @@ $calculations = meal_plan_calculations();
 						<?php // Instacart Ingredients
 
 						if( get_sub_field('ingredients_switch') ) { ?>
+
+						<div class="legend">
+							<span class="optional"><span>*</span> Optional</span>
+							<span class="sub"><img src="<?php echo $sub_icon ?>">Substitution</span>
+							<span class="note"><img src="<?php echo $note_icon ?>">Note</span>
+						</div>
 
 						<?php get_template_part('template-parts/recipe/instacart-ingredients'); ?>
 

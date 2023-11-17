@@ -1,3 +1,7 @@
+<?php
+$note_icon = get_field('note_icon', 'option');
+$sub_icon = get_field('sub_icon', 'option'); ?>
+
 <div class="fmc_ingredients">
 	<?php
 
@@ -34,15 +38,13 @@
 				</a>
 			<?php } ?>
 
-
-
 			<?php if( $note || $substitution ) : ?>
 				<ul>
-					<?php if( $note ) { ?>
-					<li class="note"><img src="<?php echo $note_icon ?>"><?php echo $note; ?></li>
-					<?php } ?>
 					<?php if( $substitution ) { ?>
 					<li class="sub"><img src="<?php echo $sub_icon ?>"><?php echo $substitution; ?></li>
+					<?php } ?>
+					<?php if( $note ) { ?>
+					<li class="note"><img src="<?php echo $note_icon ?>"><?php echo $note; ?></li>
 					<?php } ?>
 				</ul>
 			<?php endif; ?>

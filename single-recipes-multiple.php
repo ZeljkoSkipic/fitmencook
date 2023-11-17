@@ -7,8 +7,6 @@
 
 get_header();
 
-$featured_image_switch = get_field('featured_image_switch');
-
 $video = get_field('video');
 $gallery = get_field('gallery');
 
@@ -49,12 +47,8 @@ $calculations = meal_plan_calculations();
                 <?php the_title(); ?>
             </h1>
 
-			<?php
-			if( $featured_image_switch ) { ?>
-				<figure class="featured_image_top">
-					<?php the_post_thumbnail(); ?>
-				</figure>
-			<?php } ?>
+			<!-- Featured Image -->
+			<?php get_template_part('template-parts/recipe/featured-image'); ?>
 
 			<?php get_template_part('template-parts/last-updated'); ?>
 
@@ -149,7 +143,6 @@ $calculations = meal_plan_calculations();
 
                                     <?php endif; ?>
                                 </div>
-                                <?php the_post_thumbnail(); ?>
 								<?php
 								$ingredients_title = get_field('ingredients_title');
 								if($ingredients_title) : ?>
