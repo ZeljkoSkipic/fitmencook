@@ -7,7 +7,10 @@ function get_rating_html()
 {
     ob_start();
 ?>
-
+    <div class="rating-checkbox-wrap">
+		<input id="use-rating" name="use-rating" type="checkbox">
+		<label style="display:block" for="use-rating"><?php esc_html_e('I have made this recipe', 'fitmmencook') ?></label>
+	</div>
     <select name="rateRecipe" id="recipe-rate">
         <option value="0">Rate it</option>
         <option value="1">1</option>
@@ -16,7 +19,7 @@ function get_rating_html()
         <option value="4">4</option>
         <option value="5">5</option>
     </select>
-    <div class="recipe_rate-wrapper">
+    <div  class="recipe_rate-wrapper">
         <p class="recipe-rate-label"><?php esc_html_e('Rate the recipe:', 'fitmenCook'); ?></p>
         <div class="rateit svg" data-rateit-starwidth="19" data-rateit-starheight="16" data-rateit-resetable="false" data-rateit-backingfld="#recipe-rate" data-rateit-min="0"></div>
     </div>
@@ -46,7 +49,11 @@ function save_rating_value( $comment_id, $approved, $commentdata ) {
 
     if($commentdata['comment_parent'] == 0) {
         $recipe_rating = isset( $_POST['rateRecipe'] ) ? wp_strip_all_tags($_POST['rateRecipe']) : '';
-        update_comment_meta( $comment_id, 'rating', $recipe_rating );
+        $use_rating = isset( $_POST['use-rating'] ) ? wp_strip_all_tags($_POST['use-rating']) : '';
+
+        if($use_rating) {
+            update_comment_meta( $comment_id, 'rating', $recipe_rating );
+        }
     }
 
 }
@@ -64,9 +71,15 @@ function add_rating_to_review_text( $text ) {
     $date = get_comment_date('M d Y');
     $comment = get_comment(get_comment_ID());
 
+
+
 	$rating_html = '<div class="comment-items">
         <div class="rateit" data-rateit-starwidth="19" data-rateit-starheight="16" data-rateit-value="'.$rating.'" data-rateit-ispreset="true" data-rateit-readonly="true"></div>
         <p class="comment-date"> '.$date.' </p></div>';
+
+    if(!$rating) {
+        $rating_html = "";
+    }
 
     if($comment->comment_parent != 0) {
         $rating_html = "";

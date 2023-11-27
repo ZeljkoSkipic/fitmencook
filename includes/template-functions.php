@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Functions which enhance the theme by hooking into WordPress
  *
@@ -11,110 +12,112 @@
  * @param array $classes Classes for the body element.
  * @return array
  */
-function fmc_body_classes( $classes ) {
+function fmc_body_classes($classes)
+{
 	// Adds a class of hfeed to non-singular pages.
-	if ( ! is_singular() ) {
+	if (!is_singular()) {
 		$classes[] = 'hfeed';
 	}
 
 	// Adds a class of no-sidebar when there is no sidebar present.
-	if ( ! is_active_sidebar( 'sidebar-1' ) ) {
+	if (!is_active_sidebar('sidebar-1')) {
 		$classes[] = 'no-sidebar';
 	}
 
 	return $classes;
 }
-add_filter( 'body_class', 'fmc_body_classes' );
+add_filter('body_class', 'fmc_body_classes');
 
 /**
  * Add a pingback url auto-discovery header for single posts, pages, or attachments.
  */
-function fmc_pingback_header() {
-	if ( is_singular() && pings_open() ) {
-		printf( '<link rel="pingback" href="%s">', esc_url( get_bloginfo( 'pingback_url' ) ) );
+function fmc_pingback_header()
+{
+	if (is_singular() && pings_open()) {
+		printf('<link rel="pingback" href="%s">', esc_url(get_bloginfo('pingback_url')));
 	}
 }
-add_action( 'wp_head', 'fmc_pingback_header' );
+add_action('wp_head', 'fmc_pingback_header');
 
 
 /* Pagination with numbers */
 
-function fmc_pagination() {
+function fmc_pagination()
+{
 
-    if( is_singular() )
-        return;
+	if (is_singular())
+		return;
 
-    global $wp_query;
+	global $wp_query;
 
-    /** Stop execution if there's only 1 page */
-    if( $wp_query->max_num_pages <= 1 )
-        return;
+	/** Stop execution if there's only 1 page */
+	if ($wp_query->max_num_pages <= 1)
+		return;
 
-    $paged = get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1;
-    $max   = intval( $wp_query->max_num_pages );
+	$paged = get_query_var('paged') ? absint(get_query_var('paged')) : 1;
+	$max   = intval($wp_query->max_num_pages);
 
-    /** Add current page to the array */
-    if ( $paged >= 1 )
-        $links[] = $paged;
+	/** Add current page to the array */
+	if ($paged >= 1)
+		$links[] = $paged;
 
-    /** Add the pages around the current page to the array */
-    if ( $paged >= 3 ) {
-        $links[] = $paged - 1;
-        $links[] = $paged - 2;
-    }
+	/** Add the pages around the current page to the array */
+	if ($paged >= 3) {
+		$links[] = $paged - 1;
+		$links[] = $paged - 2;
+	}
 
-    if ( ( $paged + 2 ) <= $max ) {
-        $links[] = $paged + 2;
-        $links[] = $paged + 1;
-    }
+	if (($paged + 2) <= $max) {
+		$links[] = $paged + 2;
+		$links[] = $paged + 1;
+	}
 
-    echo '<div class="pagination"><ul>' . "\n";
+	echo '<div class="pagination"><ul>' . "\n";
 
-    /** Previous Post Link */
-    if ( get_previous_posts_link() )
-        printf( '<li class="prev">%s</li>' . "\n", get_previous_posts_link() );
+	/** Previous Post Link */
+	if (get_previous_posts_link())
+		printf('<li class="prev">%s</li>' . "\n", get_previous_posts_link());
 
-    /** Link to first page, plus ellipses if necessary */
-    if ( ! in_array( 1, $links ) ) {
-        $class = 1 == $paged ? ' class="active"' : '';
+	/** Link to first page, plus ellipses if necessary */
+	if (!in_array(1, $links)) {
+		$class = 1 == $paged ? ' class="active"' : '';
 
-        printf( '<li%s><a href="%s">%s</a></li>' . "\n", $class, esc_url( get_pagenum_link( 1 ) ), '1' );
+		printf('<li%s><a href="%s">%s</a></li>' . "\n", $class, esc_url(get_pagenum_link(1)), '1');
 
-        if ( ! in_array( 2, $links ) )
-            echo '<li>…</li>';
-    }
+		if (!in_array(2, $links))
+			echo '<li>…</li>';
+	}
 
-    /** Link to current page, plus 2 pages in either direction if necessary */
-    sort( $links );
-    foreach ( (array) $links as $link ) {
-        $class = $paged == $link ? ' class="active"' : '';
-        printf( '<li%s><a href="%s">%s</a></li>' . "\n", $class, esc_url( get_pagenum_link( $link ) ), $link );
-    }
+	/** Link to current page, plus 2 pages in either direction if necessary */
+	sort($links);
+	foreach ((array) $links as $link) {
+		$class = $paged == $link ? ' class="active"' : '';
+		printf('<li%s><a href="%s">%s</a></li>' . "\n", $class, esc_url(get_pagenum_link($link)), $link);
+	}
 
-    /** Link to last page, plus ellipses if necessary */
-    if ( ! in_array( $max, $links ) ) {
-        if ( ! in_array( $max - 1, $links ) )
-            echo '<li>…</li>' . "\n";
+	/** Link to last page, plus ellipses if necessary */
+	if (!in_array($max, $links)) {
+		if (!in_array($max - 1, $links))
+			echo '<li>…</li>' . "\n";
 
-        $class = $paged == $max ? ' class="active"' : '';
-        printf( '<li%s><a href="%s">%s</a></li>' . "\n", $class, esc_url( get_pagenum_link( $max ) ), $max );
-    }
+		$class = $paged == $max ? ' class="active"' : '';
+		printf('<li%s><a href="%s">%s</a></li>' . "\n", $class, esc_url(get_pagenum_link($max)), $max);
+	}
 
-    /** Next Post Link */
-    if ( get_next_posts_link() )
-        printf( '<li class="next">%s</li>' . "\n", get_next_posts_link() );
+	/** Next Post Link */
+	if (get_next_posts_link())
+		printf('<li class="next">%s</li>' . "\n", get_next_posts_link());
 
-    echo '</ul></div>' . "\n";
-
+	echo '</ul></div>' . "\n";
 }
 
 
 // Theme Options
 
-if( function_exists('acf_add_options_page') ) {
+if (function_exists('acf_add_options_page')) {
 
-    acf_add_options_page(array(
-        'page_title' 	=> 'Site General Settings',
+	acf_add_options_page(array(
+		'page_title' 	=> 'Site General Settings',
 		'menu_title'	=> 'Website Settings',
 		'menu_slug' 	=> 'theme-general-settings',
 		'capability'	=> 'edit_posts',
@@ -123,40 +126,39 @@ if( function_exists('acf_add_options_page') ) {
 		'icon_url' => 'dashicons-buddicons-topics'
 	));
 	acf_add_options_sub_page(array(
-        'page_title'    => 'Header Settings',
-        'menu_title'    => 'Header',
-        'parent_slug'   => 'theme-general-settings',
-    ));
-    acf_add_options_sub_page(array(
-        'page_title'    => 'Language Settings',
-        'menu_title'    => 'Language',
-        'parent_slug'   => 'theme-general-settings',
-    ));
-
-    acf_add_options_sub_page(array(
-        'page_title'    => 'App Banner and Badges Settings',
-        'menu_title'    => 'App',
-        'parent_slug'   => 'theme-general-settings',
-    ));
+		'page_title'    => 'Header Settings',
+		'menu_title'    => 'Header',
+		'parent_slug'   => 'theme-general-settings',
+	));
+	acf_add_options_sub_page(array(
+		'page_title'    => 'Language Settings',
+		'menu_title'    => 'Language',
+		'parent_slug'   => 'theme-general-settings',
+	));
 
 	acf_add_options_sub_page(array(
-        'page_title'    => 'External Scripts - Tracking Codes',
-        'menu_title'    => 'External Scripts',
-        'parent_slug'   => 'theme-general-settings',
-    ));
+		'page_title'    => 'App Banner and Badges Settings',
+		'menu_title'    => 'App',
+		'parent_slug'   => 'theme-general-settings',
+	));
 
 	acf_add_options_sub_page(array(
-        'page_title'    => 'Meal Plans Archive',
-        'menu_title'    => 'MP Archive',
-        'parent_slug'   => 'edit.php?post_type=meal-plans',
-    ));
+		'page_title'    => 'External Scripts - Tracking Codes',
+		'menu_title'    => 'External Scripts',
+		'parent_slug'   => 'theme-general-settings',
+	));
 
 	acf_add_options_sub_page(array(
-        'page_title'    => 'Shop Archive',
-        'menu_title'    => 'Shop Archive',
-        'parent_slug'   => 'edit.php?post_type=product',
-    ));
+		'page_title'    => 'Meal Plans Archive',
+		'menu_title'    => 'MP Archive',
+		'parent_slug'   => 'edit.php?post_type=meal-plans',
+	));
 
+	acf_add_options_sub_page(array(
+		'page_title'    => 'Shop Archive',
+		'menu_title'    => 'Shop Archive',
+		'parent_slug'   => 'edit.php?post_type=product',
+	));
 }
 
 // Load recipe-print template for printing option
@@ -164,79 +166,91 @@ if( function_exists('acf_add_options_page') ) {
 add_filter('template_include', 'load_print_template', 99);
 function load_print_template($template)
 {
-  if (is_singular('recipes') && isset($_GET['print']) && $_GET['print']) {
-    $current_template = get_page_template_slug(get_the_ID());
+	if (is_singular('recipes') && isset($_GET['print']) && $_GET['print']) {
+		$current_template = get_page_template_slug(get_the_ID());
 
-    if ($current_template == 'single-recipes-multiple.php') {
-      $new_template = locate_template(array('single-recipes-multiple-print.php'));
-    } else {
-      $new_template = locate_template(array('single-recipes-print.php'));
-    }
+		if ($current_template == 'single-recipes-multiple.php') {
+			$new_template = locate_template(array('single-recipes-multiple-print.php'));
+		} else {
+			$new_template = locate_template(array('single-recipes-print.php'));
+		}
 
-    if ('' != $new_template) {
-      return $new_template;
-    }
-  }
+		if ('' != $new_template) {
+			return $new_template;
+		}
+	} elseif (is_singular('meal-plans') && isset($_GET['print']) && $_GET['print']) {
 
-  elseif(is_singular('meal-plans') && isset($_GET['print']) && $_GET['print']) {
+		$new_template = locate_template(array('single-meal-plans-print.php'));
 
-    $new_template = locate_template(array('single-meal-plans-print.php'));
-
-    if ('' != $new_template) {
-      return $new_template;
-    }
-  }
+		if ('' != $new_template) {
+			return $new_template;
+		}
+	}
 
 
-  return $template;
+	return $template;
 }
 
 
 // Image size
 
-add_action( 'after_setup_theme', 'fmc_theme_setup' );
-function fmc_theme_setup() {
-	add_image_size( 'fmc-post-featured', 1210, 600, true );
+add_action('after_setup_theme', 'fmc_theme_setup');
+function fmc_theme_setup()
+{
+	add_image_size('fmc-post-featured', 1210, 600, true);
 }
 
 // Get average rating
 
 function get_avarage_rating($post_ID, $style, $return_just_rating = false)
 {
-  $comments = get_comments(array('post_id' => $post_ID, 'status' => 'approve', 'parent' => 0));
-  $comments_total = count($comments);
-  $rating = 0;
-  $avg_rating = 0;
+	$comments = get_comments(
+		array(
+			'post_id' => $post_ID,
+			'status' => 'approve',
+			'parent' => 0,
+			'meta_query' => [
+				[
+					'key' 		=> 'rating',
+					'compare'	=> 'exists'
+				]
+			]
+		)
+	);
+	$comments_total = count($comments);
+	$rating = 0;
+	$avg_rating = 0;
 
-  if ($comments_total > 0) {
-    foreach ($comments as $comment) {
+	if ($comments_total > 0) {
+		foreach ($comments as $comment) {
 
-      if($comment->comment_parent != 0) continue;
+			if ($comment->comment_parent != 0) continue;
 
-      $comment_rating = (float) get_comment_meta($comment->comment_ID, 'rating', true);
-      $rating += $comment_rating;
-    }
+			$comment_rating = (float) get_comment_meta($comment->comment_ID, 'rating', true);
+			$rating += $comment_rating;
+		}
 
-    $avg_rating = number_format($rating / $comments_total, 1);
-  }
+		$avg_rating = number_format($rating / $comments_total, 1);
+	}
 
-  if ($return_just_rating === true) {
-    return $avg_rating;
-  }
+	if ($return_just_rating === true) {
+		return $avg_rating;
+	}
 
-  get_template_part('template-parts/avg-rating', "", ['comments_number' => $comments_total, 'rating' => $avg_rating, 'style' => $style]);
+	get_template_part('template-parts/avg-rating', "", ['comments_number' => $comments_total, 'rating' => $avg_rating, 'style' => $style]);
 }
 
 
 // Meal Plan Customize Global Query
 
-function meal_plans_global_query( $query ) {
-	if ( ! is_admin() && $query->is_main_query() && is_post_type_archive( 'meal-plans' ) ) {
-	  $query->set( 'posts_per_page', 4 );
-	  return;
+function meal_plans_global_query($query)
+{
+	if (!is_admin() && $query->is_main_query() && is_post_type_archive('meal-plans')) {
+		$query->set('posts_per_page', 4);
+		return;
 	}
-  }
-  add_action( 'pre_get_posts', 'meal_plans_global_query', 1 );
+}
+add_action('pre_get_posts', 'meal_plans_global_query', 1);
 
 
 // Meal Plan calculations
@@ -279,7 +293,7 @@ function meal_plan_calculations($featured = false)
 
 		foreach ($existing_recipes as $existing_recipe) {
 			$exclude_recipe = $existing_recipe['exclude_recipe'];
-			if($exclude_recipe === true) continue;
+			if ($exclude_recipe === true) continue;
 
 			$existing_recipe_ID =  $existing_recipe['recipe'][0]->ID;
 			$total_time_recipe = (float) get_field('total_time', $existing_recipe_ID);
@@ -317,7 +331,7 @@ function meal_plan_calculations($featured = false)
 	if ($custom_recipes) {
 		foreach ($custom_recipes as $custom_recipe) {
 			$exclude_recipe = $custom_recipe['exclude_recipe'];
-			if($exclude_recipe === true) continue;
+			if ($exclude_recipe === true) continue;
 
 			$cr_total_time = (float) $custom_recipe['cr_total_time'];
 			$cr_prep_time = (float) $custom_recipe['cr_prep_time'];
@@ -358,7 +372,7 @@ function meal_plan_calculations($featured = false)
 	$totals[$l_fat] = $total_fat ?  $total_fat . __('g', 'fitmencook') : 0;
 	$totals[$l_protein] = $total_proteins ? $total_proteins . __('g', 'fitmencook') : 0;
 
-	if(!$featured) {
+	if (!$featured) {
 		$totals[$l_sodium] = $total_sodium ?  $total_sodium . __('mg', 'fitmencook') : 0;
 		$totals[$l_fiber] = $total_fiber ? $total_fiber . __('g', 'fitmencook') : 0;
 		$totals[$l_sugar] = $total_sugar ? $total_sugar . __('g', 'fitmencook') : 0;
@@ -409,14 +423,15 @@ function meal_plan_calculations($featured = false)
 
 // Chnage position of assoc array items
 
-function ksort_arr (&$arr, $index_arr) {
-    $arr_t=array();
-    foreach($index_arr as $i=>$v) {
-        foreach($arr as $k=>$b) {
-            if ($k==$v) $arr_t[$k]=$b;
-        }
-    }
-    $arr=$arr_t;
+function ksort_arr(&$arr, $index_arr)
+{
+	$arr_t = array();
+	foreach ($index_arr as $i => $v) {
+		foreach ($arr as $k => $b) {
+			if ($k == $v) $arr_t[$k] = $b;
+		}
+	}
+	$arr = $arr_t;
 }
 
 
@@ -428,23 +443,23 @@ function send_email_recipe_created($post_ID, $post, $update)
 {
 	$recipient_email = get_field('translator_email', 'option');
 
-    if (wp_is_post_revision($post_ID)) return;
+	if (wp_is_post_revision($post_ID)) return;
 
-    $is_email_sent = get_post_meta($post_ID, 'email_sent', true);
-    $post_status = get_post_status($post);
+	$is_email_sent = get_post_meta($post_ID, 'email_sent', true);
+	$post_status = get_post_status($post);
 
-    if (!$is_email_sent && $post_status == 'publish') {
-        $to = $recipient_email;
-        $subject = $post->post_title;
-        $headers[] = 'Content-Type: text/html; charset=UTF-8';
+	if (!$is_email_sent && $post_status == 'publish') {
+		$to = $recipient_email;
+		$subject = $post->post_title;
+		$headers[] = 'Content-Type: text/html; charset=UTF-8';
 
-        ob_start();
-        get_template_part('template-parts/email', 'template', ['post' => $post]);
-        $message = ob_get_clean();
-        $email = wp_mail($to, $subject, $message, $headers);
+		ob_start();
+		get_template_part('template-parts/email', 'template', ['post' => $post]);
+		$message = ob_get_clean();
+		$email = wp_mail($to, $subject, $message, $headers);
 
-        if ($email) {
-            add_post_meta($post_ID, 'email_sent', 1);
-        }
-    }
+		if ($email) {
+			add_post_meta($post_ID, 'email_sent', 1);
+		}
+	}
 }

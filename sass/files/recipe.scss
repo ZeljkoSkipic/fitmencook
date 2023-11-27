@@ -663,7 +663,7 @@ body.archive {
 			transform: translateY(-100%);
 			animation: fade-in-up 0.75s ease forwards;
 			z-index: 3;
-		/* 	pointer-events: none; */
+			pointer-events: none;
 			iframe {
 				width: 360px;
 				height: 195px;

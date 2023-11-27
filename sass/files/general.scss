@@ -171,9 +171,41 @@
 	background-color: #F9FAFB;
 	border-radius: 16px;
 	padding: var(--spacing-3);
+	.rating-checkbox-wrap {
+		height: 20px;
+		width: 100%;
+		display: flex;
+		input {
+			width: 0!important;
+			height: 0;
+
+			opacity: 0;
+		}
+		label {
+			background-image: url(assets/icons/square.svg);
+			background-position: center left;
+			background-repeat: no-repeat;
+			background-size: contain;
+			height: 100%;
+			padding-left: 25px;
+			line-height: 1;
+			display: flex!important;
+			align-items: center;
+			cursor: pointer;
+			font-size: 14px;
+			z-index: 8;
+		}
+		input:checked + label {
+			background-image: url(assets/icons/check-square.svg);
+		}
+	}
 	.recipe_rate-wrapper {
 		display: flex;
 		justify-content: center;
+		margin-top: 16px;
+		#use-rating {
+			width: auto;
+		}
 		.recipe-rate-label {
 			font-size: 15px;
 			font-weight: 500;
@@ -215,6 +247,7 @@
 	.form-submit {
 		width: 100%;
 		margin-top: 0;
+		z-index: 9;
 		@include mob-only {
 			margin-top: 16px;
 		}
