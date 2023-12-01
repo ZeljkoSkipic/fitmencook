@@ -6,11 +6,15 @@
 function get_rating_html()
 {
     ob_start();
+    if(!is_product()):
 ?>
     <div class="rating-checkbox-wrap">
 		<input id="use-rating" name="use-rating" type="checkbox">
 		<label style="display:block" for="use-rating"><?php esc_html_e('I have made this recipe', 'fitmmencook') ?></label>
 	</div>
+
+    <?php endif; ?>
+
     <select name="rateRecipe" id="recipe-rate">
         <option value="0">Rate it</option>
         <option value="1">1</option>
@@ -19,10 +23,16 @@ function get_rating_html()
         <option value="4">4</option>
         <option value="5">5</option>
     </select>
-    <div  class="recipe_rate-wrapper">
+    <div class="recipe_rate-wrapper <?php if(!is_product()) echo "disabled" ?>">
         <p class="recipe-rate-label"><?php esc_html_e('Rate the recipe:', 'fitmenCook'); ?></p>
         <div class="rateit svg" data-rateit-starwidth="19" data-rateit-starheight="16" data-rateit-resetable="false" data-rateit-backingfld="#recipe-rate" data-rateit-min="0"></div>
     </div>
+
+    <?php if(is_product()): ?>
+
+    <input type="hidden" name="postType" value="single-product">
+
+    <?php endif; ?>
 
 
 <?php
@@ -50,8 +60,13 @@ function save_rating_value( $comment_id, $approved, $commentdata ) {
     if($commentdata['comment_parent'] == 0) {
         $recipe_rating = isset( $_POST['rateRecipe'] ) ? wp_strip_all_tags($_POST['rateRecipe']) : '';
         $use_rating = isset( $_POST['use-rating'] ) ? wp_strip_all_tags($_POST['use-rating']) : '';
+        $is_product = isset( $_POST['postType'] ) ? wp_strip_all_tags($_POST['postType']) : '';
 
         if($use_rating) {
+            update_comment_meta( $comment_id, 'rating', $recipe_rating );
+        }
+
+        elseif($is_product == 'single-product') {
             update_comment_meta( $comment_id, 'rating', $recipe_rating );
         }
     }

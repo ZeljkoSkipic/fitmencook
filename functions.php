@@ -252,7 +252,7 @@ function placeholder_author_email_url_form_fields( $fields ) {
  * Comment Form Placeholder Comment Field
  */
 function placeholder_comment_form_field($fields) {
-    $replace_comment = __('Your Comment', 'fmc');
+    $replace_comment = __("Share your thoughts on the recipe here! Rate below if you've made it", 'fmc');
 
     $fields['comment_field'] = '<p class="comment-form-comment"><label for="comment">' . _x( 'Comment', 'noun' ) .
     '</label><textarea id="comment" name="comment" cols="45" rows="8" placeholder="'.$replace_comment.'" aria-required="true"></textarea></p>';

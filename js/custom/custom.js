@@ -145,21 +145,20 @@ jQuery(document).ready(function ($) {
 
   const ratingCheckbox = $('#use-rating')
   const rating = $('.recipe_rate-wrapper')
-
-  rating.hide()
   const ratingSelect = $('#recipe-rate')
   const ratingNameAttr = ratingSelect.attr('name')
-  ratingSelect.attr('name', '')
-
+  if($('[name=postType]').length === 0) {
+    ratingSelect.attr('name', '')
+  }
 
   ratingCheckbox.on('change', function () {
     if ($(this).prop('checked') === true) {
-      rating.show()
+      rating.removeClass('disabled')
       ratingSelect.attr('name', ratingNameAttr)
     }
 
     else {
-      rating.hide()
+      rating.addClass('disabled')
       ratingSelect.attr('name', '')
       const recipeValidationError = $('#recipe-rate-error')
       if (recipeValidationError.length) recipeValidationError.remove()

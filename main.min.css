@@ -200,6 +200,7 @@ picture.alignright,img.alignright{float:right;margin:.5em 0 .5em 1em}
 .comment-form .recipe_rate-wrapper{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;margin-top:16px}
 .comment-form .recipe_rate-wrapper #use-rating{width:auto}
 .comment-form .recipe_rate-wrapper .recipe-rate-label{font-size:15px;font-weight:500;margin-right:16px}
+.comment-form .recipe_rate-wrapper.disabled{pointer-events:none;opacity:.5}
 .comment-form label{display:none}
 .comment-form input:not(.submit),.comment-form textarea{font-size:15px;padding:15px;width:100%;border:1px solid #f2f4f7;border-radius:8px}
 .comment-form input:not(.submit)::-webkit-input-placeholder,.comment-form textarea::-webkit-input-placeholder{color:#999}
@@ -1101,7 +1102,8 @@ footer.fmc_footer .fmc_footer_main .fmc_footer_col:nth-child(4){width:30%;-webki
 .woocommerce-cart-form .cart_item .product-remove{width:10%}
 .woocommerce-cart-form .cart_item:first-child{border-top:0}
 .fmc_search_cats figure{width:calc(100% / 5 - 1%)}
-}@media(min-width:599.6px){.fmc_comments .fmc_rating{margin-bottom:-60px;-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end;margin-left:auto;width:50%}
+}@media(min-width:599.6px){.comment-respond #reply-title{width:calc(100% - 200px)}
+.fmc_comments .fmc_rating{margin-bottom:-60px;-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end;margin-left:auto;width:50%}
 .fmc_home_hero .fmc_hh_right .fmc_hr_left{width:calc(100% - 4rem - 14px)}
 .fmc_newsletter .fmc_container .nl_content{width:70%}
 .fmc_featured_post:not(.fmc_featured_recipe)>div{width:48%}
