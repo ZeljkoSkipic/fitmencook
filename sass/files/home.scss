@@ -33,15 +33,19 @@
 			margin: 0 auto 4%;
 		}
 		figure {
-			height: 25rem;
+			height: 170px;
 			margin-top: 0;
 			text-align: center;
+			@include mob-only {
+				height: 150px;
+			}
 			img {
 				max-height: 100%;
 				max-width: 100%;
 				object-fit: contain;
 				object-position: top;
 				border-radius: 16px;
+				width: auto;
 			}
 		}
 		.fmc_product_grid_bottom {
@@ -112,6 +116,10 @@
 	.fmc_title_1, .fmc_title_2 {
 		text-align: left;
 	}
+}
+
+.btn_wrap {
+	text-align: center;
 }
 
 
@@ -259,13 +267,30 @@
 				bottom: 30px;
 				right: 25px;
 			}
+			.fmc_grid_title {
+				a {
+					transition: var(--site-transition);
+				}
+			}
 			background-color: #fff;
 			border-radius: 16px;
 			max-width: 344px;
-			border: 2px solid var(--color-4);
+			border: 3px solid var(--color-4);
 			display: flex;
 			z-index: 1;
 			margin-left: auto;
+			&:hover {
+				border-color: var(--color-1);
+				.fmc_grid_title a {
+					color: var(--color-1);
+				}
+				.fmc_hr_right a {
+					background-color: var(--color-1);
+					svg {
+						stroke: #fff;
+					}
+				}
+			}
 			@include mob-only {
 				width: 100%;
 			}
@@ -297,13 +322,40 @@
 				align-items: center;
 				border-radius: 0 16px 16px 0;
 				transition: var(--site-transition);
-				&:hover {
-					background-color: var(--color-1);
-					svg {
-						stroke: #fff;
-					}
-				}
 			}
+		}
+	}
+}
+
+.fmc_home_hero.fmc_home_hero_2 {
+	.fmc_container {
+		display: flex;
+		flex-direction: column;
+		.fmc_hh_left {
+			text-align: center;
+			width: 100%;
+			max-width: 80rem;
+			margin-inline: auto;
+			margin-bottom: var(--spacing-1);
+			padding-top: var(--spacing-2);
+			@include mob-only {
+				margin-bottom: 8px;
+			}
+			.fmc_hero_prefix {
+				margin-bottom: 16px;
+			}
+			.fmc_hh_text {
+				max-width: 65rem;
+				margin-inline: auto;
+			}
+			.asp_w_container {
+				max-width: 54rem;
+				margin-inline: auto;
+			}
+		}
+		.fmc_hh_right {
+			height: 65rem;
+			width: 100%;
 		}
 	}
 }
@@ -658,10 +710,10 @@
 		.fmc_latest_blog_inner {
 			@include limbo-min {
 				.fmc_post {
-					&:nth-child(2), &:nth-child(3) {
+					&:first-child, &:nth-child(2) {
 						margin-right: 2%!important;
 					}
-					&:first-child {
+					/* &:first-child {
 						width: 100%;
 						display: flex;
 						figure {
@@ -693,7 +745,7 @@
 								}
 							}
 						}
-					}
+					} */
 				}
 			}
 			.fmc_post:first-child {

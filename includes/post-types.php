@@ -34,6 +34,10 @@ function register_taxonomy_recipe_category() {
 		'show_ui'           => true,
 		'show_admin_column' => true,
 		'query_var'         => true,
+		'default_term' => array(
+			'name' => 'Uncategorized',
+			'slug' => 'uncategorized',
+		),
 		'rewrite' => [
 			'slug' => (!empty(get_option('fmc_recipe_cat_slug'))) ? get_option('fmc_recipe_cat_slug') : 'recipe-category',
 			'with_front' => false
@@ -58,6 +62,7 @@ function create_posttype() {
 				'view_item' => 'View Recipe',
 				'view_items' => 'View Recipes',
 				'add_new_item' => 'Add New Recipe',
+				'add_new' => 'Add New Recipe',
 				'new_item' => 'New Recipe',
 				'parent_item_colon' => 'Parent Recipe:',
 				'search_items' => 'Search Recipes',
@@ -133,6 +138,47 @@ function create_posttype() {
             'menu_icon' => 'dashicons-food'
         )
     );
+
+	register_post_type( 'tool', array(
+		// Tools
+		'labels' => array(
+			'name' => 'Tools',
+			'singular_name' => 'Tool',
+			'menu_name' => 'Tools',
+			'all_items' => 'Tools',
+			'edit_item' => 'Edit Tool',
+			'view_item' => 'View Tool',
+			'view_items' => 'View Tools',
+			'add_new_item' => 'Add New Tool',
+			'new_item' => 'New Tool',
+			'parent_item_colon' => 'Parent Tool:',
+			'search_items' => 'Search Tools',
+			'not_found' => 'No tools found',
+			'not_found_in_trash' => 'No tools found in Trash',
+			'archives' => 'Tool Archives',
+			'attributes' => 'Tool Attributes',
+			'insert_into_item' => 'Insert into tool',
+			'uploaded_to_this_item' => 'Uploaded to this tool',
+			'filter_items_list' => 'Filter tools list',
+			'filter_by_date' => 'Filter tools by date',
+			'items_list_navigation' => 'Tools list navigation',
+			'items_list' => 'Tools list',
+			'item_published' => 'Tool published.',
+			'item_published_privately' => 'Tool published privately.',
+			'item_reverted_to_draft' => 'Tool reverted to draft.',
+			'item_scheduled' => 'Tool scheduled.',
+			'item_updated' => 'Tool updated.',
+			'item_link' => 'Tool Link',
+			'item_link_description' => 'A link to a tool.',
+		),
+		'public' => true,
+		'show_in_menu' => 'edit.php?post_type=recipes',
+		'show_in_rest' => true,
+		'supports' => array(
+			0 => 'title',
+		),
+		'delete_with_user' => false,
+	) );
 }
 // Hooking up our function to theme setup
 add_action( 'init', 'create_posttype' );

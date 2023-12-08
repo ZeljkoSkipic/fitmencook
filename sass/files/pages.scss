@@ -547,3 +547,16 @@
 /* Thank you */
 
 .fmc_thank_you { text-align: center; }
+
+
+/* How To */
+
+.how-to-grid {
+	display: flex;
+	flex-wrap: wrap;
+	@include limbo-min {
+		.fmc_post:nth-child(3n + 3) {
+			margin-right: 0!important;
+		}
+	}
+}

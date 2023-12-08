@@ -813,6 +813,13 @@
                 "operator": "==",
                 "value": "homepage.php"
             }
+        ],
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "homepage-2.php"
+            }
         ]
     ],
     "menu_order": 0,
@@ -838,5 +845,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1700143207
+    "modified": 1702032826
 }

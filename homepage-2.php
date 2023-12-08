@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Homepage
+ * Template Name: Homepage 2
  * Template Post Type: page
  */
 
@@ -8,7 +8,7 @@ get_header();
 
 ?>
 
-<?php get_template_part('template-parts/homepage/hero'); ?>
+<?php get_template_part('template-parts/homepage/hero-2'); ?>
 
 <?php get_template_part('template-parts/homepage/latest-blog'); ?>
 

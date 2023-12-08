@@ -289,8 +289,8 @@ footer.fmc_footer .fmc_copyright .fmc_container .widget p{margin-top:0;margin-bo
 .home .fmc_product:nth-child(n+5){margin-top:var(--spacing-3)}
 .home .fmc_product,.archive .fmc_product,.single-product .related .fmc_product{width:23%;border:2px solid #f2f4f7;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;border-radius:16px;padding:24px;-webkit-transition:var(--site-transition);transition:var(--site-transition)}
 .home .fmc_product:hover,.archive .fmc_product:hover,.single-product .related .fmc_product:hover{-webkit-box-shadow:0 20px 40px rgba(52,64,84,0.08);box-shadow:0 20px 40px rgba(52,64,84,0.08)}
-.home .fmc_product figure,.archive .fmc_product figure,.single-product .related .fmc_product figure{height:25rem;margin-top:0;text-align:center}
-.home .fmc_product figure img,.archive .fmc_product figure img,.single-product .related .fmc_product figure img{max-height:100%;max-width:100%;-o-object-fit:contain;object-fit:contain;-o-object-position:top;object-position:top;border-radius:16px}
+.home .fmc_product figure,.archive .fmc_product figure,.single-product .related .fmc_product figure{height:170px;margin-top:0;text-align:center}
+.home .fmc_product figure img,.archive .fmc_product figure img,.single-product .related .fmc_product figure img{max-height:100%;max-width:100%;-o-object-fit:contain;object-fit:contain;-o-object-position:top;object-position:top;border-radius:16px;width:auto}
 .home .fmc_product .fmc_product_grid_bottom,.archive .fmc_product .fmc_product_grid_bottom,.single-product .related .fmc_product .fmc_product_grid_bottom{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;-webkit-box-align:center;-ms-flex-align:center;align-items:center;margin-top:24px}
 .home .fmc_product .fmc_product_grid_bottom del[aria-hidden=true],.archive .fmc_product .fmc_product_grid_bottom del[aria-hidden=true],.single-product .related .fmc_product .fmc_product_grid_bottom del[aria-hidden=true]{display:none}
 .home .fmc_product .fmc_product_grid_bottom ins,.archive .fmc_product .fmc_product_grid_bottom ins,.single-product .related .fmc_product .fmc_product_grid_bottom ins{text-decoration:none}
@@ -302,6 +302,7 @@ footer.fmc_footer .fmc_copyright .fmc_container .widget p{margin-top:0;margin-bo
 .home .fmc_home_products .fmc_btn_2{margin-top:var(--spacing-1)}
 .home .fmc_top_title{text-align:center;font-size:var(--title-size-3);text-transform:uppercase;color:var(--color-2)}
 .home .fmc_title_1,.home .fmc_title_2{text-align:left}
+.btn_wrap{text-align:center}
 .fmc_hero_prefix{margin-bottom:calc(var(--spacing-3) + 8px);font-family:Nunito;color:var(--link-color);font-weight:700;font-size:14px;background-color:var(--color-5);display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex;padding:2px 8px;border-radius:14px;width:-webkit-fit-content;width:-moz-fit-content;width:fit-content}
 .fmc_hero_title{font-size:6.4rem;line-height:1.1;margin-bottom:var(--spacing-3)}
 .fmc_app_badges h5{font-size:15px;color:var(--link-color);font-family:Nunito;margin-bottom:16px}
@@ -314,12 +315,21 @@ footer.fmc_footer .fmc_copyright .fmc_container .widget p{margin-top:0;margin-bo
 .fmc_home_hero .fmc_hh_left{grid-column:1 / 10;grid-row:1 / 2;z-index:2;padding-top:9rem;padding-bottom:3.5rem}
 .fmc_home_hero .fmc_hh_right{grid-column:6 / 21;grid-row:1 / 2;z-index:1;position:relative}
 .fmc_home_hero .fmc_hh_right img,.fmc_home_hero .fmc_hh_right picture{border-radius:16px}
-.fmc_home_hero .fmc_hh_right .fmc_hh_box{background-color:#fff;border-radius:16px;max-width:344px;border:2px solid var(--color-4);display:-webkit-box;display:-ms-flexbox;display:flex;z-index:1;margin-left:auto}
+.fmc_home_hero .fmc_hh_right .fmc_hh_box{background-color:#fff;border-radius:16px;max-width:344px;border:3px solid var(--color-4);display:-webkit-box;display:-ms-flexbox;display:flex;z-index:1;margin-left:auto}
+.fmc_home_hero .fmc_hh_right .fmc_hh_box .fmc_grid_title a{-webkit-transition:var(--site-transition);transition:var(--site-transition)}
+.fmc_home_hero .fmc_hh_right .fmc_hh_box:hover{border-color:var(--color-1)}
+.fmc_home_hero .fmc_hh_right .fmc_hh_box:hover .fmc_grid_title a{color:var(--color-1)}
+.fmc_home_hero .fmc_hh_right .fmc_hh_box:hover .fmc_hr_right a{background-color:var(--color-1)}
+.fmc_home_hero .fmc_hh_right .fmc_hh_box:hover .fmc_hr_right a svg{stroke:#fff}
 .fmc_home_hero .fmc_hh_right .fmc_hr_left{padding:16px 24px;min-width:30rem}
 .fmc_home_hero .fmc_hh_right .fmc_hr_right{border-left:2px solid var(--color-4);width:calc(4rem + 14px);-webkit-box-sizing:border-box;box-sizing:border-box}
 .fmc_home_hero .fmc_hh_right .fmc_hr_right a{width:100%;height:100%;padding:16px 7px;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;border-radius:0 16px 16px 0;-webkit-transition:var(--site-transition);transition:var(--site-transition)}
-.fmc_home_hero .fmc_hh_right .fmc_hr_right a:hover{background-color:var(--color-1)}
-.fmc_home_hero .fmc_hh_right .fmc_hr_right a:hover svg{stroke:#fff}
+.fmc_home_hero.fmc_home_hero_2 .fmc_container{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}
+.fmc_home_hero.fmc_home_hero_2 .fmc_container .fmc_hh_left{text-align:center;width:100%;max-width:80rem;margin-inline:auto;margin-bottom:var(--spacing-1);padding-top:var(--spacing-2)}
+.fmc_home_hero.fmc_home_hero_2 .fmc_container .fmc_hh_left .fmc_hero_prefix{margin-bottom:16px}
+.fmc_home_hero.fmc_home_hero_2 .fmc_container .fmc_hh_left .fmc_hh_text{max-width:65rem;margin-inline:auto}
+.fmc_home_hero.fmc_home_hero_2 .fmc_container .fmc_hh_left .asp_w_container{max-width:54rem;margin-inline:auto}
+.fmc_home_hero.fmc_home_hero_2 .fmc_container .fmc_hh_right{height:65rem;width:100%}
 .fmc_logos_track{background-color:#f9fafb;width:100%}
 .fmc_logos_track .fmc_fi_title{text-align:center;color:var(--misc-color);text-transform:uppercase;font-weight:800;font-size:22px;font-family:Nunito}
 .fmc_logos_track .carousel-logos:after{content:'flickity';display:none}
@@ -528,6 +538,7 @@ footer.fmc_footer .fmc_copyright .fmc_container .widget p{margin-top:0;margin-bo
 .error-404 .page-content ul li{margin-bottom:8px}
 .error-404 .page-content ul li a{font-weight:700}
 .fmc_thank_you{text-align:center}
+.how-to-grid{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap}
 .fmc_hero{display:-webkit-box;display:-ms-flexbox;display:flex}
 .fmc_hero .fmc_hero_left .fmc_btn{margin-bottom:var(--spacing-1)}
 .fmc_hero .fmc_hero_prefix{font-family:Nunito;color:var(--link-color);font-weight:700;font-size:14px;background-color:var(--color-5);display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex;padding:2px 8px;border-radius:14px;width:-webkit-fit-content;width:-moz-fit-content;width:fit-content;margin-bottom:var(--spacing-3)}
@@ -1171,15 +1182,7 @@ footer.fmc_footer .fmc_footer_main .fmc_footer_col:nth-child(3){margin-left:auto
 .fmc_category_track figure{width:calc(100% / 6 - 25px);border:2px solid rgba(255,255,255,0);-webkit-transition:var(--site-transition);transition:var(--site-transition)}
 .fmc_category_track figure img{height:80px}
 .fmc_category_track figure:hover{-webkit-box-shadow:0 20px 40px rgba(52,64,84,0.08);box-shadow:0 20px 40px rgba(52,64,84,0.08)}
-.home .fmc_latest_blog .fmc_latest_blog_inner .fmc_post:nth-child(2),.home .fmc_latest_blog .fmc_latest_blog_inner .fmc_post:nth-child(3){margin-right:2% !important}
-.home .fmc_latest_blog .fmc_latest_blog_inner .fmc_post:first-child{width:100%;display:-webkit-box;display:-ms-flexbox;display:flex}
-.home .fmc_latest_blog .fmc_latest_blog_inner .fmc_post:first-child figure{width:50%;height:42rem;margin-bottom:0}
-.home .fmc_latest_blog .fmc_latest_blog_inner .fmc_post:first-child .fmc_post_content{width:50%;padding-left:var(--spacing-2)}
-.home .fmc_latest_blog .fmc_latest_blog_inner .fmc_post:first-child .fmc_grid_title{margin-bottom:2.4rem}
-.home .fmc_latest_blog .fmc_latest_blog_inner .fmc_post:first-child .fmc_grid_title a{font-size:4.8rem;line-height:1.17;font-family:Alpino}
-.home .fmc_latest_blog .fmc_latest_blog_inner .fmc_post:first-child .fmc_post_meta{display:-webkit-box;display:-ms-flexbox;display:flex;margin-top:auto}
-.home .fmc_latest_blog .fmc_latest_blog_inner .fmc_post:first-child .fmc_post_meta figure{width:48px;height:48px;margin-right:12px}
-.home .fmc_latest_blog .fmc_latest_blog_inner .fmc_post:first-child .fmc_post_meta figure img{border-radius:48px}
+.home .fmc_latest_blog .fmc_latest_blog_inner .fmc_post:first-child,.home .fmc_latest_blog .fmc_latest_blog_inner .fmc_post:nth-child(2){margin-right:2% !important}
 body:not(.archive):not(.blog) .fmc_post{width:32%}
 body:not(.archive):not(.blog) .fmc_post:not(:last-child){margin-right:2%}
 .fmc_post .fmc_grid_figure{height:27rem}
@@ -1192,6 +1195,7 @@ body:not(.archive):not(.blog) .fmc_post:not(:last-child){margin-right:2%}
 .fmc_contact_columns .wp-block-column p{width:90%}
 .error-404 .page-content .left_404{width:50%}
 .error-404 .page-content .right_404{width:40%}
+.how-to-grid .fmc_post:nth-child(3n+3){margin-right:0 !important}
 .fmc_philosophy .img_bg img{width:45%}
 .fmc_philosophy .fmc_philosophy_content{width:48%;margin-left:auto}
 .fmc_blurbs_inner .fmc_blurb{width:30%}
@@ -1410,6 +1414,7 @@ footer.fmc_footer .fmc_footer_main .fmc_footer_col{width:100% !important}
 footer.fmc_footer .fmc_footer_main .fmc_footer_col:not(:first-child){margin-top:var(--spacing-3)}
 footer.fmc_footer .fmc_copyright .fmc_container{padding-top:0}
 .home .fmc_product,.archive .fmc_product,.single-product .related .fmc_product{width:100% !important;margin:0 auto 4%}
+.home .fmc_product figure,.archive .fmc_product figure,.single-product .related .fmc_product figure{height:150px}
 .fmc_hero_prefix{display:none}
 .fmc_home_hero .fmc_hh_left{padding-top:var(--spacing-1)}
 .fmc_home_hero .fmc_hh_right img,.fmc_home_hero .fmc_hh_right picture{height:230px}
@@ -1418,6 +1423,7 @@ footer.fmc_footer .fmc_copyright .fmc_container{padding-top:0}
 .fmc_home_hero .fmc_hh_right .fmc_hh_box{width:100%}
 .fmc_home_hero .fmc_hh_right .fmc_hr_left{padding:12px 16px;width:100%}
 .fmc_home_hero .fmc_hh_right .fmc_hr_right{display:none}
+.fmc_home_hero.fmc_home_hero_2 .fmc_container .fmc_hh_left{margin-bottom:8px}
 .fmc_logos_track .fmc_fi_title{font-size:20px;line-height:1.36}
 .fmc_logos_track .carousel-logos{margin-left:-25px;margin-right:-25px}
 .fmc_logos_track figure img{height:50px}
