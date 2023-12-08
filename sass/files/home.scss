@@ -1,7 +1,7 @@
 .home .fmc_product:nth-child(n+5) {
 	margin-top: var(--spacing-3);
 }
-.home, .archive, .single-product .related {
+.home, .archive, .single-product .related, .page-template-homepage-2 {
 	.fmc_product {
 		width: 23%;
 		border: 2px solid #F2F4F7;
@@ -89,7 +89,7 @@
 	}
 }
 
-.home {
+.home, .page-template-homepage-2 {
 	/* Featured Products */
 	.fmc_home_products {
 		.fmc_home_p_inner {

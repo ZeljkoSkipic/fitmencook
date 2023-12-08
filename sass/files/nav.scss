@@ -17,7 +17,7 @@
 		border-radius: 0;
 	}
 }
-body:not(.home) {
+body:not(.home):not(.page-template-homepage-2) {
 	.fmc_sitehead {
 		border-bottom: 2px solid var(--color-4);
 
