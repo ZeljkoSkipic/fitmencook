@@ -65,6 +65,7 @@ $author_id = $post->post_author;
 			if( $content ) :
 			?>
 			<div class="spacing_0_2 fmc_recipe_the_content fmc_ad_container">
+				<?php echo $content; ?>
 			</div>
 			<?php endif; ?>
 

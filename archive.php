@@ -11,8 +11,8 @@ get_header();
 		} ?>
 		<h1 class="fmc_title_2 title_spacing_3"><?php single_cat_title(); ?></h1>
 	</div>
-<div class="fmc_archive_inner fmc_container">
-	<div class="fmc_blog_archive_main">
+	<div class="fmc_archive_inner fmc_container">
+		<div class="fmc_blog_archive_main">
 		<?php while ( have_posts() ) : the_post();
 		$categories = get_the_category();
 		?>
@@ -38,12 +38,12 @@ get_header();
 				</div>
 			</div>
 
-		<?php endwhile;
-		?>
-		<div class="fmc_pagination_wrap spacing_3_1">
-			<?php fmc_pagination(); ?>
+			<?php endwhile;
+			?>
+			<div class="fmc_pagination_wrap spacing_3_1">
+				<?php fmc_pagination(); ?>
+			</div>
 		</div>
-	</div>
 
 	<?php get_template_part('template-parts/blog-sidebar'); ?>
 
