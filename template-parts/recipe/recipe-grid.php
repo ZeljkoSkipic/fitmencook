@@ -3,6 +3,8 @@
 $avg_rating = get_avarage_rating(get_the_ID(), "", true);
 $categories = get_the_terms($post->ID, 'recipe-category');
 $template_slug = get_page_template_slug();
+
+
 ?>
 
 <div class="fmc_recipe">
@@ -20,7 +22,7 @@ $template_slug = get_page_template_slug();
 			<span class="fmc_grid_cat">
 				<?php if (!empty($categories)) {
 					foreach ($categories as $category) {
-						if ($category->term_id != 77) {
+						if ($category->term_id != 82) {
 						echo '<a href="' . esc_url(get_category_link($category->term_id)) . '">' . esc_html($category->name) . '</a>';
 						}
 					}

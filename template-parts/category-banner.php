@@ -1,3 +1,3 @@
-<div class="recipe_category_banner spacing_3_2">
-    This is where the new ad goes
-</div>
+<section class="recipe_category_banner spacing_3_2">
+	<div class="atm-ad-slot" data-slot-type="footerboard-ad"></div>
+</section>

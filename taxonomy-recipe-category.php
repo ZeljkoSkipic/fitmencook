@@ -15,6 +15,8 @@ if ($cat_image_link) :
 	$cat_image_link_target = $cat_image_link['target'] ? $cat_image_link['target'] : '_self';
 endif;
 
+$ex_cats = get_field('exclude_recipe_categories', 'option');
+
 ?>
 
 <div class="fmc_archive_wrap fmc_container spacing_2">
@@ -183,8 +185,7 @@ endif;
 					'taxonomy'   => 'recipe-category',
 					'hide_empty' => true,
 					'show_count' => true,
-					'exclude'    => '59'
-
+					'exclude'    => esc_html ( $ex_cats )
 				)
 			);
 

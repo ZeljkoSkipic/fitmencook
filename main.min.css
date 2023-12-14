@@ -1160,8 +1160,8 @@ footer.fmc_footer .fmc_footer_main .fmc_footer_col:nth-child(4){width:30%;-webki
 .page-template-page-contact .fmc_emails{-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}
 .fmc_featured_macros .rg_m_amount{font-size:20px}
 body.archive .fmc_recipe{width:49%}
-body.archive .fmc_recipe:nth-child(even){margin-right:0}
-body.archive .fmc_recipe:nth-child(odd){margin-right:2%}
+body.archive .fmc_recipe:nth-of-type(even){margin-right:0}
+body.archive .fmc_recipe:nth-of-type(odd){margin-right:2%}
 .fmc_archive_wrap .fmc_archive_sidebar{top:60px}
 .fmc_recipe figure img{height:270px !important}
 .single-recipes .fmc_single_recipe.fmc_container{padding-inline:25px}
@@ -1261,7 +1261,7 @@ html{font-size:8px}
 .fmc_header .fmc_header_right .fmc_btn{padding:10px 12px;-ms-flex-negative:0;flex-shrink:0}
 .fmc_category_track figure a{padding:3rem 4.3rem}
 body.archive .fmc_recipe{width:32%;margin-right:0}
-body.archive .fmc_recipe:not(:nth-child(3n+3)){margin-right:2%}
+body.archive .fmc_recipe:not(:nth-of-type(3n+3)){margin-right:2%}
 .recipe_ad_after_featured{width:90%}
 .fmc_recipe{width:23%}
 .fmc_recipe:not(:nth-child(4n+4)){margin-right:calc(8% / 3)}

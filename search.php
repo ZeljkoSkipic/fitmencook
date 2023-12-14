@@ -8,6 +8,9 @@
  */
 
 get_header();
+
+$ex_cats = get_field('exclude_recipe_categories', 'option');
+
 ?>
 	<main id="primary" class="site-main">
 		<div class="fmc_search_hero spacing_1">
@@ -31,7 +34,7 @@ get_header();
 				array(
 					'taxonomy'   => 'recipe-category',
 					'hide_empty' => true,
-					'exclude' => '59'
+					'exclude' => esc_html ( $ex_cats )
 				)
 			);
 

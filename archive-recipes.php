@@ -3,7 +3,9 @@
 get_header();
 
 $featured_image = get_field('featured_recipe_image', 'option');
-$size = 'full'
+$size = 'full';
+
+$ex_cats = get_field('exclude_recipe_categories', 'option');
 ?>
 <div class="fmc_archive_wrap fmc_container spacing_2">
 	<?php if (function_exists('yoast_breadcrumb')) {
@@ -183,7 +185,7 @@ $size = 'full'
 					'taxonomy'   => 'recipe-category',
 					'hide_empty' => true,
 					'show_count' => true,
-					'exclude'    => '59'
+					'exclude'    => esc_html ( $ex_cats )
 
 				)
 			);

@@ -116,16 +116,16 @@ body.archive {
 		@include desk-min {
 			width: 32%;
 			margin-right: 0;
-			&:not(:nth-child(3n + 3)) {
+			&:not(:nth-of-type(3n + 3)) {
 				margin-right: 2%;
 			}
 		}
 		@include limbo-only {
 			width: 49%;
-			&:nth-child(even) {
+			&:nth-of-type(even) {
 				margin-right: 0;
 			}
-			&:nth-child(odd) {
+			&:nth-of-type(odd) {
 				margin-right: 2%;
 			}
 		}

@@ -117,7 +117,7 @@ $box_type = get_field('box_type');
 					<?php $count_calculations++; endforeach; ?>
 				</div>
 			<?php endif;
-			}?>
+			} ?>
 			</div>
 			<?php endforeach; ?>
 			<?php
