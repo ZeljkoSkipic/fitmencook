@@ -23,7 +23,7 @@ get_header();
 				array(
 					'taxonomy'   => 'recipe-category',
 					'hide_empty' => true,
-					'exclude' => '59'
+					'exclude' => '59, 82'
 				)
 			);
 

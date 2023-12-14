@@ -129,7 +129,6 @@ if( have_rows('steps') ): ?>
 			$step_tools = get_sub_field('step_tools');
 			if( $step_tools ): ?>
 				<div class="fmc_tools">
-					<h4 class="fmc_tools_title"><?php the_field('tools_title', 'option'); ?></h4>
 					<div class="tools_inner">
 						<?php foreach( $step_tools as $post ): ?>
 							<?php // Setup this post for WP functions (variable must be named $post).

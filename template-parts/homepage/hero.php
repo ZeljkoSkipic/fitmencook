@@ -40,7 +40,7 @@ $box_type = get_field('box_type');
 					<?php foreach( $featured_recipe as $post ):
 
 						// Setup this post for WP functions (variable must be named $post).
-						setup_postdata($post); 
+						setup_postdata($post);
 						if(get_page_template_slug($post) === 'single-recipes-multiple.php')  $calculations = meal_plan_calculations(true);
 						?>
 						<div class="fmc_hr_left">
@@ -49,8 +49,12 @@ $box_type = get_field('box_type');
 								<?php
 								$avg_rating = get_avarage_rating (get_the_ID(), "" , true);
 								$categories = get_the_terms( $post->ID, 'recipe-category' );
-								if ( ! empty( $categories ) ) {
-									echo '<a href="' . esc_url( get_category_link( $categories[0]->term_id ) ) . '">' . esc_html( $categories[0]->name ) . '</a>';
+								if (!empty($categories)) {
+									foreach ($categories as $category) {
+										if ($category->term_id != 82) {
+										echo '<a href="' . esc_url(get_category_link($category->term_id)) . '">' . esc_html($category->name) . '</a>';
+										}
+									}
 								} ?>
 							</span>
 							<?php if($avg_rating): ?>
@@ -92,9 +96,9 @@ $box_type = get_field('box_type');
 						</div>
 					</div>
 					<?php } else if (!$hide_macros && isset($calculations)) {
-						if ($calculations['totals']) : $count_calculations = 1; 
+						if ($calculations['totals']) : $count_calculations = 1;
 						$index_arr = array("Calories","Protein","Fats","Carbs");
-						ksort_arr($calculations['totals'], $index_arr);	
+						ksort_arr($calculations['totals'], $index_arr);
 						?>
 							<div class="fmc_recipe_grid_macros">
 								<?php foreach ($calculations['totals'] as $label => $total) : if($total === 0) continue; ?>

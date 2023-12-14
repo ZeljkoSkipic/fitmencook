@@ -800,7 +800,7 @@ body.archive {
 	}
 }
 .note {
-	background-color: lightgray;
+	background-color: rgba(255, 136, 92, .2);
 	width: fit-content;
 	border-radius: 4px;
 	padding: 1px 5px;
@@ -901,6 +901,15 @@ body.archive {
 		}
 		.fmc_step_content *{
 			font-size: 16px;
+		}
+	}
+	.fmc_tools {
+		a {
+			font-size: 14px;
+			margin-bottom: 1rem;
+			.icon {
+				width: 25px;
+			}
 		}
 	}
 }
@@ -1225,7 +1234,6 @@ body.archive {
 	}
 	.tools_inner {
 		display: flex;
-		justify-content: space-between;
 		flex-wrap: wrap;
 	}
 	a {
@@ -1237,8 +1245,14 @@ body.archive {
 		margin-bottom: calc(1.6rem + 6px);
 		color: var(--misc-color);
 		width: 30%;
+		@include tab-min {
+			&:not(:nth-child(3n + 3)) {
+				margin-right: 5%;
+			}
+		}
 		@include mob-only {
 			width: 48%;
+			margin-right: 4%;
 		}
 		img {
 			height: 35px;

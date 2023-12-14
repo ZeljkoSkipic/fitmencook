@@ -724,7 +724,7 @@ body.archive .fmc_recipe{margin-bottom:var(--spacing-3)}
 .legend>span:not(:last-child){margin-right:16px}
 .legend:not(:last-child){margin-bottom:var(--spacing-3)}
 .legend span{font-size:14px;font-style:italic;margin-bottom:4px}
-.note{background-color:lightgray;width:-webkit-fit-content;width:-moz-fit-content;width:fit-content;border-radius:4px;padding:1px 5px;font-style:italic}
+.note{background-color:rgba(255,136,92,0.2);width:-webkit-fit-content;width:-moz-fit-content;width:fit-content;border-radius:4px;padding:1px 5px;font-style:italic}
 .note,.sub,.optional{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
 .note img,.sub img,.optional img{width:20px;margin-right:4px;border-radius:0;display:-webkit-inline-box !important;display:-ms-inline-flexbox !important;display:inline-flex !important}
 .optional span{width:8px;display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex}
@@ -742,6 +742,8 @@ body.archive .fmc_recipe{margin-bottom:var(--spacing-3)}
 .fmc_steps .fmc_step{margin-bottom:4rem}
 .fmc_steps .fmc_step .fmc_step_title{line-height:1.45;margin-bottom:.5rem;color:var(--color-1)}
 .fmc_steps .fmc_step .fmc_step_content *{font-size:16px}
+.fmc_steps .fmc_tools a{font-size:14px;margin-bottom:1rem}
+.fmc_steps .fmc_tools a .icon{width:25px}
 .fmc_chef{margin-bottom:var(--spacing-2)}
 .fmc_chef img{border-radius:16px;-o-object-position:center;object-position:center}
 .fmc_chef .fmc_chef_inner{z-index:2;margin-left:auto;background-color:#fff;padding:4rem 4.8rem 2.8rem;border-radius:16px 16px 0 0}
@@ -790,7 +792,7 @@ body.archive .fmc_recipe{margin-bottom:var(--spacing-3)}
 .fmc_tools{background-color:#f9fafb;padding:var(--spacing-2);width:-webkit-fit-content;width:-moz-fit-content;width:fit-content;max-width:100%;width:450px;border-radius:16px;margin-block:var(--spacing-3) var(--spacing-1)}
 .fmc_tools .fmc_tools_title{font-size:var(--title-size-3);font-family:Nunito;margin-bottom:16px}
 .fmc_tools em{font-size:16px;margin-bottom:var(--spacing-2);display:block}
-.fmc_tools .tools_inner{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;-ms-flex-wrap:wrap;flex-wrap:wrap}
+.fmc_tools .tools_inner{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap}
 .fmc_tools a{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;font-size:16px;font-weight:700;text-decoration:none;margin-bottom:calc(1.6rem + 6px);color:var(--misc-color);width:30%}
 .fmc_tools a img{height:35px;width:35px;-o-object-fit:contain;object-fit:contain;margin-right:10px}
 .single-meal-plans .fmc_sr_sidebar .fmc_macros .fmc_macro.calories span,.recipes-template-single-recipes-multiple .fmc_sr_sidebar .fmc_macros .fmc_macro.calories span{background-image:url(assets/icons/fire.svg);background-position:center left;background-repeat:no-repeat;padding-left:25px;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;background-size:14px}
@@ -1133,6 +1135,7 @@ footer.fmc_footer .fmc_footer_main .fmc_footer_col:nth-child(4){width:30%;-webki
 .fmc_chef{padding:8rem 7.2rem 0}
 .fmc_in_app .fmc_app_icons{width:150px;-ms-flex-negative:0;flex-shrink:0;margin-left:var(--spacing-3)}
 .fmc_in_app .fmc_app_icons figure:first-child{margin-bottom:16px}
+.fmc_tools a:not(:nth-child(3n+3)){margin-right:5%}
 .fmc_mp_recipe .fmc_recipe_times{padding:0 44px}
 .fmc_mp_archive_wrap .fmc_archive_inner .fmc_plan_images{height:292px}
 .fmc_mp_archive_wrap .fmc_archive_inner .fmc_plan_images>div{width:calc(50% - 10px)}
@@ -1483,7 +1486,7 @@ footer.fmc_footer .fmc_copyright .fmc_container{padding-top:0}
 .fmc_in_app .fmc_app_icons{-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;display:-webkit-box;display:-ms-flexbox;display:flex}
 .fmc_in_app .fmc_app_icons figure:first-child{margin-right:16px}
 .fmc_in_app .fmc_app_icons figure img{width:100%;-o-object-fit:contain;object-fit:contain}
-.fmc_tools a{width:48%}
+.fmc_tools a{width:48%;margin-right:4%}
 .fmc_mp_recipe .fmc_mpr_top{padding:0 44px 0 0;background-position:top right}
 .fmc_mp_recipe .fmc_cals{width:100%;margin-top:8px}
 .fmc_mp_recipe .fmc_macros .fmc_macro{width:26%;margin-bottom:.5rem;margin-top:.5rem}
