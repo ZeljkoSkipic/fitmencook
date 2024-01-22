@@ -310,6 +310,12 @@ body.archive {
 
 /* Single */
 
+#fmc_recipe_content {
+	@include tab-max {
+		scroll-margin-top: 65px;
+	}
+}
+
 .fmc_top_author {
 	display: flex;
 	align-items: center;
@@ -407,6 +413,10 @@ body.archive {
 			width: 80%;
 			margin-left: auto;
 		}
+	}
+	.fmc_sr_recipe_content {
+		background-color: #fff;
+		z-index: 9;
 	}
 
 
@@ -578,6 +588,18 @@ body.archive {
 			width: 100%;
 			text-align: center;
 			margin-top: var(--spacing-3);
+			@include tab-max {
+				position: fixed;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				z-index: 10;
+
+				.fmc_jtr {
+					width: 90%;
+
+				}
+			}
 		}
 		.fmc_jtr {
 			font-size: 16px;
@@ -1259,6 +1281,50 @@ body.archive {
 			width: 35px;
 			object-fit: contain;
 			margin-right: 10px;
+		}
+	}
+}
+
+
+/* Klavyo */
+
+.fmc_recipe_email {
+	border: 1px solid;
+	background: linear-gradient(45deg, #101828 0%, #475467 100%);
+	padding: var(--spacing-2) var(--spacing-2) var(--spacing-1) var(--spacing-2);
+	border-radius: 16px;
+	@include limbo-min {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		.fmc_recipe_email_inner {
+			width: 60%;
+		}
+		.klaviyo-form-UNLNpK {
+			width: 35%;
+		}
+	}
+
+	.fmc_form_email_title {
+		color: #fff;
+		font-weight: 700;
+		font-family: Alpino;
+	}
+	.fmc_form_email_text {
+		font-size: 18px;
+		font-weight: 500;
+		color: #fff;
+		margin-bottom: var(--spacing-3);
+	}
+	form {
+		.kl-private-reset-css-Xuajs1 {
+			justify-content: flex-start!important;
+		}
+		input {
+
+		}
+		button {
+			transition: .3s all;
 		}
 	}
 }

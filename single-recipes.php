@@ -58,6 +58,14 @@ $author_id = $post->post_author;
 
 			<?php get_template_part('template-parts/last-updated'); ?>
 
+			<div class="fmc_recipe_email">
+				<div class="fmc_recipe_email_inner">
+					<p class="fmc_form_email_title fmc_title_2 title_spacing_3"">Want to save this recipe?</p>
+					<p class="fmc_form_email_text">Just type your email and I'll send it to you. And as a bonus you'll get delicious new recipes from me!</p>
+				</div>
+				<div class="klaviyo-form-UNLNpK"></div>
+			</div>
+
 
 			<!-- WP Content -->
 			<?php
@@ -206,8 +214,6 @@ Jump to Recipe</a>
 			</div>
 
 		</div>
-
-		<div class="atm-ad-slot" data-slot-type="rail-ad"></div>
 
 	</div>
 

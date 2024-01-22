@@ -21,6 +21,9 @@ $sub_icon = get_field('sub_icon', 'option'); ?>
 			$note = get_sub_field('note');
 			$substitution = get_sub_field('substitution');
 			$optional = get_sub_field('optional');
+
+			$note_switch = get_sub_field('add_note');
+			$sub_switch = get_sub_field('substitution');
 			?>
 			<li>
 
@@ -40,10 +43,10 @@ $sub_icon = get_field('sub_icon', 'option'); ?>
 
 			<?php if( $note || $substitution ) : ?>
 				<ul>
-					<?php if( $substitution ) { ?>
+					<?php if( $substitution && $sub_switch) { ?>
 					<li class="sub"><img src="<?php echo $sub_icon ?>"><?php echo $substitution; ?></li>
 					<?php } ?>
-					<?php if( $note ) { ?>
+					<?php if( $note && $note_switch) { ?>
 					<li class="note"><img src="<?php echo $note_icon ?>"><?php echo $note; ?></li>
 					<?php } ?>
 				</ul>

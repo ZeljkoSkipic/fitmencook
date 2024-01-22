@@ -175,7 +175,7 @@ $calculations = meal_plan_calculations();
 
 								<?php } ?>
                                 <?php if ($include_steps) : ?>
-                                    <h4 class="fmc_mpr_subtitle"><?php the_field('steps_title'); ?></h4>
+                                    <h2 class="fmc_mpr_subtitle"><?php the_field('steps_title'); ?></h2>
                                     <div class="text_2 fmc_mpr_content fmc_mpr_steps">
                                         <div class="fmc_recipe_steps">
                                             <div class="fmc_steps">
@@ -501,7 +501,6 @@ $calculations = meal_plan_calculations();
 
 		<div id="shop-with-instacart-v1" data-affiliate_id="2985" data-source_origin="affiliate_hub" data-affiliate_platform="recipe_widget" \></div>
 		<?php } ?>
-		<div class="atm-ad-slot" data-slot-type="rail-ad"></div>
 
     </div>
 

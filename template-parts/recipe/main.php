@@ -111,7 +111,7 @@ $sub_icon = get_field('sub_icon', 'option'); ?>
 // Check rows existexists.
 if( have_rows('steps') ): ?>
 <div class="fmc_recipe_steps">
-	<h4 class="fmc_title_3 spacing_1_3"><?php the_field('steps_title'); ?></h4>
+	<h2 class="fmc_title_3 spacing_1_3"><?php the_field('steps_title'); ?></h2>
 	<div class="fmc_steps">
 	<?php $item = 1;
 	// Loop through rows.

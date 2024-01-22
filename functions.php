@@ -120,6 +120,11 @@ function fmc_scripts() {
 	wp_enqueue_style( 'main', get_stylesheet_directory_uri() . '/main.css', array(), $css_cache_buster, 'all' );
 	wp_enqueue_script( 'custom', get_template_directory_uri() . '/js/custom.js', array('jquery'), $js_cache_buster );
 
+	wp_localize_script('custom', 'theme' , [
+		"ajaxUrl" => admin_url('admin-ajax.php'),
+		"formID"  => 'UNLNpK'
+	  ]);
+
 	wp_enqueue_script( 'flickity', get_template_directory_uri() . '/js/vendor/flickity.js',array('jquery'),_S_VERSION,true);
 	wp_enqueue_script( 'smart-banner', get_template_directory_uri() . '/js/vendor/smartbanner.js',array('jquery'),_S_VERSION,true);
 
@@ -165,6 +170,8 @@ require get_template_directory() . '/includes/comments.php';
 require get_template_directory() . '/includes/yoast/yoast.php';
 
 require_once( get_template_directory(). '/includes/post-types.php' );
+
+require_once( get_template_directory(). '/includes/klaviyoEmailSendAjax.php');
 
 if(is_admin()) {
 	require get_template_directory() . '/includes/admin-time-modified.php';

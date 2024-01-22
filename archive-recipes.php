@@ -155,10 +155,6 @@ $ex_cats = get_field('exclude_recipe_categories', 'option');
 		wp_reset_postdata(); ?>
 	<?php endif; ?>
 
-	<div class="atm-ad-slot" data-slot-type="leaderboard-ad"></div> <!-- AD -->
-
-	<?php get_template_part('template-parts/category-track'); ?>
-
 	<div class="fmc_recipe_grid fmc_archive_main">
 		<div class="fmc_archive_inner fmc_rg_inner">
 
@@ -172,8 +168,6 @@ $ex_cats = get_field('exclude_recipe_categories', 'option');
 		<div class="spacing_3_1">
 			<?php fmc_pagination(); ?>
 		</div>
-
-		<div class="atm-ad-slot" data-slot-type="footerboard-ad"></div>
 
 	</div>
 	<div class="fmc_archive_sidebar">

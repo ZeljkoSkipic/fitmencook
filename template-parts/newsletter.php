@@ -11,4 +11,3 @@
 		</div>
 	</div>
 </div>
-<script async type="text/javascript" src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=SmSVCE"></script>

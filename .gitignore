@@ -69,5 +69,3 @@ assets/img/.DS_Store
 .editorconfig
 .eslintignore
 .eslintrc.js
-wpgulp.config.js
-*.json
