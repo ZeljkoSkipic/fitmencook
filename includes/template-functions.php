@@ -255,8 +255,9 @@ add_action('pre_get_posts', 'meal_plans_global_query', 1);
 
 // Meal Plan calculations
 
-function meal_plan_calculations($featured = false)
+function meal_plan_calculations($featured = false, $recipeID = "")
 {
+	$recipeID = $recipeID ? $recipeID : get_the_ID();
 	$l_prep_time = get_field('l_prep_time', 'option');
 	$l_cook_time = get_field('l_cook_time', 'option');
 	$l_total_time = get_field('l_total_time', 'option');
@@ -285,8 +286,8 @@ function meal_plan_calculations($featured = false)
 	$totals = [];
 	$total_times = [];
 
-	$existing_recipes = get_field('existing_recipe', get_the_ID());
-	$custom_recipes = get_field('custom_recipe', get_the_ID());
+	$existing_recipes = get_field('existing_recipe', $recipeID);
+	$custom_recipes = get_field('custom_recipe', $recipeID);
 
 
 	if ($existing_recipes) {
