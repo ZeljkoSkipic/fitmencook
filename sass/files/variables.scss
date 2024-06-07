@@ -166,6 +166,17 @@ $huge-desk-min: 2560px;
 	}
 }
 
+@mixin flex {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+@mixin flex-between {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
 :root {
 	@include md-desk-min {
 		--sh-site-width: 1220px;

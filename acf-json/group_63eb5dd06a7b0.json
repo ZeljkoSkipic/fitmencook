@@ -419,6 +419,29 @@
                     "parent_repeater": "field_63eb663b66487"
                 },
                 {
+                    "key": "field_63eb658873c06",
+                    "label": "Calories",
+                    "name": "cr_calories",
+                    "aria-label": "",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "14.25",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "min": "",
+                    "max": "",
+                    "placeholder": "",
+                    "step": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_63eb663b66487"
+                },
+                {
                     "key": "field_63eb649473c04",
                     "label": "Protein",
                     "name": "cr_protein",
@@ -445,29 +468,6 @@
                     "key": "field_63eb657d73c05",
                     "label": "Carbs",
                     "name": "cr_carbs",
-                    "aria-label": "",
-                    "type": "number",
-                    "instructions": "",
-                    "required": 1,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "14.25",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "min": "",
-                    "max": "",
-                    "placeholder": "",
-                    "step": "",
-                    "prepend": "",
-                    "append": "",
-                    "parent_repeater": "field_63eb663b66487"
-                },
-                {
-                    "key": "field_63eb658873c06",
-                    "label": "Calories",
-                    "name": "cr_calories",
                     "aria-label": "",
                     "type": "number",
                     "instructions": "",
@@ -816,5 +816,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1697616924
+    "modified": 1711388204
 }

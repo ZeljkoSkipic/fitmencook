@@ -13,7 +13,7 @@ $ex_cats = get_field('exclude_recipe_categories', 'option');
 	} ?>
 	<?php
 	$featured_posts = get_field('featured_recipe', 'option');
-	if ($featured_posts) :
+	if ($featured_posts && !isset($_GET['ingredient'])) :
 		foreach ($featured_posts as $feature_post) :
 			// Setup this post for WP functions (variable must be named $post).
 			global $post;
@@ -36,7 +36,7 @@ $ex_cats = get_field('exclude_recipe_categories', 'option');
 					</a>
 				</div>
 				<div class="fmc_featured_right">
-					<span class="fmc_featured_prefix"><?php the_field('featured_prefix', 'option'); ?></span>
+					<span class="fmc_featured_prefix"><?php echo get_field('featured_prefix', 'option'); ?></span>
 					<div class="fmc_grid_meta">
 						<span class="fmc_grid_cat">
 							<?php if (!empty($categories)) {
@@ -112,36 +112,36 @@ $ex_cats = get_field('exclude_recipe_categories', 'option');
 						<div class="fmc_featured_macros">
 							<div class="rg_macro calories">
 								<span class="rg_m_title">Cal</span>
-								<span class="rg_m_amount"><?php the_field('calories'); ?></span>
+								<span class="rg_m_amount"><?php echo get_field('calories'); ?></span>
 							</div>
 							<div class="rg_macro carbs">
-								<span class="rg_m_title"><?php the_field('l_carbs', 'option'); ?></span>
-								<span class="rg_m_amount"><?php the_field('carbs'); ?>g</span>
+								<span class="rg_m_title"><?php echo get_field('l_carbs', 'option'); ?></span>
+								<span class="rg_m_amount"><?php echo get_field('carbs'); ?>g</span>
 							</div>
 							<div class="rg_macro fat">
-								<span class="rg_m_title"><?php the_field('l_fat', 'option'); ?></span>
-								<span class="rg_m_amount"><?php the_field('fat'); ?>g</span>
+								<span class="rg_m_title"><?php echo get_field('l_fat', 'option'); ?></span>
+								<span class="rg_m_amount"><?php echo get_field('fat'); ?>g</span>
 							</div>
 							<div class="rg_macro protein">
-								<span class="rg_m_title"><?php the_field('l_protein', 'option'); ?></span>
-								<span class="rg_m_amount"><?php the_field('protein'); ?>g</span>
+								<span class="rg_m_title"><?php echo get_field('l_protein', 'option'); ?></span>
+								<span class="rg_m_amount"><?php echo get_field('protein'); ?>g</span>
 							</div>
 						</div>
 						<div class="fmc_featured_prep">
 							<div class="fmc_f_time_container">
-								<span class="fmc_time"><?php the_field('l_prep_time', 'option'); ?>:</span>
+								<span class="fmc_time"><?php echo get_field('l_prep_time', 'option'); ?>:</span>
 								<span class="fmc_amount"><?php if (get_field('prep_hours')) {
-																the_field('prep_hours'); ?>h <?php } ?> <?php the_field('prep_time'); ?><?php the_field('minutes', 'option'); ?></span>
+																echo get_field('prep_hours'); ?>h <?php } ?> <?php echo get_field('prep_time'); ?><?php echo get_field('minutes', 'option'); ?></span>
 							</div>
 							<div class="fmc_f_time_container">
-								<span class="fmc_time"><?php the_field('l_cook_time', 'option'); ?>:</span>
+								<span class="fmc_time"><?php echo get_field('l_cook_time', 'option'); ?>:</span>
 								<span class="fmc_amount"><?php if (get_field('cook_hours')) {
-																the_field('cook_hours'); ?>h <?php } ?> <?php the_field('cook_time'); ?><?php the_field('minutes', 'option'); ?></span>
+																echo get_field('cook_hours'); ?>h <?php } ?> <?php echo get_field('cook_time'); ?><?php echo get_field('minutes', 'option'); ?></span>
 							</div>
 							<div class="fmc_f_time_container">
-								<span class="fmc_time"><?php the_field('l_total_time', 'option'); ?>:</span>
+								<span class="fmc_time"><?php echo get_field('l_total_time', 'option'); ?>:</span>
 								<span class="fmc_amount"><?php if (get_field('total_hours')) {
-																the_field('total_hours'); ?>h <?php } ?> <?php the_field('total_time'); ?><?php the_field('minutes', 'option'); ?></span>
+																echo get_field('total_hours'); ?>h <?php } ?> <?php echo get_field('total_time'); ?><?php echo get_field('minutes', 'option'); ?></span>
 							</div>
 						</div>
 
@@ -154,6 +154,8 @@ $ex_cats = get_field('exclude_recipe_categories', 'option');
 		// Reset the global post object so that the rest of the page works correctly.
 		wp_reset_postdata(); ?>
 	<?php endif; ?>
+
+	<?php get_template_part('template-parts/category-track'); ?>
 
 	<div class="fmc_recipe_grid fmc_archive_main">
 		<div class="fmc_archive_inner fmc_rg_inner">
@@ -172,7 +174,7 @@ $ex_cats = get_field('exclude_recipe_categories', 'option');
 	</div>
 	<div class="fmc_archive_sidebar">
 		<div class="fmc_arch_cats">
-			<h3 class="fmc_sidebar_title"><?php the_field('all_categories_title', 'option'); ?></h3>
+			<h3 class="fmc_sidebar_title"><?php echo get_field('all_categories_title', 'option'); ?></h3>
 			<?php // Get the taxonomy's terms
 			$terms = get_terms(
 				array(

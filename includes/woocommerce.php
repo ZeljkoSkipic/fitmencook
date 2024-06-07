@@ -138,17 +138,6 @@ if ( ! function_exists( 'fmc_woocommerce_wrapper_after' ) ) {
 }
 add_action( 'woocommerce_after_main_content', 'fmc_woocommerce_wrapper_after' );
 
-/**
- * Sample implementation of the WooCommerce Mini Cart.
- *
- * You can add the WooCommerce Mini Cart to header.php like so ...
- *
-	<?php
-		if ( function_exists( 'fmc_woocommerce_header_cart' ) ) {
-			fmc_woocommerce_header_cart();
-		}
-	?>
- */
 
 if ( ! function_exists( 'fmc_woocommerce_cart_link_fragment' ) ) {
 	/**
@@ -223,32 +212,6 @@ if ( ! function_exists( 'fmc_woocommerce_header_cart' ) ) {
 		<?php
 	}
 }
-
-/**
- * Add a custom product data tab
- */
-/* add_filter( 'woocommerce_product_tabs', 'woo_new_product_tab' );
-function woo_new_product_tab( $tabs ) {
-
-	// Adds the new tab
-
-	$tabs['about_author'] = array(
-		'title' 	=> __( 'Shipping Information', 'woocommerce' ),
-		'priority' 	=> 50,
-		'callback' 	=> 'woo_new_product_tab_content'
-	);
-
-	return $tabs;
-
-}
-function woo_new_product_tab_content() {
-
-	// The new tab content
-
-	 get_template_part('template-parts/author');
-
-} */
-
 
 /**
  * Change number of related products output

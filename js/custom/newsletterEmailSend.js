@@ -4,6 +4,7 @@ const sendPostUrlKlaviyo = async (userEmail) => {
 	formData.append('userEmail', userEmail)
 	formData.append('postUrl', postUrl)
 	formData.append('action', 'klaviyo_email_send')
+	formData.append('recipeID', theme.recipeID)
 
 	try {
 	  const request = await fetch(theme.ajaxUrl, {

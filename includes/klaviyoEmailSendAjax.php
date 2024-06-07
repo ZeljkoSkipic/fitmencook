@@ -12,7 +12,7 @@ function klaviyo_email_send () {
 
         if(filter_var($user_email, FILTER_VALIDATE_EMAIL) && preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i", $post_url)) {
 
-            $subject = get_the_title($recipeID);
+            $subject = 'Saved Recipe: ' . get_the_title($recipeID) . ' - FitMenCook';
 
             // Get recipe template
 
@@ -22,6 +22,12 @@ function klaviyo_email_send () {
 
             if($recipe_template == 'single-recipes-multiple.php') {
                 get_template_part('template-parts/recipe/newsletter-email-multiple-template', null, [
+                    'recipeID' => $recipeID
+                ]);
+            }
+
+            elseif($recipe_template == 'single-recipes-collection.php') {
+                get_template_part('template-parts/recipe/newsletter-email-collection-template', null, [
                     'recipeID' => $recipeID
                 ]);
             }

@@ -2,13 +2,14 @@
 $tools = get_field('tools');
 if( $tools ): ?>
 	<div class="fmc_tools">
-		<h4 class="fmc_tools_title"><?php the_field('tools_title', 'option'); ?></h4>
-		<em><?php the_field('tools_intro', 'option'); ?></em>
+		<h4 class="fmc_tools_title"><?php echo wp_kses_post( get_field('tools_title', 'option') ); ?></h4>
+
+		<em><?php echo wp_kses_post( get_field('tools_intro', 'option') ); ?></em>
 		<div class="tools_inner">
 			<?php foreach( $tools as $post ): ?>
 				<?php // Setup this post for WP functions (variable must be named $post).
 				setup_postdata($post); ?>
-					<a href="<?php the_field('tool_link'); ?>" target="_blank">
+					<a href="<?php echo wp_kses_post( get_field('tool_link') ); ?>" target="_blank">
 					<?php
 					$icon = get_field('icon');
 					$size = 'full';

@@ -120,10 +120,18 @@ function fmc_scripts() {
 	wp_enqueue_style( 'main', get_stylesheet_directory_uri() . '/main.css', array(), $css_cache_buster, 'all' );
 	wp_enqueue_script( 'custom', get_template_directory_uri() . '/js/custom.js', array('jquery'), $js_cache_buster );
 
-	wp_localize_script('custom', 'theme' , [
+	$theme_vars = [
 		"ajaxUrl" => admin_url('admin-ajax.php'),
-		"formID"  => 'UNLNpK'
-	  ]);
+		"formID"  => 'UNLNpK',
+		"cartUrl" => wc_get_cart_url(),
+  		"nonce"  => wp_create_nonce('nonce-security')
+	];
+
+	if(is_singular('recipes')) {
+		$theme_vars['recipeID'] = get_the_ID();
+	}
+
+	wp_localize_script('custom', 'theme' , $theme_vars);
 
 	wp_enqueue_script( 'flickity', get_template_directory_uri() . '/js/vendor/flickity.js',array('jquery'),_S_VERSION,true);
 	wp_enqueue_script( 'smart-banner', get_template_directory_uri() . '/js/vendor/smartbanner.js',array('jquery'),_S_VERSION,true);
@@ -140,10 +148,18 @@ function fmc_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'fmc_scripts' );
 
+require_once( get_template_directory(). '/includes/woo-minicart-ajax.php');
+
 function fmc_admin_styles() {
 	wp_enqueue_style( 'backend-styles', get_template_directory_uri() . '/admin.css' );
 }
 add_action( 'admin_enqueue_scripts', 'fmc_admin_styles' );
+
+// Login Styles
+function stier_login_styles() {
+    wp_enqueue_style( 'login-style', get_template_directory_uri() . '/wp-login.css' );
+}
+add_action('login_head', 'stier_login_styles');
 
 /**
  * Custom template tags for this theme.
@@ -193,39 +209,6 @@ function unset_url_field($fields){
 }
 
 
-// Set Up ACF Local JSON
-
-add_filter('acf/settings/save_json', 'my_acf_json_save_point');
-
-function my_acf_json_save_point( $path ) {
-
-    // update path
-    $path = get_stylesheet_directory() . '/acf-json';
-
-
-    // return
-    return $path;
-
-}
-
-add_filter('acf/settings/load_json', 'my_acf_json_load_point');
-
-function my_acf_json_load_point( $paths ) {
-
-    // remove original path (optional)
-    unset($paths[0]);
-
-
-    // append path
-    $paths[] = get_stylesheet_directory() . '/acf-json';
-
-
-    // return
-    return $paths;
-
-}
-
-
 // Blocks
 
 add_action( 'init', 'register_acf_blocks' );
@@ -241,6 +224,7 @@ function register_acf_blocks() {
 	register_block_type( __DIR__ . '/blocks/logo-slide' );
 	register_block_type( __DIR__ . '/blocks/fmc-media' );
 	register_block_type( __DIR__ . '/blocks/cta-banner' );
+	register_block_type( __DIR__ . '/blocks/pi-intro' );
 }
 
 /**

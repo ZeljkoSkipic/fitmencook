@@ -1,0 +1,17 @@
+{
+    "name": "acf/pi-intro",
+    "title": "Product-Ingredient Archive Intro",
+    "description": "Product/Ingredient Intro",
+    "category": "formatting",
+    "icon": "feedback",
+    "keywords": ["intro", "product", "ads", "fmc"],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "pi-intro.php",
+        "usePostMeta": "true"
+    },
+    "supports": {
+		"mode": false,
+		"align": false
+	}
+}

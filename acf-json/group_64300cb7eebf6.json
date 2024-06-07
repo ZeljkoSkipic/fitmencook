@@ -4,7 +4,7 @@
     "fields": [
         {
             "key": "field_653b8dcbd0aa5",
-            "label": "Featured Image",
+            "label": "Featured Image - Banner",
             "name": "featured_image",
             "aria-label": "",
             "type": "image",
@@ -26,6 +26,22 @@
             "max_size": "",
             "mime_types": "",
             "preview_size": "medium"
+        },
+        {
+            "key": "field_665488eacf39b",
+            "label": "Banner Link",
+            "name": "banner_link",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
         },
         {
             "key": "field_653b8de2d0aa6",
@@ -175,5 +191,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1698401791
+    "modified": 1716816135
 }

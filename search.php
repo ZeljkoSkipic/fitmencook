@@ -26,7 +26,7 @@ $ex_cats = get_field('exclude_recipe_categories', 'option');
 		</div>
 
 		<div class="fmc_container spacing_1">
-		<h2 class="fmc_title_2 title_spacing_2_0 fmc_toggle_trigger"><?php the_field('category-track-title', 'option'); ?><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#344054" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></h2>
+		<h2 class="fmc_title_2 title_spacing_2_0 fmc_toggle_trigger">Browse Categories<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#344054" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></h2>
 		<div class="fmc_toggle_content">
 		<div class="fmc_search_cats">
 			<?php // Get the taxonomy's terms
@@ -101,6 +101,5 @@ $ex_cats = get_field('exclude_recipe_categories', 'option');
 			</div>
 			</div>
 	</main><!-- #main -->
-
 <?php
 get_footer();

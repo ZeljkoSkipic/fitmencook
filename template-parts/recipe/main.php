@@ -19,13 +19,11 @@ $sub_icon = get_field('sub_icon', 'option'); ?>
 
 <div class="fmc_recipe_ingredients spacing_0_3" id="fmc_gtr">
 
-		<div class="atm-ad-slot" data-slot-type="incontent-ad"></div> <!-- AD -->
-
 		<h2 class="fmc_title_1 spacing_1_3">
 			<?php the_title(); ?>
 		</h2>
 
-	<h4 class="fmc_title_3 title_spacing_3"><?php the_field('ingredients_title'); ?></h4>
+	<h4 class="fmc_title_3 title_spacing_3"><?php echo wp_kses_post( get_field('ingredients_title') ); ?></h4>
 
 	<?php if($servings_number) { ?>
 	<div class="fmc_ing_servings"><?php echo $servings_number ?>
@@ -111,7 +109,7 @@ $sub_icon = get_field('sub_icon', 'option'); ?>
 // Check rows existexists.
 if( have_rows('steps') ): ?>
 <div class="fmc_recipe_steps">
-	<h2 class="fmc_title_3 spacing_1_3"><?php the_field('steps_title'); ?></h2>
+	<h2 class="fmc_title_3 spacing_1_3"><?php echo wp_kses_post( get_field('steps_title') ); ?></h2>
 	<div class="fmc_steps">
 	<?php $item = 1;
 	// Loop through rows.
@@ -133,7 +131,7 @@ if( have_rows('steps') ): ?>
 						<?php foreach( $step_tools as $post ): ?>
 							<?php // Setup this post for WP functions (variable must be named $post).
 							setup_postdata($post); ?>
-								<a href="<?php the_field('tool_link'); ?>" target="_blank">
+								<a href="<?php echo wp_kses_post( get_field('tool_link') ); ?>" target="_blank">
 								<?php
 								$icon = get_field('icon');
 								$size = 'full';

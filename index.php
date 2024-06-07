@@ -62,9 +62,6 @@ $blog_posts_delimetar = get_field('after_which_post_number_to_show_add', 'option
 
 	<div class="fmc_archive_inner fmc_container">
 		<div class="fmc_blog_archive_main">
-            <div class="fmc_post_sidebar">
-                <?php  ?>
-            </div>
 			<?php  while ( have_posts() ) : the_post();
 			$categories = get_the_category();
 

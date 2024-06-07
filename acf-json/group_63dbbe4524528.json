@@ -256,6 +256,26 @@
             "new_lines": ""
         },
         {
+            "key": "field_66265fcb52826",
+            "label": "Recipe Card AD",
+            "name": "recipe_card_ad",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": "",
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
             "key": "field_63dd801cce1c4",
             "label": "Author",
             "name": "",
@@ -993,5 +1013,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1702584887
+    "modified": 1713790953
 }

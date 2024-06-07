@@ -367,13 +367,13 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "id",
+            "return_format": "array",
             "library": "all",
             "min_width": "",
             "min_height": "",
             "min_size": "",
-            "max_width": "",
-            "max_height": "",
+            "max_width": 920,
+            "max_height": 670,
             "max_size": "",
             "mime_types": "",
             "preview_size": "medium"
@@ -512,7 +512,7 @@
                     "aria-label": "",
                     "type": "link",
                     "instructions": "",
-                    "required": 0,
+                    "required": 1,
                     "conditional_logic": 0,
                     "wrapper": {
                         "width": "30",
@@ -845,5 +845,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1702032826
+    "modified": 1708353974
 }

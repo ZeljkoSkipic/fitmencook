@@ -68,21 +68,5 @@
 			wp_reset_postdata(); ?>
 		<?php endif; ?>
 	</div>
-	<!-- <div class="fmc_top_cats spacing_2_0">
-		<div class="fmc_tc_inner">
-		<h3 class="spacing_0_3"><?php the_field('top_categories_title', 'option'); ?></h3>
-			<?php $top_categories = get_field('top_categories', 'option') ?>
-			<?php foreach($top_categories as $category) {
-			?>
-			<?php echo '<a href="' . get_category_link($category->term_id) . '">'; ?>
-				<?php echo $category->name; ?>
-				<span>(<?php $cat_count = get_category($category->term_id);
-				echo $cat_count->count; ?>)</span>
-			</a>
-		<?php } ?>
-		</div>
-	</div> -->
-
-<div class="atm-ad-slot" data-slot-type="rail-ad"></div> <!-- Single Blog Post AD -->
 
 </div>

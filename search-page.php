@@ -19,7 +19,7 @@ $ex_cats = get_field('exclude_recipe_categories', 'option');
 			</div>
 		</div>
 		<div class="fmc_container spacing_1">
-		<h2 class="fmc_title_2 title_spacing_2 fmc_search_title"><?php the_field('category-track-title', 'option'); ?></h2>
+		<h2 class="fmc_title_2 title_spacing_2 fmc_search_title">Browse Categories</h2>
 		<div class="fmc_search_cats">
 			<?php // Get the taxonomy's terms
 			$terms = get_terms(
@@ -53,5 +53,8 @@ $ex_cats = get_field('exclude_recipe_categories', 'option');
 		<?php get_template_part('template-parts/app'); ?>
 	</main><!-- #main -->
 
+	<script>
+
+	</script>
 <?php
 get_footer();

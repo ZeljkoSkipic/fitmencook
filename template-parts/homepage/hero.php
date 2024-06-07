@@ -14,23 +14,19 @@ $box_type = get_field('box_type');
 	<div class="fmc_container">
 		<div class="fmc_hh_left">
 			<div class="fmc_hero_text">
-				<h2 class="fmc_hero_prefix"><?php echo $prefix ?></h2>
+				<h2 class="fmc_hero_prefix"><a href="#recipes"><?php echo $prefix ?></a></h2>
 				<h1 class="fmc_hero_title"><?php echo $title ?></h1>
 				<div class="fmc_hh_text"><?php echo $text ?></div>
 			</div>
 			<?php echo do_shortcode('[wpdreams_ajaxsearchpro id=1]'); ?>
 			<div class="fmc_app_badges">
-				<h5><?php the_field('app_badges_title'); ?></h5>
+				<span class="hero_badges_title"> <?php echo wp_kses_post( get_field('app_badges_title') ); ?></span>
 				<?php get_template_part('template-parts/app-badges'); ?>
 			</div>
 		</div>
 		<div class="fmc_hh_right">
 			<div class="img_bg">
-				<?php
-				$loading = ['loading' => 'eager'];
-				if( $featured_hero_image ) {
-					echo wp_get_attachment_image( $featured_hero_image, $size, false, $loading, array( 'class' => '' )  );
-				} ?>
+			<img src="<?php echo esc_url($featured_hero_image['url']); ?>" alt="<?php echo esc_attr($featured_hero_image['alt']); ?>"  rel="preload" fetchpriority="high" loading="eager" />
 			</div>
 			<div class="fmc_hh_box">
 			<?php // Recipe box Start
@@ -47,16 +43,10 @@ $box_type = get_field('box_type');
 						<div class="fmc_grid_meta">
 							<span class="fmc_grid_cat">
 								<?php
-								$avg_rating = get_avarage_rating (get_the_ID(), "" , true);
-								$categories = get_the_terms( $post->ID, 'recipe-category' );
-								if (!empty($categories)) {
-									foreach ($categories as $category) {
-										if ($category->term_id != 82) {
-										echo '<a href="' . esc_url(get_category_link($category->term_id)) . '">' . esc_html($category->name) . '</a>';
-										}
-									}
-								} ?>
+								$avg_rating = get_avarage_rating (get_the_ID(), "" , true); ?>
+								<?php get_template_part('template-parts/recipe/primary-term'); ?>
 							</span>
+
 							<?php if($avg_rating): ?>
 
 							<div class="meta_rating">
@@ -75,7 +65,7 @@ $box_type = get_field('box_type');
 
 							<?php endif; ?>
 					</div>
-					<h3 class="fmc_grid_title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+					<h2 class="fmc_grid_title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 					<?php if(!$hide_macros && !isset($calculations)) { ?>
 					<div class="fmc_recipe_grid_macros">
 						<div class="rg_macro calories">
@@ -109,7 +99,7 @@ $box_type = get_field('box_type');
 						}?>
 				</div>
 				<div class="fmc_hr_right">
-					<a href="<?php the_permalink(); ?>">
+					<a href="<?php the_permalink(); ?>" aria-label="<?php the_title(); ?>">
 					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#344054" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
 					</a>
 				</div>
@@ -134,14 +124,14 @@ $box_type = get_field('box_type');
 								?>
 							</span>
 					</div>
-					<h3 class="fmc_grid_title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+					<h2 class="fmc_grid_title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 					<div class="fmc_grid_content text_2">
 					<?php echo wp_trim_words( get_the_content(), 5, '...' ); ?>
 					<!-- <span class="fmc_read">2 min read</span> -->
 					</div>
 				</div>
 				<div class="fmc_hr_right">
-					<a href="<?php the_permalink(); ?>">
+					<a href="<?php the_permalink(); ?>" aria-label="<?php the_title(); ?>">
 					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#344054" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
 					</a>
 				</div>
@@ -157,7 +147,7 @@ $box_type = get_field('box_type');
 					$custom = get_field('custom');
 					if($custom) : ?>
 					<div class="fmc_hr_left">
-					<h3 class="fmc_grid_title"><a href="<?php echo esc_url( $custom['c_link']['url'] ); ?>" target="<?php echo esc_attr( $custom['c_link']['target'] ) ?>"><?php echo $custom['c_title']; ?></a></h3>
+					<h2 class="fmc_grid_title"><a href="<?php echo esc_url( $custom['c_link']['url'] ); ?>" target="<?php echo esc_attr( $custom['c_link']['target'] ) ?>" aria-label="<?php echo $custom['c_title']; ?>"><?php echo $custom['c_title']; ?></a></h2>
 					<div class="fmc_grid_content text_2">
 					<?php echo $custom['c_text']; ?>
 					</div>

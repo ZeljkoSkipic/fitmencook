@@ -17,9 +17,13 @@
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
-}
+} ?>
 
-if ( $related_products ) : ?>
+<div class="fmc_archive_wrap">
+<?php get_template_part('template-parts/product/connected-recipes'); ?>
+</div>
+
+<?php if ( $related_products ) : ?>
 
 	<section class="related products spacing_1">
 		<?php

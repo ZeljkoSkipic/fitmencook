@@ -29,7 +29,7 @@
 	<meta name="smartbanner:button-url-google" content="https://play.google.com/store/apps/details?id=com.nibbleapps.fitmencook">
 	<meta name="smartbanner:enabled-platforms" content="android,ios">
 	<meta name="p:domain_verify" content="630d33d666a4140aa5b91ccdf37cb378"/>
-	<?php the_field('head_script', 'option'); ?> <!-- Head External Code -->
+	<?php echo get_field('head_script', 'option'); ?> <!-- Head External Code -->
 	<?php wp_head(); ?>
 	<meta name="theme-color" content="#EAECF0" />
 	<script async type="text/javascript" src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=SmSVCE"></script>
@@ -38,7 +38,7 @@
 
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-<?php the_field('body_top_script', 'option'); ?> <!-- Body Top External Code -->
+<?php echo get_field('body_top_script', 'option'); ?> <!-- Body Top External Code -->
 <div id="main-content" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'fmc' ); ?></a>
 	<div class="fmc_mobile_header">
@@ -49,14 +49,14 @@
 		$search_link = get_field('search_link', 'option');
 		if( $search_link ): ?>
 			<div class="search_icon">
-				<a href="<?php echo esc_url( $search_link ); ?>">
+				<a href="<?php echo esc_url( $search_link ); ?>" aria-label="Search">
 					<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path d="M16.5 16.5L11.5 11.5M13.1667 7.33333C13.1667 10.555 10.555 13.1667 7.33333 13.1667C4.11167 13.1667 1.5 10.555 1.5 7.33333C1.5 4.11167 4.11167 1.5 7.33333 1.5C10.555 1.5 13.1667 4.11167 13.1667 7.33333Z" stroke="#344054" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 					</svg>
 				</a>
 			</div>
 		<?php endif; ?>
-		<a class="cart_icon" href="<?php echo wc_get_cart_url() ?>">
+		<a class="cart_icon" href="<?php echo wc_get_cart_url() ?>" aria-label="Cart">
 			<div class="cart">
 			<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<path d="M1.5 1.5H3.16667L3.5 3.16667M4.83333 9.83333H13.1667L16.5 3.16667H3.5M4.83333 9.83333L3.5 3.16667M4.83333 9.83333L2.92259 11.7441C2.39762 12.269 2.76942 13.1667 3.51184 13.1667H13.1667M13.1667 13.1667C12.2462 13.1667 11.5 13.9129 11.5 14.8333C11.5 15.7538 12.2462 16.5 13.1667 16.5C14.0871 16.5 14.8333 15.7538 14.8333 14.8333C14.8333 13.9129 14.0871 13.1667 13.1667 13.1667ZM6.5 14.8333C6.5 15.7538 5.75381 16.5 4.83333 16.5C3.91286 16.5 3.16667 15.7538 3.16667 14.8333C3.16667 13.9129 3.91286 13.1667 4.83333 13.1667C5.75381 13.1667 6.5 13.9129 6.5 14.8333Z" stroke="#344054" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -81,24 +81,16 @@
 			);
 		?>
 		<div class="fmc_header_right">
-			<?php
-			$search_link = get_field('search_link', 'option');
-			if( $search_link ): ?>
-				<div class="search_icon">
-					<a href="<?php echo esc_url( $search_link ); ?>">
-						<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path d="M16.5 16.5L11.5 11.5M13.1667 7.33333C13.1667 10.555 10.555 13.1667 7.33333 13.1667C4.11167 13.1667 1.5 10.555 1.5 7.33333C1.5 4.11167 4.11167 1.5 7.33333 1.5C10.555 1.5 13.1667 4.11167 13.1667 7.33333Z" stroke="#344054" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-						</svg>
-					</a>
-				</div>
-			<?php endif; ?>
-			<a href="<?php echo wc_get_cart_url() ?>">
-			<div class="cart">
-			<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-				<path d="M1.5 1.5H3.16667L3.5 3.16667M4.83333 9.83333H13.1667L16.5 3.16667H3.5M4.83333 9.83333L3.5 3.16667M4.83333 9.83333L2.92259 11.7441C2.39762 12.269 2.76942 13.1667 3.51184 13.1667H13.1667M13.1667 13.1667C12.2462 13.1667 11.5 13.9129 11.5 14.8333C11.5 15.7538 12.2462 16.5 13.1667 16.5C14.0871 16.5 14.8333 15.7538 14.8333 14.8333C14.8333 13.9129 14.0871 13.1667 13.1667 13.1667ZM6.5 14.8333C6.5 15.7538 5.75381 16.5 4.83333 16.5C3.91286 16.5 3.16667 15.7538 3.16667 14.8333C3.16667 13.9129 3.91286 13.1667 4.83333 13.1667C5.75381 13.1667 6.5 13.9129 6.5 14.8333Z" stroke="#344054" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-			</svg>
+			<div class="search_icon">
+					<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M16.5 16.5L11.5 11.5M13.1667 7.33333C13.1667 10.555 10.555 13.1667 7.33333 13.1667C4.11167 13.1667 1.5 10.555 1.5 7.33333C1.5 4.11167 4.11167 1.5 7.33333 1.5C10.555 1.5 13.1667 4.11167 13.1667 7.33333Z" stroke="#344054" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+					</svg>
 			</div>
-			</a>
+			<div class="nav_search">
+			<?php echo do_shortcode('[wpdreams_ajaxsearchpro id=1]'); ?>
+			</div>
+			<?php get_template_part('template-parts/woo-mini-cart'); ?>
+
 			<?php
 			$order_link = get_field('order_link', 'option');
 			if( $order_link ):

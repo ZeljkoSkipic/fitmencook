@@ -12,19 +12,7 @@
 	justify-content: space-between;
 	margin-bottom: var(--spacing-1);
 	width: 100%;
-	&:not(.fmc_featured_recipe) {
-		@include tab-min {
-			> div {
-				width: 48%;
-			}
-		}
-		@include mob-only {
-			flex-direction: column;
-			.fmc_featured_left {
-				margin-bottom: var(--spacing-3);
-			}
-		}
-	}
+
 	&.fmc_featured_recipe {
 		@include limbo-min {
 			> div {

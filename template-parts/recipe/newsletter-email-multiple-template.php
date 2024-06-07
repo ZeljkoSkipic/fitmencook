@@ -22,6 +22,8 @@ $l_serving_size = get_field('l_serving_size', 'option');
 
 $meal_counter = 1;
 $calculations = meal_plan_calculations(false, $recipeID);
+
+$instacart_switch = get_field('instacart_sidebar', $recipeID);
 ?>
 
 <!DOCTYPE html>
@@ -31,16 +33,36 @@ $calculations = meal_plan_calculations(false, $recipeID);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo get_the_title($recipeID); ?></title>
+	<style>
+		img {
+			width: 100%;
+			height: auto;
+			object-fit: contain;
+		}
+		.site_logo {
+			width: 80px;
+		}
+	</style>
 </head>
 
 <body>
-    <table>
-        <tr>
-            <td>
-                <?php the_custom_logo(); ?>
-            </td>
-            <td>
-                <h1><?php echo get_the_title($recipeID); ?></h1>
+<table style="width:100%;"><tr><td style="padding: 4px 16px; border-radius: 4px; text-align: center; background: #FF885C; width: 100%"><h1 style="font-size: 22px; letter-spacing: .5px; color: #fff; margin: 0;">Fitmencook: <?php echo get_the_title($recipeID) ?></h1></td></tr></table>
+	<table style="width: 100%;"><tr><td style="display: block; max-width: 650px; margin-left: auto; margin-right:auto; padding: 24px; background-color: #fafafa; border-radius: 0 0 16px 16px;">
+		<table>
+
+			<?php if($feature_image): ?>
+
+			<tr>
+				<?php echo $feature_image; ?>
+			</tr>
+
+
+
+			<?php endif; ?>
+
+			<tr>
+				<td style="width: 150px; display: inline-flex;"><img class="site_logo" width="80" src="https://fitmencook.com/wp-content/uploads/2024/01/fitmencook-logo.png"></td>
+				<td style="width: 200px; display: inline-flex;">
                 <?php if ($calculations['total_times']) : ?>
                     <table>
                         <?php foreach ($calculations['total_times'] as $single_time) : ?>
@@ -75,7 +97,7 @@ $calculations = meal_plan_calculations(false, $recipeID);
         </tr>
     </table>
 
-    <?php if (have_rows('existing_recipe', $recipeID)) : // Existing Recipes 
+    <?php if (have_rows('existing_recipe', $recipeID)) : // Existing Recipes
     ?>
 
         <table>
@@ -104,7 +126,7 @@ $calculations = meal_plan_calculations(false, $recipeID);
                                 <table>
                                     <tr>
                                         <td>
-                                            <span><?php echo __('Recipe', 'fitmencook') . ' ' . $meal_counter; ?></span>
+                                            <strong><?php echo __('Recipe', 'fitmencook') . ' ' . $meal_counter; ?></strong>
                                             <a href="<?php the_permalink(); ?>">
                                                 <h2><?php the_title(); ?></h2>
                                             </a>
@@ -113,28 +135,20 @@ $calculations = meal_plan_calculations(false, $recipeID);
                                                 <tr>
                                                     <?php if ($prep_time) : ?>
 
-                                                        <td><span><?php echo $l_prep_time ?></span></td>
+                                                        <td style="width: 20%"><span><?php echo $l_prep_time ?></span></td>
 
                                                     <?php endif; ?>
 
                                                     <?php if ($cook_time) : ?>
 
-                                                        <td><?php echo $l_cook_time ?></td>
+                                                        <td style="width: 20%"><?php echo $l_cook_time ?></td>
 
                                                     <?php endif; ?>
 
                                                     <?php if ($total_time) : ?>
 
-                                                        <td>
+                                                        <td style="width: 20%">
                                                             <?php echo $l_total_time ?>
-                                                        </td>
-
-                                                    <?php endif; ?>
-
-                                                    <?php if ($calories) : ?>
-
-                                                        <td>
-                                                            <?php echo __('calories', 'fitmencook'); ?>
                                                         </td>
 
                                                     <?php endif; ?>
@@ -143,7 +157,7 @@ $calculations = meal_plan_calculations(false, $recipeID);
                                                 <tr>
                                                     <?php if ($prep_time) : ?>
 
-                                                        <td>
+                                                        <td style="width: 20%">
                                                             <?php if ($prep_hours) { ?>
                                                                 <?php echo $prep_hours ?>h
                                                             <?php } ?>
@@ -154,7 +168,7 @@ $calculations = meal_plan_calculations(false, $recipeID);
 
                                                     <?php if ($cook_time) : ?>
 
-                                                        <td>
+                                                        <td style="width: 20%">
                                                             <?php if ($cook_hours) { ?>
                                                                 <?php echo $cook_hours ?>h
                                                             <?php } ?>
@@ -165,19 +179,11 @@ $calculations = meal_plan_calculations(false, $recipeID);
 
                                                     <?php if ($total_time) : ?>
 
-                                                        <td>
+                                                        <td style="width: 20%">
                                                             <?php if ($total_hours) { ?>
                                                                 <?php echo $total_hours ?>h
                                                             <?php } ?>
                                                             <?php echo $total_time ?><?php echo $minutes ?></span>
-                                                        </td>
-
-                                                    <?php endif; ?>
-
-                                                    <?php if ($calories) : ?>
-
-                                                        <td>
-                                                            <?php echo $calories . __('cal', 'fitmencook'); ?>
                                                         </td>
 
                                                     <?php endif; ?>
@@ -187,16 +193,11 @@ $calculations = meal_plan_calculations(false, $recipeID);
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>
-                                            <?php the_post_thumbnail(); ?>
-                                        </td>
-                                    </tr>
-                                    <tr>
                                         <?php
                                         $ingredients_title = get_field('ingredients_title');
                                         if ($ingredients_title) : ?>
                                             <td>
-                                                <h4><?php echo $ingredients_title ?></h4>
+                                                <h2><?php echo $ingredients_title ?></h2>
                                                 <table>
                                                     <tr>
                                                         <?php if ($servings_number) : ?>
@@ -227,7 +228,7 @@ $calculations = meal_plan_calculations(false, $recipeID);
 
                                             if (get_field('ingredients_switch')) { ?>
 
-                                                <?php get_template_part('template-parts/recipe/instacart-ingredients'); ?>
+                                                <?php get_template_part('template-parts/recipe/instacart-ingredients-mail'); ?>
 
                                             <?php } else { ?>
 
@@ -250,9 +251,9 @@ $calculations = meal_plan_calculations(false, $recipeID);
                                                     <table>
                                                         <tr>
                                                             <td>
-                                                                <h5>
+                                                                <h3 style="margin-top:0">
                                                                     Step <?php echo $item; ?>
-                                                                </h5>
+                                                                </h3>
                                                             </td>
                                                         </tr>
                                                         <tr>
@@ -273,7 +274,6 @@ $calculations = meal_plan_calculations(false, $recipeID);
                                     <tr>
                                         <td>
                                             <?php get_template_part('template-parts/recipe/macros-mail'); ?>
-                                            <a href="<?php the_permalink(); ?>"><?php echo $see_full; ?></a>
                                         </td>
                                     </tr>
 
@@ -281,7 +281,7 @@ $calculations = meal_plan_calculations(false, $recipeID);
                             <?php endforeach; ?>
                             <?php wp_reset_postdata(); ?>
                         <?php endif; ?>
-                        <?php $meal_counter++; ?>
+                        <strong><?php $meal_counter++; ?></strong>
                     <?php endwhile; ?>
                 </td>
             </tr>
@@ -359,14 +359,6 @@ $calculations = meal_plan_calculations(false, $recipeID);
 
                                             <?php endif; ?>
 
-                                            <?php if ($cr_calories) : ?>
-
-                                                <td>
-                                                    <?php echo __('caloeries', 'fitmencook'); ?>
-                                                </td>
-
-                                            <?php endif; ?>
-
                                         </tr>
                                         <tr>
                                             <?php if (!empty($cr_prep_time || $cr_prep_hours)) : ?>
@@ -408,14 +400,6 @@ $calculations = meal_plan_calculations(false, $recipeID);
 
                                             <?php endif; ?>
 
-                                            <?php if ($cr_calories) : ?>
-
-                                                <td>
-                                                    <?php echo $cr_calories ?>cal
-                                                </td>
-
-                                            <?php endif; ?>
-
                                         </tr>
 
                                     </table>
@@ -428,7 +412,7 @@ $calculations = meal_plan_calculations(false, $recipeID);
                                     $custom_nos = get_sub_field('number_of_servings');
                                     $custom_ss = get_sub_field('serving_size');
                                     if ($custom_ingredients) : ?>
-                                        <h4><?php the_sub_field('ingredients_title'); ?></h4>
+                                        <h2><?php the_sub_field('ingredients_title'); ?></h2>
                                         <table>
                                             <tr>
                                                 <?php if ($custom_nos) : ?>
@@ -455,7 +439,7 @@ $calculations = meal_plan_calculations(false, $recipeID);
                                                     <?php
                                                     if (get_sub_field('ingredients_switch')) { ?>
 
-                                                        <?php get_template_part('template-parts/recipe/instacart-ingredients'); ?>
+                                                        <?php get_template_part('template-parts/recipe/instacart-ingredients-mail'); ?>
 
 
                                                     <?php } else { ?>
@@ -487,9 +471,9 @@ $calculations = meal_plan_calculations(false, $recipeID);
                                             <table>
                                                 <tr>
                                                     <td>
-                                                        <h5>
+                                                        <h3 style="margin-top: 0; margin-bottom: -5px;">
                                                             Step <?php echo $item; ?>
-                                                        </h5>
+                                                        </h3>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -516,7 +500,7 @@ $calculations = meal_plan_calculations(false, $recipeID);
                                         </tr>
                                         <tr>
                                             <?php if ($cr_calories) : ?>
-                                                <td>
+                                                <td style="width: 14%">
                                                     <?php echo $l_calories; ?>
                                                 </td>
 
@@ -524,7 +508,7 @@ $calculations = meal_plan_calculations(false, $recipeID);
 
                                             <?php if ($cr_protein) : ?>
 
-                                                <td>
+                                                <td style="width: 14%">
                                                     <?php echo $l_protein; ?>
                                                 </td>
 
@@ -532,7 +516,7 @@ $calculations = meal_plan_calculations(false, $recipeID);
 
                                             <?php if ($cr_fat) : ?>
 
-                                                <td>
+                                                <td style="width: 14%">
                                                     <?php echo $l_fat; ?>
                                                 </td>
 
@@ -540,7 +524,7 @@ $calculations = meal_plan_calculations(false, $recipeID);
 
                                             <?php if ($cr_carbs) : ?>
 
-                                                <td>
+                                                <td style="width: 14%">
                                                     <?php echo $l_carbs; ?>
                                                 </td>
 
@@ -548,7 +532,7 @@ $calculations = meal_plan_calculations(false, $recipeID);
 
                                             <?php if ($cr_sodium) : ?>
 
-                                                <td>
+                                                <td style="width: 14%">
                                                     <?php echo $l_sodium; ?>
                                                 </td>
 
@@ -556,7 +540,7 @@ $calculations = meal_plan_calculations(false, $recipeID);
 
                                             <?php if ($cr_fiber) : ?>
 
-                                                <td>
+                                                <td style="width: 14%">
                                                     <?php echo $l_fiber; ?>
                                                 </td>
 
@@ -564,7 +548,7 @@ $calculations = meal_plan_calculations(false, $recipeID);
 
                                             <?php if ($cr_sugar) : ?>
 
-                                                <td>
+                                                <td style="width: 14%">
                                                     <?php echo $l_sugar; ?>
                                                 </td>
 
@@ -573,7 +557,7 @@ $calculations = meal_plan_calculations(false, $recipeID);
                                         </tr>
                                         <tr>
                                             <?php if ($cr_calories) : ?>
-                                                <td>
+                                                <td style="width: 14%">
                                                     <?php echo $cr_calories; ?>cal
                                                 </td>
 
@@ -581,7 +565,7 @@ $calculations = meal_plan_calculations(false, $recipeID);
 
                                             <?php if ($cr_protein) : ?>
 
-                                                <td>
+                                                <td style="width: 14%">
                                                     <?php echo $cr_protein; ?>g
                                                 </td>
 
@@ -589,7 +573,7 @@ $calculations = meal_plan_calculations(false, $recipeID);
 
                                             <?php if ($cr_fat) : ?>
 
-                                                <td>
+                                                <td style="width: 14%">
                                                     <?php echo $cr_fat; ?>g
                                                 </td>
 
@@ -597,7 +581,7 @@ $calculations = meal_plan_calculations(false, $recipeID);
 
                                             <?php if ($cr_carbs) : ?>
 
-                                                <td>
+                                                <td style="width: 14%">
                                                     <?php echo $cr_carbs; ?>g
                                                 </td>
 
@@ -605,7 +589,7 @@ $calculations = meal_plan_calculations(false, $recipeID);
 
                                             <?php if ($cr_sodium) : ?>
 
-                                                <td>
+                                                <td style="width: 14%">
                                                     <?php echo $cr_sodium; ?>mg
                                                 </td>
 
@@ -613,7 +597,7 @@ $calculations = meal_plan_calculations(false, $recipeID);
 
                                             <?php if ($cr_fiber) : ?>
 
-                                                <td>
+                                                <td style="width: 14%">
                                                     <?php echo $cr_fiber; ?>g
                                                 </td>
 
@@ -621,7 +605,7 @@ $calculations = meal_plan_calculations(false, $recipeID);
 
                                             <?php if ($cr_sugar) : ?>
 
-                                                <td>
+                                                <td style="width: 14%">
                                                     <?php echo $cr_sugar; ?>g
                                                 </td>
 
@@ -644,7 +628,13 @@ $calculations = meal_plan_calculations(false, $recipeID);
         </table>
 
     <?php endif; ?>
-
+	</td></tr></table>
+	<table style="text-align:center; width: 100%; padding-top: 24px;"><tr><td>
+		<a style="margin-bottom: 8px; background: #FF885C; padding: 8px 24px; text-decoration: none; color: #fff;  border-radius: 4px; font-weight: 500; font-size: 18px; display: inline-flex; margin-right: 12px;" href="https://fitmencook.com/recipes">More Recipes</a>
+		<?php if($instacart_switch) : ?>
+		<a style="margin-bottom: 8px; background: rgb(0, 61, 41); padding: 8px 24px; text-decoration: none; color: #fff;  border-radius: 4px; font-weight: 500; font-size: 18px; display: inline-flex;" href="<?php echo get_the_permalink($recipeID) . '#shop-with-instacart-v1' ?>">Buy ingredients via Instacart</a>
+		<?php endif; ?>
+	</td></tr></table>
 </body>
 
 </html>

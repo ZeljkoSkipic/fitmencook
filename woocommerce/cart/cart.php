@@ -11,9 +11,9 @@
  * happen. When this occurs the version of the template file will be bumped and
  * the readme will list any important changes.
  *
- * @see     https://docs.woocommerce.com/document/template-structure/
+ * @see     https://woo.com/document/template-structure/
  * @package WooCommerce\Templates
- * @version 7.4.0
+ * @version 7.9.0
  */
 
 defined('ABSPATH') || exit; ?>
@@ -50,6 +50,16 @@ defined('ABSPATH') || exit; ?>
                     foreach (WC()->cart->get_cart() as $cart_item_key => $cart_item) {
                         $_product   = apply_filters('woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key);
                         $product_id = apply_filters('woocommerce_cart_item_product_id', $cart_item['product_id'], $cart_item, $cart_item_key);
+						/**
+						 * Filter the product name.
+						 *
+						 * @since 2.1.0
+						 * @param string $product_name Name of the product in the cart.
+						 * @param array $cart_item The product in the cart.
+						 * @param string $cart_item_key Key for the product in the cart.
+						 */
+
+						$product_name = apply_filters( 'woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key );
 
                         if ($_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters('woocommerce_cart_item_visible', true, $cart_item, $cart_item_key)) {
                             $product_permalink = apply_filters('woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink($cart_item) : '', $cart_item, $cart_item_key);
@@ -71,8 +81,15 @@ defined('ABSPATH') || exit; ?>
                                 <td class="product-name" data-title="<?php esc_attr_e('Product', 'woocommerce'); ?>">
                                     <?php
                                     if (!$product_permalink) {
-                                        echo wp_kses_post(apply_filters('woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key) . '&nbsp;');
+                                        echo wp_kses_post( $product_name . '&nbsp;' );
                                     } else {
+
+									/**
+									 * This filter is documented above.
+									 *
+									 * @since 2.1.0
+									 */
+
                                         echo wp_kses_post(apply_filters('woocommerce_cart_item_name', sprintf('<a href="%s">%s</a>', esc_url($product_permalink), $_product->get_name()), $cart_item, $cart_item_key));
                                     }
 
@@ -104,7 +121,7 @@ defined('ABSPATH') || exit; ?>
                                             'input_value'  => $cart_item['quantity'],
                                             'max_value'    => $max_quantity,
                                             'min_value'    => $min_quantity,
-                                            'product_name' => $_product->get_name(),
+                                            'product_name' => $product_name,
                                         ),
                                         $_product,
                                         false
@@ -132,7 +149,7 @@ defined('ABSPATH') || exit; ?>
                                         sprintf(
                                             '<a href="%s" class="remove" aria-label="%s" data-product_id="%s" data-product_sku="%s">&times;</a>',
                                             esc_url(wc_get_cart_remove_url($cart_item_key)),
-                                            esc_html__('Remove this item', 'woocommerce'),
+                                            esc_attr( sprintf( __( 'Remove %s from cart', 'woocommerce' ), wp_strip_all_tags( $product_name ) ) ),
                                             esc_attr($product_id),
                                             esc_attr($_product->get_sku())
                                         ),
@@ -159,7 +176,7 @@ defined('ABSPATH') || exit; ?>
                 <?php if (wc_coupons_enabled()) { ?>
                     <div class="coupon">
                         <h3 class="coupon_title">You have a coupon?</h3>
-                        <label for="coupon_code" class="screen-reader-text"><?php esc_html_e('Coupon:', 'woocommerce'); ?></label> <input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="<?php esc_attr_e('Coupon code', 'woocommerce'); ?>" /> <button type="submit" class="button<?php echo esc_attr(wc_wp_theme_get_element_class_name('button') ? ' ' . wc_wp_theme_get_element_class_name('button') : ''); ?>" name="apply_coupon" value="<?php esc_attr_e('Apply', 'woocommerce'); ?>"><?php esc_attr_e('Apply', 'woocommerce'); ?></button>
+                        <label for="coupon_code" class="screen-reader-text"><?php esc_html_e('Coupon:', 'woocommerce'); ?></label> <input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="<?php esc_html_e('Coupon code', 'woocommerce'); ?>" /> <button type="submit" class="button<?php echo esc_attr(wc_wp_theme_get_element_class_name('button') ? ' ' . wc_wp_theme_get_element_class_name('button') : ''); ?>" name="apply_coupon" value="<?php esc_attr_e('Apply', 'woocommerce'); ?>"><?php esc_attr_e('Apply', 'woocommerce'); ?></button>
                         <?php do_action('woocommerce_cart_coupon'); ?>
                     </div>
                 <?php } ?>

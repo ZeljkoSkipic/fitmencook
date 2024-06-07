@@ -4,6 +4,7 @@ use \Yoast\WP\SEO\Generators\Schema\Abstract_Schema_Piece;
 use \Yoast\WP\SEO\Generators\Schema\Article;
 use \Yoast\WP\SEO\Config\Schema_IDs;
 
+
 class BE_Product_Ingredients extends Article
 {
 	/**
@@ -31,7 +32,8 @@ class BE_Product_Ingredients extends Article
 	public function generate()
 	{
 		$post          = get_post($this->context->id);
-		$post_type = get_post_type($this->context->id);
+		$comment_count = get_comment_count($this->context->id);
+
 
 		$data          = array(
 			'@type'            => 'Recipe',
@@ -39,17 +41,65 @@ class BE_Product_Ingredients extends Article
 			'isPartOf'         => array('@id' => $this->context->canonical . Schema_IDs::ARTICLE_HASH),
 			'name'         => wp_strip_all_tags(get_the_title()),
 			'description' => wp_strip_all_tags(get_the_excerpt($post)),
-			'author'           => array(
-				'@id'  => get_author_posts_url(get_the_author_meta('ID')),
-				'name' => get_the_author_meta('display_name', $post->post_author),
-			),
+			'author'  => [
+				'@type' 	=> 'Person',
+				'name'		=> get_the_author_meta('display_name', $post->post_author),
+			],
+			'image' => get_the_post_thumbnail_url(get_the_ID()),
 			'publisher'        => array('@id' => $this->get_publisher_url()),
 			'datePublished'    => mysql2date(DATE_W3C, $post->post_date_gmt, false),
 			'dateModified'     => mysql2date(DATE_W3C, $post->post_modified_gmt, false),
-			'mainEntityOfPage' => $this->context->canonical . Schema_IDs::WEBPAGE_HASH,
+			'mainEntityOfPage' => $this->context->canonical,
+			'aggregateRating' => array(
+				'@type' => 'AggregateRating',
+				'ratingValue'  => esc_attr($this->get_review_meta_avg_rating()),
+				'reviewCount' => $comment_count['approved']
+			)
 		);
 
+		// Recipe Category
+
+		$recipe_category = get_the_terms(get_the_ID(), 'recipe-category');
+
+		if($recipe_category && isset($recipe_category[0])) {
+			$data['recipeCategory'] = $recipe_category[0]->name;
+		}
+
 		$template  = get_page_template_slug(get_the_ID());
+
+		// Cook time and prep time
+
+		if ($template === 'single-recipes-multiple.php' || is_singular('meal-plans')) {
+			$meal_plan_calculations = meal_plan_calculations(true, get_the_ID());
+
+			if ($meal_plan_calculations) {
+				if (isset($meal_plan_calculations['total_times'])) {
+					if (isset($meal_plan_calculations['total_times']['prep_times'])) {
+						$pt_format_time_prep = convert_time_pt(str_replace("h", "", $meal_plan_calculations['total_times']['prep_times']['hours']), str_replace("min", "", $meal_plan_calculations['total_times']['prep_times']['min']));
+					}
+					if (isset($meal_plan_calculations['total_times']['cook_times'])) {
+						$pt_format_time_cook = convert_time_pt(str_replace("h", "", $meal_plan_calculations['total_times']['cook_times']['hours']), str_replace("min", "", $meal_plan_calculations['total_times']['cook_times']['min']));
+					}
+				}
+			}
+
+			if (isset($pt_format_time_prep, $pt_format_time_cook)) {
+				$data['prepTime'] = $pt_format_time_prep;
+				$data['cookTime'] = $pt_format_time_cook;
+			}
+		} else {
+			$prep_hours = get_field('prep_hours', get_the_ID());
+			$prep_minutes = get_field('prep_time', get_the_ID());
+			$cook_hours = get_field('cook_hours', get_the_ID());
+			$cook_minutes = get_field('cook_time', get_the_ID());
+
+			$pt_format_time_prep = convert_time_pt($prep_hours, $prep_minutes);
+			$pt_format_time_cook = convert_time_pt($cook_hours, $cook_minutes);
+
+			$data['prepTime'] = $pt_format_time_prep;
+			$data['cookTime'] = $pt_format_time_cook;
+		}
+
 
 		if ($template === 'single-recipes-multiple.php' || is_singular('meal-plans')) {
 
@@ -102,7 +152,7 @@ class BE_Product_Ingredients extends Article
 					$ing_groups = isset($custom_recipe['ing_group']) ?  $custom_recipe['ing_group'] : "";
 					$custom_recipes_steps = isset($custom_recipe['cr_steps']) ?  $custom_recipe['cr_steps'] : "";
 
-					if($custom_recipes_steps) {
+					if ($custom_recipes_steps) {
 						foreach ($custom_recipes_steps as $custom_recipes_step) {
 							$data['recipeInstructions'][] =  wp_strip_all_tags($custom_recipes_step['cr_step']);
 						}
@@ -157,6 +207,7 @@ class BE_Product_Ingredients extends Article
 		return $data;
 	}
 
+
 	/**
 	 * Determine the proper publisher URL.
 	 *
@@ -170,4 +221,16 @@ class BE_Product_Ingredients extends Article
 
 		return $this->context->site_url . Schema_IDs::ORGANIZATION_HASH;
 	}
+
+	/**
+	 * Get Post Avg Rating
+	 *
+	 * @return float
+	 */
+
+	 private function get_review_meta_avg_rating()
+	 {
+		 $meta = get_avarage_rating($this->context->id, "", true);
+		 return $meta;
+	 }
 }

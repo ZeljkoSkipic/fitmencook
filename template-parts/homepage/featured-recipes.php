@@ -1,6 +1,6 @@
-<div class="fmc_home_featured_recipes spacing_2_0">
+<div class="fmc_home_featured_recipes spacing_2_0" id="recipes">
 	<div class="fmc_container">
-		<h3 class="fmc_title_1 title_spacing_2"><?php the_field('fr_title') ?></h3>
+		<h3 class="fmc_title_1 title_spacing_2"><?php echo wp_kses_post( get_field('fr_title') ); ?></h3>
 	</div>
 	<div class="fmc_recipe_grid spacing_0_1">
 		<div class="fmc_container">
@@ -39,7 +39,6 @@
 		</div>
 	</div>
 
-	<?php dynamic_sidebar( 'ad1' ); ?>
 	<div class="fmc_container">
 		<?php get_template_part('template-parts/category-track'); ?>
 	</div>

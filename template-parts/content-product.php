@@ -9,7 +9,7 @@
  */
 
 $title = get_the_title();
-$image = get_the_post_thumbnail(get_the_ID(), 'large');
+$image = get_the_post_thumbnail(get_the_ID(), 'medium');
 $categories = get_the_terms(get_the_ID(), 'product_cat');
 $product = wc_get_product(get_the_ID());
 
@@ -20,7 +20,9 @@ $product = wc_get_product(get_the_ID());
     <?php if ($image) : ?>
 
         <figure class="fmc_grid_figure">
-            <?php echo $image; ?>
+			<a href="<?php the_permalink(); ?>">
+				<?php echo $image; ?>
+			</a>
         </figure>
 
     <?php endif; ?>

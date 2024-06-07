@@ -12,11 +12,7 @@ defined('ABSPATH') || exit;
 
 global $product;
 
-if ($product->is_on_sale()) {
-    $product_price =  $product->get_sale_price();
-}
-
-$product_price = $product->get_regular_price();
+$product_price = number_format((float)$product->get_price(), 2, '.', '');
 
 ?>
 <div class="woocommerce-variation-add-to-cart variations_button">
@@ -57,7 +53,7 @@ $product_price = $product->get_regular_price();
     <div class="fmc_product_price">
         <div class="fmc_product_unit_price-wrapper">
             <p class="fmc_product_unit_price_label"><?php esc_html_e('Unit price', 'fitmenCook'); ?></p>
-            <p data-unit-price="<?php echo $product_price; ?>" class="fmc_product_unit_price"> <?php echo  get_woocommerce_currency_symbol() . $product_price; ?></p>
+            <p data-unit-price="<?php echo $product_price; ?>" class="fmc_product_unit_price"> <?php if($product->is_on_sale()): ?> <span class="fmc_product_old_price"><?php echo  get_woocommerce_currency_symbol() . number_format((float)$product->get_regular_price(), 2, '.', ''); ?></span> <?php   endif; ?> <?php echo  get_woocommerce_currency_symbol() . $product_price; ?></p>
         </div>
         <div class="fmc_product_unit_total-wrapper">
             <p class="fmc_product_unit_total_label"><?php esc_html_e('Total price', 'fitmenCook'); ?></p>

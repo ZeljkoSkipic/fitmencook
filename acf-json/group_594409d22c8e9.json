@@ -154,7 +154,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "70",
                         "class": "",
                         "id": ""
                     },
@@ -163,6 +163,27 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
+                    "parent_repeater": "field_6492c90db2fe7"
+                },
+                {
+                    "key": "field_6642176d2e03e",
+                    "label": "Add Separator",
+                    "name": "add_separator",
+                    "aria-label": "",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "30",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": "",
+                    "ui": 1,
                     "parent_repeater": "field_6492c90db2fe7"
                 },
                 {
@@ -289,6 +310,62 @@
                             "ui_on_text": "",
                             "ui_off_text": "",
                             "ui": 1,
+                            "parent_repeater": "field_64a52c3be38ae"
+                        },
+                        {
+                            "key": "field_6641fd2fe4cde",
+                            "label": "Add Product",
+                            "name": "add_product",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "25",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui_on_text": "",
+                            "ui_off_text": "",
+                            "ui": 1,
+                            "parent_repeater": "field_64a52c3be38ae"
+                        },
+                        {
+                            "key": "field_6641fcc6e4cdd",
+                            "label": "Product",
+                            "name": "product",
+                            "aria-label": "",
+                            "type": "post_object",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_6641fd2fe4cde",
+                                        "operator": "==",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "75",
+                                "class": "",
+                                "id": ""
+                            },
+                            "post_type": [
+                                "product"
+                            ],
+                            "post_status": "",
+                            "taxonomy": "",
+                            "return_format": "object",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "bidirectional": 0,
+                            "ui": 1,
+                            "bidirectional_target": [],
                             "parent_repeater": "field_64a52c3be38ae"
                         },
                         {
@@ -877,9 +954,9 @@
             "append": ""
         },
         {
-            "key": "field_59306ef636f6f",
-            "label": "Fat",
-            "name": "fat",
+            "key": "field_59306f0736f70",
+            "label": "Carbs",
+            "name": "carbs",
             "aria-label": "",
             "type": "number",
             "instructions": "",
@@ -899,9 +976,9 @@
             "append": ""
         },
         {
-            "key": "field_59306f0736f70",
-            "label": "Carbs",
-            "name": "carbs",
+            "key": "field_59306ef636f6f",
+            "label": "Fat",
+            "name": "fat",
             "aria-label": "",
             "type": "number",
             "instructions": "",
@@ -985,6 +1062,43 @@
             "step": "",
             "prepend": "",
             "append": ""
+        },
+        {
+            "key": "field_66265aed21939",
+            "label": "Recipe Card",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 1
+        },
+        {
+            "key": "field_66265af52193a",
+            "label": "Recipe Card Title",
+            "name": "recipe_card_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "If left empty, default Recipe title will be shown.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         }
     ],
     "location": [
@@ -1016,5 +1130,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1704804054
+    "modified": 1715607686
 }

@@ -58,6 +58,7 @@
 	}
 }
 .fmc_grid_cat {
+	text-align: left;
 	ul {
 		display: flex;
 		flex-wrap: wrap;
@@ -65,7 +66,7 @@
 	}
 	a {
 		font-family: Nunito;
-		color: var(--link-color);
+		color: var(--t-color);
 		font-weight: 700;
 		font-size: 14px;
 		background-color: var(--color-5);
@@ -513,4 +514,48 @@ ol.children {
 #recipe-rate-error {
 	color: red;
 	font-size: 13px;
+}
+
+.fmc_popular_content_inner {
+	@include flex;
+
+	.fmc_popular_post {
+		margin-bottom: var(--spacing-3);
+		display: flex;
+		flex-direction: column;
+		@include limbo-min {
+			width: 23%;
+			&:not(:nth-child(4n + 4)) {
+				margin-right: calc(8% / 3);
+			}
+		}
+		@include tab-only {
+			width: 48%;
+			&:nth-child(odd) {
+				margin-right: 4%;
+			}
+		}
+		figure {
+			aspect-ratio: 16 / 9;
+			img {
+				height: 100%;
+				object-fit: cover;
+				border-radius: 8px;
+			}
+		}
+		.fmc_grid_title {
+			margin-top: var(--spacing-3);
+			margin-bottom: 16px;
+		}
+		.popular_content_text {
+			margin-bottom: 8px;
+			font-size: 16px;
+		}
+		.post_date {
+			font-size: 14px;
+			line-height: 19px;
+			color: var(--misc-color);
+			margin-top: auto;
+		}
+	}
 }

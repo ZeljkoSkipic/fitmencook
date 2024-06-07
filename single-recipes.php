@@ -58,14 +58,7 @@ $author_id = $post->post_author;
 
 			<?php get_template_part('template-parts/last-updated'); ?>
 
-			<div class="fmc_recipe_email">
-				<div class="fmc_recipe_email_inner">
-					<p class="fmc_form_email_title fmc_title_2 title_spacing_3"">Want to save this recipe?</p>
-					<p class="fmc_form_email_text">Just type your email and I'll send it to you. And as a bonus you'll get delicious new recipes from me!</p>
-				</div>
-				<div class="klaviyo-form-UNLNpK"></div>
-			</div>
-
+			<?php get_template_part('template-parts/recipe/recipe-email'); ?>
 
 			<!-- WP Content -->
 			<?php
@@ -81,11 +74,22 @@ $author_id = $post->post_author;
 			<?php get_template_part('template-parts/recipe/gallery'); ?>
 		</div>
 		<div class="fmc_sr_recipe_content" id="fmc_recipe_content">
-			<!-- Video -->
+			<div class="recipe_mobile_trigger">
+				Show full recipe
+			</div>
+			<div class="recipe_mobile_hidden">
+				<!-- Video -->
 			<?php if($video): ?>
 				<div class="video-wrap">
 					<div class="fmc_video">
 						<?php echo $video; ?>
+						<div class="video-hide">
+							<svg class="hide-icon" width="20px" height="20px" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+								<path d="M876.8 156.8c0-9.6-3.2-16-9.6-22.4-6.4-6.4-12.8-9.6-22.4-9.6-9.6 0-16 3.2-22.4 9.6L736 220.8c-64-32-137.6-51.2-224-60.8-160 16-288 73.6-377.6 176C44.8 438.4 0 496 0 512s48 73.6 134.4 176c22.4 25.6 44.8 48 73.6 67.2l-86.4 89.6c-6.4 6.4-9.6 12.8-9.6 22.4 0 9.6 3.2 16 9.6 22.4 6.4 6.4 12.8 9.6 22.4 9.6 9.6 0 16-3.2 22.4-9.6l704-710.4c3.2-6.4 6.4-12.8 6.4-22.4Zm-646.4 528c-76.8-70.4-128-128-153.6-172.8 28.8-48 80-105.6 153.6-172.8C304 272 400 230.4 512 224c64 3.2 124.8 19.2 176 44.8l-54.4 54.4C598.4 300.8 560 288 512 288c-64 0-115.2 22.4-160 64s-64 96-64 160c0 48 12.8 89.6 35.2 124.8L256 707.2c-9.6-6.4-19.2-16-25.6-22.4Zm140.8-96c-12.8-22.4-19.2-48-19.2-76.8 0-44.8 16-83.2 48-112 32-28.8 67.2-48 112-48 28.8 0 54.4 6.4 73.6 19.2L371.2 588.8ZM889.599 336c-12.8-16-28.8-28.8-41.6-41.6l-48 48c73.6 67.2 124.8 124.8 150.4 169.6-28.8 48-80 105.6-153.6 172.8-73.6 67.2-172.8 108.8-284.8 115.2-51.2-3.2-99.2-12.8-140.8-28.8l-48 48c57.6 22.4 118.4 38.4 188.8 44.8 160-16 288-73.6 377.6-176C979.199 585.6 1024 528 1024 512s-48.001-73.6-134.401-176Z" fill="#000000" />
+								<path d="M511.998 672c-12.8 0-25.6-3.2-38.4-6.4l-51.2 51.2c28.8 12.8 57.6 19.2 89.6 19.2 64 0 115.2-22.4 160-64 41.6-41.6 64-96 64-160 0-32-6.4-64-19.2-89.6l-51.2 51.2c3.2 12.8 6.4 25.6 6.4 38.4 0 44.8-16 83.2-48 112-32 28.8-67.2 48-112 48Z" fill="#000000" />
+							</svg>
+							<p class="hide-text"><?php esc_html_e('Hide', 'fitmencook'); ?></p>
+						</div>
 					</div>
 				</div>
 			<?php endif; ?>
@@ -93,24 +97,222 @@ $author_id = $post->post_author;
 			<!-- Ingredients and Steps -->
 			<?php get_template_part('template-parts/recipe/main'); ?>
 			<!-- Additional Macro Info -->
+
+			<?php $ami = get_field('additional_macro_information');
+
+			if($ami) { ?>
 			<div class="spacing_2 fmc_additional_macro">
-				<?php the_field('additional_macro_information'); ?>
+				<?php echo wp_kses_post( $ami ); ?>
 			</div>
+			<?php } ?>
 			<!-- In APP Banner -->
 			<?php
 			if( get_field('in_app') ) { ?>
 				<div class="fmc_in_app">
 					<div class="fmc_ia_left">
 						<h4 class="fmc_ia_title fmc_title_4">
-							<?php the_field('in_app_title', 'option'); ?>
+							<?php echo get_field('in_app_title', 'option'); ?>
 						</h4>
 						<div class="fmc_ia_text text_1">
-							<?php the_field('in_app_text', 'option'); ?>
+							<?php echo get_field('in_app_text', 'option'); ?>
 						</div>
 					</div>
 					<?php get_template_part('template-parts/app-badges'); ?>
 				</div>
 			<?php } ?>
+
+			<?php // Used in Recipe Card and Sidebar
+			$noss = get_field('number_of_servings_sidebar', 'option');
+			$servings_number = get_field('number_of_servings');
+			?>
+			</div>
+
+			<!-- Similar Recipes -->
+			<?php get_template_part('template-parts/recipe/related-recipes'); ?>
+
+			<!-- Recipe Card -->
+
+			<div class="fmc_recipe_card">
+				<?php
+					$rc_title = get_field('recipe_card_title');
+					$calories = get_field('calories');
+					$protein = get_field('protein');
+					$fat = get_field('fat');
+					$carbs = get_field('carbs');
+					$sodium = get_field('sodium');
+					$fiber = get_field('fiber');
+					$sugar = get_field('sugar');
+
+					$l_calories = get_field('l_calories', 'option');
+					$l_protein = get_field('l_protein', 'option');
+					$l_fat = get_field('l_fat', 'option');
+					$l_carbs = get_field('l_carbs', 'option');
+					$l_sodium = get_field('l_sodium', 'option');
+					$l_fiber = get_field('l_fiber', 'option');
+					$l_sugar = get_field('l_sugar', 'option');
+
+					$rc_ad = get_field('recipe_card_ad', 'option');
+				?>
+				<div class="rc_top">
+					<div class="rc_top_left">
+						<h2 class="rc_title">
+							<?php if($rc_title) {
+								echo $rc_title;
+							} else {
+								the_title();
+							} ?>
+						</h2>
+						<figure><?php echo get_avatar( $author_id ); ?><figcaption><?php echo wpautop( get_the_author_meta( 'display_name', $author_id ) ); ?></figcaption></figure>
+						<div class="rc_intro">
+							<?php echo get_post_meta(get_the_ID(), '_yoast_wpseo_metadesc', true); ?>
+						</div>
+						<div class="rc_rating">
+						<?php echo get_avarage_rating(get_the_ID(), 'sidebar'); ?>
+						</div>
+					</div>
+					<div class="rc_top_right">
+						<?php the_post_thumbnail('medium'); ?>
+					</div>
+				</div>
+
+				<?php echo $rc_ad; ?>
+
+				<div class="rc_btns">
+					<a title="Print" class="fmc_btn" href="<?php echo get_the_permalink()."?print=true"; ?>"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"></path></svg><span class="btn_text">Print Recipe</span></a><a class="fmc_btn_2" title="Pin" href="http://pinterest.com/pin/create/button/?url=<?php echo urlencode(get_permalink($post->ID)); ?>"><span class="btn_text">Pin Recipe</span></a><a class="fmc_btn_2" href="#"><span class="btn_text">Collection/favs?</span></a>
+				</div>
+				<hr>
+				<div class="rc_times">
+				<?php if(!empty($prep_time || $prep_hours)) : ?>
+					<div class="rc_time">
+						<span class="rc_time"><?php echo $l_prep_time ?></span>
+						<?php if($prep_hours) { ?>
+							<?php echo $prep_hours ?>h
+						<?php } ?>
+						<?php if($prep_time) { ?>
+						<?php echo $prep_time ?><?php echo $minutes ?>
+						<?php } ?>
+					</div>
+				<?php endif ?>
+
+				<?php if(!empty($cook_time || $cook_hours)) : ?>
+					<div class="rc_time">
+						<span><?php echo $l_cook_time ?></span>
+						<?php if($cook_hours) { ?>
+							<?php echo $cook_hours ?>h
+						<?php } ?>
+						<?php if($cook_time) { ?>
+							<?php echo $cook_time ?><?php echo $minutes ?>
+						<?php } ?>
+					</div>
+				<?php endif; ?>
+
+				<?php if(!empty($total_time || $total_hours)) : ?>
+					<div class="rc_time">
+						<span><?php echo $l_total_time ?></span>
+						<?php if($total_hours) { ?>
+							<?php echo $total_hours ?>h
+						<?php } ?>
+						<?php if($total_time) { ?>
+							<?php echo $total_time ?><?php echo $minutes ?>
+						<?php } ?>
+					</div>
+				<?php endif; ?>
+				</div>
+				<hr>
+				<div class="rc_misc_wrap">
+					<div class="rc_misc">
+						<span>Category</span>
+						<?php get_template_part('template-parts/recipe/primary-term'); ?>
+					</div>
+						<?php if($servings_number) { ?>
+							<div class="rc_misc"><span><?php echo $noss; ?></span><?php echo $servings_number; ?></div>
+						<?php } ?>
+					<div class="rc_misc">
+						<span><?php echo $l_calories; ?></span>
+						<?php echo $calories; ?>
+					</div>
+				</div>
+				<?php
+				$tools = get_field('tools');
+				if( $tools ): ?>
+					<div class="rc_tools">
+						<?php foreach( $tools as $post ): ?>
+							<?php // Setup this post for WP functions (variable must be named $post).
+							setup_postdata($post); ?>
+								<div class="rc_tool">
+									<a href="<?php echo wp_kses_post( get_field('tool_link') ); ?>" target="_blank">
+									<?php
+									$icon = get_field('icon');
+									$size = 'full';
+									if( $icon ) {
+										echo wp_get_attachment_image( $icon, $size, "", array( "class" => "icon" ) );
+									} ?>
+									<?php the_title(); ?>
+									</a>
+								</div>
+						<?php endforeach; ?>
+					<?php
+					// Reset the global post object so that the rest of the page works correctly.
+					wp_reset_postdata(); ?>
+					</div>
+					<hr>
+				<?php endif; ?>
+
+				<div class="rc_ingredients">
+				<?php
+				$ingredients = get_field('ingredients');
+				if( $ingredients || have_rows('ing_group') ) : ?>
+
+					<?php // Instacart Ingredients
+
+					if( get_field('ingredients_switch') ) { ?>
+						<?php get_template_part('template-parts/recipe/instacart-ingredients'); ?>
+					<?php } else {
+					if( $ingredients ) { ?>
+
+						<div class="fmc_ingredients">
+							<?php echo $ingredients; ?>
+						</div>
+					<?php }
+					} ?>
+				<?php endif; ?>
+				</div>
+				<hr>
+				<?php
+				// Check rows existexists.
+				if( have_rows('steps') ): ?>
+				<div class="rc_steps">
+					<ol>
+					<?php while( have_rows('steps') ) : the_row();
+
+						// Load sub field value.
+						$step = get_sub_field('step'); ?>
+
+						<li class="rc_step">
+							<?php echo $step; ?>
+						</li>
+					<?php // End loop.
+					endwhile; ?>
+					</ol>
+				</div>
+
+				<?php endif; ?>
+
+				<?php if($video): ?>
+					<div class="rc_video">
+						<?php echo $video; ?>
+					</div>
+				<hr>
+				<?php endif; ?>
+<!-- 				<hr> -->
+		<!-- 		<div class="rc_notes">
+					Do we need notes?
+				</div> -->
+				<div class="rc_nutrition">
+					<?php get_template_part('template-parts/recipe/macros'); ?>
+				</div>
+			</div>
+
 
 			<!-- Comments -->
 			<div class="fmc_comments spacing_3_1">
@@ -119,7 +321,7 @@ $author_id = $post->post_author;
 					comments_template();
 				endif; ?>
 			</div>
-		</div>
+		</div> <!-- End Recipe Content -->
 
 	</div>
 	<div class="fmc_sr_sidebar">
@@ -175,8 +377,7 @@ $author_id = $post->post_author;
 			<!-- Macros -->
 			<?php
 
-			$noss = get_field('number_of_servings_sidebar', 'option');
-			$servings_number = get_field('number_of_servings');
+
 			$serving_size = get_field('serving_size');
 			$l_serving_size = get_field('l_serving_size', 'option');
 
@@ -217,16 +418,29 @@ Jump to Recipe</a>
 
 	</div>
 
-
-
-
 </div>
+
+<?php get_template_part('template-parts/popular-content'); ?>
 
 <!-- Author -->
 <?php get_template_part('template-parts/author'); ?>
 
-<!-- Related Recipes -->
-<?php get_template_part('template-parts/recipe/related-recipes'); ?>
+
+
+<?php /*  // Popular content by count  $args = array(
+    'post_type'      => array('post', 'recipes'), // Add your custom post types here
+    'posts_per_page' => 4,
+    'meta_key'       => 'st_post_views_count',
+    'orderby'        => 'meta_value_num',
+    'order'          => 'DESC'
+);
+$query = new WP_Query($args);
+
+if ($query->have_posts()) : while ($query->have_posts()) : $query->the_post();
+    // Display the post title, you can also display post thumbnail or excerpt
+    the_title();
+endwhile; endif;
+wp_reset_postdata(); */ ?>
 
 <script type="text/javascript">
 (function() {

@@ -554,6 +554,9 @@
 .how-to-grid {
 	display: flex;
 	flex-wrap: wrap;
+	.fmc_recipe_grid_macros {
+		display: none;
+	}
 	@include limbo-min {
 		.fmc_post:nth-child(3n + 3) {
 			margin-right: 0!important;

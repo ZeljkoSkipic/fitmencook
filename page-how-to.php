@@ -171,7 +171,7 @@ $box_type = get_field('box_type');
 
 	<div class="fmc_container how-to-page_inner spacing_0_1">
 
-	<h2 class="fmc_title_2 title_spacing_2">How To Posts</h2>
+	<h2 class="fmc_title_2 title_spacing_2">How To Lifestyle</h2>
 		<div class="how-to-grid how-to_posts">
 			<?php
 			if ($how_to_posts->have_posts()) {
@@ -208,7 +208,7 @@ $box_type = get_field('box_type');
 			} ?>
 		</div>
 
-		<h2 class="fmc_title_2 title_spacing_2">How To Recipes</h2>
+		<h2 class="fmc_title_2 title_spacing_2">How To Cook</h2>
 
 		<div class="how-to-grid how-to_recipes">
 			<?php

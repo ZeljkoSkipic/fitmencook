@@ -39,16 +39,54 @@ function fmc_pingback_header()
 }
 add_action('wp_head', 'fmc_pingback_header');
 
+// Admin footer modification
+
+function dashboard_footer_admin () {
+    echo '<span id="footer-thankyou">Thank you for developing with <a href="https://stierdev.com/" target="_blank">S Tier Dev</a>. Powered by <a href="https://wordpress.org/" target="_blank">WordPress</a>.</span> ';
+}
+
+add_filter('admin_footer_text', 'dashboard_footer_admin');
+
+// Login Screen
+
+add_filter( 'login_headerurl', 'my_custom_login_url' );
+function my_custom_login_url($url) {
+    return '/';
+}
+
+function get_custom_logo_url() {
+    $custom_logo_id = get_theme_mod('custom_logo');
+    $logo = wp_get_attachment_image_src($custom_logo_id, 'full');
+
+    if (has_custom_logo()) {
+        return $logo[0];
+    } else {
+        return ''; // Return an empty string or a default logo URL if no custom logo is set
+    }
+}
+
+function custom_login_logo() {
+    $logo_url = get_custom_logo_url();
+    if ($logo_url != '') {
+        ?>
+        <style type="text/css">
+            #login h1 a, .login h1 a {
+                background-image: url(<?php echo esc_url($logo_url); ?>);
+
+            }
+        </style>
+        <?php
+    }
+}
+add_action('login_enqueue_scripts', 'custom_login_logo');
+
 
 /* Pagination with numbers */
 
-function fmc_pagination()
+function fmc_pagination($custom_query = null)
 {
 
-	if (is_singular())
-		return;
-
-	global $wp_query;
+	if($custom_query) $wp_query = $custom_query; else global $wp_query;
 
 	/** Stop execution if there's only 1 page */
 	if ($wp_query->max_num_pages <= 1)
@@ -422,6 +460,13 @@ function meal_plan_calculations($featured = false, $recipeID = "")
 	];
 }
 
+// Convert time to PT format
+
+function convert_time_pt($hours, $minutes) {
+	$pt_time = 'PT'. $hours. 'H'. $minutes. 'M' ;
+	return $pt_time;
+}
+
 // Chnage position of assoc array items
 
 function ksort_arr(&$arr, $index_arr)
@@ -464,3 +509,19 @@ function send_email_recipe_created($post_ID, $post, $update)
 		}
 	}
 }
+
+// Make pagination to work on single connection
+
+add_action( 'template_redirect', function() {
+    if ( is_singular( 'connection' ) ) {
+        global $wp_query;
+        $page = ( int ) $wp_query->get( 'page' );
+        if ( $page > 1 ) {
+            // convert 'page' to 'paged'
+            $wp_query->set( 'page', 1 );
+            $wp_query->set( 'paged', $page );
+        }
+        // prevent redirect
+        remove_action( 'template_redirect', 'redirect_canonical' );
+    }
+}, 0 );

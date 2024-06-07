@@ -41,53 +41,54 @@ if($product_categories && is_array($product_categories)) {
 global $wp_query;
 $query_var = get_query_var('product_cat', "-1");
 ?>
-<div class="fmc_container spacing_2_0">
-    <header class="woocommerce-products-header">
-        <?php if (function_exists('yoast_breadcrumb')) {
-            yoast_breadcrumb('<div class="fmc_breadcrumbs spacing_0_2">', '</div>');
-        } ?>
-		<div class="fmc_featured_post">
-			<?php
-			$featured_image = get_field('featured_image', 'option');
-			$size = 'full';
-			if( $featured_image ) { ?>
-			<div class="fmc_featured_left">
-				<?php echo wp_get_attachment_image( $featured_image, $size, "", array( "class" => "featured_image" ) ); ?>
-			</div>
-		<?php } ?>
 
-		<div class="fmc_featured_right">
-			<div class="fmc_grid_meta">
-				<?php if (apply_filters('woocommerce_show_page_title', true)) : ?>
-					<h1><?php woocommerce_page_title(); ?></h1>
-				<?php endif; ?>
-			</div>
-			<div class="fmc_featured_text">
-				<?php the_field('description', 'option'); ?>
-			</div>
+<?php
+$banner_link = get_field('banner_link', 'option');
+if( $banner_link ):
+	$link_url = $banner_link['url'];
+	$link_title = $banner_link['title'];
+	$link_target = $banner_link['target'] ? banner_link['target'] : '_self';
+	?>
+	<a class="banner_link" href="<?php echo esc_url( $link_url ); ?>" aria-label="<?php echo esc_html( $link_title ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+<?php endif; ?>
+<?php
+	$featured_image = get_field('featured_image', 'option');
+	$size = 'full';
+	if( $featured_image ) { ?>
+	<?php echo wp_get_attachment_image( $featured_image, $size, "", array( "class" => "store_featured_image" ) ); ?>
+<?php } ?>
+<?php if( $banner_link ): ?>
+</a>
+<?php endif; ?>
+<div class="fmc_store_intro fmc_container spacing_2_0">
+	<div class="fmc_shop_bottom">
+		<div class="fmc_featured_text">
+			<?php the_field('description', 'option'); ?>
 		</div>
 	</div>
-        <div class="fmc_product_archive_header spacing_0_2">
+	<div class="fmc_product_archive_header spacing_0_2">
 
-            <?php if($product_categories): ?>
+		<?php if($product_categories): ?>
 
-            <div class="fmc_product_cats">
-                <a <?php if($query_var == -1 ) echo "class='current'"; ?> href="<?php echo get_permalink( wc_get_page_id( 'shop' )); ?>"><?php esc_html_e('All products', 'fitmenCook'); ?></a>
+		<div class="fmc_product_cats">
+			<a <?php if($query_var == -1 ) echo "class='current'"; ?> href="<?php echo get_permalink( wc_get_page_id( 'shop' )); ?>"><?php esc_html_e('All products', 'fitmenCook'); ?></a>
 
-                <?php
-                foreach($product_categories as $product_cat) {
-                    ?>
-                         <a <?php if($query_var === $product_cat->slug ) echo "class='current'"; ?> href="<?php echo get_term_link($product_cat); ?>"><?php echo $product_cat->name; ?></a>
-                    <?php
-                }
-                ?>
+			<?php
+			foreach($product_categories as $product_cat) {
+				?>
+						<a <?php if($query_var === $product_cat->slug ) echo "class='current'"; ?> href="<?php echo get_term_link($product_cat); ?>"><?php echo $product_cat->name; ?></a>
+				<?php
+			}
+			?>
 
-            </div>
+		</div>
 
-            <?php endif; ?>
+		<?php endif; ?>
 
-        </div>
-    </header>
+	</div>
+</div>
+
+<div class="fmc_container">
     <?php
     if (woocommerce_product_loop()) {
 

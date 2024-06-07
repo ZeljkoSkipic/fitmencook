@@ -1,6 +1,4 @@
 <?php
-$note_icon = get_field('note_icon', 'option');
-$sub_icon = get_field('sub_icon', 'option');
 $recipeID = isset($args['recipeID']) ? $args['recipeID'] : get_the_ID();
 ?>
 
@@ -12,7 +10,7 @@ if (have_rows('ing_group', $recipeID)) : ?>
 	<?php while (have_rows('ing_group', $recipeID)) : the_row(); ?>
 		<?php $ing_title = get_sub_field('ing_g_title'); ?>
 		<?php if ($ing_title) { ?>
-			<strong><?php echo $ing_title; ?></strong>
+			<h2><?php echo $ing_title; ?></h2>
 		<?php } ?>
 		<ul>
 			<?php while (have_rows('ingredients_instacart', $recipeID)) : the_row(); ?>
@@ -46,10 +44,10 @@ if (have_rows('ing_group', $recipeID)) : ?>
 					<?php if ($note || $substitution) : ?>
 						<ul>
 							<?php if ($substitution && $sub_switch) { ?>
-								<li class="sub"><img src="<?php echo $sub_icon ?>"><?php echo $substitution; ?></li>
+								<li class="sub"><strong>Sub:</strong> <?php echo $substitution; ?></li>
 							<?php } ?>
 							<?php if ($note && $note_switch) { ?>
-								<li class="note"><img src="<?php echo $note_icon ?>"><?php echo $note; ?></li>
+								<li class="note"><strong>Note:</strong> <?php echo $note; ?></li>
 							<?php } ?>
 						</ul>
 					<?php endif; ?>

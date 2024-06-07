@@ -67,7 +67,7 @@ $box_type = get_field('box_type');
 
 							<?php endif; ?>
 					</div>
-					<h3 class="fmc_grid_title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+					<h2 class="fmc_grid_title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 					<?php if(!$hide_macros && !isset($calculations)) { ?>
 					<div class="fmc_recipe_grid_macros">
 						<div class="rg_macro calories">
@@ -101,7 +101,7 @@ $box_type = get_field('box_type');
 						}?>
 				</div>
 				<div class="fmc_hr_right">
-					<a href="<?php the_permalink(); ?>">
+					<a href="<?php the_permalink(); ?>" aria-label="<?php the_title(); ?>">
 					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#344054" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
 					</a>
 				</div>
@@ -126,14 +126,14 @@ $box_type = get_field('box_type');
 								?>
 							</span>
 					</div>
-					<h3 class="fmc_grid_title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+					<h2 class="fmc_grid_title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 					<div class="fmc_grid_content text_2">
 					<?php echo wp_trim_words( get_the_content(), 5, '...' ); ?>
 					<!-- <span class="fmc_read">2 min read</span> -->
 					</div>
 				</div>
 				<div class="fmc_hr_right">
-					<a href="<?php the_permalink(); ?>">
+					<a href="<?php the_permalink(); ?>" aria-label="<?php the_title(); ?>">
 					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#344054" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
 					</a>
 				</div>
@@ -149,13 +149,13 @@ $box_type = get_field('box_type');
 					$custom = get_field('custom');
 					if($custom) : ?>
 					<div class="fmc_hr_left">
-					<h3 class="fmc_grid_title"><a href="<?php echo esc_url( $custom['c_link']['url'] ); ?>" target="<?php echo esc_attr( $custom['c_link']['target'] ) ?>"><?php echo $custom['c_title']; ?></a></h3>
+					<h2 class="fmc_grid_title"><a href="<?php echo esc_url( $custom['c_link']['url'] ); ?>" target="<?php echo esc_attr( $custom['c_link']['target'] ) ?>"><?php echo $custom['c_title']; ?></a></h2>
 					<div class="fmc_grid_content text_2">
 					<?php echo $custom['c_text']; ?>
 					</div>
 				</div>
 				<div class="fmc_hr_right">
-					<a href="<?php echo esc_url( $custom['c_link']['url'] ); ?>" target="<?php echo esc_attr( $custom['c_link']['target'] ) ?>">
+					<a href="<?php echo esc_url( $custom['c_link']['url'] ); ?>" target="<?php echo esc_attr( $custom['c_link']['target'] ) ?>" aria-label="<?php echo $custom['c_text']; ?>">
 					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#344054" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
 					</a>
 				</div>

@@ -72,8 +72,14 @@ jQuery(document).ready(function ($) {
 
   // Nav Search Toggle
   $(".search_icon").click(function () {
-    $(".fmc_search_container .asp_w_container").slideToggle();
+    $(".nav_search").animate({
+      width: 'toggle'
+    });
+    $(".fmc_header_right a[aria-label='Cart']").animate({
+      width: 'toggle'
+    });
     $(this).toggleClass('fmc_search_open');
+    $('.fmc_header_right input.orig').focus();
   });
 
   // Full Nav Search Toggle
@@ -254,6 +260,14 @@ jQuery(document).ready(function ($) {
   $(".rg_macro.calories .rg_m_title").text(function () {
     return $(this).text().replace("Calories", "Cal");
   });
+  $(".video-hide").click(function () {
+    $(".fmc_video").addClass("removed");
+  });
+  $(".recipe_mobile_trigger").click(function () {
+    $(".recipe_mobile_hidden").slideToggle();
+    $(this).toggleClass('open').text('Show Full Recipe');
+    $(".recipe_mobile_trigger.open").text('Hide Full Recipe');
+  });
 });
 var observer = new IntersectionObserver(function (_ref) {
   var _ref2 = _slicedToArray(_ref, 1),
@@ -261,6 +275,77 @@ var observer = new IntersectionObserver(function (_ref) {
   return e.target.toggleAttribute('stuck', e.intersectionRatio < 1);
 }, {
   threshold: [1]
+});
+jQuery(document).ready(function ($) {
+  $(".ingredient-add-to-cart").click(function (e) {
+    e.preventDefault();
+    var button = $(e.currentTarget);
+    var data = {
+      product_id: button.data("product-id"),
+      quantity: button.data("quantity")
+    };
+    $.ajax({
+      type: "POST",
+      url: wc_add_to_cart_params.wc_ajax_url.toString().replace("%%endpoint%%", "add_to_cart"),
+      data: data,
+      dataType: "json",
+      beforeSend: function beforeSend(xhr) {},
+      complete: function complete(res) {},
+      success: function success(res) {
+        $(document.body).trigger("added_to_cart", [res.fragments, res.cart_hash]);
+        var viewCartButton = $("<a> </a>");
+        viewCartButton.attr("href", theme.cartUrl);
+        viewCartButton.addClass("ingredient-add-to-cart-view-cart");
+        viewCartButton.text("View Cart");
+        button.replaceWith(viewCartButton);
+      }
+    });
+  });
+
+  // Jump to recipe class - Used to change the arrow
+  var $element1 = $('.jtr_wrap');
+  var $element2 = $('.fmc_recipe_card');
+  function checkPosition() {
+    var element2Position = $element2.offset().top;
+    var scrollPosition = $(window).scrollTop() + $(window).height();
+    if (scrollPosition >= element2Position) {
+      $element1.addClass('passed');
+    } else {
+      $element1.removeClass('passed');
+    }
+  }
+  $(window).on('scroll resize', checkPosition);
+
+  // Initial check
+  checkPosition();
+});
+"use strict";
+
+jQuery(document).ready(function ($) {
+  $(".ingredient-add-to-cart").click(function (e) {
+    e.preventDefault();
+    var button = $(e.currentTarget);
+    var data = {
+      product_id: button.data("product-id"),
+      quantity: button.data("quantity")
+    };
+    $.ajax({
+      type: "POST",
+      url: wc_add_to_cart_params.wc_ajax_url.toString().replace("%%endpoint%%", "add_to_cart"),
+      data: data,
+      dataType: "json",
+      beforeSend: function beforeSend(xhr) {},
+      complete: function complete(res) {},
+      success: function success(res) {
+        $(document.body).trigger("added_to_cart", [res.fragments, res.cart_hash]);
+        var viewCartButton = $("<a> </a>");
+        viewCartButton.attr("href", theme.cartUrl);
+        viewCartButton.addClass("ingredient-add-to-cart-view-cart");
+        viewCartButton.text("View Cart");
+        button.replaceWith(viewCartButton);
+      }
+    });
+  });
 });
 "use strict";
 
@@ -279,32 +364,33 @@ var sendPostUrlKlaviyo = /*#__PURE__*/function () {
           formData.append('userEmail', userEmail);
           formData.append('postUrl', postUrl);
           formData.append('action', 'klaviyo_email_send');
-          _context.prev = 5;
-          _context.next = 8;
+          formData.append('recipeID', theme.recipeID);
+          _context.prev = 6;
+          _context.next = 9;
           return fetch(theme.ajaxUrl, {
             method: 'POST',
             body: formData
           });
-        case 8:
+        case 9:
           request = _context.sent;
-          _context.next = 11;
+          _context.next = 12;
           return request.json();
-        case 11:
+        case 12:
           response = _context.sent;
           if (response) {
             if (response.success) console.log('Mail from the newsletter form has been successfully sent!');
           }
-          _context.next = 18;
+          _context.next = 19;
           break;
-        case 15:
-          _context.prev = 15;
-          _context.t0 = _context["catch"](5);
+        case 16:
+          _context.prev = 16;
+          _context.t0 = _context["catch"](6);
           console.log(_context.t0);
-        case 18:
+        case 19:
         case "end":
           return _context.stop();
       }
-    }, _callee, null, [[5, 15]]);
+    }, _callee, null, [[6, 16]]);
   }));
   return function sendPostUrlKlaviyo(_x) {
     return _ref.apply(this, arguments);
@@ -315,4 +401,62 @@ window.addEventListener("klaviyoForms", function (e) {
     var userEmail = e.detail.metaData.$email;
     sendPostUrlKlaviyo(userEmail);
   }
+});
+"use strict";
+
+jQuery(document).ready(function ($) {
+  // Woo mini cart
+
+  var cartWrapper = $(".woo-mini-cart");
+  var updaterl = theme.ajaxUrl;
+  var cartInit = function cartInit() {
+    // Init update
+
+    updateCartData();
+    $(document.body).on("added_to_cart", function () {
+      updateCartData();
+    });
+    $(document.body).on("removed_from_cart", function () {
+      updateCartData();
+    });
+    $(document.body).on("updated_cart_totals", function () {
+      updateCartData();
+    });
+    $(document.body).on("wc_cart_emptied", function () {
+      updateCartData();
+    });
+  };
+  var updateCartData = function updateCartData() {
+    cartWrapper.find(".loader").show();
+    $.ajax({
+      type: "GET",
+      url: updaterl,
+      data: {
+        action: "woo_minicart_update",
+        nonce: theme.nonce
+      },
+      success: function success(response) {
+        if (response.success) {
+          // Update cart content
+          if (typeof response.data.content !== "undefined" && response.data.content) {
+            cartWrapper.find(".woo-mini-cart__content").html(response.data.content);
+          }
+
+          // Update cart count
+
+          if (typeof response.data.count !== "undefined") {
+            cartWrapper.find(".woo-mini-cart__count").html(response.data.count);
+          }
+        }
+      },
+      complete: function complete() {
+        cartWrapper.find(".loader").hide();
+      }
+    });
+  };
+
+  // Init Cart
+
+  cartInit();
+  ini;
 });

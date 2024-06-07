@@ -1,7 +1,7 @@
 <div class="fmc_recipe_grid fmc_related_recipes spacing_1">
 		<div class="fmc_container">
-			<span class="fmc_title_prefix"><?php the_field('related_plans_prefix', 'option'); ?></span>
-			<h2 class="fmc_title_2 title_spacing_1"><?php the_field('related_plans_title', 'option'); ?></h2>
+			<span class="fmc_title_prefix"><?php echo get_field('related_plans_prefix', 'option'); ?></span>
+			<h2 class="fmc_title_2 title_spacing_1"><?php echo get_field('related_plans_title', 'option'); ?></h2>
 			<div class="fmc_rg_inner spacing_0_1">
 			<?php
 				// latest recipes query
@@ -59,24 +59,24 @@
 								$calories_title = get_field('l_calories', 'option');
 								?>
 
-								<div class="fmc_recipe_grid_macros">
+								<!-- <div class="fmc_recipe_grid_macros">
 									<div class="rg_macro carbs">
-										<span class="rg_m_title"><?php echo $carbs_title;  ?></span>
-										<span class="rg_m_amount"><?php if($calculations['totals'] && isset($calculations['totals'][$carbs_title])) echo $calculations['totals'][$carbs_title];  ?></span>
+										<span class="rg_m_title"><?php // echo $carbs_title;  ?></span>
+										<span class="rg_m_amount"><?php // if($calculations['totals'] && isset($calculations['totals'][$carbs_title])) echo $calculations['totals'][$carbs_title];  ?></span>
 									</div>
 									<div class="rg_macro fat">
-										<span class="rg_m_title"><?php echo $fat_title;  ?></span>
-										<span class="rg_m_amount"><?php if($calculations['totals'] && isset($calculations['totals'][$fat_title])) echo $calculations['totals'][$fat_title];  ?></span>
+										<span class="rg_m_title"><?php // echo $fat_title;  ?></span>
+										<span class="rg_m_amount"><?php // if($calculations['totals'] && isset($calculations['totals'][$fat_title])) echo $calculations['totals'][$fat_title];  ?></span>
 									</div>
 									<div class="rg_macro protein">
-										<span class="rg_m_title"><?php echo $protein_title; ?></span>
-										<span class="rg_m_amount"><?php if($calculations['totals'] && isset($calculations['totals'][$protein_title])) echo $calculations['totals'][$protein_title];  ?></span>
+										<span class="rg_m_title"><?php // echo $protein_title; ?></span>
+										<span class="rg_m_amount"><?php // if($calculations['totals'] && isset($calculations['totals'][$protein_title])) echo $calculations['totals'][$protein_title];  ?></span>
 									</div>
 									<div class="rg_macro calories">
-										<span class="rg_m_title"><?php echo $calories_title;  ?></span>
-										<span class="rg_m_amount"><?php if($calculations['totals'] && isset($calculations['totals'][$calories_title])) echo $calculations['totals'][$calories_title];  ?></span>
+										<span class="rg_m_title"><?php // echo $calories_title;  ?></span>
+										<span class="rg_m_amount"><?php // if($calculations['totals'] && isset($calculations['totals'][$calories_title])) echo $calculations['totals'][$calories_title];  ?></span>
 									</div>
-								</div>
+								</div> -->
 							</div>
 						</div>
 					<?php endwhile; ?>

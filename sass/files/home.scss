@@ -136,6 +136,9 @@
     padding: 2px 8px;
     border-radius: 14px;
     width: fit-content;
+	a {
+		text-decoration: none;
+	}
 	@include mob-only {
 		display: none;
 	}
@@ -168,11 +171,12 @@
 		text-align: center;
 		display: none;
 	}
-	h5 {
+	.hero_badges_title {
 		font-size: 15px;
 		color: var(--link-color);
 		font-family: Nunito;
 		margin-bottom: 16px;
+		display: block;
 	}
 	.fmc_app_icons {
 		display: flex;
@@ -713,39 +717,6 @@
 					&:first-child, &:nth-child(2) {
 						margin-right: 2%!important;
 					}
-					/* &:first-child {
-						width: 100%;
-						display: flex;
-						figure {
-							width: 50%;
-							height: 42rem;
-							margin-bottom: 0;
-						}
-						.fmc_post_content {
-							width: 50%;
-							padding-left: var(--spacing-2);
-						}
-						.fmc_grid_title {
-							margin-bottom: 2.4rem;
-							a {
-								font-size: 4.8rem;
-								line-height: 1.17;
-								font-family: Alpino;
-							}
-						}
-						.fmc_post_meta {
-							display: flex;
-							margin-top: auto;
-							figure {
-								width: 48px;
-								height: 48px;
-								margin-right: 12px;
-								img {
-									border-radius: 48px;
-								}
-							}
-						}
-					} */
 				}
 			}
 			.fmc_post:first-child {

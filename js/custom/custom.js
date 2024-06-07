@@ -27,8 +27,10 @@ jQuery(document).ready(function ($) {
 
   // Nav Search Toggle
   $(".search_icon").click(function () {
-    $(".fmc_search_container .asp_w_container").slideToggle();
+    $(".nav_search").animate({width: 'toggle'});
+		$(".fmc_header_right a[aria-label='Cart']").animate({width: 'toggle'});
     $(this).toggleClass('fmc_search_open');
+		$('.fmc_header_right input.orig').focus();
   });
 
   // Full Nav Search Toggle
@@ -213,6 +215,18 @@ jQuery(document).ready(function ($) {
   $(".rg_macro.calories .rg_m_title").text(function () {
     return $(this).text().replace("Calories", "Cal");
   });
+
+
+	$(".video-hide").click(function(){
+		$(".fmc_video").addClass("removed");
+	});
+
+	$(".recipe_mobile_trigger").click(function(){
+		$(".recipe_mobile_hidden").slideToggle();
+		$(this).toggleClass('open').text('Show Full Recipe');
+		$(".recipe_mobile_trigger.open").text('Hide Full Recipe');
+	});
+
 });
 var observer = new IntersectionObserver(function (_ref) {
   var _ref2 = _slicedToArray(_ref, 1),
@@ -220,4 +234,60 @@ var observer = new IntersectionObserver(function (_ref) {
   return e.target.toggleAttribute('stuck', e.intersectionRatio < 1);
 }, {
   threshold: [1]
+});
+
+
+jQuery(document).ready(function ($) {
+  $(".ingredient-add-to-cart").click(function (e) {
+    e.preventDefault();
+    const button = $(e.currentTarget);
+
+    const data = {
+      product_id: button.data("product-id"),
+      quantity: button.data("quantity"),
+    };
+
+    $.ajax({
+      type: "POST",
+      url: wc_add_to_cart_params.wc_ajax_url
+        .toString()
+        .replace("%%endpoint%%", "add_to_cart"),
+      data: data,
+      dataType: "json",
+      beforeSend: function (xhr) {},
+      complete: function (res) {},
+      success: function (res) {
+        $(document.body).trigger("added_to_cart", [
+          res.fragments,
+          res.cart_hash,
+        ]);
+        const viewCartButton = $("<a> </a>");
+        viewCartButton.attr("href", theme.cartUrl);
+        viewCartButton.addClass("ingredient-add-to-cart-view-cart");
+        viewCartButton.text("View Cart");
+        button.replaceWith(viewCartButton);
+      },
+    });
+  });
+
+ // Jump to recipe class - Used to change the arrow
+	var $element1 = $('.jtr_wrap');
+	var $element2 = $('.fmc_recipe_card');
+
+	function checkPosition() {
+		var element2Position = $element2.offset().top;
+		var scrollPosition = $(window).scrollTop() + $(window).height();
+
+		if (scrollPosition >= element2Position) {
+			$element1.addClass('passed');
+		} else {
+			$element1.removeClass('passed');
+		}
+	}
+
+	$(window).on('scroll resize', checkPosition);
+
+	// Initial check
+	checkPosition();
+
 });

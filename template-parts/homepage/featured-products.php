@@ -90,9 +90,15 @@ if ($show_products) : ?>
 				?>
 						<div class="fmc_product">
 							<figure class="fmc_grid_figure">
-								<?php the_post_thumbnail($size); ?>
+								<a href="<?php the_permalink(); ?>" aria-label="<?php the_title(); ?>">
+									<?php the_post_thumbnail($size); ?>
+								</a>
 							</figure>
-							<h3 class="fmc_grid_title"><?php the_title(); ?></h3>
+							<h3 class="fmc_grid_title">
+								<a href="<?php the_permalink(); ?>" aria-label="<?php the_title(); ?>">
+									<?php the_title(); ?>
+								</a>
+							</h3>
 							<div class="fmc_product_grid_bottom">
 								<span><?php echo  $product->get_price_html(); ?></span>
 								<a class="fmc_btn" href="<?php the_permalink(); ?>">Buy Now</a>
@@ -104,27 +110,30 @@ if ($show_products) : ?>
 						$image = $show_product['product_image'];
 						$product_title = $show_product['product_title'];
 						$price = $show_product['price'];
-						$link = $show_product['link']; ?>
+						$link = $show_product['link'];
+						$link_url = $link['url'];
+						$link_title = $link['title'];
+						$link_target = $link['target'] ? $link['target'] : '_self';
+						?>
 
 						<div class="fmc_product">
 							<figure class="fmc_grid_figure">
-								<?php echo wp_get_attachment_image($image, $size); ?>
+								<a href="<?php echo esc_url($link_url); ?>" target="<?php echo esc_attr($link_target); ?>" aria-label="<?php echo $product_title ?>">
+									<?php echo wp_get_attachment_image($image, $size); ?>
+								</a>
 							</figure>
 							<div class="fmc_grid_meta">
 							</div>
-							<h3 class="fmc_grid_title"><?php echo $product_title ?></h3>
+							<h3 class="fmc_grid_title">
+								<a href="<?php echo esc_url($link_url); ?>" target="<?php echo esc_attr($link_target); ?>" aria-label="<?php echo $product_title ?>">
+									<?php echo $product_title ?>
+								</a>
+							</h3>
 							<div class="fmc_product_grid_bottom">
 								<?php if ($price) { ?>
 									<span>$<?php echo $price ?></span>
 								<?php } ?>
-								<?php
-								if ($link) :
-									$link_url = $link['url'];
-									$link_title = $link['title'];
-									$link_target = $link['target'] ? $link['target'] : '_self';
-								?>
-									<a class="fmc_btn" href="<?php echo esc_url($link_url); ?>" target="<?php echo esc_attr($link_target); ?>"><?php echo esc_html($link_title); ?></a>
-								<?php endif; ?>
+								<a class="fmc_btn" href="<?php echo esc_url($link_url); ?>" target="<?php echo esc_attr($link_target); ?>"  aria-label="<?php echo $product_title ?>"><?php echo esc_html($link_title); ?></a>
 							</div>
 						</div>
 				<?php

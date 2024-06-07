@@ -23,7 +23,7 @@
 						<div class="fmc_post">
 							<figure class="fmc_grid_figure">
 							<a href="<?php the_permalink(); ?>">
-								<?php the_post_thumbnail('large'); ?>
+								<?php the_post_thumbnail('medium'); ?>
 							</a>
 							</figure>
 							<div class="fmc_post_content">
