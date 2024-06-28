@@ -11,7 +11,7 @@ $template_slug = get_page_template_slug();
 	<figure class="fmc_grid_figure">
 		<a href="<?php the_permalink(); ?>" aria-label="<?php the_title(); ?>">
 			<?php if (has_post_thumbnail()) {
-				the_post_thumbnail( 'medium' );
+				the_post_thumbnail('medium');
 			} else { ?>
 				<img src="<?php echo get_template_directory_uri(); ?>/assets/images/placeholder.jpg" alt="Placeholder Image" loading="lazy">
 			<?php } ?>
@@ -23,7 +23,7 @@ $template_slug = get_page_template_slug();
 				<?php if (!empty($categories)) {
 					foreach ($categories as $category) {
 						if ($category->term_id != 82) {
-						echo '<a href="' . esc_url(get_category_link($category->term_id)) . '">' . esc_html($category->name) . '</a>';
+							echo '<a href="' . esc_url(get_category_link($category->term_id)) . '">' . esc_html($category->name) . '</a>';
 						}
 					}
 				} ?>
@@ -61,32 +61,35 @@ $template_slug = get_page_template_slug();
 			$calories_title = get_field('l_calories', 'option');
 			if ($template_slug === 'single-recipes-multiple.php') :
 				$calculations = meal_plan_calculations();
+				$show_macros = get_field('show_macros_multiple', get_the_ID());
+				if ($show_macros) :
 
 		?>
-				<!-- <div class="fmc_recipe_grid_macros">
-					<div class="rg_macro calories">
-						<span class="rg_m_title"><?php //echo $calories_title;  ?></span>
-						<span class="rg_m_amount"><?php //if ($calculations['totals'] && isset($calculations['totals'][$calories_title])) echo $calculations['totals'][$calories_title];  ?></span>
+					<div class="fmc_recipe_grid_macros">
+						<div class="rg_macro calories">
+							<span class="rg_m_title"><?php echo $calories_title;  ?></span>
+							<span class="rg_m_amount"><?php if ($calculations['totals'] && isset($calculations['totals'][$calories_title])) echo $calculations['totals'][$calories_title];  ?></span>
+						</div>
+						<div class="rg_macro carbs">
+							<span class="rg_m_title"><?php echo $carbs_title;  ?></span>
+							<span class="rg_m_amount"><?php if ($calculations['totals'] && isset($calculations['totals'][$carbs_title])) echo $calculations['totals'][$carbs_title];  ?></span>
+						</div>
+						<div class="rg_macro fat">
+							<span class="rg_m_title"><?php echo $fat_title;  ?></span>
+							<span class="rg_m_amount"><?php if ($calculations['totals'] && isset($calculations['totals'][$fat_title])) echo $calculations['totals'][$fat_title];  ?></span>
+						</div>
+						<div class="rg_macro protein">
+							<span class="rg_m_title"><?php echo $protein_title; ?></span>
+							<span class="rg_m_amount"><?php if ($calculations['totals'] && isset($calculations['totals'][$protein_title])) echo $calculations['totals'][$protein_title];  ?></span>
+						</div>
 					</div>
-					<div class="rg_macro carbs">
-						<span class="rg_m_title"><?php //echo $carbs_title;  ?></span>
-						<span class="rg_m_amount"><?php //if ($calculations['totals'] && isset($calculations['totals'][$carbs_title])) echo $calculations['totals'][$carbs_title];  ?></span>
-					</div>
-					<div class="rg_macro fat">
-						<span class="rg_m_title"><?php //echo $fat_title;  ?></span>
-						<span class="rg_m_amount"><?php //if ($calculations['totals'] && isset($calculations['totals'][$fat_title])) echo $calculations['totals'][$fat_title];  ?></span>
-					</div>
-					<div class="rg_macro protein">
-						<span class="rg_m_title"><?php //echo $protein_title; ?></span>
-						<span class="rg_m_amount"><?php //if ($calculations['totals'] && isset($calculations['totals'][$protein_title])) echo $calculations['totals'][$protein_title];  ?></span>
-					</div>
-				</div> -->
 
-			<?php
+				<?php
+				endif;
 
 			else :
 
-			?>
+				?>
 
 				<div class="fmc_recipe_grid_macros">
 					<div class="rg_macro calories">

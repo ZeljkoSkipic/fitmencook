@@ -47,7 +47,7 @@ $banner_link = get_field('banner_link', 'option');
 if( $banner_link ):
 	$link_url = $banner_link['url'];
 	$link_title = $banner_link['title'];
-	$link_target = $banner_link['target'] ? banner_link['target'] : '_self';
+	$link_target = $banner_link['target'] ? $banner_link['target'] : '_self';
 	?>
 	<a class="banner_link" href="<?php echo esc_url( $link_url ); ?>" aria-label="<?php echo esc_html( $link_title ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
 <?php endif; ?>

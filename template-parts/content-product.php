@@ -48,6 +48,8 @@ $product = wc_get_product(get_the_ID());
 
     <div class="fmc_product_grid_bottom">
         <?php
+         if($product->is_on_sale()): ?> <span class="fmc_product_old_price"><?php echo  get_woocommerce_currency_symbol() . number_format((float)$product->get_regular_price(), 2, '.', ''); ?></span> <?php endif; ?>
+         <?php
         echo  $product->get_price_html();
         ?>
         <a class="fmc_btn" href="<?php the_permalink(); ?>"> <?php esc_html_e('Buy Now', 'fitmenCook') ?></a>

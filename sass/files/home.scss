@@ -64,11 +64,12 @@
 				margin-top: auto;
 				padding-top: 24px;
 				span {
+					display: inline-block;
 					margin-bottom: var(--spacing-3);
 				}
 			}
 			span {
-				font-size: 2.4rem;
+				font-size: 1.8rem;
 				line-height: 1.375;
 				font-weight: 800;
 				@include tab-max {
@@ -77,6 +78,16 @@
 				bdi {
 					font-weight: 800;
 					text-decoration: none;
+				}
+			}
+
+			.fmc_product_old_price {
+				text-decoration: line-through;
+				color: var(--link-color);
+				padding-right: 10px;
+
+				@include limbo-only {
+					padding-right: 0;
 				}
 			}
 		}

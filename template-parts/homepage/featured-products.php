@@ -111,16 +111,24 @@ if ($show_products) : ?>
 						$product_title = $show_product['product_title'];
 						$price = $show_product['price'];
 						$link = $show_product['link'];
-						$link_url = $link['url'];
-						$link_title = $link['title'];
-						$link_target = $link['target'] ? $link['target'] : '_self';
+						$link_url = $link ? $link['url'] : "";
+						$link_title = $link ? $link['title'] : "";
+						$link_target =  $link ? ($link['target'] ? $link['target'] : '_self') : "";
+						
+						
 						?>
 
 						<div class="fmc_product">
 							<figure class="fmc_grid_figure">
+
+								<?php if($link): ?>
+
 								<a href="<?php echo esc_url($link_url); ?>" target="<?php echo esc_attr($link_target); ?>" aria-label="<?php echo $product_title ?>">
 									<?php echo wp_get_attachment_image($image, $size); ?>
 								</a>
+
+								<?php endif; ?>
+
 							</figure>
 							<div class="fmc_grid_meta">
 							</div>
