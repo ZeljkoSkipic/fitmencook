@@ -53,6 +53,7 @@
 			justify-content: space-between;
 			align-items: center;
 			margin-top: 24px;
+			gap: 5px;
 			del[aria-hidden=true] {
 				display: none;
 			}
@@ -84,11 +85,11 @@
 			.fmc_product_old_price {
 				text-decoration: line-through;
 				color: var(--link-color);
-				padding-right: 10px;
+				// padding-right: 10px;
 
-				@include limbo-only {
-					padding-right: 0;
-				}
+				// @include limbo-only {
+				// 	padding-right: 0;
+				// }
 			}
 		}
 		.fmc_btn {

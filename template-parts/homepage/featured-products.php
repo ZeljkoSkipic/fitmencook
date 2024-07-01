@@ -100,7 +100,11 @@ if ($show_products) : ?>
 								</a>
 							</h3>
 							<div class="fmc_product_grid_bottom">
-								<span><?php echo  $product->get_price_html(); ?></span>
+								<span><?php
+										if ($product->is_on_sale()) : ?> <span class="fmc_product_old_price"><?php echo  get_woocommerce_currency_symbol() . number_format((float)$product->get_regular_price(), 2, '.', ''); ?></span> <?php endif; ?>
+									<?php
+									echo  $product->get_price_html();
+									?></span>
 								<a class="fmc_btn" href="<?php the_permalink(); ?>">Buy Now</a>
 							</div>
 						</div>
@@ -114,18 +118,18 @@ if ($show_products) : ?>
 						$link_url = $link ? $link['url'] : "";
 						$link_title = $link ? $link['title'] : "";
 						$link_target =  $link ? ($link['target'] ? $link['target'] : '_self') : "";
-						
-						
-						?>
+
+
+					?>
 
 						<div class="fmc_product">
 							<figure class="fmc_grid_figure">
 
-								<?php if($link): ?>
+								<?php if ($link) : ?>
 
-								<a href="<?php echo esc_url($link_url); ?>" target="<?php echo esc_attr($link_target); ?>" aria-label="<?php echo $product_title ?>">
-									<?php echo wp_get_attachment_image($image, $size); ?>
-								</a>
+									<a href="<?php echo esc_url($link_url); ?>" target="<?php echo esc_attr($link_target); ?>" aria-label="<?php echo $product_title ?>">
+										<?php echo wp_get_attachment_image($image, $size); ?>
+									</a>
 
 								<?php endif; ?>
 
@@ -141,7 +145,7 @@ if ($show_products) : ?>
 								<?php if ($price) { ?>
 									<span>$<?php echo $price ?></span>
 								<?php } ?>
-								<a class="fmc_btn" href="<?php echo esc_url($link_url); ?>" target="<?php echo esc_attr($link_target); ?>"  aria-label="<?php echo $product_title ?>"><?php echo esc_html($link_title); ?></a>
+								<a class="fmc_btn" href="<?php echo esc_url($link_url); ?>" target="<?php echo esc_attr($link_target); ?>" aria-label="<?php echo $product_title ?>"><?php echo esc_html($link_title); ?></a>
 							</div>
 						</div>
 				<?php
