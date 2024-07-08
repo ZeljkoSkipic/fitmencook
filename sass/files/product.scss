@@ -91,7 +91,21 @@ input {
 		@include tab-max {
 			order: 2;
 		}
-
+		.woocommerce-product-gallery__trigger {
+			position: absolute;
+			right: 10px;
+			top: 10px;
+			z-index: 9;
+			font-size: 2em;
+			text-decoration: none;
+			img.emoji {
+				width: 2em!important;
+				height: 2em!important;
+			}
+		}
+	}
+	.pswp__button--arrow--left, .pswp__button--arrow--right {
+		margin-top: 50vh;
 	}
 	.fmc_product_right {
 		background-color: #F9FAFB;

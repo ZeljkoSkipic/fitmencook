@@ -927,6 +927,9 @@ body .fmc_archive_wrap .fmc_recipe{margin-bottom:var(--spacing-3)}
 .woocommerce-notices-wrapper .woocommerce-message a{margin-left:2rem;background-color:var(--color-1);color:#fff;padding:.5rem 3rem}
 .single-product .commentlist{list-style:none;padding:0;margin:0}
 .single-product .fmc_product_wrap{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}
+.single-product .fmc_product_left .woocommerce-product-gallery__trigger{position:absolute;right:10px;top:10px;z-index:9;font-size:2em;text-decoration:none}
+.single-product .fmc_product_left .woocommerce-product-gallery__trigger img.emoji{width:2em !important;height:2em !important}
+.single-product .pswp__button--arrow--left,.single-product .pswp__button--arrow--right{margin-top:50vh}
 .single-product .fmc_product_right{background-color:#f9fafb;padding:var(--spacing-3);border-radius:16px;height:-webkit-fit-content;height:-moz-fit-content;height:fit-content;width:100%;max-width:300px;position:sticky;top:0}
 .single-product .fmc_product_right .fmc_bp_title{font-size:16px;font-weight:800;font-family:Nunito;background-image:url(assets/icons/shopping-bag.svg);background-repeat:no-repeat;background-position:center left;padding-left:28px}
 .single-product .fmc_product_right .fmc_product_quantity-wrapper{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}

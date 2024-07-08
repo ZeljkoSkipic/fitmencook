@@ -260,13 +260,6 @@ function move_comment_field( $fields ) {
     return $fields;
 }
 
-// Remove Zoom and Lightbox from WooCommerce produt
-add_filter( 'woocommerce_single_product_zoom_enabled', '__return_false' );
-
-add_action( 'after_setup_theme', 'remove_wc_gallery_lightbox', 100 );
-function remove_wc_gallery_lightbox() {
-remove_theme_support( 'wc-product-gallery-lightbox' );
-}
 
 
 add_filter ('woocommerce_add_to_cart_redirect', 'redirect_to_checkout');
