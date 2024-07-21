@@ -8,7 +8,7 @@
             "name": "product_banner",
             "aria-label": "",
             "type": "image",
-            "instructions": "",
+            "instructions": "Width of the image should be 1220px",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -46,5 +46,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1717408811
+    "modified": 1721054544
 }

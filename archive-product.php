@@ -49,21 +49,23 @@ if( $banner_link ):
 	$link_title = $banner_link['title'];
 	$link_target = $banner_link['target'] ? $banner_link['target'] : '_self';
 	?>
-	<a class="banner_link" href="<?php echo esc_url( $link_url ); ?>" aria-label="<?php echo esc_html( $link_title ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
-<?php endif; ?>
-<?php
-	$featured_image = get_field('featured_image', 'option');
-	$size = 'full';
-	if( $featured_image ) { ?>
-	<?php echo wp_get_attachment_image( $featured_image, $size, "", array( "class" => "store_featured_image" ) ); ?>
-<?php } ?>
-<?php if( $banner_link ): ?>
-</a>
+	<div class="fmc_container">
+		<a class="banner_link" href="<?php echo esc_url( $link_url ); ?>" aria-label="<?php echo esc_html( $link_title ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+		<?php endif; ?>
+		<?php
+			$featured_image = get_field('featured_image', 'option');
+			$size = 'full';
+			if( $featured_image ) { ?>
+			<?php echo wp_get_attachment_image( $featured_image, $size, "", array( "class" => "store_featured_image" ) ); ?>
+		<?php } ?>
+		<?php if( $banner_link ): ?>
+		</a>
+	</div>
 <?php endif; ?>
 <div class="fmc_store_intro fmc_container spacing_2_0">
 	<div class="fmc_shop_bottom">
 		<div class="fmc_featured_text">
-			<?php the_field('description', 'option'); ?>
+			<?php echo wp_kses_post( get_field('description', 'option') ); ?>
 		</div>
 	</div>
 	<div class="fmc_product_archive_header spacing_0_2">
@@ -76,10 +78,8 @@ if( $banner_link ):
 			<?php
 			foreach($product_categories as $product_cat) {
 				?>
-						<a <?php if($query_var === $product_cat->slug ) echo "class='current'"; ?> href="<?php echo get_term_link($product_cat); ?>"><?php echo $product_cat->name; ?></a>
-				<?php
-			}
-			?>
+					<a <?php if($query_var === $product_cat->slug ) echo "class='current'"; ?> href="<?php echo get_term_link($product_cat); ?>"><?php echo $product_cat->name; ?></a>
+				<?php } ?>
 
 		</div>
 

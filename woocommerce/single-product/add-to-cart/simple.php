@@ -82,6 +82,15 @@ if ($product->is_in_stock()) : ?>
         <?php do_action('woocommerce_after_add_to_cart_button'); ?>
     </form>
 
-    <?php do_action('woocommerce_after_add_to_cart_form'); ?>
+    <?php do_action('woocommerce_after_add_to_cart_form');
 
-<?php endif; ?>
+	else: ?>
+
+	<div class="product_out_of_stock">
+		This product is out of stock
+	</div>
+
+
+
+<?php endif;
+?>

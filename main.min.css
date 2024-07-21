@@ -934,6 +934,7 @@ body .fmc_archive_wrap .fmc_recipe{margin-bottom:var(--spacing-3)}
 .single-product .fmc_product_right .fmc_bp_title{font-size:16px;font-weight:800;font-family:Nunito;background-image:url(assets/icons/shopping-bag.svg);background-repeat:no-repeat;background-position:center left;padding-left:28px}
 .single-product .fmc_product_right .fmc_product_quantity-wrapper{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}
 .single-product .fmc_product_right .fmc_product_quantity-wrapper .fmc_product_quantity_label{padding-top:6px}
+.single-product .fmc_product_right .product_out_of_stock{padding-top:16px;border-top:2px solid #f2f4f7;margin-top:16px;font-size:14px;font-weight:700;color:var(--link-color)}
 .single-product .fmc_product_right .fmc_product_price{padding-top:16px;border-top:2px solid #f2f4f7;margin-top:16px}
 .single-product .fmc_product_right .fmc_product_price .fmc_product_old_price{text-decoration:line-through}
 .single-product .fmc_product_right .fmc_product_price .fmc_product_unit_total-wrapper{margin-top:20px}
@@ -981,6 +982,7 @@ body .fmc_archive_wrap .fmc_recipe{margin-bottom:var(--spacing-3)}
 .single-product .fmc_product_why_inner .fmc_product_why_ib div *{font-size:16px;color:var(--link-color)}
 .single-product .wc-tabs{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;z-index:1;list-style:none;padding:0;margin:0}
 .single-product .wc-tabs .description_tab a{background-image:url(assets/icons/description.svg);padding-left:30px;background-repeat:no-repeat;background-position:center left}
+.single-product .wc-tabs .additional_information_tab a{background-image:url(assets/icons/info.svg);background-size:20px}
 .single-product .wc-tabs .reviews_tab a{background-image:url(assets/icons/review.svg)}
 .single-product .wc-tabs>li{border-bottom:2px solid #f2f4f7}
 .single-product .wc-tabs>li a{font-size:24px;font-weight:800;padding-left:30px;background-repeat:no-repeat;background-position:center left;display:-webkit-box;display:-ms-flexbox;display:flex;width:100%;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}

@@ -4,7 +4,7 @@
     "fields": [
         {
             "key": "field_667ea7c6e1bc4",
-            "label": "Show macros on archive",
+            "label": "Show total macros on main Recipe page and Homepage",
             "name": "show_macros_multiple",
             "aria-label": "",
             "type": "true_false",
@@ -836,5 +836,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1719576685
+    "modified": 1721056369
 }

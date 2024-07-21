@@ -193,8 +193,8 @@ if (function_exists('acf_add_options_page')) {
 	));
 
 	acf_add_options_sub_page(array(
-		'page_title'    => 'Shop Archive',
-		'menu_title'    => 'Shop Archive',
+		'page_title'    => 'Shop Homepage',
+		'menu_title'    => 'Shop Homepage',
 		'parent_slug'   => 'edit.php?post_type=product',
 	));
 }
