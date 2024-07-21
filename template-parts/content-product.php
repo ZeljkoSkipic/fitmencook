@@ -12,6 +12,7 @@ $title = get_the_title();
 $image = get_the_post_thumbnail(get_the_ID(), 'medium');
 $categories = get_the_terms(get_the_ID(), 'product_cat');
 $product = wc_get_product(get_the_ID());
+$is_in_stock = $product->is_in_stock();
 
 ?>
 
@@ -54,6 +55,6 @@ $product = wc_get_product(get_the_ID());
         echo  $product->get_price_html();
         ?>
         </span>
-        <a class="fmc_btn" href="<?php the_permalink(); ?>"> <?php esc_html_e('Buy Now', 'fitmenCook') ?></a>
+        <a class="fmc_btn <?php if(!$is_in_stock) echo 'out-of-stock'; ?>" href="<?php the_permalink(); ?>"> <?php $is_in_stock ?  esc_html_e('Buy Now', 'fitmenCook') : esc_html_e('View More', 'fitmenCook')  ?></a>
     </div>
 </div>

@@ -87,6 +87,7 @@ if ($show_products) : ?>
 						$post = $show_product;
 						setup_postdata($post);
 						$product = wc_get_product(get_the_ID());
+						$is_in_stock = $product->is_in_stock();
 				?>
 						<div class="fmc_product">
 							<figure class="fmc_grid_figure">
@@ -105,7 +106,7 @@ if ($show_products) : ?>
 									<?php
 									echo  $product->get_price_html();
 									?></span>
-								<a class="fmc_btn" href="<?php the_permalink(); ?>">Buy Now</a>
+								<a class="fmc_btn <?php if(!$is_in_stock) echo 'out-of-stock'; ?>" href="<?php the_permalink(); ?>"><?php $is_in_stock ? esc_html_e('Buy Now', 'fitmencook') : esc_html_e('View More', 'fitmencook');  ?></a>
 							</div>
 						</div>
 					<?php
