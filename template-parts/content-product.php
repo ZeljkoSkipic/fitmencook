@@ -55,6 +55,6 @@ $is_in_stock = $product->is_in_stock();
         echo  $product->get_price_html();
         ?>
         </span>
-        <a class="fmc_btn <?php if(!$is_in_stock) echo 'out-of-stock'; ?>" href="<?php the_permalink(); ?>"> <?php $is_in_stock ?  esc_html_e('Buy Now', 'fitmenCook') : esc_html_e('View Product', 'fitmenCook')  ?></a>
+        <a class="fmc_btn <?php if(!$is_in_stock) echo 'out-of-stock'; ?>" href="<?php the_permalink(); ?>"> <?php $is_in_stock ?  esc_html_e('Buy Now', 'fitmenCook') : esc_html_e('View More', 'fitmenCook')  ?></a>
     </div>
 </div>
