@@ -3,7 +3,9 @@
 		font-size: 14px;
 	}
 }
-
+.product_banner, .store_featured_image {
+	border-radius: 16px;
+}
 .quantity {
 	display: flex;
 	justify-content: center;
@@ -125,7 +127,7 @@ input {
 			background-position: center left;
 			padding-left: 28px;
 		}
-		.fmc_product_quantity-wrapper {
+		.fmc_product_quantity-wrapper  {
 			display: flex;
 			justify-content: space-between;
 			@include limbo-min {
@@ -133,11 +135,20 @@ input {
 				border-top: 2px solid #F2F4F7;
 				margin-top: 16px;
 		}
+
+
 		.fmc_product_quantity_label {
 			padding-top: 6px;
 		}
-			}
-
+		}
+		.product_out_of_stock {
+			padding-top: 16px;
+			border-top: 2px solid #F2F4F7;
+			margin-top: 16px;
+			font-size: 14px;
+			font-weight: 700;
+			color: var(--link-color);
+		}
 		.fmc_product_price {
 			padding-top: 16px;
 			border-top: 2px solid #F2F4F7;
@@ -452,6 +463,11 @@ input {
 			padding-left: 30px;
 			background-repeat: no-repeat;
 			background-position: center left;
+
+		}
+		.additional_information_tab a {
+			background-image: url(assets/icons/info.svg);
+			background-size: 20px;
 		}
 		.reviews_tab a {
 			background-image: url(assets/icons/review.svg);
@@ -490,6 +506,7 @@ input {
 		transition: var(--site-transition);
 		padding-top: var(--spacing-3);
 		line-height: 1.35;
+		padding-left: 30px;
 	}
 
 	.related {

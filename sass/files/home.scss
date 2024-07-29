@@ -85,17 +85,21 @@
 			.fmc_product_old_price {
 				text-decoration: line-through;
 				color: var(--link-color);
-				// padding-right: 10px;
-
-				// @include limbo-only {
-				// 	padding-right: 0;
-				// }
 			}
 		}
 		.fmc_btn {
 			margin-left: auto;
+			text-align: center;
+			opacity: .8;
 			@include tab-max {
 				font-size: 16px;
+			}
+			&.out-of-stock {
+				background-color: #EAECF0;
+				&:hover {
+					color: var(--color-2);
+					opacity: 1;
+				}
 			}
 		}
 	}

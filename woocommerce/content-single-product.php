@@ -34,7 +34,7 @@ if (post_password_required()) {
 	return;
 }
 ?>
-<div class="product_banner fmc_container">
+<div class="product_banner_wrap fmc_container">
 	<?php
 	$product_banner = get_field('product_banner');
 	$size = 'full';

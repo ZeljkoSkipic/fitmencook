@@ -307,7 +307,9 @@ $calculations = meal_plan_calculations();
 						<?php
 						$custom_ingredients = get_sub_field('custom_ingredients');
 						$custom_nos = get_sub_field('number_of_servings');
-						$custom_ss = get_sub_field('serving_size'); ?>
+						$custom_ss = get_sub_field('serving_size');
+						$custom_description = get_sub_field('cr_description');
+						?>
                         <h4 class="fmc_mpr_subtitle"><?php the_sub_field('ingredients_title'); ?></h4>
 						<?php if($custom_nos) { ?>
 							<div class="fmc_ing_servings"><?php echo $custom_nos ?>
@@ -366,7 +368,9 @@ $calculations = meal_plan_calculations();
 										</div>
 									</div>
                                    <?php  endif; ?>
-
+								   <div class="fmc_mpr_description">
+										<?php echo $custom_description; ?>
+								   </div>
                         <!-- Macros -->
                         <div class="fmc_macros">
                             <h4 class="fmc_rs_title fmc_macros_title"><?php echo $macros_title; ?></h4>
@@ -399,8 +403,6 @@ $calculations = meal_plan_calculations();
                 endwhile;
 
             endif; ?>
-
-            <?php dynamic_sidebar('ad8'); ?>
 
             <!-- Comments -->
             <div class="fmc_comments spacing_3_1">

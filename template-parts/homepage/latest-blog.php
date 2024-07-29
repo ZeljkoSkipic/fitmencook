@@ -1,7 +1,7 @@
-<div class="fmc_latest_blog spacing_2_0">
+<div class="fmc_latest_blog spacing_1_0">
 		<div class="fmc_container">
-<!-- 			<h2 class="fmc_title_2 title_spacing_2"><?php // the_field('lb_title') ?></h2>
- -->			<div class="fmc_latest_blog_inner spacing_0_1">
+			<h2 class="fmc_title_2 title_spacing_2"><?php echo wp_kses_post( get_field('lb_title') ); ?></h2>
+			<div class="fmc_latest_blog_inner spacing_0_1">
 			<?php
 				// latest recipes query
 				// args
